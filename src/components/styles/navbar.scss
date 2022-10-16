@@ -1,0 +1,30 @@
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: var(--primary-darkSE);
+  color: white;
+  height: 8%;
+  width: 100%;
+  z-index: 999;
+  top: 0px;
+  position: fixed;
+
+  .nav-logo {
+    padding: 0.5rem;
+    .logo {
+      height: 100%;
+    }
+  }
+
+  .nav-items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .nav-item {
+      color: white;
+      text-transform: uppercase;
+      padding: 1rem;
+    }
+  }
+}

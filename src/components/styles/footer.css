@@ -1,0 +1,38 @@
+.footer {
+  background: var(--primary-dark);
+  color: var(--primary-white);
+  padding: 3rem;
+}
+
+.footer a {
+  text-decoration: none;
+  color: var(--primary-white);
+}
+
+.footer a:hover {
+  text-decoration: none;
+  color: var(--primary-white);
+  border-bottom: 0.2rem solid var(--primary-blue);
+  cursor: pointer;
+}
+
+.footer p {
+  margin-bottom: 0;
+}
+
+.fpos {
+  max-width: 65%;
+  text-align: center;
+}
+
+@media (max-width: 991px) {
+  .footer {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .fpos {
+    max-width: 100%;
+  }
+}

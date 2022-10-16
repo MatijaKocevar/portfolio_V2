@@ -1,0 +1,18 @@
+.about {
+  height: calc(100vh - 4.625rem);
+
+  .photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .profile-img {
+      width: 20rem;
+      border-radius: 50%;
+    }
+  }
+
+  .description {
+    padding: 4rem 30rem;
+    color: white;
+  }
+}

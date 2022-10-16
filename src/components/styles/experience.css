@@ -1,0 +1,57 @@
+.experience {
+  padding-bottom: 3rem;
+}
+
+.experience p {
+  margin-bottom: 0;
+}
+
+.experience-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.experience h1 {
+  text-transform: uppercase;
+  color: var(--primary-dark);
+  font-weight: 525;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  margin-bottom: 0;
+}
+
+.experience-wrapper::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 50%;
+  margin-left: -0.0625rem;
+  width: 0.125rem;
+  height: 100%;
+  background: var(--primary-dark);
+  z-index: 1;
+}
+
+@media (max-width: 991px) {
+  .marker {
+    margin-top: 0.35rem;
+    left: 0;
+  }
+
+  .experience {
+    padding-bottom: 2rem;
+    padding-right: 1rem;
+    padding-left: 0.5rem;
+  }
+
+  .experience h1 {
+    font-size: 2rem !important;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .experience-wrapper::before {
+    left: 0;
+    margin-left: 1.38rem;
+  }
+}
