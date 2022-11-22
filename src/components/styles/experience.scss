@@ -1,11 +1,10 @@
 @use "../../variables" as v;
 @import "../../App.scss";
 
-
-.education {
-  background-color: v.$gray;
+.experience {
+  // background-color: v.$black;
   // padding-bottom: 3rem;
-  height: calc(100% - 7rem);
+  height: calc(100% + 5%);
 
   .timeline-wrapper::before {
     position: absolute;
@@ -15,7 +14,7 @@
     width: 0.2rem;
     background: v.$white;
     z-index: 1;
-    height: 65%;
+    height: 84%;
   }
 
   .timeline-wrapper {

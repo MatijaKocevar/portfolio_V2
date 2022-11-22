@@ -1,0 +1,77 @@
+@use "../../variables" as v;
+@import "../../App.scss";
+
+.skills {
+  text-align: center;
+  background-color: v.$gray;
+
+  .container {
+    padding-bottom: 1.5rem;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    .box {
+      height: 16rem;
+      width: 16rem;
+      border-bottom: 0.3125rem solid v.$gray;
+      padding: 0.5rem;
+      background: v.$white;
+      transition: 0.4s ease-in-out;
+      margin-bottom: 1.5rem;
+
+      .circle {
+        position: relative;
+        margin: 0.375rem auto;
+        background: v.$dark;
+        border-radius: 50%;
+        width: 3.125rem;
+        height: 3.125rem;
+
+        .icon {
+          font-size: 1.4rem;
+          color: v.$white;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      h3 {
+        color: v.$dark;
+      }
+
+      p {
+        color: v.$dark;
+      }
+
+    }
+
+    .box:hover {
+      background: v.$gray;
+      border-bottom: 0.3125rem solid v.$blue;
+      color: v.$white;
+      transition: 0.4s ease-in-out;
+    }
+
+    .box:hover .circle {
+      background: v.$blue;
+      transition: 0.4s ease-in-out;
+    }
+
+    .box:hover h3 {
+      color: v.$white;
+      transition: 0.4s ease-in-out;
+    }
+
+    .box:hover p {
+      color: v.$white;
+      transition: 0.4s ease-in-out;
+    }
+  }
+}
