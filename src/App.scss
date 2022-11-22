@@ -1,17 +1,6 @@
+@use "variables" as v;
+
 #root {
-  --primary-white: #ffffff;
-  --primary-light-gray: #f4f4f4;
-  --primary-medium-gray: #d4d4d4;
-  --primary-gray: #888888;
-  --primary-dark: #343a40;
-  --primary-black: #000000;
-  --primary-darkSE: rgb(52, 58, 64);
-  --primary-transparent-black: rgba(0, 0, 0, 0.8);
-  --primary-green: #009e15;
-  --primary-red: #b90000;
-  --primary-blue: #224693;
-  background: white;
-  color: black;
   height: 100vh;
   width: 100vw;
 }
@@ -21,17 +10,17 @@
 }
 
 .main-wrapper {
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .heading {
-  color: var(--primary-white);
+  color: v.$white;
   text-transform: uppercase;
   font-weight: 525;
   display: flex;
   justify-content: center;
-  padding-bottom: 3rem;
-  padding-top: 3rem;
+  padding: 3rem 0;
+  ;
   margin: 0;
 }

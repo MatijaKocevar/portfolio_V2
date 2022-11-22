@@ -1,79 +1,83 @@
-.education {
-  // background-color: var(--primary-light-gray);
-  // padding-bottom: 3rem;
-  height: calc(100% - 4.625rem);
+@use "../../variables" as v;
+@import "../../App.scss";
 
-  .education-wrapper::before {
+
+.education {
+  background-color: v.$gray;
+  // padding-bottom: 3rem;
+  height: calc(100% - 7rem);
+
+  .timeline-wrapper::before {
     position: absolute;
     content: '';
     // top: 0;
     left: 50%;
-    // margin-left: -0.0625rem;
-    width: 0.125rem;
-    background: var(--primary-white);
+    width: 0.2rem;
+    background: v.$white;
     z-index: 1;
-    height: 40rem;
+    height: 65%;
   }
 
-  .marker {
-    width: 1.5rem;
-    height: 1.5rem;
-    align-self: center;
-    border-radius: 50%;
-    // border: 0.325rem solid var(--primary-white);
-    background: var(--primary-white);
-    margin-top: 0.5rem;
-    z-index: 3;
-  }
+  .timeline-wrapper {
 
-  .timeline-block:hover .marker {
-    transform: scale(2, 2);
-    background: var(--primary-blue);
-    // border: 0.325rem solid var(--primary-blue);
-    transition: 0.4s ease-in-out;
-  }
+    .timeline-block-right {
+      float: right;
+    }
 
-  .timeline-block-left:hover .timeline-content {
-    padding-right: 2rem;
-    transition: 0.4s ease-in-out;
-  }
+    .timeline-block-left {
+      text-align: right;
+      float: left;
+      direction: rtl;
+      margin-left: 3px;
+    }
 
-  .timeline-block-right:hover .timeline-content {
-    padding-left: 2rem;
-    transition: 0.4s ease-in-out;
-  }
+    .timeline-block {
+      width: calc(50% + 0.7rem);
+      display: flex;
+      // margin-bottom: 4rem;
 
-  .timeline-block {
-    width: calc(50% + 0.5rem);
-    display: flex;
-    justify-content: space-between;
-    clear: both;
-    margin-bottom: 4rem;
-  }
+      .marker {
+        width: 1.5rem;
+        height: 1.5rem;
+        align-self: center;
+        border-radius: 50%;
+        // border: 0.325rem solid white;
+        background: white;
+        z-index: 3;
+      }
 
-  .timeline-block:hover .timeline-content h3 {
-    font-weight: bold;
-    transition: 0.4s ease-in-out;
-  }
+      .timeline-content {
+        padding: 0 1rem 0 1rem;
+        width: 95%;
+        color: var(white);
+        direction: ltr;
 
-  .timeline-block-right {
-    float: right;
-  }
+        h3 {
+          color: var(white);
+        }
+      }
+    }
 
-  .timeline-block-left {
-    text-align: right;
-    float: left;
-    direction: rtl;
-  }
+    .timeline-block:hover .marker {
+      transform: scale(2, 2);
+      background: v.$blue;
+      // border: 0.325rem solid var(blue);
+      transition: 0.4s ease-in-out;
+    }
 
-  .timeline-content {
-    padding: 0 1rem 0 1rem;
-    width: 95%;
-    color: var(--primary-white);
-    direction: ltr;
-  }
+    .timeline-block:hover .timeline-content h3 {
+      font-weight: bold;
+      transition: 0.4s ease-in-out;
+    }
 
-  .timeline-content h3 {
-    color: var(--primary-white);
+    .timeline-block-left:hover .timeline-content {
+      padding-right: 2rem;
+      transition: 0.4s ease-in-out;
+    }
+
+    .timeline-block-right:hover .timeline-content {
+      padding-left: 2rem;
+      transition: 0.4s ease-in-out;
+    }
   }
 }

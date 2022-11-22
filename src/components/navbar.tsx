@@ -1,37 +1,59 @@
-import React, { useState } from 'react'
-import './styles/navbar.scss'
-import { Link } from 'react-scroll'
-import logo from '../images/logo.png'
+import React, { useState } from 'react';
+import './styles/navbar.scss';
+import '../App.scss';
+import { Link } from 'react-scroll';
+import logo from '../images/logo.png';
 
 const NavBar = () => {
-  let startingToggle = window.innerWidth < 1199 ? 'collapse' : 'keep'
+  // let startingToggle = window.innerWidth < 1199 ? 'collapse' : 'keep'
 
-  const [offset, setOffset] = useState(-74)
+  const [offset, setOffset] = useState(-57.5);
 
   return (
-    <nav className="nav">
-      <Link smooth={true} to="root" className="nav-logo" href="#">
-        <img className="logo" src={logo} alt="logo" />
-      </Link>
-      <div className="nav-items">
-        <Link smooth={true} to="about-me" className="nav-item" offset={offset} href="#">
+    <nav className='nav'>
+      <div className='nav-items'>
+        <Link
+          smooth={true}
+          to='about-me'
+          className='nav-item'
+          offset={offset}
+          href='#'
+        >
           about me
         </Link>
-        <Link smooth={true} to="education" className="nav-item" offset={offset} href="#">
+        <Link
+          smooth={true}
+          to='education'
+          className='nav-item'
+          offset={offset}
+          href='#'
+        >
           education
         </Link>
-        <a href="#" className="nav-item">
-          item3
-        </a>
-        <a href="#" className="nav-item">
-          item4
-        </a>
-        <a href="#" className="nav-item">
+        <Link
+          smooth={true}
+          to='experience'
+          className='nav-item'
+          offset={offset}
+          href='#'
+        >
+          experience
+        </Link>
+        <Link
+          smooth={true}
+          to='skills'
+          className='nav-item'
+          offset={offset}
+          href='#'
+        >
+          skills
+        </Link>
+        <a href='#' className='nav-item'>
           item5
         </a>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;

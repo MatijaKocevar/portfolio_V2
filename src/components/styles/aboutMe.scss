@@ -1,18 +1,32 @@
+@use "../../variables" as v;
+
 .about {
-  height: calc(100vh - 4.625rem);
+  height: -moz-fit-content;
+  height: fit-content;
+  padding-bottom: 3rem;
 
-  .photo {
+  .about-content {
     display: flex;
-    justify-content: center;
     align-items: center;
-    .profile-img {
-      width: 20rem;
-      border-radius: 50%;
-    }
-  }
+    justify-content: center;
+    width: 90%;
+    margin: 0 auto;
 
-  .description {
-    padding: 4rem 30rem;
-    color: white;
+
+    .photo {
+      display: flex;
+      width: 30%;
+      justify-content: center;
+
+      .profile-img {
+        width: 25rem;
+        border-radius: 50%;
+      }
+    }
+
+    .description {
+      width: 70%;
+      color: white;
+    }
   }
 }

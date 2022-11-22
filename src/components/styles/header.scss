@@ -2,23 +2,36 @@
   background: url(/src/images/portfolio-background.jpg);
   background-size: cover;
   height: 100vh;
-}
 
-.main-info {
-  display: flex;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  z-index: 1;
+  .main-info {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1;
 
-  .text-transition {
-    color: white;
-    font-size: 2rem;
+    .photo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 2rem;
+
+      .profile-img {
+        width: 15rem;
+        border-radius: 50%;
+      }
+    }
+
+    .text-transition {
+      color: white;
+      font-size: 2rem;
+      transition: 10ms;
+    }
   }
 }

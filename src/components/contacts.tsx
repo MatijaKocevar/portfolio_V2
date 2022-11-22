@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
 // import emailjs from "emailjs-com";
-import { useForm } from 'react-hook-form'
 
 const Contacts = () => {
   const [successMessage, setSuccessMessage] = useState('')
-  const { register, handleSubmit } = useForm()
 
   const serviceID = 'service_ID'
   const templateID = 'template_ID'
