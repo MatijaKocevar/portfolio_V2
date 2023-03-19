@@ -6,6 +6,9 @@ import Header from './components/header';
 import NavBar from './components/navbar';
 import Experience from './components/experience';
 import Skills from './components/skills';
+import Projects from './components/projects';
+import Interests from './components/interests';
+import Footer from './components/footer';
 
 function App() {
   return (
@@ -16,6 +19,9 @@ function App() {
       <Education />
       <Experience />
       <Skills />
+      {/* <Projects /> */}
+      <Interests />
+      <Footer />
     </>
   );
 }
