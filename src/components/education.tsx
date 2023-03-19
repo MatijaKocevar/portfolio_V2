@@ -1,4 +1,3 @@
-import React from 'react';
 import './styles/education.scss';
 
 const Education = () => {
@@ -20,10 +19,7 @@ const Education = () => {
           <div className='timeline-content'>
             <h3>Computer science and information technologies</h3>
             <h5>2008 - 2011 / College (.VI) - unfinished</h5>
-            <p>
-              Gained knowledge of Linux Shell, and furthered skills in C++, HTML
-              and CSS.
-            </p>
+            <p>Gained knowledge of Linux Shell, and furthered skills in C++, HTML and CSS.</p>
           </div>
         </div>
         {/* - */}
@@ -33,15 +29,6 @@ const Education = () => {
             <h3>Learning front-end & back-end development</h3>
             <h5>2020 - 2021 / Personal</h5>
             <p>HTML, CSS, SQL, React JS, Vue JS, Node JS, .NET core, C#</p>
-          </div>
-        </div>
-        {/* - */}
-        <div className='timeline-block timeline-block-left'>
-          <div className='marker'></div>
-          <div className='timeline-content'>
-            <h3>Software developer - Agitavit Solutions d.o.o.</h3>
-            <h5>2021 - current / Employment</h5>
-            <p>ReactTS, .NET 6, Umbraco, Sql server, jQuery</p>
           </div>
         </div>
       </div>

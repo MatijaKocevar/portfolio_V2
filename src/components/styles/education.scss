@@ -4,8 +4,9 @@
 
 .education {
   background-color: v.$gray;
+
   // padding-bottom: 3rem;
-  height: calc(100% - 7rem);
+  height: 75%;
 
   .timeline-wrapper::before {
     position: absolute;
@@ -15,7 +16,7 @@
     width: 0.2rem;
     background: v.$white;
     z-index: 1;
-    height: 65%;
+    height: 50%;
   }
 
   .timeline-wrapper {
