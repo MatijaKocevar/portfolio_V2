@@ -1,7 +1,14 @@
+@import "../../variables";
+
 .header-wraper {
   background: url(/src/images/portfolio-background.jpg);
   background-size: cover;
   height: 100vh;
+
+  h1 {
+    color: $white;
+    text-transform: uppercase;
+  }
 
   .main-info {
     display: flex;
