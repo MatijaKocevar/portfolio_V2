@@ -1,21 +1,24 @@
-@use "../../variables" as v;
+@import "../../variables";
 
 .about {
-  height: -moz-fit-content;
-  height: fit-content;
-  padding-bottom: 3rem;
+
+  .heading-row {
+    display: flex;
+    justify-content: center;
+
+    h1 {
+      color: $black;
+      text-transform: uppercase;
+      width: fit-content;
+    }
+  }
 
   .about-content {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 90%;
-    margin: 0 auto;
-
 
     .photo {
       display: flex;
-      width: 30%;
       justify-content: center;
 
       .profile-img {
@@ -25,8 +28,7 @@
     }
 
     .description {
-      width: 70%;
-      color: white;
+      color: $black;
     }
   }
 }

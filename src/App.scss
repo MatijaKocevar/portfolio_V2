@@ -1,9 +1,22 @@
-@use "variables" as v;
+@import "./variables";
 
 #root {
   height: 100vh;
   width: 100vw;
+
+  .container {
+    // padding-left: 10rem;
+    // padding-right: 10rem;
+
+    padding-right: calc(var(--bs-gutter-x) * 3);
+    padding-left: calc(var(--bs-gutter-x) * 3);
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
 }
+
+
 
 ::-webkit-scrollbar {
   display: none;

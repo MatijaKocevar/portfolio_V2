@@ -13,17 +13,15 @@ import { Container, Row } from 'react-bootstrap';
 
 function App() {
   return (
-    <Container>
-      <Row>
-        <NavBar />
-      </Row>
+    <>
+      <NavBar />
       <Row>
         <Header />
       </Row>
       <Row>
         <AboutMe />
       </Row>
-      <Row>
+      {/* <Row>
         <Education />
       </Row>
       <Row>
@@ -32,14 +30,16 @@ function App() {
       <Row>
         <Skills />
       </Row>
-      <Row>{/* <Projects /> */}</Row>
+      <Row>
+        <Projects />
+      </Row>
       <Row>
         <Interests />
-      </Row>
+      </Row> */}
       <Row>
         <Footer />
       </Row>
-    </Container>
+    </>
   );
 }
 

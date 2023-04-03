@@ -13,7 +13,7 @@ const Header = () => {
   }, []);
 
   return (
-    <div id='home' className='header-wraper'>
+    <div id='home' className='header-wraper bg-image'>
       <div className='main-info'>
         <h1 className='heading'>portfolio</h1>
       </div>
