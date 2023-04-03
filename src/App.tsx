@@ -9,20 +9,37 @@ import Skills from './components/skills';
 import Projects from './components/projects';
 import Interests from './components/interests';
 import Footer from './components/footer';
+import { Container, Row } from 'react-bootstrap';
 
 function App() {
   return (
-    <>
-      <NavBar />
-      <Header />
-      <AboutMe />
-      <Education />
-      <Experience />
-      <Skills />
-      {/* <Projects /> */}
-      <Interests />
-      <Footer />
-    </>
+    <Container>
+      <Row>
+        <NavBar />
+      </Row>
+      <Row>
+        <Header />
+      </Row>
+      <Row>
+        <AboutMe />
+      </Row>
+      <Row>
+        <Education />
+      </Row>
+      <Row>
+        <Experience />
+      </Row>
+      <Row>
+        <Skills />
+      </Row>
+      <Row>{/* <Projects /> */}</Row>
+      <Row>
+        <Interests />
+      </Row>
+      <Row>
+        <Footer />
+      </Row>
+    </Container>
   );
 }
 
