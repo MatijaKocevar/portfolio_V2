@@ -1,13 +1,14 @@
-@import "../../variables";
+@use "../../variables" as v;
 
 .about {
+  background-color: v.$darkPurple;
 
   .heading-row {
     display: flex;
     justify-content: center;
 
     h1 {
-      color: $black;
+      color: v.$black;
       text-transform: uppercase;
       width: fit-content;
     }
@@ -25,11 +26,13 @@
 
       .profile-img {
         border-radius: 50%;
+        border: 5px solid v.$lightPurple;
+        padding: 1rem;
       }
     }
 
     .description {
-      color: $black;
+      color: v.$white;
     }
   }
 }
