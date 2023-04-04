@@ -3,7 +3,12 @@
 
 .skills {
   text-align: center;
-  background-color: v.$gray;
+  background-color: v.$mediumPurple;
+
+  h1 {
+    padding-top: 2rem;
+    color: v.$white;
+  }
 
   .container {
     padding-bottom: 1.5rem;
@@ -20,21 +25,21 @@
       width: 16rem;
       border-bottom: 0.3125rem solid v.$gray;
       padding: 0.5rem;
-      background: v.$white;
+      background: v.$lightPurple;
       transition: 0.4s ease-in-out;
       margin-bottom: 1.5rem;
 
       .circle {
         position: relative;
         margin: 0.375rem auto;
-        background: v.$dark;
+        background: v.$white;
         border-radius: 50%;
         width: 3.125rem;
         height: 3.125rem;
 
         .icon {
           font-size: 1.4rem;
-          color: v.$white;
+          color: v.$darkPurple;
           position: absolute;
           top: 50%;
           left: 50%;
@@ -43,35 +48,40 @@
       }
 
       h3 {
-        color: v.$dark;
+        color: v.$white;
       }
 
       p {
-        color: v.$dark;
+        color: v.$light-gray;
       }
 
     }
 
     .box:hover {
-      background: v.$gray;
-      border-bottom: 0.3125rem solid v.$blue;
+      background: v.$light-gray;
+      border-bottom: 0.3125rem solid v.$darkPurple;
       color: v.$white;
       transition: 0.4s ease-in-out;
-    }
 
-    .box:hover .circle {
-      background: v.$blue;
-      transition: 0.4s ease-in-out;
-    }
+      .circle {
+        background: v.$darkPurple;
+        transition: 0.4s ease-in-out;
 
-    .box:hover h3 {
-      color: v.$white;
-      transition: 0.4s ease-in-out;
-    }
+        .icon {
+          color: v.$white;
+        }
+      }
 
-    .box:hover p {
-      color: v.$white;
-      transition: 0.4s ease-in-out;
+      h3 {
+        color: v.$darkerPurple;
+        transition: 0.4s ease-in-out;
+      }
+
+      p {
+        color: v.$darkPurple;
+        transition: 0.4s ease-in-out;
+      }
+
     }
   }
 }
