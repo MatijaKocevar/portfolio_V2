@@ -14,8 +14,10 @@ const Header = () => {
 
   return (
     <div id='home' className='header-wraper'>
-      <div className='main-info'>
-        <h1 className='heading'>portfolio</h1>
+      <div className='blur'>
+        <div className='main-info'>
+          <h1 className='heading'>portfolio</h1>
+        </div>
       </div>
     </div>
   );

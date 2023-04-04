@@ -27,10 +27,10 @@ function App() {
       <Row>
         <Experience />
       </Row>
-      {/* <Row>
+      <Row>
         <Skills />
       </Row>
-      <Row>
+      {/* <Row>
         <Projects />
       </Row>
       <Row>
