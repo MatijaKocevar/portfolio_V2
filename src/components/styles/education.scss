@@ -75,7 +75,8 @@
 
     .timeline-block:hover .marker {
       transform: scale(2, 2);
-      background: $blue;
+      background: v.$lightPurple;
+      border: 2px solid v.$light-gray;
       transition: 0.4s ease-in-out;
     }
 
