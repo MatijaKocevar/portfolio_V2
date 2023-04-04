@@ -9,10 +9,10 @@ const AboutMe = () => {
         <h1>about me</h1>
       </Row>
       <Row className='about-content'>
-        <Col className='photo' lg={5}>
-          <img className='profile-img bg-image' src={author} alt='author' />
+        <Col className='photo' xs={12} sm={12} md={12} lg={5}>
+          <img className='profile-img' src={author} alt='author' />
         </Col>
-        <Col className='description' lg={7}>
+        <Col className='description' xs={12} sm={12} md={12} lg={7}>
           <p>
             Hello! I am Matija. I am trying to become a web developer. This is my first webpage which I created to serve as my portfolio. I have spent
             around 7 years working in sales, where I gained really good communication & organization skills. Most of my free time I&apos;ve spent

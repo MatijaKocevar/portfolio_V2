@@ -16,19 +16,79 @@
   .about-content {
     display: flex;
     align-items: center;
+    width: 100%;
+    margin: 0;
 
     .photo {
       display: flex;
       justify-content: center;
 
       .profile-img {
-        width: 25rem;
         border-radius: 50%;
       }
     }
 
     .description {
       color: $black;
+    }
+  }
+}
+
+//lg
+@media (min-width: 992px) {
+  .about-content {
+    .col-lg-5 {
+      .profile-img {
+        width: 70%;
+        height: 50%;
+      }
+    }
+  }
+}
+
+//md
+@media (max-width: 992px) {
+  .about-content {
+    .col-md-12 {
+      padding: 0.5rem 0;
+
+      .profile-img {
+        width: 50%;
+      }
+    }
+
+    .description {
+      padding: 0.5rem 0;
+
+      p {
+        text-align: center;
+      }
+    }
+  }
+}
+
+//sm
+@media (max-width: 768px) {
+  .about-content {
+    .col-sm-12 {
+      // padding: 0.5rem 0;
+
+      .profile-img {
+        width: 50%;
+      }
+    }
+  }
+}
+
+//xs
+@media (max-width: 576px) {
+  .about-content {
+    .col-12 {
+      // padding: 0.5rem 0;
+
+      .profile-img {
+        width: 50%;
+      }
     }
   }
 }

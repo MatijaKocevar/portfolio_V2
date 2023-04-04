@@ -24,12 +24,12 @@ const Footer = () => {
   return (
     <Container className='footer-container'>
       <Row className='footer-row'>
-        <Col className='basic-info-column' lg={4}>
+        <Col className='basic-info-column' xs={12} sm={12} md={12} lg={4}>
           <a href='tel:+38670892271'>(+386) 070 892 271</a>
           <a href='mailto: matija.kocev@gmail.com'>matija.kocev@gmail.com</a>
           <p style={{ color: 'white' }}>Trzin, Slovenia</p>
         </Col>
-        <Col className='footer-navigation-links' lg={4}>
+        <Col className='footer-navigation-links' xs={12} sm={12} md={12} lg={4}>
           <Col className='footer-navigation-left'>
             <Link smooth={true} to='about-me' offset={offset} ignoreCancelEvents={true} href='#'>
               About Me
@@ -54,18 +54,18 @@ const Footer = () => {
           </Col>
         </Col>
 
-        <Col className='footer-social-links' lg={4}>
+        <Col className='footer-social-links' xs={12} sm={12} md={12} lg={4}>
           <FacebookShareButton url={'https://matijakocevar.github.io/myPortfolio/'} quote={"Matija Kočevar's portfolio"}>
-            <FacebookIcon className='mx-3' size={36} />
+            <FacebookIcon size={36} />
           </FacebookShareButton>
           <TwitterShareButton url={'https://matijakocevar.github.io/myPortfolio/'}>
-            <TwitterIcon className='mx-3' size={36} />
+            <TwitterIcon size={36} />
           </TwitterShareButton>
           <RedditShareButton url={'https://matijakocevar.github.io/myPortfolio/'}>
-            <RedditIcon className='mx-3' size={36} />
+            <RedditIcon size={36} />
           </RedditShareButton>
           <LinkedinShareButton url={'https://matijakocevar.github.io/myPortfolio/'}>
-            <LinkedinIcon className='mx-3' size={36} />
+            <LinkedinIcon size={36} />
           </LinkedinShareButton>
         </Col>
       </Row>
