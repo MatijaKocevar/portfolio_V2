@@ -21,13 +21,13 @@ function App() {
       <Row>
         <AboutMe />
       </Row>
-      {/* <Row>
+      <Row>
         <Education />
       </Row>
       <Row>
         <Experience />
       </Row>
-      <Row>
+      {/* <Row>
         <Skills />
       </Row>
       <Row>

@@ -1,39 +1,54 @@
 @use "../../variables" as v;
 @import "../../App.scss";
 
+
 .experience {
-  // background-color: v.$black;
+  background-color: v.$darkPurple;
+  // padding-bottom: 5rem !important;
+  height: 100%;
+
+  .heading-row {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 1rem;
+
+    h1 {
+      color: $white;
+      text-transform: uppercase;
+      width: fit-content;
+    }
+  }
+
   // padding-bottom: 3rem;
-  height: calc(100% + 5%);
 
   .timeline-wrapper::before {
     position: absolute;
+    display: flex;
     content: '';
     // top: 0;
     left: 50%;
     width: 0.2rem;
-    background: v.$white;
-    z-index: 1;
-    height: 84%;
+    background: v.$lightPurple;
+    // z-index: 1;
+    height: 50%;
   }
 
   .timeline-wrapper {
+    height: 100%;
 
     .timeline-block-right {
-      float: right;
+      transform: translate(-22px);
     }
 
     .timeline-block-left {
       text-align: right;
-      float: left;
       direction: rtl;
-      margin-left: 3px;
+      transform: translate(25px);
     }
 
     .timeline-block {
-      width: calc(50% + 0.7rem);
       display: flex;
-      // margin-bottom: 4rem;
+      flex-direction: row;
 
       .marker {
         width: 1.5rem;
@@ -48,19 +63,19 @@
       .timeline-content {
         padding: 0 1rem 0 1rem;
         width: 95%;
-        color: var(white);
+        color: $white;
         direction: ltr;
 
         h3 {
-          color: var(white);
+          color: $white;
+          ;
         }
       }
     }
 
     .timeline-block:hover .marker {
       transform: scale(2, 2);
-      background: v.$blue;
-      // border: 0.325rem solid var(blue);
+      background: $blue;
       transition: 0.4s ease-in-out;
     }
 
