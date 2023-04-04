@@ -5,20 +5,22 @@
   text-align: center;
   background-color: v.$mediumPurple;
 
-  h1 {
-    padding-top: 2rem;
-    color: v.$white;
+  .heading-row {
+    h1 {
+      color: v.$white;
+    }
   }
 
-  .container {
-    padding-bottom: 1.5rem;
+  .skills-container {
+    padding-top: 1rem;
     flex-direction: row;
     justify-content: space-between;
-    gap: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+    gap: 2rem;
+    margin: 0;
 
     .box {
       height: 16rem;
