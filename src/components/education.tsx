@@ -8,7 +8,7 @@ const Education = () => {
         <h1>education</h1>
       </Row>
       <Row className='timeline-wrapper'>
-        <Col className='timeline-block timeline-block-left' lg={6}>
+        <Col className='timeline-block timeline-block-left' xs={12} sm={12} md={12} lg={6}>
           <div className='marker'></div>
           <div className='timeline-content'>
             <h3>Electrotechnician of computer science</h3>
@@ -16,10 +16,10 @@ const Education = () => {
             <p>Gained basic programming skills in C++, HTML, CSS. </p>
           </div>
         </Col>
-        <Col lg={6}></Col>
+        <Col xs={12} sm={12} md={12} lg={6}></Col>
         {/* - */}
-        <Col lg={6}></Col>
-        <Col className='timeline-block timeline-block-right' lg={6}>
+        <Col xs={12} sm={12} md={12} lg={6}></Col>
+        <Col className='timeline-block timeline-block-right' xs={12} sm={12} md={12} lg={6}>
           <div className='marker'></div>
           <div className='timeline-content'>
             <h3>Computer science and information technologies</h3>
@@ -28,7 +28,7 @@ const Education = () => {
           </div>
         </Col>
         {/* - */}
-        <Col className='timeline-block timeline-block-left' lg={6}>
+        <Col className='timeline-block timeline-block-left' xs={12} sm={12} md={12} lg={6}>
           <div className='marker'></div>
           <div className='timeline-content'>
             <h3>Learning front-end & back-end development</h3>
@@ -36,7 +36,7 @@ const Education = () => {
             <p>HTML, CSS, SQL, React JS, Vue JS, Node JS, .NET core, C#</p>
           </div>
         </Col>
-        <Col lg={6}></Col>
+        <Col xs={12} sm={12} md={12} lg={6}></Col>
       </Row>
     </Container>
   );

@@ -14,31 +14,33 @@ import { Container, Row } from 'react-bootstrap';
 function App() {
   return (
     <>
-      <NavBar />
-      <Row>
-        <Header />
-      </Row>
-      <Row>
-        <AboutMe />
-      </Row>
-      <Row>
-        <Education />
-      </Row>
-      <Row>
-        <Experience />
-      </Row>
-      <Row>
-        <Skills />
-      </Row>
-      {/* <Row>
-        <Projects />
-      </Row>
-      <Row>
+      <>
+        <Row>
+          <NavBar />
+        </Row>
+        <Row>
+          <Header />
+        </Row>
+        <Row>
+          <AboutMe />
+        </Row>
+        <Row>
+          <Education />
+        </Row>
+        <Row>
+          <Experience />
+        </Row>
+        <Row>
+          <Skills />
+        </Row>
+        <Row>{/* <Projects /> */}</Row>
+        {/* <Row>
         <Interests />
       </Row> */}
-      <Row>
-        <Footer />
-      </Row>
+        <Row>
+          <Footer />
+        </Row>
+      </>
     </>
   );
 }

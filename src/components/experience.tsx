@@ -6,10 +6,10 @@ const Experience = () => {
   return (
     <Container id='timeline' className='experience'>
       <Row className='heading-row'>
-        <h1>education</h1>
+        <h1>experience</h1>
       </Row>
       <Row className='timeline-wrapper'>
-        <Col className='timeline-block timeline-block-left' lg={6}>
+        <Col className='timeline-block timeline-block-left' xs={12} sm={12} md={12} lg={6}>
           <div className='marker'></div>
           <div className='timeline-content'>
             <h3>Data visualisation in Microsoft Excel and Google Sheets</h3>
@@ -20,10 +20,10 @@ const Experience = () => {
             </p>
           </div>
         </Col>
-        <Col lg={6}></Col>
+        <Col xs={0} sm={0} md={0} lg={6}></Col>
         {/* - */}
-        <Col lg={6}></Col>
-        <Col className='timeline-block timeline-block-right' lg={6}>
+        <Col xs={0} sm={0} md={0} lg={6}></Col>
+        <Col className='timeline-block timeline-block-right' xs={12} sm={12} md={12} lg={6}>
           <div className='marker'></div>
           <div className='timeline-content'>
             <h3>Created first API</h3>
@@ -32,7 +32,7 @@ const Experience = () => {
           </div>
         </Col>
         {/* - */}
-        <Col className='timeline-block timeline-block-left' lg={6}>
+        <Col className='timeline-block timeline-block-left' xs={12} sm={12} md={12} lg={6}>
           <div className='marker'></div>
           <div className='timeline-content'>
             <h3>Created first webpage</h3>
@@ -40,10 +40,10 @@ const Experience = () => {
             <p>Developed with React JS & Bootstrap 4.</p>
           </div>
         </Col>
-        <Col lg={6}></Col>
+        <Col xs={0} sm={0} md={0} lg={6}></Col>
         {/* - */}
-        <Col lg={6}></Col>
-        <Col className='timeline-block timeline-block-right' lg={6}>
+        <Col xs={0} sm={0} md={0} lg={6}></Col>
+        <Col className='timeline-block timeline-block-right' xs={12} sm={12} md={12} lg={6}>
           <div className='marker'></div>
           <div className='timeline-content'>
             <h3>Software developer - Agitavit Solutions d.o.o.</h3>
