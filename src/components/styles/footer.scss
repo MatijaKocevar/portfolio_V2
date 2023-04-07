@@ -73,7 +73,7 @@
 //md
 @media (max-width: 992px) {
   .col-md-12 {
-    padding: 0 1rem;
+    padding: 0 0.5rem;
   }
 }
 
@@ -86,7 +86,7 @@
 
 //xs
 @media (max-width: 576px) {
-  .col-sm-12 {
+  .col-12 {
     padding: 0.5rem 0;
   }
 }
