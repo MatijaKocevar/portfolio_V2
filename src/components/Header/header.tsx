@@ -1,6 +1,6 @@
-import author from '../images/me.jpg';
+import author from './images/me.jpg';
 import React, { useState } from 'react';
-import './styles/header.scss';
+import './header.scss';
 
 const TEXTS = ['Creative', 'Hard working', 'Positive'];
 

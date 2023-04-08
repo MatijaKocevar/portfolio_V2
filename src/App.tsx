@@ -1,15 +1,14 @@
 import './App.scss';
 import React from 'react';
-import AboutMe from './components/aboutMe';
-import Education from './components/education';
-import Header from './components/header';
-import NavBar from './components/navbar';
-import Experience from './components/experience';
-import Skills from './components/skills';
-import Projects from './components/projects';
-import Interests from './components/interests';
-import Footer from './components/footer';
-import { Container, Row } from 'react-bootstrap';
+
+import { Row } from 'react-bootstrap';
+import NavBar from './components/Navbar/navbar';
+import Header from './components/Header/header';
+import AboutMe from './components/AboutMe/aboutMe';
+import Education from './components/Education/education';
+import Experience from './components/Experience/experience';
+import Footer from './components/Footer/footer';
+import Skills from './components/Skills/skills';
 
 function App() {
   return (

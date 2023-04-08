@@ -10,7 +10,7 @@ import {
   LinkedinIcon,
 } from 'react-share';
 import { Link } from 'react-scroll';
-import './styles/footer.scss';
+import './footer.scss';
 import { Col, Container, Row } from 'react-bootstrap';
 
 const Footer = () => {

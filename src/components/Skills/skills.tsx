@@ -1,8 +1,6 @@
-import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookF, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { faTable, faPaintBrush, faDesktop, faFileCode } from '@fortawesome/free-solid-svg-icons';
-import './styles/skills.scss';
+import './skills.scss';
 import { Container, Row } from 'react-bootstrap';
 
 const Service = () => {
