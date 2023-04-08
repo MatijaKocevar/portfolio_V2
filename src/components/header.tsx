@@ -16,6 +16,9 @@ const Header = () => {
     <div id='home' className='header-wraper'>
       <div className='main-info'>
         <h1 className='heading'>portfolio</h1>
+        <h1 className='heading' style={{ color: 'red' }}>
+          WORK IN PROGRESS
+        </h1>
       </div>
     </div>
   );
