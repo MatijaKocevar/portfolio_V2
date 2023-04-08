@@ -4,7 +4,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { faLightbulb, faTerminal, faLaptopCode, faMobileAlt } from '@fortawesome/free-solid-svg-icons';
-import './styles/interests.scss';
+import './interests.scss';
 
 const InterestsCarousel = () => {
   return (
