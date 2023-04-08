@@ -3,8 +3,7 @@
 
 
 .experience {
-  background-color: v.$darkPurple;
-  // padding-bottom: 5rem !important;
+  background-color: v.$mediumPurple;
   height: 100%;
 
   .heading-row {
@@ -19,50 +18,38 @@
     }
   }
 
-  // padding-bottom: 3rem;
-
-  // .timeline-wrapper::before {
-  //   position: absolute;
-  //   display: flex;
-  //   content: '';
-  //   // top: 0;
-  //   left: 50%;
-  //   width: 0.2rem;
-  //   background: v.$lightPurple;
-  //   // z-index: 1;
-  //   height: 50%;
-  // }
-
   .timeline-wrapper {
     height: 100%;
-
-    .timeline-block-right {
-      transform: translate(-22px);
-    }
-
-    .timeline-block-left {
-      text-align: right;
-      direction: rtl;
-      transform: translate(25px);
-    }
 
     .timeline-block {
       display: flex;
       flex-direction: row;
+      height: fit-content;
 
-      .marker {
-        width: 1.5rem;
-        height: 1.5rem;
-        align-self: center;
-        border-radius: 50%;
-        // border: 0.325rem solid white;
-        background: white;
-        z-index: 3;
+      .line-wrapper {
+        display: flex;
+
+        .line {
+          background-color: v.$white;
+          margin: 0 auto;
+          width: 1px;
+          justify-content: center;
+          height: 100%;
+        }
+
+        .marker {
+          width: 1.5rem;
+          height: 1.5rem;
+          align-self: center;
+          border-radius: 50%;
+          background: white;
+          z-index: 3;
+        }
       }
 
       .timeline-content {
         padding: 0 1rem 0 1rem;
-        width: 95%;
+        width: 100%;
         color: $white;
         direction: ltr;
 
@@ -86,13 +73,180 @@
     }
 
     .timeline-block-left:hover .timeline-content {
-      padding-right: 2rem;
+      padding-left: 2rem;
       transition: 0.4s ease-in-out;
     }
 
     .timeline-block-right:hover .timeline-content {
       padding-left: 2rem;
       transition: 0.4s ease-in-out;
+    }
+  }
+}
+
+//lg
+@media (min-width: 992px) {
+  .experience {
+    .timeline-block-right {
+      text-align: left;
+      justify-content: flex-end;
+      transform: translate(-12.5px);
+
+      .line-wrapper {
+        margin-right: 0.75rem;
+
+        .marker {
+          margin-left: -0.75rem;
+        }
+      }
+
+      timeline-content {}
+    }
+
+    .timeline-block-left {
+      text-align: right;
+      direction: rtl;
+      transform: translate(12.5px);
+
+      .line-wrapper {
+        margin-left: .75rem;
+
+        .marker {
+          margin-right: -0.75rem;
+        }
+      }
+
+      timeline-content {}
+    }
+  }
+
+  .timeline-block-left:hover .timeline-content {
+    padding-right: 2rem !important;
+  }
+
+}
+
+//md
+@media (max-width: 992px) {
+  .experience {
+    .timeline-block-right {
+
+      .line-wrapper {
+        margin-right: 0.75rem;
+
+        .line {
+          height: 115% !important;
+        }
+
+        .marker {
+          margin-left: -0.75rem;
+        }
+      }
+
+      timeline-content {}
+    }
+
+    .timeline-block-left {
+      text-align: left;
+      direction: ltr;
+
+      .line-wrapper {
+        margin-right: 0.75rem;
+
+        .line {
+          height: 115% !important;
+        }
+
+        .marker {
+          margin-left: -0.75rem;
+        }
+      }
+
+      timeline-content {}
+    }
+  }
+}
+
+//sm
+@media (max-width: 768px) {
+  .experience {
+
+    .timeline-block-right {
+      .line-wrapper {
+        margin-right: 0.75rem;
+
+        .line {
+          height: 115% !important;
+        }
+
+        .marker {
+          margin-left: -0.75rem;
+        }
+      }
+
+      timeline-content {}
+    }
+
+    .timeline-block-left {
+      text-align: left;
+      direction: ltr;
+
+      .line-wrapper {
+        margin-right: 0.75rem;
+
+        .line {
+          height: 115% !important;
+        }
+
+        .marker {
+          margin-left: -0.75rem;
+        }
+      }
+
+      timeline-content {}
+    }
+  }
+}
+
+//xs
+@media (max-width: 576px) {
+  .experience {
+    padding: 1rem !important;
+
+    .timeline-block-right {
+
+      .line-wrapper {
+        margin-right: 0.75rem;
+
+        .line {
+          height: 115% !important;
+        }
+
+        .marker {
+          margin-left: -0.75rem;
+        }
+      }
+
+      timeline-content {}
+    }
+
+    .timeline-block-left {
+      text-align: left;
+      direction: ltr;
+
+      .line-wrapper {
+        margin-right: 0.75rem;
+
+        .line {
+          height: 115% !important;
+        }
+
+        .marker {
+          margin-left: -0.75rem;
+        }
+      }
+
+      timeline-content {}
     }
   }
 }
