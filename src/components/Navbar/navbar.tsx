@@ -2,14 +2,12 @@ import { useState } from 'react';
 import './navbar.scss';
 import { Link } from 'react-scroll';
 import logo from '../../images/logo.png';
+import { getTranslation } from '../../translations/components/getTranslation';
 
 const NavBar = () => {
   const startingOffset = window.innerWidth < 1199 ? -61 : -86;
-
   const startingToggle = window.innerWidth < 1199 ? 'collapse' : 'keep';
-
   const [offset, setOffset] = useState(startingOffset);
-
   const [toggle, setToggle] = useState(startingToggle);
 
   window.addEventListener('resize', () => {
@@ -47,7 +45,7 @@ const NavBar = () => {
               data-toggle={toggle}
               data-target='#navbarText'
             >
-              About me
+              {getTranslation('Navigation_AboutMe')}
             </Link>
           </li>
           <li className='nav-item'>
@@ -62,7 +60,7 @@ const NavBar = () => {
               data-toggle={toggle}
               data-target='#navbarText'
             >
-              Education
+              {getTranslation('Navigation_Education')}
             </Link>
           </li>
           <li className='nav-item'>
@@ -77,7 +75,7 @@ const NavBar = () => {
               data-toggle={toggle}
               data-target='#navbarText'
             >
-              Experience
+              {getTranslation('Navigation_Experience')}
             </Link>
           </li>
           <li className='nav-item'>
@@ -92,7 +90,7 @@ const NavBar = () => {
               data-toggle={toggle}
               data-target='#navbarText'
             >
-              Skills
+              {getTranslation('Navigation_Skills')}
             </Link>
           </li>
           <li className='nav-item'>
@@ -107,7 +105,7 @@ const NavBar = () => {
               data-toggle={toggle}
               data-target='#navbarText'
             >
-              Projects
+              {getTranslation('Navigation_Projects')}
             </Link>
           </li>
           <li className='nav-item'>
@@ -122,7 +120,7 @@ const NavBar = () => {
               data-toggle={toggle}
               data-target='#navbarText'
             >
-              Interests
+              {getTranslation('Navigation_Interests')}
             </Link>
           </li>
           <li className='nav-item'>
@@ -137,7 +135,7 @@ const NavBar = () => {
               data-toggle={toggle}
               data-target='#navbarText'
             >
-              Contact me
+              {getTranslation('Navigation_ContactMe')}
             </Link>
           </li>
         </ul>

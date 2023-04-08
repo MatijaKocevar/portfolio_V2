@@ -1,6 +1,4 @@
 import './App.scss';
-import React from 'react';
-
 import { Row } from 'react-bootstrap';
 import NavBar from './components/Navbar/navbar';
 import Header from './components/Header/header';
@@ -10,7 +8,7 @@ import Experience from './components/Experience/experience';
 import Footer from './components/Footer/footer';
 import Skills from './components/Skills/skills';
 
-function App() {
+const App = () => {
   return (
     <>
       <>
@@ -42,6 +40,6 @@ function App() {
       </>
     </>
   );
-}
+};
 
 export default App;
