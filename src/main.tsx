@@ -12,11 +12,11 @@ export interface Translation {
 const Main = () => {
   const router = createBrowserRouter([
     {
-      path: '/',
+      path: '/portfolio_V2',
       element: <App />,
     },
     {
-      path: '/slo',
+      path: '/portfolio_V2/slo',
       element: <App />,
     },
   ]);
