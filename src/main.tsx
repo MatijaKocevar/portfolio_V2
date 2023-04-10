@@ -2,12 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { createHashRouter, RouterProvider, HashRouter, Routes, Route } from 'react-router-dom';
-
-export interface Translation {
-  id: string;
-  message: string;
-}
+import { HashRouter, Routes, Route } from 'react-router-dom';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>

@@ -6,7 +6,7 @@ export interface Translation {
 }
 
 export const getTranslation = (id: string) => {
-    const localization = window.location.pathname == '/portfolio_V2' ? 'en' : window.location.pathname == '/portfolio_V2/slo' ? 'slo' : 'en';
+    const localization = window.location.hash == '' ? 'en' : window.location.hash == '#/slo' ? 'slo' : 'en';
 
     let message = "N/A"
 
