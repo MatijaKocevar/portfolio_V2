@@ -1,11 +1,11 @@
 import { Col, Container, Row } from 'react-bootstrap';
 import './education.scss';
 
-const Education = () => {
+const Education = (props: TranslationProps) => {
   return (
     <Container id='timeline' className='education'>
       <Row className='heading-row'>
-        <h1>education</h1>
+        <h1>{props.getTranslation('Navigation_Education')}</h1>
       </Row>
       <Row className='timeline-wrapper'>
         {/* - */}

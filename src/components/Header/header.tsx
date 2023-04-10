@@ -4,7 +4,7 @@ import './header.scss';
 
 const TEXTS = ['Creative', 'Hard working', 'Positive'];
 
-const Header = () => {
+const Header = (props: TranslationProps) => {
   const [index, setIndex] = useState(0);
 
   React.useEffect(() => {
@@ -17,7 +17,7 @@ const Header = () => {
       <div className='main-info'>
         <h1 className='heading'>portfolio</h1>
         <h1 className='heading' style={{ color: 'red' }}>
-          WORK IN PROGRESS
+          {props.getTranslation('Header_Subtitle')}
         </h1>
       </div>
     </div>

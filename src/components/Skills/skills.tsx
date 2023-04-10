@@ -3,11 +3,11 @@ import { faTable, faPaintBrush, faDesktop, faFileCode } from '@fortawesome/free-
 import './skills.scss';
 import { Container, Row } from 'react-bootstrap';
 
-const Service = () => {
+const Service = (props: TranslationProps) => {
   return (
     <Container id='skills' className='skills'>
       <Row className='heading-row'>
-        <h1>Skills</h1>
+        <h1>{props.getTranslation('Navigation_Skills')}</h1>
       </Row>
       <Row className='skills-container'>
         <div className='box'>

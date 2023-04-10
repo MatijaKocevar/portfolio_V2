@@ -32,19 +32,19 @@ const App = () => {
         <NavBar getTranslation={getTranslation} setTranslations={setTranslations} />
       </Row>
       <Row>
-        <Header />
+        <Header getTranslation={getTranslation} />
       </Row>
       <Row>
-        <AboutMe />
+        <AboutMe getTranslation={getTranslation} />
       </Row>
       <Row>
-        <Education />
+        <Education getTranslation={getTranslation} />
       </Row>
       <Row>
-        <Experience />
+        <Experience getTranslation={getTranslation} />
       </Row>
       <Row>
-        <Skills />
+        <Skills getTranslation={getTranslation} />
       </Row>
       {/* <Row>
         <Projects />
@@ -53,7 +53,7 @@ const App = () => {
         <Interests />
       </Row> */}
       <Row>
-        <Footer />
+        <Footer getTranslation={getTranslation} />
       </Row>
     </>
   );
