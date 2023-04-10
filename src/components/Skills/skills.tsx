@@ -7,7 +7,7 @@ const Service = (props: TranslationProps) => {
   return (
     <Container id='skills' className='skills'>
       <Row className='heading-row'>
-        <h1>Skills</h1>
+        <h1>{props.getTranslation('Navigation_Skills')}</h1>
       </Row>
       <Row className='skills-container'>
         <div className='box'>

@@ -17,7 +17,7 @@ const Header = (props: TranslationProps) => {
       <div className='main-info'>
         <h1 className='heading'>portfolio</h1>
         <h1 className='heading' style={{ color: 'red' }}>
-          WORK IN PROGRESS
+          {props.getTranslation('Header_Subtitle')}
         </h1>
       </div>
     </div>

@@ -5,7 +5,7 @@ const Education = (props: TranslationProps) => {
   return (
     <Container id='timeline' className='experience'>
       <Row className='heading-row'>
-        <h1>experience</h1>
+        <h1>{props.getTranslation('Navigation_Experience')}</h1>
       </Row>
       <Row className='timeline-wrapper'>
         {/* - */}

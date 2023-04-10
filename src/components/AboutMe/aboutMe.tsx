@@ -5,7 +5,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 const AboutMe = (props: TranslationProps) => (
   <Container id='about-me' className='about'>
     <Row className='heading-row'>
-      <h1>about me</h1>
+      <h1>{props.getTranslation('Navigation_AboutMe')}</h1>
     </Row>
     <Row className='about-content'>
       <Col className='photo' xs={12} sm={12} md={12} lg={5}>
