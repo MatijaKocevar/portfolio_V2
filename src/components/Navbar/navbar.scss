@@ -1,3 +1,9 @@
-.logo {
-  width: 10rem;
+.navbar {
+  .logo {
+    width: 10rem;
+  }
+
+  .collapse {
+    justify-content: space-between
+  }
 }
