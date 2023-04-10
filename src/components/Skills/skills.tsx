@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTable, faPaintBrush, faDesktop, faFileCode } from '@fortawesome/free-solid-svg-icons';
 import './skills.scss';
 import { Container, Row } from 'react-bootstrap';
+import { TranslationProps } from '../Types/types';
 
 const Service = (props: TranslationProps) => {
   return (

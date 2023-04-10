@@ -1,6 +1,7 @@
 import author from './images/me.jpg';
 import React, { useState } from 'react';
 import './header.scss';
+import { TranslationProps } from '../Types/types';
 
 const TEXTS = ['Creative', 'Hard working', 'Positive'];
 

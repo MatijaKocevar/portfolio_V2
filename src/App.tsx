@@ -10,7 +10,8 @@ import Skills from './components/Skills/skills';
 import Projects from './components/Projects/projects';
 
 import { useState } from 'react';
-import { Translation, getTranslations } from './translations/components/getTranslation';
+import { getTranslations } from './translations/components/getTranslation';
+import { Translation } from './components/Types/types';
 
 const App = () => {
   const [translations, setTranslations] = useState<Translation[]>(getTranslations('en'));
