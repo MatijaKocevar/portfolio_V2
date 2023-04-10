@@ -1,3 +1,4 @@
+import { Translation } from '../../components/Types/types';
 import { Translations } from '../../translations/translations';
 
 export const getTranslations = (locale: string) => {

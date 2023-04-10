@@ -4,6 +4,7 @@ import { Link } from 'react-scroll';
 import logo from '../../images/logo.png';
 import { getTranslations } from '../../translations/components/getTranslation';
 import ToggleSwitch from '../Shared/ToogleSwitch/ToggleSwitch';
+import { TranslationProps } from '../Types/types';
 
 const NavBar = (props: TranslationProps) => {
   const startingOffset = window.innerWidth < 1199 ? -61 : -86;
