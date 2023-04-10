@@ -5,14 +5,26 @@ export interface Translation {
   message: string;
 }
 
-export const getTranslation = (id: string) => {
-    const localization = window.location.pathname == '/portfolio_V2' ? 'en' : window.location.pathname == '/portfolio_V2/slo' ? 'slo' : 'en';
+export const getTranslations = (locale: string) => {
+  const translations: Translation[] = []
 
-    let message = "N/A"
+  if (locale == "en") {
+    Translations.forEach((el) => {
+      translations.push({
+        id: el.id,
+        message: el.en
+      }) 
+    })    
+  }
 
-    Translations.filter(el => {
-        if(el.id == id) message = el[localization]
+  if (locale == "slo") {
+    Translations.forEach((el) => {
+      translations.push({
+        id: el.id,
+        message: el.slo
+      }) 
     })
+  }
 
-    return message ?? "N/A"
+    return translations
 }

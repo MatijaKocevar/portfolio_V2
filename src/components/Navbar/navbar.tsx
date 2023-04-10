@@ -2,9 +2,15 @@ import { useState } from 'react';
 import './navbar.scss';
 import { Link } from 'react-scroll';
 import logo from '../../images/logo.png';
-import { getTranslation } from '../../translations/components/getTranslation';
+import { Translation, getTranslations } from '../../translations/components/getTranslation';
+import ToggleSwitch from '../Shared/ToogleSwitch/ToggleSwitch';
 
-const NavBar = () => {
+interface Props {
+  getTranslation: (id: string) => string;
+  setTranslations: React.Dispatch<React.SetStateAction<Translation[]>>;
+}
+
+const NavBar = (props: Props) => {
   const startingOffset = window.innerWidth < 1199 ? -61 : -86;
   const startingToggle = window.innerWidth < 1199 ? 'collapse' : 'keep';
   const [offset, setOffset] = useState(startingOffset);
@@ -14,6 +20,8 @@ const NavBar = () => {
     setOffset(window.innerWidth < 1199 ? -61 : -86);
     setToggle(window.innerWidth < 1199 ? 'collapse' : 'keep');
   });
+
+  const onLanguageChange = (language: string) => props.setTranslations(getTranslations(language));
 
   return (
     <nav className='navbar fixed-top navbar-expand-lg navbar-dark bg-dark p-2'>
@@ -44,8 +52,11 @@ const NavBar = () => {
               href='#'
               data-toggle={toggle}
               data-target='#navbarText'
+              onClick={() => {
+                console.log();
+              }}
             >
-              {getTranslation('Navigation_AboutMe')}
+              {props.getTranslation('Navigation_AboutMe')}
             </Link>
           </li>
           <li className='nav-item'>
@@ -60,7 +71,7 @@ const NavBar = () => {
               data-toggle={toggle}
               data-target='#navbarText'
             >
-              {getTranslation('Navigation_Education')}
+              {props.getTranslation('Navigation_Education')}
             </Link>
           </li>
           <li className='nav-item'>
@@ -75,7 +86,7 @@ const NavBar = () => {
               data-toggle={toggle}
               data-target='#navbarText'
             >
-              {getTranslation('Navigation_Experience')}
+              {props.getTranslation('Navigation_Experience')}
             </Link>
           </li>
           <li className='nav-item'>
@@ -90,7 +101,7 @@ const NavBar = () => {
               data-toggle={toggle}
               data-target='#navbarText'
             >
-              {getTranslation('Navigation_Skills')}
+              {props.getTranslation('Navigation_Skills')}
             </Link>
           </li>
           <li className='nav-item'>
@@ -105,7 +116,7 @@ const NavBar = () => {
               data-toggle={toggle}
               data-target='#navbarText'
             >
-              {getTranslation('Navigation_Projects')}
+              {props.getTranslation('Navigation_Projects')}
             </Link>
           </li>
           <li className='nav-item'>
@@ -120,7 +131,7 @@ const NavBar = () => {
               data-toggle={toggle}
               data-target='#navbarText'
             >
-              {getTranslation('Navigation_Interests')}
+              {props.getTranslation('Navigation_Interests')}
             </Link>
           </li>
           <li className='nav-item'>
@@ -135,10 +146,21 @@ const NavBar = () => {
               data-toggle={toggle}
               data-target='#navbarText'
             >
-              {getTranslation('Navigation_ContactMe')}
+              {props.getTranslation('Navigation_ContactMe')}
             </Link>
           </li>
         </ul>
+        {/* <button
+          onClick={() => {
+            );
+            console;
+          }}
+        >
+          Test
+        </button> */}
+        <div>
+          <ToggleSwitch onChange={onLanguageChange} language='en' />
+        </div>
       </div>
     </nav>
   );
