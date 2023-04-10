@@ -4,7 +4,7 @@ import './header.scss';
 
 const TEXTS = ['Creative', 'Hard working', 'Positive'];
 
-const Header = () => {
+const Header = (props: TranslationProps) => {
   const [index, setIndex] = useState(0);
 
   React.useEffect(() => {

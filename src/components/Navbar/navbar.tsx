@@ -2,15 +2,10 @@ import { useState } from 'react';
 import './navbar.scss';
 import { Link } from 'react-scroll';
 import logo from '../../images/logo.png';
-import { Translation, getTranslations } from '../../translations/components/getTranslation';
+import { getTranslations } from '../../translations/components/getTranslation';
 import ToggleSwitch from '../Shared/ToogleSwitch/ToggleSwitch';
 
-interface Props {
-  getTranslation: (id: string) => string;
-  setTranslations: React.Dispatch<React.SetStateAction<Translation[]>>;
-}
-
-const NavBar = (props: Props) => {
+const NavBar = (props: TranslationProps) => {
   const startingOffset = window.innerWidth < 1199 ? -61 : -86;
   const startingToggle = window.innerWidth < 1199 ? 'collapse' : 'keep';
   const [offset, setOffset] = useState(startingOffset);
@@ -21,7 +16,7 @@ const NavBar = (props: Props) => {
     setToggle(window.innerWidth < 1199 ? 'collapse' : 'keep');
   });
 
-  const onLanguageChange = (language: string) => props.setTranslations(getTranslations(language));
+  const onLanguageChange = (language: string) => props.setTranslations?.(getTranslations(language));
 
   return (
     <nav className='navbar fixed-top navbar-expand-lg navbar-dark bg-dark p-2'>

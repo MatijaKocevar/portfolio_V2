@@ -3,7 +3,7 @@ import { faTable, faPaintBrush, faDesktop, faFileCode } from '@fortawesome/free-
 import './skills.scss';
 import { Container, Row } from 'react-bootstrap';
 
-const Service = () => {
+const Service = (props: TranslationProps) => {
   return (
     <Container id='skills' className='skills'>
       <Row className='heading-row'>

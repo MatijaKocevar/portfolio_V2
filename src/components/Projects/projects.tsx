@@ -10,7 +10,7 @@ import { PopupboxManager, PopupboxContainer } from 'react-popupbox';
 import 'react-popupbox/dist/react-popupbox.css';
 import './styles/projects.scss';
 
-const Projects = () => {
+const Projects = (props: TranslationProps) => {
   // Project 1
   const openPopupboxProject1 = () => {
     const content = (

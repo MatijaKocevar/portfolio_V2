@@ -2,7 +2,7 @@ import author from '../../images/me.jpg';
 import './aboutMe.scss';
 import { Col, Container, Row } from 'react-bootstrap';
 
-const AboutMe = () => (
+const AboutMe = (props: TranslationProps) => (
   <Container id='about-me' className='about'>
     <Row className='heading-row'>
       <h1>about me</h1>
