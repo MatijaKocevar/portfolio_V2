@@ -150,15 +150,7 @@ const NavBar = (props: Props) => {
             </Link>
           </li>
         </ul>
-        {/* <button
-          onClick={() => {
-            );
-            console;
-          }}
-        >
-          Test
-        </button> */}
-        <div>
+        <div className='language-toggle'>
           <ToggleSwitch onChange={onLanguageChange} language='en' />
         </div>
       </div>
