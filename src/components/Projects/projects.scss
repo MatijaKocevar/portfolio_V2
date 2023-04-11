@@ -3,6 +3,10 @@
 .projects {
   background-color: v.$darkPurple;
 
+  .projects-image-popupbox {
+    width: 100%;
+  }
+
   .heading-row {
     display: flex;
     justify-content: center;
@@ -17,10 +21,12 @@
 
   .project-wrapper {
     text-align: center;
+    padding-bottom: 1rem;
 
     .project-image {
       width: 100%;
       border: 0.5rem solid var(--primary-dark);
+      border-radius: 5px;
     }
 
     .project-icon {
@@ -32,7 +38,7 @@
     }
 
     h3 {
-      padding-top: 2rem;
+      padding-top: 1rem;
       color: v.$white
     }
 

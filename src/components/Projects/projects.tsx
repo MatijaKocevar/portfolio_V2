@@ -19,24 +19,28 @@ const Projects = (props: TranslationProps) => {
   const resumeContent = (
     <>
       <h3>Online Resume</h3>
+      <img className='projects-image-popupbox' src={project1} alt='Online resume' />
       <p>This is a popup box!This is a popup box!This is a popup box!This is a popup box!This is a popup box!This is a popup box!</p>
     </>
   );
   const holidayContent = (
     <>
       <h3>Holidays calculator</h3>
+      <img className='projects-image-popupbox' src={project2} alt='Online resume' />
       <p>This is a popup box!This is a popup box!This is a popup box!This is a popup box!This is a popup box!This is a popup box!</p>
     </>
   );
   const diffingContent = (
     <>
       <h3>Diffing API</h3>
+      <img className='projects-image-popupbox' src={project3} alt='Online resume' />
       <p>This is a popup box!This is a popup box!This is a popup box!This is a popup box!This is a popup box!This is a popup box!</p>
     </>
   );
   const WOIContent = (
     <>
       <h3>WORKING ON IT</h3>
+      <img className='projects-image-popupbox' src={woi} alt='Online resume' />
       <p>This is a popup box!This is a popup box!This is a popup box!This is a popup box!This is a popup box!This is a popup box!</p>
     </>
   );
@@ -51,38 +55,34 @@ const Projects = (props: TranslationProps) => {
       {showPopupDiffing && <PopupBox content={diffingContent} onClose={() => setShowPopupDiffing(false)} />}
       {showPopupWOI && <PopupBox content={WOIContent} onClose={() => setShowPopupWOI(false)} />}
       <Row>
-        <Col lg={3} md={12} sm={12} xs={12} onClick={() => setShowPopupResume(true)}>
+        <Col lg={3} md={6} sm={6} xs={12} onClick={() => setShowPopupResume(true)}>
           <div className='project-wrapper'>
             <img className='project-image' src={project1} alt='project webpage' />
             <FontAwesomeIcon className='project-icon' icon={faSearchPlus} />
-            <div className='overlay'></div>
             <h3>Online resume</h3>
           </div>
         </Col>
         {/* - */}
-        <Col lg={3} md={12} sm={12} xs={12} onClick={() => setShowPopupHolidays(true)}>
+        <Col lg={3} md={6} sm={6} xs={12} onClick={() => setShowPopupHolidays(true)}>
           <div className='project-wrapper'>
             <img className='project-image' src={project2} alt='Project 2...' />
             <FontAwesomeIcon className='project-icon' icon={faSearchPlus} />
-            <div className='overlay'></div>
             <h3>Holidays calculator</h3>
           </div>
         </Col>
         {/* - */}
-        <Col lg={3} md={12} sm={12} xs={12} onClick={() => setShowPopupDiffing(true)}>
+        <Col lg={3} md={6} sm={6} xs={12} onClick={() => setShowPopupDiffing(true)}>
           <div className='project-wrapper'>
             <img className='project-image' src={project3} alt='Project 3...' />
             <FontAwesomeIcon className='project-icon' icon={faSearchPlus} />
-            <div className='overlay'></div>
             <h3>Diffing API</h3>
           </div>
         </Col>
         {/* - */}
-        <Col lg={3} md={12} sm={12} xs={12} onClick={() => setShowPopupWOI(true)}>
+        <Col lg={3} md={6} sm={6} xs={12} onClick={() => setShowPopupWOI(true)}>
           <div className='project-wrapper'>
             <img className='project-image' src={woi} alt='Project 4...' />
             <FontAwesomeIcon className='project-icon' icon={faSearchPlus} />
-            <div className='overlay'></div>
             <h3>...</h3>
           </div>
         </Col>

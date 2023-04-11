@@ -1,17 +1,16 @@
-import React from 'react'
-import InterestsCarousel from './interestsCarousel'
+import React from 'react';
+import InterestsCarousel from './interestsCarousel';
+import './interests.scss';
 
 const Interests = () => {
   return (
-    <div id="interests" className="interests">
+    <div id='interests' className='interests'>
       <h1>interests</h1>
-      <div className="container">
-        <div className="interests-content">
-          <InterestsCarousel />
-        </div>
+      <div className='interests-content'>
+        <InterestsCarousel />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Interests
+export default Interests;

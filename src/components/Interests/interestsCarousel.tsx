@@ -20,18 +20,6 @@ const InterestsCarousel = () => {
       </>
       <>
         <div className='bgcircle'>
-          <FontAwesomeIcon className='bgicon' icon={faLaptopCode} size='2x' />
-        </div>
-        <div className='myCarousel'>
-          <h3>Get an IT job</h3>
-          <p>
-            One of my biggest interests for most of my life. As a person who learns by doing, the possibility of working in IT would give me huge
-            amounts of experience.
-          </p>
-        </div>
-      </>
-      <>
-        <div className='bgcircle'>
           <FontAwesomeIcon className='bgicon' icon={faMobileAlt} size='2x' />
         </div>
         <div className='myCarousel'>
