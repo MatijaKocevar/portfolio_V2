@@ -11,12 +11,13 @@ const Service = (props: TranslationProps) => {
         <h1>{props.getTranslation('Navigation_Skills')}</h1>
       </Row>
       <Row className='skills-container'>
+        {/* - */}
         <div className='box'>
           <div className='circle'>
-            <FontAwesomeIcon className='icon' icon={faDesktop} size='2x' />
+            <FontAwesomeIcon className='icon' icon={faFileCode} size='2x' />
           </div>
-          <h3>PC & Mobile repair</h3>
-          <p>Harware and software configuring, problem solving, tech support</p>
+          <h3>Web development</h3>
+          <p>React, Typescript, Vue, Javascript, .NET, SQL SERVER, Umbraco</p>
         </div>
         {/* - */}
         <div className='box'>
@@ -37,10 +38,10 @@ const Service = (props: TranslationProps) => {
         {/* - */}
         <div className='box'>
           <div className='circle'>
-            <FontAwesomeIcon className='icon' icon={faFileCode} size='2x' />
+            <FontAwesomeIcon className='icon' icon={faDesktop} size='2x' />
           </div>
-          <h3>Web development</h3>
-          <p>Basic HTML, CSS, Javascript, C#, .NET core</p>
+          <h3>PC & Mobile repair</h3>
+          <p>Harware and software configuring, problem solving, tech support</p>
         </div>
       </Row>
     </Container>
