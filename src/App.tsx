@@ -47,9 +47,9 @@ const App = () => {
       <Row>
         <Skills getTranslation={getTranslation} />
       </Row>
-      {/* <Row>
-        <Projects />
-      </Row> */}
+      <Row>
+        <Projects getTranslation={getTranslation} />
+      </Row>
       {/* <Row>
         <Interests />
       </Row> */}

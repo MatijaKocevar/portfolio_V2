@@ -1,76 +1,42 @@
-.projects-wrapper {
-  text-align: center;
-  padding-bottom: 2rem;
-}
+@use "../../variables" as v;
 
-.projects-wrapper h1 {
-  color: var(--primary-dark);
-  font-weight: 525;
-  padding: 3rem 0 3rem 0;
-  margin-bottom: 0;
-}
+.projects {
+  background-color: v.$darkPurple;
 
-.projects-wrapper h3 {
-  margin: 0.5rem 0 0.5rem 0;
-  text-align: center;
-}
+  .heading-row {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2rem;
 
-.project-wrapper:hover .projects-image {
-  border: 0.5rem solid var(--primary-blue);
-  transition: 0.2s ease-in-out;
-}
+    h1 {
+      color: v.$white;
+      text-transform: uppercase;
+      width: fit-content;
+    }
+  }
 
-.projects-image {
-  width: 100%;
-  border: 0.5rem solid var(--primary-dark);
-}
+  .project-wrapper {
+    text-align: center;
 
-.overlay {
-  position: absolute;
-  opacity: 0%;
-  background: var(--primary-black);
-  top: 0;
-  width: 89.5%;
-  height: 75%;
-  cursor: pointer;
-}
+    .project-image {
+      width: 100%;
+      border: 0.5rem solid var(--primary-dark);
+    }
 
-.project-wrapper:hover .overlay {
-  opacity: 0.6;
-  transition: 0.4s ease-in-out;
-}
+    .project-icon {
+      position: absolute;
+      top: 35%;
+      left: 45%;
+      color: var(--primary-gray);
+      font-size: 1.5rem;
+    }
 
-.projects-icon {
-  position: absolute;
-  top: 35%;
-  left: 45%;
-  color: var(--primary-gray);
-  font-size: 1.5rem;
-}
+    h3 {
+      padding-top: 2rem;
+      color: v.$white
+    }
 
-.project-wrapper:hover .projects-icon {
-  color: var(--primary-blue);
-  transition: 0.4s ease-in-out;
-}
+  }
 
-.popupbox-wrapper {
-  width: 50%;
-}
 
-.projects-image-popupbox {
-  width: 90%;
-  display: flex;
-  margin-left: auto;
-  margin-right: auto;
-  padding-bottom: 0.5rem;
-}
-
-.hyper-link {
-  padding: 0;
-  border: none;
-  background: none;
-}
-
-.hyper-link:hover {
-  color: var(--primary-dark);
 }
