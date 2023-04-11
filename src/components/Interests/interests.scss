@@ -1,5 +1,7 @@
+@use "../../variables" as v;
+
 .interests {
-  background-image: url(/src/images/interests-bg.jpg);
+  background-color: v.$mediumPurple;
   background-size: cover;
   text-align: center;
   padding-bottom: 3rem;
@@ -7,7 +9,7 @@
 }
 
 .interests h1 {
-  color: var(--primary-white);
+  color: v.$white;
   padding: 3rem 0;
   text-transform: uppercase;
   font-weight: 525;
@@ -16,28 +18,28 @@
 
 .interests-content {
   text-align: center;
-  max-width: 100%;
+  max-width: 80%;
   margin: 0 auto 2rem auto;
-  background: var(--primary-transparent-black);
+  background: v.$darkerPurple;
 }
 
 .bgcircle {
   position: relative;
   margin: 0.375rem auto;
-  background: var(--primary-dark);
+  background: v.$lightPurple;
   border-radius: 50%;
   width: 10rem;
   height: 10rem;
 }
 
 .interests-content:hover .bgcircle {
-  background: var(--primary-blue);
+  background: v.$white;
   transition: 0.4s ease-in-out;
 }
 
 .bgicon {
   font-size: 5rem;
-  color: var(--primary-white);
+  color: v.$darkerPurple;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -45,7 +47,7 @@
 }
 
 .myCarousel {
-  color: var(--primary-white);
+  color: v.$white;
   background: transparent;
   margin-left: auto;
   margin-right: auto;
@@ -54,13 +56,13 @@
 }
 
 .myCarousel h3 {
-  color: var(--primary-medium-gray);
+  color: v.$medium-gray;
   font-weight: 600;
   text-transform: uppercase;
 }
 
 .myCarousel p {
-  color: var(--primary-gray);
+  color: v.$white;
 }
 
 .carousel .slide {
@@ -73,6 +75,7 @@
     font-size: 1.7rem;
     padding: 2rem 0;
   }
+
   .myCarousel h3 {
     font-size: 1.3rem;
   }

@@ -12,6 +12,7 @@ import Projects from './components/Projects/projects';
 import { useState } from 'react';
 import { getTranslations } from './translations/components/getTranslation';
 import { Translation } from './components/Types/types';
+import Interests from './components/Interests/interests';
 
 const App = () => {
   const [translations, setTranslations] = useState<Translation[]>(getTranslations('en'));
@@ -50,9 +51,9 @@ const App = () => {
       <Row>
         <Projects getTranslation={getTranslation} />
       </Row>
-      {/* <Row>
+      <Row>
         <Interests />
-      </Row> */}
+      </Row>
       <Row>
         <Footer getTranslation={getTranslation} />
       </Row>
