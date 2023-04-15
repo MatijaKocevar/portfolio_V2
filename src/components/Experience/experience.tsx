@@ -1,5 +1,6 @@
 import { Col, Container, Row } from 'react-bootstrap';
 import './experience.scss';
+import { TranslationProps } from '../Types/types';
 
 const Education = (props: TranslationProps) => {
   return (
