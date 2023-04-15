@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './ToggleSwitch.scss';
+import { ToggleSwitchProps } from '../../Types/types';
 
 const ToggleSwitch: React.FC<ToggleSwitchProps> = ({ onChange, language }) => {
   const [isChecked, setIsChecked] = useState<boolean>(language === 'slo');

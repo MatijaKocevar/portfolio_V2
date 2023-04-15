@@ -12,6 +12,7 @@ import {
 import { Link } from 'react-scroll';
 import './footer.scss';
 import { Col, Container, Row } from 'react-bootstrap';
+import { TranslationProps } from '../Types/types';
 
 const Footer = (props: TranslationProps) => {
   const startingOffset = window.innerWidth < 1199 ? -61 : -86;
