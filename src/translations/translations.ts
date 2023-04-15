@@ -97,4 +97,34 @@ export const Translations = [
             vaš najljubši mačji video), vas prosim, da me kontaktirate. Z veseljem poklepetam z vami!
           </div>`,
   },
+  /**
+   * EDUCATION
+   */
+  {
+    id: 'Education_Electrotechnician',
+    en: `<h3>Electrotechnician of computer science</h3>
+         <h5>2004 - 2008 / High school (.V)</h5>
+         <p>Gained basic programming skills in C++, HTML, CSS. </p>`,
+    slo: `<h3>Elektrotehnik računalništva</h3>
+         <h5>2004 - 2008 / Srednja šola (.V)</h5>
+         <p>Pridobil osnovno znanje programiranja v C++, HTML, CSS. </p>`,
+  },
+  {
+    id: 'Education_RIT',
+    en: `<h3>Computer science and information technologies</h3>
+         <h5>2008 - 2011 / College (.VI) - unfinished</h5>
+         <p>Gained knowledge of Linux Shell, and furthered skills in C++, HTML and CSS.</p>`,
+    slo: `<h3>Računalništvo in informacijske tehnologije</h3>
+          <h5>2008 - 2011 / VSŠ (.VI) - nedokončano</h5>
+          <p>Pridobil znanje o Linux Shell in nadaljeval z pridobivanjem znanja v C++, HTML and CSS. </p>`,
+  },
+  {
+    id: 'Education_Personal',
+    en: `<h3>Learning web development</h3>
+         <h5>2020 - 2021 / Personal</h5>
+         <p>HTML, CSS, SQL, React JS, Vue JS, Node JS, .NET core, C#</p>`,
+    slo: `<h3>Samostojno učenje razvijanja web aplikacij</h3>
+          <h5>2020 - 2021 / Personal</h5>
+          <p>HTML, CSS, SQL, React JS, Vue JS, Node JS, .NET core, C#</p>`,
+  },
 ];
