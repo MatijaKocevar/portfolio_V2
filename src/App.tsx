@@ -9,23 +9,24 @@ import Footer from './components/Footer/footer';
 import Skills from './components/Skills/skills';
 import Projects from './components/Projects/projects';
 
-import { useState } from 'react';
+import { createElement, useState } from 'react';
 import { getTranslations } from './translations/components/getTranslation';
 import { Translation } from './components/Types/types';
 import Interests from './components/Interests/interests';
+import { parseStringToJSX } from './components/Shared/Utils/parseStringToJSX';
+
+const containsHTML = (str: string) => /<[a-z][\s\S]*>/i.test(str);
 
 const App = () => {
   const [translations, setTranslations] = useState<Translation[]>(getTranslations('en'));
 
   const getTranslation = (id: string) => {
-    let message = '';
-
     const matchingEl = translations.find((el) => el.id == id);
 
-    if (matchingEl) message = matchingEl.message;
-    else message = 'N/A';
-
-    return message;
+    if (matchingEl) {
+      if (!containsHTML(matchingEl.message)) return matchingEl.message;
+      else return parseStringToJSX(matchingEl.message);
+    } else return 'N/A';
   };
 
   return (
