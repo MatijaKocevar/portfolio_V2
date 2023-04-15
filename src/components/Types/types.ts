@@ -1,5 +1,5 @@
 export interface TranslationProps {
-  getTranslation: (id: string) => string;
+  getTranslation: (id: string) => string | JSX.Element;
   setTranslations?: React.Dispatch<React.SetStateAction<Translation[]>>;
 }
 

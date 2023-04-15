@@ -20,6 +20,7 @@
     "@types/react-dom": "^18.0.9",
     "@types/react-scroll": "^1.8.4",
     "bootstrap": "^5.2.3",
+    "dompurify": "^3.0.2",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.2",
     "react-dom": "^18.2.0",
@@ -30,6 +31,7 @@
     "sass": "^1.55.0"
   },
   "devDependencies": {
+    "@types/dompurify": "^3.0.1",
     "@typescript-eslint/eslint-plugin": "^5.43.0",
     "@typescript-eslint/parser": "^5.43.0",
     "@vitejs/plugin-react": "^2.1.0",
