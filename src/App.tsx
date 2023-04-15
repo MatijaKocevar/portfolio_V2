@@ -53,7 +53,7 @@ const App = () => {
         <Projects getTranslation={getTranslation} />
       </Row>
       <Row>
-        <Interests />
+        <Interests getTranslation={getTranslation} />
       </Row>
       <Row>
         <Footer getTranslation={getTranslation} />

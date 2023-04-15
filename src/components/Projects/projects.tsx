@@ -48,7 +48,7 @@ const Projects = (props: TranslationProps) => {
   return (
     <Container className='projects'>
       <Row className='heading-row'>
-        <h1 className=''>projects</h1>
+        <h1 className=''>{props.getTranslation('Navigation_Projects')}</h1>
       </Row>
       {showPopupResume && <PopupBox content={resumeContent} onClose={() => setShowPopupResume(false)} />}
       {showPopupHolidays && <PopupBox content={holidayContent} onClose={() => setShowPopupHolidays(false)} />}
