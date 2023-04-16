@@ -97,4 +97,78 @@ export const Translations = [
             vaš najljubši mačji video), vas prosim, da me kontaktirate. Z veseljem poklepetam z vami!
           </div>`,
   },
+  /**
+   * EDUCATION
+   */
+  {
+    id: 'Education_Electrotechnician',
+    en: `<h3>Electrotechnician of computer science</h3>
+         <h5>2004 - 2008 / High school (.V)</h5>
+         <p>Gained basic programming skills in C++, HTML, CSS. </p>`,
+    slo: `<h3>Elektrotehnik računalništva</h3>
+         <h5>2004 - 2008 / Srednja šola (.V)</h5>
+         <p>Pridobil osnovno znanje programiranja v C++, HTML, CSS. </p>`,
+  },
+  {
+    id: 'Education_RIT',
+    en: `<h3>Computer science and information technologies</h3>
+         <h5>2008 - 2011 / College (.VI) - unfinished</h5>
+         <p>Gained knowledge of Linux Shell, and furthered skills in C++, HTML and CSS.</p>`,
+    slo: `<h3>Računalništvo in informacijske tehnologije</h3>
+          <h5>2008 - 2011 / VSŠ (.VI) - nedokončano</h5>
+          <p>Pridobil znanje o Linux Shell in nadaljeval z pridobivanjem znanja v C++, HTML and CSS. </p>`,
+  },
+  {
+    id: 'Education_Personal',
+    en: `<h3>Learning web development</h3>
+         <h5>2020 - 2021 / Personal</h5>
+         <p>HTML, CSS, SQL, React JS, Vue JS, Node JS, .NET core, C#</p>`,
+    slo: `<h3>Samostojno učenje razvijanja web aplikacij</h3>
+          <h5>2020 - 2021 / Personal</h5>
+          <p>HTML, CSS, SQL, React JS, Vue JS, Node JS, .NET core, C#</p>`,
+  },
+  /**
+   * EXPERIENCE
+   */
+  {
+    id: 'Experience_Mimovrste',
+    en: `<h3>Data visualisation in Microsoft Excel and Google Sheets</h3>
+         <h5>2019 - 2020 / Mimovrste d.o.o.</h5>
+         <p>
+           Created semi-automated Excel documents for sales & stock overview connected with internal ERP system. Developed an automated system of
+           price checking using Google App Scripts & Sheets.
+         </p>`,
+    slo: `<h3>Vizualicija podatkov v Microsoft Excel in Google Sheets</h3>
+          <h5>2019 - 2020 / Mimovrste d.o.o.</h5>
+          <p>
+            Ustvaril Excel dokumente z avtomatskim pridobivanjem podatkov iz ERP sistema. Ustvaril "scrapper", ki je iz spletne strani pridobival trenutne cene in njihove spremembe v Google Sheets in Google App Scripts.
+          </p>`,
+  },
+  {
+    id: 'Experience_Api',
+    en: `<h3>Created first API</h3>
+         <h5>2021 / Personal</h5>
+         <p>Developed with .NET core in C# & Vue JS for a simple user interface</p>`,
+    slo: `<h3>Ustvaril prvi API</h3>
+          <h5>2021 / Osebno</h5>
+          <p>Razvit z uporabo .NET core v C# in VUE.js za enostaven uporabniški vmesnik</p>`,
+  },
+  {
+    id: 'Experience_Webpage',
+    en: `<h3>Created first webpage</h3>
+         <h5>2021 / Personal</h5>
+         <p>Developed with React JS & Bootstrap 4.</p>`,
+    slo: `<h3>Ustvaril prvo spletno stran</h3>
+          <h5>2021 / Osebno</h5>
+          <p>Razvit v React JS in z uporabo Boostrap 4.</p>`,
+  },
+  {
+    id: 'Experience_Agitavit',
+    en: `<h3>Software developer - Agitavit Solutions d.o.o.</h3>
+         <h5>2021 - current / Employment</h5>
+         <p>React, Typescript, .NET 7, Umbraco, Sql server, jQuery, VUE</p>`,
+    slo: `<h3>Razvijalec programske opreme - Agitavit Solutions d.o.o.</h3>
+          <h5>2021 - tekoče / Zaposlitev</h5>
+          <p>React, Typescript, .NET 7, Umbraco, Sql server, jQuery, VUE</p>`,
+  },
 ];

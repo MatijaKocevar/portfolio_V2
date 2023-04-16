@@ -15,11 +15,11 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { TranslationProps } from '../Types/types';
 
 const Footer = (props: TranslationProps) => {
-  const startingOffset = window.innerWidth < 1199 ? -61 : -86;
+  const startingOffset = -66;
   const [offset, setOffset] = useState(startingOffset);
 
   window.addEventListener('resize', () => {
-    setOffset(window.innerWidth < 1199 ? -61 : -86);
+    setOffset(-66);
   });
 
   return (
@@ -32,24 +32,24 @@ const Footer = (props: TranslationProps) => {
         </Col>
         <Col className='footer-navigation-links' xs={12} sm={12} md={12} lg={4}>
           <Col className='footer-navigation-left'>
-            <Link smooth={true} to='about-me' offset={offset} ignoreCancelEvents={true} href='#'>
+            <Link smooth={true} to='about-me' offset={offset} ignoreCancelEvents={true} href='#' duration={2}>
               About Me
             </Link>
-            <Link smooth={true} to='education' offset={offset} ignoreCancelEvents={true} href='#'>
+            <Link smooth={true} to='education' offset={offset} ignoreCancelEvents={true} href='#' duration={2}>
               Education
             </Link>
-            <Link smooth={true} to='experience' offset={offset} ignoreCancelEvents={true} href='#'>
+            <Link smooth={true} to='experience' offset={offset} ignoreCancelEvents={true} href='#' duration={2}>
               Experience
             </Link>
           </Col>
           <Col className='footer-navigation-right'>
-            <Link smooth={true} to='skills' offset={offset} ignoreCancelEvents={true} href='#'>
+            <Link smooth={true} to='skills' offset={offset} ignoreCancelEvents={true} href='#' duration={2}>
               Skills
             </Link>
-            <Link smooth={true} to='projects' offset={offset} ignoreCancelEvents={true} href='#'>
+            <Link smooth={true} to='projects' offset={offset} ignoreCancelEvents={true} href='#' duration={2}>
               Projects
             </Link>
-            <Link smooth={true} to='interests' offset={offset} ignoreCancelEvents={true} href='#'>
+            <Link smooth={true} to='interests' offset={offset} ignoreCancelEvents={true} href='#' duration={2}>
               Interests
             </Link>
           </Col>

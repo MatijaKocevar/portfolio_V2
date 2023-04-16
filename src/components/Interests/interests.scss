@@ -8,12 +8,16 @@
   width: 100%;
 }
 
-.interests h1 {
-  color: v.$white;
-  padding: 3rem 0;
-  text-transform: uppercase;
-  font-weight: 525;
-  margin-bottom: 0;
+.heading-row {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 2rem;
+
+  h1 {
+    color: v.$white;
+    text-transform: uppercase;
+    width: fit-content;
+  }
 }
 
 .interests-content {
