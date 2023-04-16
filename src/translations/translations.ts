@@ -138,7 +138,7 @@ export const Translations = [
            Created semi-automated Excel documents for sales & stock overview connected with internal ERP system. Developed an automated system of
            price checking using Google App Scripts & Sheets.
          </p>`,
-    slo: `<h3>VIzualicija podatkov v Microsoft Excel in Google Sheets</h3>
+    slo: `<h3>Vizualicija podatkov v Microsoft Excel in Google Sheets</h3>
           <h5>2019 - 2020 / Mimovrste d.o.o.</h5>
           <p>
             Ustvaril Excel dokumente z avtomatskim pridobivanjem podatkov iz ERP sistema. Ustvaril "scrapper", ki je iz spletne strani pridobival trenutne cene in njihove spremembe v Google Sheets in Google App Scripts.
