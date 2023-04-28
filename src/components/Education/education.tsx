@@ -1,12 +1,15 @@
 import { Col, Container, Row } from 'react-bootstrap';
 import './education.scss';
-import { TranslationProps } from '../Types/types';
+import { useContext } from 'react';
+import { TranslationContext } from '../../translations/components/TranslationContext';
 
-const Education = (props: TranslationProps) => {
+const Education = () => {
+  const { setLanguage, getTranslation } = useContext(TranslationContext);
+
   return (
     <Container id='timeline' className='education'>
       <Row className='heading-row'>
-        <h1>{props.getTranslation('Navigation_Education')}</h1>
+        <h1>{getTranslation('Navigation_Education')}</h1>
       </Row>
       <Row className='timeline-wrapper'>
         {/* - */}
@@ -16,7 +19,7 @@ const Education = (props: TranslationProps) => {
               <div className='line'></div>
               <div className='marker'></div>
             </div>
-            <div className='timeline-content'>{props.getTranslation('Education_Electrotechnician')}</div>
+            <div className='timeline-content'>{getTranslation('Education_Electrotechnician')}</div>
           </Col>
           <Col xs={0} sm={0} md={0} lg={6}></Col>
         </Row>
@@ -28,7 +31,7 @@ const Education = (props: TranslationProps) => {
               <div className='line'></div>
               <div className='marker'></div>
             </div>
-            <div className='timeline-content'>{props.getTranslation('Education_RIT')}</div>
+            <div className='timeline-content'>{getTranslation('Education_RIT')}</div>
           </Col>
         </Row>
         {/* - */}
@@ -38,7 +41,7 @@ const Education = (props: TranslationProps) => {
               <div className='line'></div>
               <div className='marker'></div>
             </div>
-            <div className='timeline-content'>{props.getTranslation('Education_Personal')}</div>
+            <div className='timeline-content'>{getTranslation('Education_Personal')}</div>
           </Col>
           <Col xs={0} sm={0} md={0} lg={6}></Col>
         </Row>

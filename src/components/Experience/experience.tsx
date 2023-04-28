@@ -1,12 +1,16 @@
 import { Col, Container, Row } from 'react-bootstrap';
 import './experience.scss';
 import { TranslationProps } from '../Types/types';
+import { useContext } from 'react';
+import { TranslationContext } from '../../translations/components/TranslationContext';
 
-const Education = (props: TranslationProps) => {
+const Education = () => {
+  const { getTranslation } = useContext(TranslationContext);
+
   return (
     <Container id='timeline' className='experience'>
       <Row className='heading-row'>
-        <h1>{props.getTranslation('Navigation_Experience')}</h1>
+        <h1>{getTranslation('Navigation_Experience')}</h1>
       </Row>
       <Row className='timeline-wrapper'>
         {/* - */}
@@ -17,7 +21,7 @@ const Education = (props: TranslationProps) => {
               <div className='line'></div>
               <div className='marker'></div>
             </div>
-            <div className='timeline-content'>{props.getTranslation('Experience_Mimovrste')}</div>
+            <div className='timeline-content'>{getTranslation('Experience_Mimovrste')}</div>
           </Col>
         </Row>
         {/* - */}
@@ -27,7 +31,7 @@ const Education = (props: TranslationProps) => {
               <div className='line'></div>
               <div className='marker'></div>
             </div>
-            <div className='timeline-content'>{props.getTranslation('Experience_Api')}</div>
+            <div className='timeline-content'>{getTranslation('Experience_Api')}</div>
           </Col>
           <Col xs={0} sm={0} md={0} lg={6}></Col>
         </Row>
@@ -39,7 +43,7 @@ const Education = (props: TranslationProps) => {
               <div className='line'></div>
               <div className='marker'></div>
             </div>
-            <div className='timeline-content'>{props.getTranslation('Experience_Webpage')}</div>
+            <div className='timeline-content'>{getTranslation('Experience_Webpage')}</div>
           </Col>
         </Row>
         {/* - */}
@@ -49,7 +53,7 @@ const Education = (props: TranslationProps) => {
               <div className='line'></div>
               <div className='marker'></div>
             </div>
-            <div className='timeline-content'>{props.getTranslation('Experience_Agitavit')}</div>
+            <div className='timeline-content'>{getTranslation('Experience_Agitavit')}</div>
           </Col>
           <Col xs={0} sm={0} md={0} lg={6}></Col>
         </Row>

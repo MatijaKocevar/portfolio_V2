@@ -1,11 +1,14 @@
 import author from './images/me.jpg';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './header.scss';
 import { TranslationProps } from '../Types/types';
+import { TranslationContext } from '../../translations/components/TranslationContext';
 
 const TEXTS = ['Creative', 'Hard working', 'Positive'];
 
-const Header = (props: TranslationProps) => {
+const Header = () => {
+  const { getTranslation } = useContext(TranslationContext);
+
   const [index, setIndex] = useState(0);
 
   React.useEffect(() => {
@@ -18,7 +21,7 @@ const Header = (props: TranslationProps) => {
       <div className='main-info'>
         <h1 className='heading'>portfolio</h1>
         <h1 className='heading' style={{ color: 'red' }}>
-          {props.getTranslation('Header_Subtitle')}
+          {getTranslation('Header_Subtitle')}
         </h1>
       </div>
     </div>
