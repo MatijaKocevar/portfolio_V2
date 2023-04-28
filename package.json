@@ -24,6 +24,7 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.2",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.8.0",
     "react-popupbox": "^2.0.9",
     "react-responsive-carousel": "^3.2.23",
     "react-scroll": "^1.8.8",

@@ -7,8 +7,16 @@
     justify-content: space-between
   }
 
-  .language-toggle {
+  .navbar-right {
     display: flex;
     align-items: center;
+    gap: 1rem;
+
+    .icon-link {
+      svg {
+        width: 2rem;
+        height: 2rem;
+      }
+    }
   }
 }

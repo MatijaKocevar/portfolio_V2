@@ -4,6 +4,23 @@ import { Link } from 'react-scroll';
 import logo from '../../images/logo.png';
 import ToggleSwitch from '../Shared/ToogleSwitch/ToggleSwitch';
 import { TranslationContext } from '../../translations/components/TranslationContext';
+import { FaGithub, FaLinkedin, FaLinkedinIn } from 'react-icons/fa';
+
+const GitHubLink = (props: { href: string }) => {
+  return (
+    <a className='icon-link' href={props.href} target='_blank' rel='noopener noreferrer'>
+      <FaGithub />
+    </a>
+  );
+};
+
+const LinkedinLink = (props: { href: string }) => {
+  return (
+    <a className='icon-link' href={props.href} target='_blank' rel='noopener noreferrer'>
+      <FaLinkedin />
+    </a>
+  );
+};
 
 const NavBar = () => {
   const { setLanguage, getTranslation } = useContext(TranslationContext);
@@ -164,7 +181,9 @@ const NavBar = () => {
             </Link>
           </li>
         </ul>
-        <div className='language-toggle'>
+        <div className='navbar-right'>
+          <GitHubLink href='https://github.com/MatijaKocevar' />
+          <LinkedinLink href='https://www.linkedin.com/in/matija-ko%C4%8Devar-59a198109/' />
           <ToggleSwitch onChange={onLanguageChange} language='en' />
         </div>
       </div>

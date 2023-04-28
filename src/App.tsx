@@ -9,8 +9,13 @@ import Footer from './components/Footer/footer';
 import Skills from './components/Skills/skills';
 import Projects from './components/Projects/projects';
 import Interests from './components/Interests/interests';
+import { useEffect } from 'react';
 
 const App = () => {
+  useEffect(() => {
+    console.log('App.tsx');
+  });
+
   return (
     <>
       <Row>
