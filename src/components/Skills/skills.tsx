@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTable, faPaintBrush, faDesktop, faFileCode } from '@fortawesome/free-solid-svg-icons';
+import { faTable, faPaintBrush, faDesktop, faFileCode, faPenFancy } from '@fortawesome/free-solid-svg-icons';
 import './skills.scss';
 import { Col, Container, Row } from 'react-bootstrap';
 import FlipBox from '../Shared/FlipBox/FlipBox';
@@ -22,15 +22,16 @@ const Service = () => {
               frontContent={
                 <div className='box'>
                   <div className='circle'>
-                    <FontAwesomeIcon className='icon' icon={faFileCode} size='2x' />
+                    <FontAwesomeIcon className='icon' icon={faFileCode} size='3x' />
                   </div>
-                  <div className='skill-content'>
-                    <h3>{getTranslation('Skills_WebDevelopment_Title')}</h3>
-                    <p>{getTranslation('Skills_WebDevelopment')}</p>
-                  </div>
+                  <h3>{getTranslation('Skills_WebDevelopment_Title')}</h3>
                 </div>
               }
-              backContent={<div>Back</div>}
+              backContent={
+                <div className='box'>
+                  <p>{getTranslation('Skills_WebDevelopment')}</p>
+                </div>
+              }
             />
           </Col>
           {/* - */}
@@ -39,15 +40,16 @@ const Service = () => {
               frontContent={
                 <div className='box'>
                   <div className='circle'>
-                    <FontAwesomeIcon className='icon' icon={faPaintBrush} size='2x' />
+                    <FontAwesomeIcon className='icon' icon={faPenFancy} size='3x' />
                   </div>
-                  <div className='skill-content'>
-                    <h3>{getTranslation('Skills_Design_Title')}</h3>
-                    <p>Basic skills in Adobe Illustrator, Photoshop & Premiere</p>
-                  </div>
+                  <h3>{getTranslation('Skills_Design_Title')}</h3>
                 </div>
               }
-              backContent={<div>Back</div>}
+              backContent={
+                <div className='box'>
+                  <p>{getTranslation('Skills_Design')}</p>
+                </div>
+              }
             />
           </Col>
           {/* - */}
@@ -56,15 +58,16 @@ const Service = () => {
               frontContent={
                 <div className='box'>
                   <div className='circle'>
-                    <FontAwesomeIcon className='icon' icon={faTable} size='2x' />
+                    <FontAwesomeIcon className='icon' icon={faTable} size='3x' />
                   </div>
-                  <div className='skill-content'>
-                    <h3>{getTranslation('Skills_DataVisualising_Title')}</h3>
-                    <p>Advanced knowledge of Microsoft Excel and a good grasp of how to display important data.</p>
-                  </div>
+                  <h3>{getTranslation('Skills_DataVisualising_Title')}</h3>
                 </div>
               }
-              backContent={<div>Back</div>}
+              backContent={
+                <div className='box'>
+                  <p>{getTranslation('Skills_DataVisualising')}</p>
+                </div>
+              }
             />
           </Col>
           {/* - */}
@@ -73,15 +76,16 @@ const Service = () => {
               frontContent={
                 <div className='box'>
                   <div className='circle'>
-                    <FontAwesomeIcon className='icon' icon={faDesktop} size='2x' />
+                    <FontAwesomeIcon className='icon' icon={faDesktop} size='3x' />
                   </div>
-                  <div className='skill-content'>
-                    <h3>{getTranslation('Skills_PcMobileRepair_Title')}</h3>
-                    <p>Harware and software configuring, problem solving, tech support</p>
-                  </div>
+                  <h3>{getTranslation('Skills_PcMobileRepair_Title')}</h3>
                 </div>
               }
-              backContent={<div>Back</div>}
+              backContent={
+                <div className='box'>
+                  <p>{getTranslation('Skills_PcMobileRepair')}</p>
+                </div>
+              }
             />
           </Col>
         </Row>
