@@ -2,7 +2,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTable, faPaintBrush, faDesktop, faFileCode } from '@fortawesome/free-solid-svg-icons';
 import './skills.scss';
 import { Col, Container, Row } from 'react-bootstrap';
-import { TranslationProps } from '../Types/types';
 import FlipBox from '../Shared/FlipBox/FlipBox';
 import { useContext } from 'react';
 import { TranslationContext } from '../../translations/components/TranslationContext';
@@ -25,8 +24,10 @@ const Service = () => {
                   <div className='circle'>
                     <FontAwesomeIcon className='icon' icon={faFileCode} size='2x' />
                   </div>
-                  <h3>{getTranslation('Skills_WebDevelopment_Title')}</h3>
-                  <p>{getTranslation('Skills_WebDevelopment')}</p>
+                  <div className='skill-content'>
+                    <h3>{getTranslation('Skills_WebDevelopment_Title')}</h3>
+                    <p>{getTranslation('Skills_WebDevelopment')}</p>
+                  </div>
                 </div>
               }
               backContent={<div>Back</div>}
@@ -40,8 +41,10 @@ const Service = () => {
                   <div className='circle'>
                     <FontAwesomeIcon className='icon' icon={faPaintBrush} size='2x' />
                   </div>
-                  <h3>{getTranslation('Skills_Design_Title')}</h3>
-                  <p>Basic skills in Adobe Illustrator, Photoshop & Premiere</p>
+                  <div className='skill-content'>
+                    <h3>{getTranslation('Skills_Design_Title')}</h3>
+                    <p>Basic skills in Adobe Illustrator, Photoshop & Premiere</p>
+                  </div>
                 </div>
               }
               backContent={<div>Back</div>}
@@ -55,8 +58,10 @@ const Service = () => {
                   <div className='circle'>
                     <FontAwesomeIcon className='icon' icon={faTable} size='2x' />
                   </div>
-                  <h3>{getTranslation('Skills_DataVisualising_Title')}</h3>
-                  <p>Advanced knowledge of Microsoft Excel and a good grasp of how to display important data.</p>
+                  <div className='skill-content'>
+                    <h3>{getTranslation('Skills_DataVisualising_Title')}</h3>
+                    <p>Advanced knowledge of Microsoft Excel and a good grasp of how to display important data.</p>
+                  </div>
                 </div>
               }
               backContent={<div>Back</div>}
@@ -70,8 +75,10 @@ const Service = () => {
                   <div className='circle'>
                     <FontAwesomeIcon className='icon' icon={faDesktop} size='2x' />
                   </div>
-                  <h3>{getTranslation('Skills_PcMobileRepair_Title')}</h3>
-                  <p>Harware and software configuring, problem solving, tech support</p>
+                  <div className='skill-content'>
+                    <h3>{getTranslation('Skills_PcMobileRepair_Title')}</h3>
+                    <p>Harware and software configuring, problem solving, tech support</p>
+                  </div>
                 </div>
               }
               backContent={<div>Back</div>}

@@ -2,8 +2,6 @@ import project1 from '../../images/project1.png';
 import project2 from '../../images/project2.png';
 import project3 from '../../images/project3.png';
 import woi from '../../images/woi.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearchPlus } from '@fortawesome/free-solid-svg-icons';
 import './projects.scss';
 import { useContext, useState } from 'react';
 import PopupBox from '../Shared/PopupBox/PopupBox';
@@ -60,7 +58,6 @@ const Projects = () => {
         <Col lg={3} md={6} sm={6} xs={12} onClick={() => setShowPopupResume(true)}>
           <div className='project-wrapper'>
             <img className='project-image' src={project1} alt='project webpage' />
-            <FontAwesomeIcon className='project-icon' icon={faSearchPlus} />
             <h3>Online resume</h3>
           </div>
         </Col>
@@ -68,7 +65,6 @@ const Projects = () => {
         <Col lg={3} md={6} sm={6} xs={12} onClick={() => setShowPopupHolidays(true)}>
           <div className='project-wrapper'>
             <img className='project-image' src={project2} alt='Project 2...' />
-            <FontAwesomeIcon className='project-icon' icon={faSearchPlus} />
             <h3>Holidays calculator</h3>
           </div>
         </Col>
@@ -76,7 +72,6 @@ const Projects = () => {
         <Col lg={3} md={6} sm={6} xs={12} onClick={() => setShowPopupDiffing(true)}>
           <div className='project-wrapper'>
             <img className='project-image' src={project3} alt='Project 3...' />
-            <FontAwesomeIcon className='project-icon' icon={faSearchPlus} />
             <h3>Diffing API</h3>
           </div>
         </Col>
@@ -84,7 +79,6 @@ const Projects = () => {
         <Col lg={3} md={6} sm={6} xs={12} onClick={() => setShowPopupWOI(true)}>
           <div className='project-wrapper'>
             <img className='project-image' src={woi} alt='Project 4...' />
-            <FontAwesomeIcon className='project-icon' icon={faSearchPlus} />
             <h3>...</h3>
           </div>
         </Col>

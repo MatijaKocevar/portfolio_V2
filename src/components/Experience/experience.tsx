@@ -1,6 +1,5 @@
 import { Col, Container, Row } from 'react-bootstrap';
 import './experience.scss';
-import { TranslationProps } from '../Types/types';
 import { useContext } from 'react';
 import { TranslationContext } from '../../translations/components/TranslationContext';
 
