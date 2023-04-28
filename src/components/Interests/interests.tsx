@@ -1,7 +1,6 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import InterestsCarousel from './interestsCarousel';
 import './interests.scss';
-import { TranslationProps } from '../Types/types';
 import { Container, Row } from 'react-bootstrap';
 import { TranslationContext } from '../../translations/components/TranslationContext';
 

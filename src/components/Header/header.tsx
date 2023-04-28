@@ -1,7 +1,5 @@
-import author from './images/me.jpg';
 import React, { useContext, useState } from 'react';
 import './header.scss';
-import { TranslationProps } from '../Types/types';
 import { TranslationContext } from '../../translations/components/TranslationContext';
 
 const TEXTS = ['Creative', 'Hard working', 'Positive'];

@@ -6,6 +6,6 @@ export default defineConfig({
   base: '/portfolio_V2/',
   plugins: [react()],
   server: {
-    host: false,
+    host: true,
   },
 });

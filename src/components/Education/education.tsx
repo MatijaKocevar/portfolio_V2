@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { TranslationContext } from '../../translations/components/TranslationContext';
 
 const Education = () => {
-  const { setLanguage, getTranslation } = useContext(TranslationContext);
+  const { getTranslation } = useContext(TranslationContext);
 
   return (
     <Container id='timeline' className='education'>

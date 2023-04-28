@@ -199,4 +199,21 @@ export const Translations = [
     en: `React, Typescript, Vue, Javascript, .NET, SQL SERVER, Umbraco`,
     slo: `React, Typescript, Vue, Javascript, .NET, SQL SERVER, Umbraco`,
   },
+  {
+    id: 'Skills_Design',
+    en: `Basic skills in Adobe Illustrator, Photoshop & Premiere, Inkscape`,
+    slo: `Osnovno znanje Adobe Illustrator, Photoshop & Premiere, Inkscape`,
+  },
+  {
+    id: 'Skills_DataVisualising',
+    en: `Advanced knowledge of Microsoft Excel and a good grasp of how to display important data.`,
+    slo: `Napredno poznavanje Microsoft Excela in dobro razumevanje prikaza pomembnih podatkov.`,
+  },
+  {
+    id: 'Skills_PcMobileRepair',
+    en: `Hardware and software configuring, problem solving, tech support.`,
+    slo: `Konfiguracija strojne in programske opreme, reševanje problemov, tehnična podpora
+
+`,
+  },
 ];
