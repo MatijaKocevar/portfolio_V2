@@ -1,18 +1,17 @@
-import { useRef, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 import './navbar.scss';
 import { Link } from 'react-scroll';
 import logo from '../../images/logo.png';
-import { getTranslations } from '../../translations/components/getTranslation';
 import ToggleSwitch from '../Shared/ToogleSwitch/ToggleSwitch';
-import { TranslationProps } from '../Types/types';
-import { Button } from 'react-bootstrap';
+import { TranslationContext } from '../../translations/components/TranslationContext';
 
-const NavBar = (props: TranslationProps) => {
+const NavBar = () => {
+  const { setLanguage, getTranslation } = useContext(TranslationContext);
+
   const startingOffset = -66;
   const startingToggle = window.innerWidth < 1199 ? 'collapse' : 'keep';
   const [offset, setOffset] = useState(startingOffset);
   const [toggle, setToggle] = useState(startingToggle);
-
   const hamburgerRef = useRef<HTMLButtonElement>(null);
 
   window.addEventListener('resize', () => {
@@ -20,7 +19,11 @@ const NavBar = (props: TranslationProps) => {
     setToggle(window.innerWidth < 1199 ? 'collapse' : 'keep');
   });
 
-  const onLanguageChange = (language: string) => props.setTranslations?.(getTranslations(language));
+  const onLanguageChange = (language: string) => {
+    setLanguage(language);
+  };
+
+  const test = getTranslation('Navigation_AboutMe');
 
   return (
     <nav
@@ -59,9 +62,9 @@ const NavBar = (props: TranslationProps) => {
               href='#'
               data-toggle={toggle}
               data-target='#navbarText'
-              onClick={() => hamburgerRef.current?.click()}
+              // onClick={() => hamburgerRef.current?.click()}
             >
-              {props.getTranslation('Navigation_AboutMe')}
+              {getTranslation('Navigation_AboutMe')}
             </Link>
           </li>
           <li className='nav-item'>
@@ -75,9 +78,9 @@ const NavBar = (props: TranslationProps) => {
               href='#'
               data-toggle={toggle}
               data-target='#navbarText'
-              onClick={() => hamburgerRef.current?.click()}
+              // onClick={() => hamburgerRef.current?.click()}
             >
-              {props.getTranslation('Navigation_Education')}
+              {getTranslation('Navigation_Education')}
             </Link>
           </li>
           <li className='nav-item'>
@@ -91,9 +94,9 @@ const NavBar = (props: TranslationProps) => {
               href='#'
               data-toggle={toggle}
               data-target='#navbarText'
-              onClick={() => hamburgerRef.current?.click()}
+              // onClick={() => hamburgerRef.current?.click()}
             >
-              {props.getTranslation('Navigation_Experience')}
+              {getTranslation('Navigation_Experience')}
             </Link>
           </li>
           <li className='nav-item'>
@@ -107,9 +110,9 @@ const NavBar = (props: TranslationProps) => {
               href='#'
               data-toggle={toggle}
               data-target='#navbarText'
-              onClick={() => hamburgerRef.current?.click()}
+              // onClick={() => hamburgerRef.current?.click()}
             >
-              {props.getTranslation('Navigation_Skills')}
+              {getTranslation('Navigation_Skills')}
             </Link>
           </li>
           <li className='nav-item'>
@@ -123,9 +126,9 @@ const NavBar = (props: TranslationProps) => {
               href='#'
               data-toggle={toggle}
               data-target='#navbarText'
-              onClick={() => hamburgerRef.current?.click()}
+              // onClick={() => hamburgerRef.current?.click()}
             >
-              {props.getTranslation('Navigation_Projects')}
+              {getTranslation('Navigation_Projects')}
             </Link>
           </li>
           <li className='nav-item'>
@@ -139,9 +142,9 @@ const NavBar = (props: TranslationProps) => {
               href='#'
               data-toggle={toggle}
               data-target='#navbarText'
-              onClick={() => hamburgerRef.current?.click()}
+              // onClick={() => hamburgerRef.current?.click()}
             >
-              {props.getTranslation('Navigation_Interests')}
+              {getTranslation('Navigation_Interests')}
             </Link>
           </li>
           <li className='nav-item'>
@@ -155,9 +158,9 @@ const NavBar = (props: TranslationProps) => {
               href='#'
               data-toggle={toggle}
               data-target='#navbarText'
-              onClick={() => hamburgerRef.current?.click()}
+              // onClick={() => hamburgerRef.current?.click()}
             >
-              {props.getTranslation('Navigation_ContactMe')}
+              {getTranslation('Navigation_ContactMe')}
             </Link>
           </li>
         </ul>

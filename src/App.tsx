@@ -8,55 +8,37 @@ import Experience from './components/Experience/experience';
 import Footer from './components/Footer/footer';
 import Skills from './components/Skills/skills';
 import Projects from './components/Projects/projects';
-
-import { createElement, useState } from 'react';
-import { getTranslations } from './translations/components/getTranslation';
-import { Translation } from './components/Types/types';
 import Interests from './components/Interests/interests';
-import { parseStringToJSX } from './components/Shared/Utils/parseStringToJSX';
-
-const containsHTML = (str: string) => /<[a-z][\s\S]*>/i.test(str);
 
 const App = () => {
-  const [translations, setTranslations] = useState<Translation[]>(getTranslations('en'));
-
-  const getTranslation = (id: string) => {
-    const matchingEl = translations.find((el) => el.id == id);
-
-    if (matchingEl) {
-      if (!containsHTML(matchingEl.message)) return matchingEl.message;
-      else return parseStringToJSX(matchingEl.message);
-    } else return 'N/A';
-  };
-
   return (
     <>
       <Row>
-        <NavBar getTranslation={getTranslation} setTranslations={setTranslations} />
+        <NavBar />
       </Row>
       <Row>
-        <Header getTranslation={getTranslation} />
+        <Header />
       </Row>
       <Row>
-        <AboutMe getTranslation={getTranslation} />
+        <AboutMe />
       </Row>
       <Row>
-        <Education getTranslation={getTranslation} />
+        <Education />
       </Row>
       <Row>
-        <Experience getTranslation={getTranslation} />
+        <Experience />
       </Row>
       <Row>
-        <Skills getTranslation={getTranslation} />
+        <Skills />
       </Row>
       <Row>
-        <Projects getTranslation={getTranslation} />
+        <Projects />
       </Row>
       <Row>
-        <Interests getTranslation={getTranslation} />
+        <Interests />
       </Row>
       <Row>
-        <Footer getTranslation={getTranslation} />
+        <Footer />
       </Row>
     </>
   );

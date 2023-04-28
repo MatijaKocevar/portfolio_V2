@@ -5,12 +5,14 @@ import woi from '../../images/woi.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearchPlus } from '@fortawesome/free-solid-svg-icons';
 import './projects.scss';
-import { TranslationProps } from '../Types/types';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import PopupBox from '../Shared/PopupBox/PopupBox';
 import { Col, Container, Row } from 'react-bootstrap';
+import { TranslationContext } from '../../translations/components/TranslationContext';
 
-const Projects = (props: TranslationProps) => {
+const Projects = () => {
+  const { getTranslation } = useContext(TranslationContext);
+
   const [showPopupResume, setShowPopupResume] = useState(false);
   const [showPopupHolidays, setShowPopupHolidays] = useState(false);
   const [showPopupDiffing, setShowPopupDiffing] = useState(false);
@@ -48,7 +50,7 @@ const Projects = (props: TranslationProps) => {
   return (
     <Container className='projects'>
       <Row className='heading-row'>
-        <h1 className=''>{props.getTranslation('Navigation_Projects')}</h1>
+        <h1 className=''>{getTranslation('Navigation_Projects')}</h1>
       </Row>
       {showPopupResume && <PopupBox content={resumeContent} onClose={() => setShowPopupResume(false)} />}
       {showPopupHolidays && <PopupBox content={holidayContent} onClose={() => setShowPopupHolidays(false)} />}

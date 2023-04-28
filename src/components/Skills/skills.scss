@@ -18,14 +18,14 @@
 
 
   .box {
-    border-radius: 5px;
-    min-height: 18rem;
-    border-bottom: 0.3125rem solid v.$gray;
-    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
     background: v.$lightPurple;
     transition: 0.4s ease-in-out;
-    margin-bottom: 1.5rem;
     justify-content: center;
+    align-items: center;
+    height: 100%;
+    border-radius: 5px;
 
     .circle {
       position: relative;

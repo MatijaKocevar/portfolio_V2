@@ -171,4 +171,32 @@ export const Translations = [
           <h5>2021 - tekoče / Zaposlitev</h5>
           <p>React, Typescript, .NET 7, Umbraco, Sql server, jQuery, VUE</p>`,
   },
+  /**
+   * SKILLS
+   */
+  {
+    id: 'Skills_WebDevelopment_Title',
+    en: `Web Development`,
+    slo: `Spletni razvoj`,
+  },
+  {
+    id: 'Skills_Design_Title',
+    en: `Design`,
+    slo: `Dizajn`,
+  },
+  {
+    id: 'Skills_DataVisualising_Title',
+    en: `Data Visualising`,
+    slo: `Prikaz podatkov`,
+  },
+  {
+    id: 'Skills_PcMobileRepair_Title',
+    en: `PC & Mobile Repair`,
+    slo: `Servis računalnikov in mobilnih naprav`,
+  },
+  {
+    id: 'Skills_WebDevelopment',
+    en: `React, Typescript, Vue, Javascript, .NET, SQL SERVER, Umbraco`,
+    slo: `React, Typescript, Vue, Javascript, .NET, SQL SERVER, Umbraco`,
+  },
 ];
