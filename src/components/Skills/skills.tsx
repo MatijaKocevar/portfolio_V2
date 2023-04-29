@@ -5,6 +5,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import FlipBox from "../Shared/FlipBox/FlipBox";
 import { forwardRef, useContext, useRef } from "react";
 import { TranslationContext } from "../../translations/components/TranslationContext";
+import { FaReact } from "react-icons/fa";
 
 const Skills = () => {
 	const { getTranslation } = useContext(TranslationContext);
@@ -29,6 +30,7 @@ const Skills = () => {
 							}
 							backContent={
 								<div className='box'>
+									<FaReact />
 									<p>{getTranslation("Skills_WebDevelopment")}</p>
 								</div>
 							}

@@ -29,7 +29,8 @@
     "react-responsive-carousel": "^3.2.23",
     "react-scroll": "^1.8.8",
     "react-share": "^4.4.1",
-    "sass": "^1.55.0"
+    "sass": "^1.55.0",
+    "vite-plugin-svgr": "^2.4.0"
   },
   "devDependencies": {
     "@types/dompurify": "^3.0.1",

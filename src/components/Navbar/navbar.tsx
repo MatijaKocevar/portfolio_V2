@@ -4,23 +4,7 @@ import { Link } from "react-scroll";
 import logo from "../../images/logo.png";
 import ToggleSwitch from "../Shared/ToogleSwitch/ToggleSwitch";
 import { TranslationContext } from "../../translations/components/TranslationContext";
-import { FaGithub, FaLinkedin, FaLinkedinIn } from "react-icons/fa";
-
-const GitHubLink = (props: { href: string }) => {
-	return (
-		<a className='icon-link' href={props.href} target='_blank' rel='noopener noreferrer'>
-			<FaGithub />
-		</a>
-	);
-};
-
-const LinkedinLink = (props: { href: string }) => {
-	return (
-		<a className='icon-link' href={props.href} target='_blank' rel='noopener noreferrer'>
-			<FaLinkedin />
-		</a>
-	);
-};
+import { GitHubLink, LinkedinLink } from "../Shared/IconLink/iconLink";
 
 const NavBar = () => {
 	const { setLanguage, getTranslation } = useContext(TranslationContext);
