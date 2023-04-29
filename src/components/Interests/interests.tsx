@@ -1,12 +1,11 @@
-import { useContext, useRef } from "react";
+import { forwardRef, useContext, useRef } from "react";
 import InterestsCarousel from "./interestsCarousel";
 import "./interests.scss";
 import { Container, Row } from "react-bootstrap";
 import { TranslationContext } from "../../translations/components/TranslationContext";
 
-const Interests = () => {
+const Interests = forwardRef<HTMLInputElement>((_, ref) => {
 	const { getTranslation } = useContext(TranslationContext);
-	const ref = useRef<HTMLDivElement>(null);
 
 	return (
 		<Container id='interests' className='interests' ref={ref}>
@@ -20,6 +19,6 @@ const Interests = () => {
 			</Row>
 		</Container>
 	);
-};
+});
 
 export default Interests;

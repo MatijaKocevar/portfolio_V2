@@ -53,6 +53,11 @@ const NavBar = () => {
 
 	const sectionRefs = [
 		useRef<HTMLDivElement>(null),
+		useRef<HTMLDivElement>(null),
+		useRef<HTMLDivElement>(null),
+		useRef<HTMLDivElement>(null),
+		useRef<HTMLDivElement>(null),
+		useRef<HTMLDivElement>(null),
 		// Add refs for other sections here
 	];
 	sectionRefs.forEach((ref) => {

@@ -1,12 +1,11 @@
-import { useContext, useRef } from "react";
+import { forwardRef, useContext, useRef } from "react";
 import author from "../../images/me.jpg";
 import "./aboutMe.scss";
 import { Col, Container, Row } from "react-bootstrap";
 import { TranslationContext } from "../../translations/components/TranslationContext";
 
-const AboutMe = () => {
+const AboutMe = forwardRef<HTMLInputElement>((_, ref) => {
 	const { getTranslation } = useContext(TranslationContext);
-	const ref = useRef<HTMLDivElement>(null);
 
 	return (
 		<Container id='about-me' className='about' ref={ref}>
@@ -23,6 +22,6 @@ const AboutMe = () => {
 			</Row>
 		</Container>
 	);
-};
+});
 
 export default AboutMe;

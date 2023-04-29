@@ -1,12 +1,11 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { forwardRef, useContext, useRef, useState } from "react";
 import "./header.scss";
 import { TranslationContext } from "../../translations/components/TranslationContext";
 
 const TEXTS = ["Creative", "Hard working", "Positive"];
 
-const Header = () => {
+const Header = forwardRef<HTMLInputElement>((_, ref) => {
 	const { getTranslation } = useContext(TranslationContext);
-	const ref = useRef<HTMLDivElement>(null);
 
 	const [index, setIndex] = useState(0);
 
@@ -25,6 +24,6 @@ const Header = () => {
 			</div>
 		</div>
 	);
-};
+});
 
 export default Header;

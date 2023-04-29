@@ -3,16 +3,15 @@ import project2 from "../../images/project2.png";
 import project3 from "../../images/project3.png";
 import woi from "../../images/woi.png";
 import "./projects.scss";
-import { useContext, useRef, useState } from "react";
+import { forwardRef, useContext, useRef, useState } from "react";
 import PopupBox from "../Shared/PopupBox/PopupBox";
 import { Col, Container, Row } from "react-bootstrap";
 import { TranslationContext } from "../../translations/components/TranslationContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlassPlus } from "@fortawesome/free-solid-svg-icons";
 
-const Projects = () => {
+const Projects = forwardRef<HTMLInputElement>((_, ref) => {
 	const { getTranslation } = useContext(TranslationContext);
-	const ref = useRef<HTMLDivElement>(null);
 
 	const [showPopupResume, setShowPopupResume] = useState(false);
 	const [showPopupHolidays, setShowPopupHolidays] = useState(false);
@@ -102,6 +101,6 @@ const Projects = () => {
 			</Row>
 		</Container>
 	);
-};
+});
 
 export default Projects;

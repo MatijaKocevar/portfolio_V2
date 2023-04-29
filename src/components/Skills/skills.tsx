@@ -3,12 +3,11 @@ import { faTable, faDesktop, faFileCode, faPenFancy } from "@fortawesome/free-so
 import "./skills.scss";
 import { Col, Container, Row } from "react-bootstrap";
 import FlipBox from "../Shared/FlipBox/FlipBox";
-import { useContext, useRef } from "react";
+import { forwardRef, useContext, useRef } from "react";
 import { TranslationContext } from "../../translations/components/TranslationContext";
 
-const Service = () => {
+const Skills = forwardRef<HTMLInputElement>((_, ref) => {
 	const { getTranslation } = useContext(TranslationContext);
-	const ref = useRef<HTMLDivElement>(null);
 
 	return (
 		<>
@@ -93,6 +92,6 @@ const Service = () => {
 			</Container>
 		</>
 	);
-};
+});
 
-export default Service;
+export default Skills;

@@ -1,11 +1,10 @@
 import { Col, Container, Row } from "react-bootstrap";
 import "./experience.scss";
-import { useContext, useRef } from "react";
+import { forwardRef, useContext, useRef } from "react";
 import { TranslationContext } from "../../translations/components/TranslationContext";
 
-const Education = () => {
+const Education = forwardRef<HTMLInputElement>((_, ref) => {
 	const { getTranslation } = useContext(TranslationContext);
-	const ref = useRef<HTMLDivElement>(null);
 
 	return (
 		<Container id='timeline' className='experience' ref={ref}>
@@ -60,6 +59,6 @@ const Education = () => {
 			</Row>
 		</Container>
 	);
-};
+});
 
 export default Education;
