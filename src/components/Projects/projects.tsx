@@ -50,7 +50,7 @@ const Projects = forwardRef<HTMLDivElement>((_, ref) => {
 		);
 
 	return (
-		<Container className='projects' ref={ref}>
+		<Container id='projects' className='projects' ref={ref}>
 			<Row className='heading-row'>
 				<h1 className=''>{getTranslation("Navigation_Projects")}</h1>
 			</Row>

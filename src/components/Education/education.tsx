@@ -7,7 +7,7 @@ const Education = forwardRef<HTMLDivElement>((_, ref) => {
 	const { getTranslation } = useContext(TranslationContext);
 
 	return (
-		<Container id='timeline' className='education' ref={ref}>
+		<Container id='education' className='education' ref={ref}>
 			<Row className='heading-row'>
 				<h1>{getTranslation("Navigation_Education")}</h1>
 			</Row>

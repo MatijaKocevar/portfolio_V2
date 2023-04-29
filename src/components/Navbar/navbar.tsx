@@ -22,7 +22,7 @@ const LinkedinLink = (props: { href: string }) => {
 	);
 };
 
-const NavBar = () => {
+const NavBar = (props: { sectionRefs: React.RefObject<HTMLDivElement>[] }) => {
 	const { setLanguage, getTranslation } = useContext(TranslationContext);
 
 	const startingOffset = -66;
@@ -30,6 +30,20 @@ const NavBar = () => {
 	const [offset, setOffset] = useState(startingOffset);
 	const [toggle, setToggle] = useState(startingToggle);
 	const hamburgerRef = useRef<HTMLButtonElement>(null);
+	// Intersection Observer callback
+	const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				setActiveLink(entry.target.id);
+			}
+		});
+	};
+	// Create an Intersection Observer instance and attach it to each section ref
+	const observer = new IntersectionObserver(handleIntersection, {
+		root: null,
+		rootMargin: "0px",
+		threshold: 0.5,
+	});
 
 	window.addEventListener("resize", () => {
 		setOffset(-66);
@@ -42,40 +56,15 @@ const NavBar = () => {
 
 	const [activeLink, setActiveLink] = useState<string>("");
 
-	// Intersection Observer callback
-	const handleIntersection = (entries: IntersectionObserverEntry[]) => {
-		entries.forEach((entry) => {
-			if (entry.isIntersecting) {
-				setActiveLink(entry.target.id);
-			}
-		});
-	};
-
-	const sectionRefs = [
-		useRef<HTMLDivElement>(null),
-		useRef<HTMLDivElement>(null),
-		useRef<HTMLDivElement>(null),
-		useRef<HTMLDivElement>(null),
-		useRef<HTMLDivElement>(null),
-		useRef<HTMLDivElement>(null),
-		// Add refs for other sections here
-	];
-	sectionRefs.forEach((ref) => {
+	props.sectionRefs.forEach((ref) => {
 		if (ref.current) {
 			observer.observe(ref.current);
 		}
 	});
 
-	// Create an Intersection Observer instance and attach it to each section ref
-	const observer = new IntersectionObserver(handleIntersection, {
-		root: null,
-		rootMargin: "0px",
-		threshold: 0.5,
-	});
-
 	useEffect(() => {
 		const handleScroll = () => {
-			const sectionIds = sectionRefs.map((ref) => ref.current?.id);
+			const sectionIds = props.sectionRefs.map((ref) => ref.current?.id);
 			const activeSectionIndex = sectionIds.findIndex((id) => {
 				const section = document.getElementById(id as string);
 				if (!section) return false;
@@ -83,12 +72,12 @@ const NavBar = () => {
 				return rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2;
 			});
 
-			console.log(sectionRefs);
+			console.log(sectionIds[activeSectionIndex]);
 			setActiveLink(sectionIds[activeSectionIndex] || "");
 		};
 		window.addEventListener("scroll", handleScroll);
 		return () => window.removeEventListener("scroll", handleScroll);
-	}, [sectionRefs]);
+	}, [props.sectionRefs]);
 
 	return (
 		<nav
