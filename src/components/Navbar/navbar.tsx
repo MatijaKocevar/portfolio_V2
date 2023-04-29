@@ -22,7 +22,7 @@ const LinkedinLink = (props: { href: string }) => {
 	);
 };
 
-const NavBar = (props: { sectionRefs: React.RefObject<HTMLDivElement>[] }) => {
+const NavBar = () => {
 	const { setLanguage, getTranslation } = useContext(TranslationContext);
 
 	const startingOffset = -66;
@@ -30,54 +30,21 @@ const NavBar = (props: { sectionRefs: React.RefObject<HTMLDivElement>[] }) => {
 	const [offset, setOffset] = useState(startingOffset);
 	const [toggle, setToggle] = useState(startingToggle);
 	const hamburgerRef = useRef<HTMLButtonElement>(null);
-	// Intersection Observer callback
-	const handleIntersection = (entries: IntersectionObserverEntry[]) => {
-		entries.forEach((entry) => {
-			if (entry.isIntersecting) {
-				setActiveLink(entry.target.id);
-			}
-		});
-	};
-	// Create an Intersection Observer instance and attach it to each section ref
-	const observer = new IntersectionObserver(handleIntersection, {
-		root: null,
-		rootMargin: "0px",
-		threshold: 0.5,
-	});
-
-	window.addEventListener("resize", () => {
-		setOffset(-66);
-		setToggle(window.innerWidth < 1199 ? "collapse" : "keep");
-	});
 
 	const onLanguageChange = (language: string) => {
 		setLanguage(language);
 	};
 
-	const [activeLink, setActiveLink] = useState<string>("");
-
-	props.sectionRefs.forEach((ref) => {
-		if (ref.current) {
-			observer.observe(ref.current);
-		}
-	});
-
 	useEffect(() => {
-		const handleScroll = () => {
-			const sectionIds = props.sectionRefs.map((ref) => ref.current?.id);
-			const activeSectionIndex = sectionIds.findIndex((id) => {
-				const section = document.getElementById(id as string);
-				if (!section) return false;
-				const rect = section.getBoundingClientRect();
-				return rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2;
-			});
-
-			console.log(sectionIds[activeSectionIndex]);
-			setActiveLink(sectionIds[activeSectionIndex] || "");
+		const handleResize = () => {
+			setOffset(-66);
+			setToggle(window.innerWidth < 1199 ? "collapse" : "keep");
 		};
-		window.addEventListener("scroll", handleScroll);
-		return () => window.removeEventListener("scroll", handleScroll);
-	}, [props.sectionRefs]);
+
+		window.addEventListener("resize", handleResize);
+
+		return () => window.removeEventListener("resize", handleResize);
+	}, []);
 
 	return (
 		<nav
@@ -112,7 +79,7 @@ const NavBar = (props: { sectionRefs: React.RefObject<HTMLDivElement>[] }) => {
 							offset={offset}
 							duration={2}
 							ignoreCancelEvents={true}
-							className={activeLink === "aboutMe" ? "active" : "" + "nav-link"}
+							className='nav-link'
 							href='#'
 							data-toggle={toggle}
 							data-target='#navbarText'

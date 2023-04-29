@@ -6,12 +6,12 @@ import FlipBox from "../Shared/FlipBox/FlipBox";
 import { forwardRef, useContext, useRef } from "react";
 import { TranslationContext } from "../../translations/components/TranslationContext";
 
-const Skills = forwardRef<HTMLDivElement>((_, ref) => {
+const Skills = () => {
 	const { getTranslation } = useContext(TranslationContext);
 
 	return (
 		<>
-			<Container id='skills' className='skills' ref={ref}>
+			<Container id='skills' className='skills'>
 				<Row className='heading-row'>
 					<h1>{getTranslation("Navigation_Skills")}</h1>
 				</Row>
@@ -92,6 +92,6 @@ const Skills = forwardRef<HTMLDivElement>((_, ref) => {
 			</Container>
 		</>
 	);
-});
+};
 
 export default Skills;

@@ -12,41 +12,31 @@ import Interests from "./components/Interests/interests";
 import { useEffect, useRef } from "react";
 
 const App = () => {
-	const headerRef = useRef<HTMLDivElement>(null);
-	const aboutMeRef = useRef<HTMLDivElement>(null);
-	const educationRef = useRef<HTMLDivElement>(null);
-	const experienceRef = useRef<HTMLDivElement>(null);
-	const skillsRef = useRef<HTMLDivElement>(null);
-	const projectsRef = useRef<HTMLDivElement>(null);
-	const interestsRef = useRef<HTMLDivElement>(null);
-
-	const sectionRefs = [headerRef, aboutMeRef, educationRef, experienceRef, skillsRef, projectsRef, interestsRef];
-
 	return (
 		<>
 			<Row>
-				<NavBar sectionRefs={sectionRefs} />
+				<NavBar />
 			</Row>
 			<Row>
-				<Header ref={headerRef} />
+				<Header />
 			</Row>
 			<Row>
-				<AboutMe ref={aboutMeRef} />
+				<AboutMe />
 			</Row>
 			<Row>
-				<Education ref={educationRef} />
+				<Education />
 			</Row>
 			<Row>
-				<Experience ref={experienceRef} />
+				<Experience />
 			</Row>
 			<Row>
-				<Skills ref={skillsRef} />
+				<Skills />
 			</Row>
 			<Row>
-				<Projects ref={projectsRef} />
+				<Projects />
 			</Row>
 			<Row>
-				<Interests ref={interestsRef} />
+				<Interests />
 			</Row>
 			<Row>
 				<Footer />

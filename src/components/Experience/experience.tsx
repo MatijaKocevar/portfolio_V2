@@ -1,13 +1,13 @@
 import { Col, Container, Row } from "react-bootstrap";
 import "./experience.scss";
-import { forwardRef, useContext, useRef } from "react";
+import { useContext } from "react";
 import { TranslationContext } from "../../translations/components/TranslationContext";
 
-const Education = forwardRef<HTMLDivElement>((_, ref) => {
+const Education = () => {
 	const { getTranslation } = useContext(TranslationContext);
 
 	return (
-		<Container id='experience' className='experience' ref={ref}>
+		<Container id='experience' className='experience'>
 			<Row className='heading-row'>
 				<h1>{getTranslation("Navigation_Experience")}</h1>
 			</Row>
@@ -59,6 +59,6 @@ const Education = forwardRef<HTMLDivElement>((_, ref) => {
 			</Row>
 		</Container>
 	);
-});
+};
 
 export default Education;

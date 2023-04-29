@@ -10,7 +10,7 @@ import { TranslationContext } from "../../translations/components/TranslationCon
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlassPlus } from "@fortawesome/free-solid-svg-icons";
 
-const Projects = forwardRef<HTMLDivElement>((_, ref) => {
+const Projects = () => {
 	const { getTranslation } = useContext(TranslationContext);
 
 	const [showPopupResume, setShowPopupResume] = useState(false);
@@ -50,7 +50,7 @@ const Projects = forwardRef<HTMLDivElement>((_, ref) => {
 		);
 
 	return (
-		<Container id='projects' className='projects' ref={ref}>
+		<Container id='projects' className='projects'>
 			<Row className='heading-row'>
 				<h1 className=''>{getTranslation("Navigation_Projects")}</h1>
 			</Row>
@@ -101,6 +101,6 @@ const Projects = forwardRef<HTMLDivElement>((_, ref) => {
 			</Row>
 		</Container>
 	);
-});
+};
 
 export default Projects;
