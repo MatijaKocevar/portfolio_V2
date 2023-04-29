@@ -10,7 +10,7 @@ import { TranslationContext } from "../../translations/components/TranslationCon
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlassPlus } from "@fortawesome/free-solid-svg-icons";
 
-const Projects = forwardRef<HTMLInputElement>((_, ref) => {
+const Projects = forwardRef<HTMLDivElement>((_, ref) => {
 	const { getTranslation } = useContext(TranslationContext);
 
 	const [showPopupResume, setShowPopupResume] = useState(false);

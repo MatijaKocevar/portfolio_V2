@@ -6,7 +6,7 @@ import FlipBox from "../Shared/FlipBox/FlipBox";
 import { forwardRef, useContext, useRef } from "react";
 import { TranslationContext } from "../../translations/components/TranslationContext";
 
-const Skills = forwardRef<HTMLInputElement>((_, ref) => {
+const Skills = forwardRef<HTMLDivElement>((_, ref) => {
 	const { getTranslation } = useContext(TranslationContext);
 
 	return (

@@ -4,7 +4,7 @@ import "./aboutMe.scss";
 import { Col, Container, Row } from "react-bootstrap";
 import { TranslationContext } from "../../translations/components/TranslationContext";
 
-const AboutMe = forwardRef<HTMLInputElement>((_, ref) => {
+const AboutMe = forwardRef<HTMLDivElement>((_, ref) => {
 	const { getTranslation } = useContext(TranslationContext);
 
 	return (

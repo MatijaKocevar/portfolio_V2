@@ -3,7 +3,7 @@ import "./education.scss";
 import { forwardRef, useContext, useRef } from "react";
 import { TranslationContext } from "../../translations/components/TranslationContext";
 
-const Education = forwardRef<HTMLInputElement>((_, ref) => {
+const Education = forwardRef<HTMLDivElement>((_, ref) => {
 	const { getTranslation } = useContext(TranslationContext);
 
 	return (

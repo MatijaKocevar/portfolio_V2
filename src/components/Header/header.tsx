@@ -4,7 +4,7 @@ import { TranslationContext } from "../../translations/components/TranslationCon
 
 const TEXTS = ["Creative", "Hard working", "Positive"];
 
-const Header = forwardRef<HTMLInputElement>((_, ref) => {
+const Header = forwardRef<HTMLDivElement>((_, ref) => {
 	const { getTranslation } = useContext(TranslationContext);
 
 	const [index, setIndex] = useState(0);
