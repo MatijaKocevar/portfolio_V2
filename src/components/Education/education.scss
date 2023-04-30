@@ -1,243 +1,257 @@
 @use "../../variables" as v;
 @import "../../App.scss";
 
-
 .education {
-  background-color: v.$mediumPurple;
-  height: 100%;
+	background-color: v.$mediumPurple;
+	height: 100%;
 
-  .heading-row {
-    display: flex;
-    justify-content: center;
-    padding-bottom: 1rem;
+	.heading-row {
+		display: flex;
+		justify-content: center;
+		padding-bottom: 1rem;
 
-    h1 {
-      color: $white;
-      text-transform: uppercase;
-      width: fit-content;
-    }
-  }
+		h1 {
+			color: $white;
+			text-transform: uppercase;
+			width: fit-content;
+		}
+	}
 
-  .timeline-wrapper {
-    height: 100%;
+	.timeline-wrapper {
+		height: 100%;
 
-    .timeline-block {
-      display: flex;
-      flex-direction: row;
-      height: fit-content;
+		.timeline-block {
+			display: flex;
+			flex-direction: row;
+			height: fit-content;
 
-      .line-wrapper {
-        display: flex;
+			.line-wrapper {
+				display: flex;
 
-        .line {
-          background-color: v.$white;
-          margin: 0 auto;
-          width: 1px;
-          justify-content: center;
-          height: 100%;
-        }
+				.line {
+					background-color: v.$white;
+					margin: 0 auto;
+					width: 1px;
+					justify-content: center;
+					height: 100%;
+				}
 
-        .marker {
-          width: 1.5rem;
-          height: 1.5rem;
-          align-self: center;
-          border-radius: 50%;
-          background: white;
-          z-index: 3;
-        }
-      }
+				.marker {
+					width: 1.5rem;
+					height: 1.5rem;
+					align-self: center;
+					border-radius: 50%;
+					background: white;
+					z-index: 3;
+				}
+			}
 
-      .timeline-content {
-        padding: 0 1rem 0 1rem;
-        width: 100%;
-        color: $white;
-        direction: ltr;
+			.timeline-content {
+				padding: 0 1rem 0 1rem;
+				width: 100%;
+				height: fit-content;
+				color: $white;
+				direction: ltr;
+				border-radius: 10px;
 
-        h3 {
-          color: $white;
-          ;
-        }
-      }
-    }
+				p {
+					margin: 0;
+				}
 
-    .timeline-block:hover .marker {
-      transform: scale(2, 2);
-      background: v.$lightPurple;
-      border: 2px solid v.$light-gray;
-      transition: 0.4s ease-in-out;
-    }
+				h3 {
+					color: $white;
+				}
+			}
+		}
 
-    .timeline-block:hover .timeline-content h3 {
-      font-weight: bold;
-      transition: 0.4s ease-in-out;
-    }
+		.timeline-block:hover .marker {
+			transform: scale(2, 2);
+			background: v.$lightPurple;
+			border: 2px solid v.$light-gray;
+			transition: 0.4s ease-in-out;
+		}
 
-    .timeline-block-left:hover .timeline-content {
-      padding-left: 2rem;
-      transition: 0.4s ease-in-out;
-    }
+		.timeline-block:hover .timeline-content h3 {
+			transition: 0.4s ease-in-out;
+		}
 
-    .timeline-block-right:hover .timeline-content {
-      padding-left: 2rem;
-      transition: 0.4s ease-in-out;
-    }
-  }
+		.timeline-block-left:hover .timeline-content {
+			// padding-left: 2rem;
+			border-radius: 10px;
+			background-color: v.$lightPurple;
+			transition: 0.4s ease-in-out;
+		}
+
+		.timeline-block-right:hover .timeline-content {
+			// padding-left: 2rem;
+			border-radius: 10px;
+			background-color: v.$lightPurple;
+			transition: 0.4s ease-in-out;
+		}
+	}
 }
 
 //lg
 @media (min-width: 992px) {
-  .education {
-    .timeline-block-right {
-      text-align: left;
-      justify-content: flex-end;
-      transform: translate(-12.5px);
+	.education {
+		.timeline-block-right {
+			text-align: left;
+			justify-content: flex-end;
+			transform: translate(-12.5px);
 
-      .line-wrapper {
-        margin-right: 0.75rem;
+			.line-wrapper {
+				margin-right: 0.75rem;
 
-        .marker {
-          margin-left: -0.75rem;
-        }
-      }
+				.marker {
+					margin-left: -0.75rem;
+				}
+			}
 
-      timeline-content {}
-    }
+			timeline-content {
+			}
+		}
 
-    .timeline-block-left {
-      text-align: right;
-      direction: rtl;
-      transform: translate(12.5px);
+		.timeline-block-left {
+			text-align: right;
+			direction: rtl;
+			transform: translate(12.5px);
 
-      .line-wrapper {
-        margin-left: .75rem;
+			.line-wrapper {
+				margin-left: 0.75rem;
 
-        .marker {
-          margin-right: -0.75rem;
-        }
-      }
+				.marker {
+					margin-right: -0.75rem;
+				}
+			}
 
-      timeline-content {}
-    }
-  }
+			timeline-content {
+			}
+		}
+	}
 
-  .timeline-block-left:hover .timeline-content {
-    padding-right: 2rem !important;
-  }
-
+	.timeline-block-left:hover .timeline-content {
+		// padding-right: 2rem !important;
+		background-color: v.$lightPurple;
+		border-radius: 10px;
+	}
 }
 
 //md
 @media (max-width: 992px) {
-  .education {
-    .timeline-block-right {
+	.education {
+		.timeline-block-right {
+			.line-wrapper {
+				margin-right: 0.75rem;
 
-      .line-wrapper {
-        margin-right: 0.75rem;
+				.marker {
+					margin-left: -0.75rem;
+				}
+			}
 
-        .marker {
-          margin-left: -0.75rem;
-        }
-      }
+			timeline-content {
+			}
+		}
 
-      timeline-content {}
-    }
+		.timeline-block-left {
+			text-align: left;
+			direction: ltr;
 
-    .timeline-block-left {
-      text-align: left;
-      direction: ltr;
+			.line-wrapper {
+				margin-right: 0.75rem;
 
-      .line-wrapper {
-        margin-right: 0.75rem;
+				.marker {
+					margin-left: -0.75rem;
+				}
+			}
 
-        .marker {
-          margin-left: -0.75rem;
-        }
-      }
-
-      timeline-content {}
-    }
-  }
+			timeline-content {
+			}
+		}
+	}
 }
 
 //sm
 @media (max-width: 768px) {
-  .education {
-    .timeline-block-right {
+	.education {
+		.timeline-block-right {
+			.line-wrapper {
+				margin-right: 0.75rem;
 
-      .line-wrapper {
-        margin-right: 0.75rem;
+				.line {
+					height: 115% !important;
+				}
 
-        .line {
-          height: 115% !important;
-        }
+				.marker {
+					margin-left: -0.75rem;
+				}
+			}
 
-        .marker {
-          margin-left: -0.75rem;
-        }
-      }
+			timeline-content {
+			}
+		}
 
-      timeline-content {}
-    }
+		.timeline-block-left {
+			text-align: left;
+			direction: ltr;
 
-    .timeline-block-left {
-      text-align: left;
-      direction: ltr;
+			.line-wrapper {
+				margin-right: 0.75rem;
 
-      .line-wrapper {
-        margin-right: 0.75rem;
+				.line {
+					height: 115% !important;
+				}
 
-        .line {
-          height: 115% !important;
-        }
+				.marker {
+					margin-left: -0.75rem;
+				}
+			}
 
-        .marker {
-          margin-left: -0.75rem;
-        }
-      }
-
-      timeline-content {}
-    }
-  }
+			timeline-content {
+			}
+		}
+	}
 }
 
 //xs
 @media (max-width: 576px) {
-  .education {
-    padding: 1rem !important;
+	.education {
+		padding: 1rem !important;
 
-    .timeline-block-right {
-      .line-wrapper {
-        margin-right: 0.75rem;
+		.timeline-block-right {
+			.line-wrapper {
+				margin-right: 0.75rem;
 
-        .line {
-          height: 115% !important;
-        }
+				.line {
+					height: 115% !important;
+				}
 
-        .marker {
-          margin-left: -0.75rem;
-        }
-      }
+				.marker {
+					margin-left: -0.75rem;
+				}
+			}
 
-      timeline-content {}
-    }
+			timeline-content {
+			}
+		}
 
-    .timeline-block-left {
-      text-align: left;
-      direction: ltr;
+		.timeline-block-left {
+			text-align: left;
+			direction: ltr;
 
-      .line-wrapper {
-        margin-right: 0.75rem;
+			.line-wrapper {
+				margin-right: 0.75rem;
 
-        .line {
-          height: 115% !important;
-        }
+				.line {
+					height: 115% !important;
+				}
 
-        .marker {
-          margin-left: -0.75rem;
-        }
-      }
+				.marker {
+					margin-left: -0.75rem;
+				}
+			}
 
-      timeline-content {}
-    }
-  }
+			timeline-content {
+			}
+		}
+	}
 }

@@ -1,22 +1,20 @@
 .navbar {
-  .logo {
-    width: 10rem;
-  }
+	.logo {
+		width: 10rem;
+	}
 
-  .collapse {
-    justify-content: space-between
-  }
+	.collapse {
+		justify-content: space-between;
+	}
 
-  .navbar-right {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+	.nav-link:focus,
+	.nav-link:hover {
+		color: red;
+	}
 
-    .icon-link {
-      svg {
-        width: 2rem;
-        height: 2rem;
-      }
-    }
-  }
+	.navbar-right {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
 }

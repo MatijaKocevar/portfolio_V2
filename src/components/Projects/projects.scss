@@ -1,48 +1,71 @@
 @use "../../variables" as v;
 
 .projects {
-  background-color: v.$darkPurple;
+	background-color: v.$darkPurple;
 
-  .projects-image-popupbox {
-    width: 100%;
-  }
+	.projects-image-popupbox {
+		width: 100%;
+	}
 
-  .heading-row {
-    display: flex;
-    justify-content: center;
-    padding-bottom: 2rem;
+	.heading-row {
+		display: flex;
+		justify-content: center;
+		padding-bottom: 2rem;
 
-    h1 {
-      color: v.$white;
-      text-transform: uppercase;
-      width: fit-content;
-    }
-  }
+		h1 {
+			color: v.$white;
+			text-transform: uppercase;
+			width: fit-content;
+		}
+	}
 
-  .project-wrapper {
-    text-align: center;
-    padding-bottom: 1rem;
+	.project-wrapper {
+		text-align: center;
+		padding-bottom: 1rem;
 
-    .project-image {
-      width: 100%;
-      border: 0.5rem solid var(--primary-dark);
-      border-radius: 5px;
-    }
+		.project {
+			position: relative;
 
-    .project-icon {
-      position: absolute;
-      top: 35%;
-      left: 45%;
-      color: var(--primary-gray);
-      font-size: 1.5rem;
-    }
+			.project-image {
+				width: 100%;
+				border: 0.5rem solid var(--primary-dark);
+				border-radius: 10px;
+			}
 
-    h3 {
-      padding-top: 1rem;
-      color: v.$white
-    }
+			.project-icon {
+				position: absolute;
+				top: calc(50% - 1.5rem);
+				left: calc(50% - 1rem);
+				z-index: 5;
+				font-size: 2rem;
+				color: v.$white;
+				// display: none;
+				opacity: 0;
+				cursor: pointer;
+			}
+		}
 
-  }
+		h3 {
+			padding-top: 1rem;
+			color: v.$white;
+		}
+	}
 
+	.project-wrapper:hover {
+		.project {
+			.project-image {
+				opacity: 0.5;
+				transition: 0.4s ease-in-out;
+			}
 
+			.project-icon {
+				opacity: 1;
+				// display: block;
+				transition: 0.4s ease-in-out;
+			}
+		}
+
+		h3 {
+		}
+	}
 }

@@ -166,10 +166,10 @@ export const Translations = [
     id: 'Experience_Agitavit',
     en: `<h3>Software developer - Agitavit Solutions d.o.o.</h3>
          <h5>2021 - current / Employment</h5>
-         <p>React, Typescript, .NET 7, Umbraco, Sql server, jQuery, VUE</p>`,
+         <p>React, Typescript, .NET 7, Sql server, jQuery, VUE</p>`,
     slo: `<h3>Razvijalec programske opreme - Agitavit Solutions d.o.o.</h3>
           <h5>2021 - tekoče / Zaposlitev</h5>
-          <p>React, Typescript, .NET 7, Umbraco, Sql server, jQuery, VUE</p>`,
+          <p>React, Typescript, .NET 7, Sql server, jQuery, VUE</p>`,
   },
   /**
    * SKILLS
@@ -196,24 +196,22 @@ export const Translations = [
   },
   {
     id: 'Skills_WebDevelopment',
-    en: `React, Typescript, Vue, Javascript, .NET, SQL SERVER, Umbraco`,
-    slo: `React, Typescript, Vue, Javascript, .NET, SQL SERVER, Umbraco`,
+    en: `These are the stacks I'm most comfortable with. I've become the most proficeint in React, Typescript and .NET 7.`,
+    slo: `To so tehnologije, s katerimi se najbolje znajdem. Najbolj sem se izpopolnil v React, Typescript in .NET 7.`,
   },
   {
     id: 'Skills_Design',
-    en: `Basic skills in Adobe Illustrator, Photoshop & Premiere, Inkscape`,
-    slo: `Osnovno znanje Adobe Illustrator, Photoshop & Premiere, Inkscape`,
+    en: `I am able to create simple designs for web and print. I have a good grasp of Adobe Illustrator, Photoshop, Premiere and Inkscape.`,
+    slo: `Znam ustvariti preproste dizajne za splet in tisk. Dobro poznam Adobe Illustrator, Photoshop, Premiere in Inkscape.`,
   },
   {
     id: 'Skills_DataVisualising',
-    en: `Advanced knowledge of Microsoft Excel and a good grasp of how to display important data.`,
-    slo: `Napredno poznavanje Microsoft Excela in dobro razumevanje prikaza pomembnih podatkov.`,
+    en: `Advanced knowledge of Microsoft Excel and Google Sheets and a good grasp of how to display important data.`,
+    slo: `Napredno poznavanje Microsoft Excela in Google Sheets in dobro razumevanje prikaza pomembnih podatkov.`,
   },
   {
     id: 'Skills_PcMobileRepair',
     en: `Hardware and software configuring, problem solving, tech support.`,
-    slo: `Konfiguracija strojne in programske opreme, reševanje problemov, tehnična podpora
-
-`,
+    slo: `Konfiguracija strojne in programske opreme, reševanje problemov, tehnična podpora.`,
   },
 ];
