@@ -1,17 +1,10 @@
-import { FaGithub, FaLinkedin, FaReact } from "react-icons/fa";
+import SvgIcon from "../SvgIcon/SvgIcon";
+import "./IconLink.scss";
 
-export const GitHubLink = (props: { href: string }) => {
+export const IconLink = (props: { iconName: string; href: string; svgProp: React.SVGProps<SVGSVGElement> | undefined }) => {
 	return (
 		<a className='icon-link' href={props.href} target='_blank' rel='noopener noreferrer'>
-			<FaGithub />
-		</a>
-	);
-};
-
-export const LinkedinLink = (props: { href: string }) => {
-	return (
-		<a className='icon-link' href={props.href} target='_blank' rel='noopener noreferrer'>
-			<FaLinkedin />
+			<SvgIcon iconName={props.iconName} svgProp={props.svgProp}></SvgIcon>
 		</a>
 	);
 };

@@ -4,7 +4,7 @@ import { Link } from "react-scroll";
 import logo from "../../images/logo.png";
 import ToggleSwitch from "../Shared/ToogleSwitch/ToggleSwitch";
 import { TranslationContext } from "../../translations/components/TranslationContext";
-import { GitHubLink, LinkedinLink } from "../Shared/IconLink/iconLink";
+import { IconLink } from "../Shared/IconLink/iconLink";
 
 const NavBar = () => {
 	const { setLanguage, getTranslation } = useContext(TranslationContext);
@@ -170,8 +170,8 @@ const NavBar = () => {
 					</li>
 				</ul>
 				<div className='navbar-right'>
-					<GitHubLink href='https://github.com/MatijaKocevar' />
-					<LinkedinLink href='https://www.linkedin.com/in/matija-ko%C4%8Devar-59a198109/' />
+					<IconLink iconName='github' href='https://github.com/MatijaKocevar' svgProp={{ width: "2rem", height: "2rem" }} />
+					<IconLink iconName='linkedin' href='https://www.linkedin.com/in/matija-ko%C4%8Devar-59a198109/' svgProp={{ width: "2rem", height: "2rem" }} />
 					<ToggleSwitch onChange={onLanguageChange} language='en' />
 				</div>
 			</div>

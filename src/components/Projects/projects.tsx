@@ -3,12 +3,11 @@ import project2 from "../../images/project2.png";
 import project3 from "../../images/project3.png";
 import woi from "../../images/woi.png";
 import "./projects.scss";
-import { forwardRef, useContext, useRef, useState } from "react";
+import { useContext, useState } from "react";
 import PopupBox from "../Shared/PopupBox/PopupBox";
 import { Col, Container, Row } from "react-bootstrap";
 import { TranslationContext } from "../../translations/components/TranslationContext";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlassPlus } from "@fortawesome/free-solid-svg-icons";
+import SvgIcon from "../Shared/SvgIcon/SvgIcon";
 
 const Projects = () => {
 	const { getTranslation } = useContext(TranslationContext);
@@ -18,7 +17,7 @@ const Projects = () => {
 	const [showPopupDiffing, setShowPopupDiffing] = useState(false);
 	const [showPopupWOI, setShowPopupWOI] = useState(false);
 
-	const magnifyingGlass = <FontAwesomeIcon icon={faMagnifyingGlassPlus} />;
+	const magnifyingGlass = <SvgIcon iconName='magnifyingGlass' svgProp={{ width: "2rem", height: "2rem", fill: "white" }} />;
 
 	const resumeContent = (
 			<>

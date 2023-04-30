@@ -40,12 +40,17 @@
 .interests-content:hover .bgcircle {
 	background: v.$white;
 	transition: 0.4s ease-in-out;
+
+	.bgicon {
+		fill: v.$darkerPurple;
+	}
 }
 
 .bgicon {
 	font-size: 5rem;
 	color: v.$darkerPurple;
 	position: absolute;
+	fill: currentColor;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
