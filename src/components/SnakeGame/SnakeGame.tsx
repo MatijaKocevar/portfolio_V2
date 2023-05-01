@@ -26,6 +26,7 @@ const SnakeGame: React.FC = () => {
 		position: { x: 5, y: 5 },
 	});
 	const [gameOver, setGameOver] = useState<boolean>(false);
+	const [playPause, setPlayPause] = useState<boolean>(false);
 	const isEating = useRef<boolean>(false);
 	const previousFood = useRef<Position>({ x: 0, y: 0 });
 
@@ -133,17 +134,10 @@ const SnakeGame: React.FC = () => {
 			const previusFoodPos = previousFood.current;
 			if (snake.body[bodyLength - 1].x == previusFoodPos.x && snake.body[bodyLength - 1].y == previusFoodPos.y) {
 				setSnake((prevSnake) => {
-					let newTail = { x: 0, y: 0 };
+					const newBody = [...prevSnake.body, previusFoodPos];
 
-					const currentTail = snake.body[0];
-					if (prevSnake.direction === "up") newTail = { x: currentTail.x, y: currentTail.y + 1 };
-					else if (prevSnake.direction === "down") newTail = { x: currentTail.x, y: currentTail.y - 1 };
-					else if (prevSnake.direction === "left") newTail = { x: currentTail.x + 1, y: currentTail.y };
-					else if (prevSnake.direction === "right") newTail = { x: currentTail.x - 1, y: currentTail.y };
-
-					const newBody = [...snake.body, newTail];
 					return {
-						direction: prevSnake.direction,
+						direction: snake.direction,
 						body: newBody,
 					};
 				});
@@ -154,14 +148,18 @@ const SnakeGame: React.FC = () => {
 	};
 
 	useEffect(() => {
-		const intervalId = setInterval(() => {
-			if (gameOver) return;
-			updateSnakePosition();
-			checkCollisions();
-		}, 200);
+		let intervalId = 0;
+
+		if (playPause) {
+			intervalId = setInterval(() => {
+				if (gameOver) return;
+				updateSnakePosition();
+				checkCollisions();
+			}, 200);
+		}
 
 		return () => clearInterval(intervalId);
-	}, [snake]);
+	}, [snake, playPause]);
 
 	return (
 		<div className='snake-game'>
@@ -176,6 +174,7 @@ const SnakeGame: React.FC = () => {
 					</div>
 				)}
 			</div>
+			<button onClick={() => setPlayPause(!playPause)}>Play/Pause</button>
 		</div>
 	);
 };
