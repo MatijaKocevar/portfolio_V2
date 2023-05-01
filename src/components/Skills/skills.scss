@@ -6,6 +6,7 @@
 
 	.skill {
 		padding-bottom: 2rem;
+		cursor: pointer;
 
 		.heading-row {
 			display: flex;
@@ -104,6 +105,7 @@
 		.back {
 			min-height: 20rem;
 			.box {
+				background: v.$lightPurple !important;
 				justify-content: space-between;
 			}
 		}
@@ -111,7 +113,6 @@
 		.box:hover {
 			background: v.$light-gray;
 			// border-bottom: 0.3125rem solid v.$darkPurple;
-			color: v.$white;
 			transition: 0.4s ease-in-out;
 
 			.circle {
@@ -124,18 +125,8 @@
 				}
 			}
 
-			.skill-icon {
-				color: v.$darkerPurple;
-				transition: 0.4s ease-in-out;
-			}
-
 			h3 {
 				color: v.$darkerPurple;
-				transition: 0.4s ease-in-out;
-			}
-
-			p {
-				color: v.$darkPurple;
 				transition: 0.4s ease-in-out;
 			}
 		}

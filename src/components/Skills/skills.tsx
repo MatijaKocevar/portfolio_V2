@@ -112,6 +112,40 @@ const Skills = () => {
 						frontContent={
 							<div className='box'>
 								<div className='circle'>
+									<SvgIcon iconName='desktopMono' svgProp={{ className: "skill-icon-front" }} />
+								</div>
+								<h3>{getTranslation("Skills_PcMobileRepair_Title")}</h3>
+							</div>
+						}
+						backContent={
+							<div className='box'>
+								<Row className='skill-icons-wrapper'>
+									<Col xs={4} sm={4} md={4} lg={4} className='skill-icon'>
+										<SvgIcon iconName='mobilePhone' svgProp={{ className: "skill-icon-back" }} />
+										<span>Mobile</span>
+									</Col>
+									<Col xs={4} sm={4} md={4} lg={4} className='skill-icon'>
+										<SvgIcon iconName='desktop' svgProp={{ className: "skill-icon-back" }} />
+										<span>Desktop</span>
+									</Col>
+									<Col xs={4} sm={4} md={4} lg={4} className='skill-icon'>
+										<SvgIcon iconName='ram' svgProp={{ className: "skill-icon-back" }} />
+										<span>Hardware</span>
+									</Col>
+								</Row>
+								<Row className='skills-description'>
+									<p>{getTranslation("Skills_PcMobileRepair")}</p>
+								</Row>
+							</div>
+						}
+					/>
+				</Col>
+				{/* - */}
+				<Col lg={3} md={6} sm={6} xs={12} className='skill'>
+					<FlipBox
+						frontContent={
+							<div className='box'>
+								<div className='circle'>
 									<SvgIcon iconName='table' svgProp={{ className: "skill-icon-front" }} />
 								</div>
 								<h3>{getTranslation("Skills_DataVisualising_Title")}</h3>
@@ -131,40 +165,6 @@ const Skills = () => {
 								</Row>
 								<Row className='skills-description'>
 									<p>{getTranslation("Skills_DataVisualising")}</p>
-								</Row>
-							</div>
-						}
-					/>
-				</Col>
-				{/* - */}
-				<Col lg={3} md={6} sm={6} xs={12} className='skill'>
-					<FlipBox
-						frontContent={
-							<div className='box'>
-								<div className='circle'>
-									<SvgIcon iconName='desktop' svgProp={{ className: "skill-icon-front" }} />
-								</div>
-								<h3>{getTranslation("Skills_PcMobileRepair_Title")}</h3>
-							</div>
-						}
-						backContent={
-							<div className='box'>
-								<Row className='skill-icons-wrapper'>
-									<Col xs={4} sm={4} md={4} lg={4} className='skill-icon'>
-										<SvgIcon iconName='mobilePhone' svgProp={{ className: "skill-icon-back" }} />
-										<span>Mobile</span>
-									</Col>
-									<Col xs={4} sm={4} md={4} lg={4} className='skill-icon'>
-										<SvgIcon iconName='desktop' svgProp={{ className: "skill-icon-back" }} />
-										<span>Desktop</span>
-									</Col>
-									<Col xs={4} sm={4} md={4} lg={4} className='skill-icon'>
-										<SvgIcon iconName='hardware' svgProp={{ className: "skill-icon-back" }} />
-										<span>Hardware</span>
-									</Col>
-								</Row>
-								<Row className='skills-description'>
-									<p>{getTranslation("Skills_PcMobileRepair")}</p>
 								</Row>
 							</div>
 						}

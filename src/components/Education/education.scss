@@ -33,7 +33,6 @@
 					margin: 0 auto;
 					width: 1px;
 					justify-content: center;
-					height: 100%;
 				}
 
 				.marker {
@@ -97,7 +96,7 @@
 		.timeline-block-right {
 			text-align: left;
 			justify-content: flex-end;
-			transform: translate(-12.5px);
+			transform: translate(-12.4px);
 
 			.line-wrapper {
 				margin-right: 0.75rem;
@@ -114,7 +113,7 @@
 		.timeline-block-left {
 			text-align: right;
 			direction: rtl;
-			transform: translate(12.5px);
+			transform: translate(12.4px);
 
 			.line-wrapper {
 				margin-left: 0.75rem;
@@ -178,7 +177,7 @@
 				margin-right: 0.75rem;
 
 				.line {
-					height: 115% !important;
+					height: 120% !important;
 				}
 
 				.marker {
@@ -198,7 +197,7 @@
 				margin-right: 0.75rem;
 
 				.line {
-					height: 115% !important;
+					height: 120% !important;
 				}
 
 				.marker {
@@ -222,7 +221,7 @@
 				margin-right: 0.75rem;
 
 				.line {
-					height: 115% !important;
+					height: 120% !important;
 				}
 
 				.marker {
@@ -242,7 +241,7 @@
 				margin-right: 0.75rem;
 
 				.line {
-					height: 115% !important;
+					height: 120% !important;
 				}
 
 				.marker {

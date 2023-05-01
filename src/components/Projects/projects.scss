@@ -22,6 +22,7 @@
 	.project-wrapper {
 		text-align: center;
 		padding-bottom: 1rem;
+		cursor: pointer;
 
 		.project {
 			position: relative;
@@ -41,7 +42,6 @@
 				color: v.$white;
 				// display: none;
 				opacity: 0;
-				cursor: pointer;
 			}
 		}
 

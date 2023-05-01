@@ -56,11 +56,9 @@ const Projects = () => {
 			<Row>
 				{showPopupResume && <PopupBox content={resumeContent} onClose={() => setShowPopupResume(false)} />}
 				<Col lg={3} md={6} sm={6} xs={12}>
-					<div className='project-wrapper'>
+					<div className='project-wrapper' onClick={() => setShowPopupResume(true)}>
 						<div className='project'>
-							<div className='project-icon' onClick={() => setShowPopupResume(true)}>
-								{magnifyingGlass}
-							</div>
+							<div className='project-icon'>{magnifyingGlass}</div>
 							<img className='project-image' src={project1} alt='project webpage' />
 						</div>
 						<h3>Portfolio</h3>
@@ -69,11 +67,9 @@ const Projects = () => {
 				{/* - */}
 				{showPopupHolidays && <PopupBox content={holidayContent} onClose={() => setShowPopupHolidays(false)} />}
 				<Col lg={3} md={6} sm={6} xs={12}>
-					<div className='project-wrapper'>
+					<div className='project-wrapper' onClick={() => setShowPopupHolidays(true)}>
 						<div className='project'>
-							<div className='project-icon' onClick={() => setShowPopupHolidays(true)}>
-								{magnifyingGlass}
-							</div>
+							<div className='project-icon'>{magnifyingGlass}</div>
 							<img className='project-image' src={project2} alt='Project 2...' />
 						</div>
 						<h3>Holidays calculator</h3>
@@ -82,11 +78,9 @@ const Projects = () => {
 				{/* - */}
 				{showPopupDiffing && <PopupBox content={diffingContent} onClose={() => setShowPopupDiffing(false)} />}
 				<Col lg={3} md={6} sm={6} xs={12}>
-					<div className='project-wrapper'>
+					<div className='project-wrapper' onClick={() => setShowPopupDiffing(true)}>
 						<div className='project'>
-							<div className='project-icon' onClick={() => setShowPopupDiffing(true)}>
-								{magnifyingGlass}
-							</div>
+							<div className='project-icon'>{magnifyingGlass}</div>
 							<img className='project-image' src={project3} alt='Project 3...' />
 						</div>
 						<h3>Diffing API</h3>
@@ -95,11 +89,9 @@ const Projects = () => {
 				{/* - */}
 				{showPopupWOI && <PopupBox content={WOIContent} onClose={() => setShowPopupWOI(false)} />}
 				<Col lg={3} md={6} sm={6} xs={12}>
-					<div className='project-wrapper'>
+					<div className='project-wrapper' onClick={() => setShowPopupWOI(true)}>
 						<div className='project'>
-							<div className='project-icon' onClick={() => setShowPopupWOI(true)}>
-								{magnifyingGlass}
-							</div>
+							<div className='project-icon'>{magnifyingGlass}</div>
 							<img className='project-image' src={woi} alt='Project 4...' />
 						</div>
 						<h3>...</h3>
