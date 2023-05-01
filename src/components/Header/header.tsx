@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import "./header.scss";
 import { TranslationContext } from "../../translations/components/TranslationContext";
+import SnakeGame from "../SnakeGame/SnakeGame";
 
 const TEXTS = ["Creative", "Hard working", "Positive"];
 
@@ -21,6 +22,7 @@ const Header = () => {
 				<h1 className='heading' style={{ color: "red" }}>
 					{getTranslation("Header_Subtitle")}
 				</h1>
+				<SnakeGame />
 			</div>
 		</div>
 	);
