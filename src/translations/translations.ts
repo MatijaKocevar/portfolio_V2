@@ -29,8 +29,8 @@ export const Translations = [
   },
   {
     id: 'Navigation_Interests',
-    en: 'Interests',
-    slo: 'Interesi',
+    en: 'Interests & Hobies',
+    slo: 'Interesi & Hobiji',
   },
   {
     id: 'Navigation_ContactMe',
@@ -271,5 +271,48 @@ export const Translations = [
     project with Vite, React and Typescript. I've also used Bootstrap and Sass for styling. With the first version of this website I used a lot of external libraries and components. This time I wanted to create everything from scratch. I replaced most of the external
     libraries with my own components and animations. Redid the styling and added new features. I'm very happy with the outcome and I'm looking forward to improving it even further.`,
     slo: `To je moj najnovejši projekt. Po 2 letih dela kot pravi razvijalec sem se odločil, da bom to, kar sem se do zdaj naučil, uporabil za svojo spletno stran. Začel sem popolnoma nov projekt z Vite, React in Typescript. Za oblikovanje sem uporabil tudi Bootstrap in Sass. Pri prvi različici te spletne strani sem uporabil veliko zunanjih knjižnic in komponent. Tokrat sem želel vse ustvariti od začetka. Večino zunanjih knjižnic sem zamenjal s svojimi komponentami in animacijami. Ponovno sem naredil oblikovanje in dodal nove funkcije. Z rezultatom sem zelo zadovoljen in veselim se nadaljnjega izboljševanja.`,
+  },
+  /**
+   * INTERESTS
+   */
+  {
+    id: 'Interests_Developer_Title',
+    en: `Become a better frontend developer`,
+    slo: `Postati boljši frontend razvijalec`,
+  },
+  {
+    id: 'Interests_App_Title',
+    en: `Create an cool and useful app`,
+    slo: `Ustvariti kul in uporabno aplikacijo`,
+  },
+  {
+    id: 'Interests_NewSkills_Title',
+    en: `Learn new skills`,
+    slo: `Naučiti se novih veščin`,
+  },
+  {
+    id: 'Interests_Music_Title',
+    en: `Music`,
+    slo: `Glasba`,
+  },
+  {
+    id: 'Interests_Developer_Description',
+    en: `I am doing everything I can to further my skills and knowledge. It is one of my main goals in life to be a capable person.`,
+    slo: `Vse, kar lahko, delam, da izboljšam svoje veščine in znanje. To je eden mojih glavnih ciljev v življenju, da bi bil sposobna oseba.`,
+  },
+  {
+    id: 'Interests_App_Description',
+    en: `I want to gain enough skills to create a useful and/or entertaining app.`,
+    slo: `Želim pridobiti dovolj znanja, da bom lahko ustvaril uporabno in / ali zabavno aplikacijo.`,
+  },
+  {
+    id: 'Interests_NewSkills_Description',
+    en: `I am always on the hunt for new knowledge and opportunities to expand what i know.`,
+    slo: `Vedno iščem nova znanja in priložnosti za razširitev svojega znanja.`,
+  },
+  {
+    id: 'Interests_Music_Description',
+    en: `I have been a musician all my life, primarily as a guitarist, although I also know how to play some other instruments and can also make electronic music. When I retire, I aspire to have my own studio and continue making music.`,
+    slo: `Večino življenja sem glasbenik, predvsem kitarist, čeprav znam igrati tudi nekaj drugih instrumentov in lahko ustvarjam tudi elektronsko glasbo. Ko se bom upokojil, si želim imeti svoj studio in nadaljevati z ustvarjanjem glasbe.`,
   }
 ];
