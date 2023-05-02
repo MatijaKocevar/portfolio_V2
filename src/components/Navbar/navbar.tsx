@@ -17,8 +17,8 @@ const NavBar = () => {
 	const navbarRef = useRef<HTMLDivElement>(null);
 	const hamburgerRef = useRef<HTMLButtonElement>(null);
 
-	const cvPath = language === "slo" ? "/src/cv/slo/cvSl.pdf" : "/src/cv/en/cvEng.pdf";
-	const cvName = language === "slo" ? "Življenjepis_MatijaKočevar.pdf" : "Resume_MatijaKočevar.pdf";
+	const cvPath =
+		language === "slo" ? "https://drive.google.com/file/d/13adbhCj1Y-pJmxP1Ip5FDSeZG4cxHIyS/view?usp=sharing" : "https://drive.google.com/file/d/1abJfTt3G8m7UdCbLm6O62dOT4pLVzyjR/view?usp=sharing";
 
 	const onLanguageChange = (language: string) => {
 		setLanguage(language);
@@ -191,7 +191,7 @@ const NavBar = () => {
 					<div className='navbar-icon-links'>
 						<IconLink iconName='github' href='https://github.com/MatijaKocevar' title='GitHub' svgProp={{ width: "2rem", height: "2rem" }} />
 						<IconLink iconName='linkedin' href='https://www.linkedin.com/in/matija-ko%C4%8Devar-59a198109/' title='Linkedin' svgProp={{ width: "2rem", height: "2rem" }} />
-						<DownloadFile path={cvPath} fileName={cvName} title='Download CV' iconName='resumeRound' svgProp={{ width: "2rem", height: "2rem" }} />
+						<DownloadFile path={cvPath} title='Open CV' iconName='resumeRound' svgProp={{ width: "2rem", height: "2rem" }} />
 					</div>
 					<div className='navbar-language-switch'>
 						<ToggleSwitch title='Change language' onChange={onLanguageChange} language='en' />
