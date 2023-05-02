@@ -105,10 +105,7 @@ const Projects = () => {
 					<img src={drumbox} alt='Online resume' />
 				</Col>
 				<Col className='popupbox-description'>
-					<p>
-						This is fun project that I&apos;m working on with a friend, it consumes Web Midi API. The end goal is to build an Web DAW(digital audio workstation). So far it can accept different MIDI
-						controllers as inputs and can play back notes selected on the screen.
-					</p>
+					<p>{getTranslation("Projects_Drumbox_Description")}</p>
 				</Col>
 				<Col className='popupbox-links'>
 					<a href='https://github.com/MatijaKocevar/drumbox' target='_blank' rel='noopener noreferrer'>
