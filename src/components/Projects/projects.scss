@@ -3,10 +3,6 @@
 .projects {
 	background-color: v.$darkPurple;
 
-	.projects-image-popupbox {
-		width: 100%;
-	}
-
 	.heading-row {
 		display: flex;
 		justify-content: center;
@@ -19,53 +15,110 @@
 		}
 	}
 
-	.project-wrapper {
-		text-align: center;
-		padding-bottom: 1rem;
-		cursor: pointer;
+	.projects-wrapper {
+		display: flex;
+		justify-content: center;
 
-		.project {
-			position: relative;
+		.project-wrapper {
+			text-align: center;
+			padding-bottom: 1rem;
+			cursor: pointer;
 
-			.project-image {
-				width: 100%;
-				border: 0.5rem solid var(--primary-dark);
-				border-radius: 10px;
+			.project {
+				position: relative;
+
+				.project-image {
+					width: 100%;
+					border: 0.5rem solid var(--primary-dark);
+					border-radius: 10px;
+				}
+
+				.project-icon {
+					position: absolute;
+					top: calc(50% - 1.5rem);
+					left: calc(50% - 1rem);
+					z-index: 5;
+					font-size: 2rem;
+					color: v.$white;
+					// display: none;
+					opacity: 0;
+				}
 			}
 
-			.project-icon {
-				position: absolute;
-				top: calc(50% - 1.5rem);
-				left: calc(50% - 1rem);
-				z-index: 5;
-				font-size: 2rem;
+			h3 {
+				padding-top: 1rem;
 				color: v.$white;
-				// display: none;
-				opacity: 0;
 			}
 		}
 
-		h3 {
-			padding-top: 1rem;
-			color: v.$white;
-		}
-	}
+		.project-wrapper:hover {
+			.project {
+				.project-image {
+					opacity: 0.5;
+					transition: 0.4s ease-in-out;
+				}
 
-	.project-wrapper:hover {
-		.project {
-			.project-image {
-				opacity: 0.5;
-				transition: 0.4s ease-in-out;
+				.project-icon {
+					opacity: 1;
+					// display: block;
+					transition: 0.4s ease-in-out;
+				}
 			}
 
-			.project-icon {
-				opacity: 1;
-				// display: block;
-				transition: 0.4s ease-in-out;
+			h3 {
 			}
 		}
 
-		h3 {
+		.popupbox-content {
+			display: flex;
+			flex-direction: column;
+
+			.popupbox-heading {
+				width: 100%;
+				height: fit-content;
+				display: flex;
+				justify-content: center;
+				padding: 1rem;
+				color: v.$white;
+			}
+
+			.popupbox-image {
+				width: 100%;
+				height: fit-content;
+				display: flex;
+				justify-content: center;
+				padding: 1rem;
+
+				img {
+					width: 70% !important;
+				}
+			}
+
+			.popupbox-description {
+				width: 100%;
+				height: fit-content;
+				display: flex;
+				justify-content: center;
+				padding: 1rem;
+				color: v.$white;
+
+				p {
+					text-align: center;
+				}
+			}
+
+			.popupbox-links {
+				display: flex;
+				justify-content: center;
+				gap: 1rem;
+				a {
+					color: v.$white !important;
+				}
+
+				a:hover {
+					color: v.$lightPurple !important;
+				}
+			}
 		}
 	}
 }

@@ -19,10 +19,10 @@ const Header = () => {
 		<div id='home' className='header-wraper'>
 			<div className='main-info'>
 				<h1 className='heading'>portfolio</h1>
-				<h1 className='heading' style={{ color: "red" }}>
+				{/* <h1 className='heading' style={{ color: "red" }}>
 					{getTranslation("Header_Subtitle")}
 				</h1>
-				<SnakeGame />
+				<SnakeGame /> */}
 			</div>
 		</div>
 	);

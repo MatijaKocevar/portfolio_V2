@@ -17,7 +17,7 @@ const InterestsCarousel = () => {
 			</>
 			<>
 				<div className='bgcircle'>
-					<SvgIcon iconName='mobilePhone' svgProp={{ className: "bgicon" }} />
+					<SvgIcon iconName='mobileMono' svgProp={{ className: "bgicon" }} />
 				</div>
 				<div className='myCarousel'>
 					<h3>Create an amazing app</h3>
