@@ -158,10 +158,14 @@ const NavBar = () => {
 					</li>
 				</ul>
 				<div className='navbar-right'>
-					<IconLink iconName='github' href='https://github.com/MatijaKocevar' title='GitHub' svgProp={{ width: "2rem", height: "2rem" }} />
-					<IconLink iconName='linkedin' href='https://www.linkedin.com/in/matija-ko%C4%8Devar-59a198109/' title='Linkedin' svgProp={{ width: "2rem", height: "2rem" }} />
-					<DownloadFile path={cvPath} fileName={cvName} title='Download CV' iconName='resumeRound' svgProp={{ width: "2rem", height: "2rem" }} />
-					<ToggleSwitch title='Change language' onChange={onLanguageChange} language='en' />
+					<div className='navbar-icon-links'>
+						<IconLink iconName='github' href='https://github.com/MatijaKocevar' title='GitHub' svgProp={{ width: "2rem", height: "2rem" }} />
+						<IconLink iconName='linkedin' href='https://www.linkedin.com/in/matija-ko%C4%8Devar-59a198109/' title='Linkedin' svgProp={{ width: "2rem", height: "2rem" }} />
+						<DownloadFile path={cvPath} fileName={cvName} title='Download CV' iconName='resumeRound' svgProp={{ width: "2rem", height: "2rem" }} />
+					</div>
+					<div className='navbar-language-switch'>
+						<ToggleSwitch title='Change language' onChange={onLanguageChange} language='en' />
+					</div>
 				</div>
 			</div>
 		</nav>

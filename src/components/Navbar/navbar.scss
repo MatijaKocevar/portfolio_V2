@@ -22,7 +22,21 @@
 
 	.navbar-right {
 		display: flex;
-		align-items: center;
-		gap: 1rem;
+		justify-content: space-between;
+		gap: 0.5rem;
+
+		.navbar-icon-links {
+			display: flex;
+			align-items: center;
+			flex-direction: row;
+			gap: 0.5rem;
+			justify-content: flex-start;
+		}
+
+		.navbar-language-switch {
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+		}
 	}
 }
