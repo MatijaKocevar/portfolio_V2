@@ -17,7 +17,7 @@ const NavBar = () => {
 	const navbarRef = useRef<HTMLDivElement>(null);
 	const hamburgerRef = useRef<HTMLButtonElement>(null);
 
-	const cvPath = language === "slo" ? "/src/cv/slo/cv_sl.pdf" : "/src/cv/en/cv_eng.pdf";
+	const cvPath = language === "slo" ? "/src/cv/slo/cvSl.pdf" : "/src/cv/en/cvEng.pdf";
 	const cvName = language === "slo" ? "Življenjepis_MatijaKočevar.pdf" : "Resume_MatijaKočevar.pdf";
 
 	const onLanguageChange = (language: string) => {

@@ -1,6 +1,5 @@
 import { useCallback } from "react";
 import SvgIcon from "../SvgIcon/SvgIcon";
-import "../../../cv/slo/cv_slo.pdf";
 import "./DownloadFile.scss";
 
 export const DownloadFile = (props: { path: string; fileName: string; title: string; iconName: string; svgProp: React.SVGProps<SVGSVGElement> | undefined }) => {
