@@ -1,7 +1,7 @@
-@import "../../variables";
+@use "../../variables" as v;
 
 .footer-container {
-	background-color: $darkerPurple;
+	background-color: v.$darkerPurple;
 	display: flex;
 	justify-content: center;
 
@@ -12,10 +12,10 @@
 		margin: 0;
 
 		a {
-			color: $white;
+			color: v.$white;
 
 			&:hover {
-				color: $black;
+				color: v.$lightPurple;
 			}
 		}
 
