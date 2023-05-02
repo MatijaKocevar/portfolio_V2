@@ -54,7 +54,7 @@ const Projects = () => {
 					<p>{getTranslation("Projects_HolidaysCalculator_Description")}</p>
 				</Col>
 				<Col className='popupbox-links'>
-					<a href='https://github.com/MatijaKocevar/myPortfolio' target='_blank' rel='noopener noreferrer'>
+					<a href='https://github.com/MatijaKocevar/HolidaysApi' target='_blank' rel='noopener noreferrer'>
 						GitHub
 					</a>
 				</Col>
@@ -90,7 +90,7 @@ const Projects = () => {
 					<p>{getTranslation("Projects_PortfoliV2_Description")}</p>
 				</Col>
 				<Col className='popupbox-links'>
-					<a href='https://github.com/MatijaKocevar/myPortfolio' target='_blank' rel='noopener noreferrer'>
+					<a href='https://github.com/MatijaKocevar/portfolio_V2' target='_blank' rel='noopener noreferrer'>
 						GitHub
 					</a>
 				</Col>
