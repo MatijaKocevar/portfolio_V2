@@ -5,15 +5,19 @@ import logo from "../../images/logo.png";
 import ToggleSwitch from "../Shared/ToogleSwitch/ToggleSwitch";
 import { TranslationContext } from "../../translations/components/TranslationContext";
 import { IconLink } from "../Shared/IconLink/iconLink";
+import { DownloadFile } from "../Shared/DownloadFile/DownloadFile";
 
 const NavBar = () => {
-	const { setLanguage, getTranslation } = useContext(TranslationContext);
+	const { setLanguage, getTranslation, language } = useContext(TranslationContext);
 
 	const startingOffset = -66;
 	const startingToggle = window.innerWidth < 1199 ? "collapse" : "keep";
 	const [offset, setOffset] = useState(startingOffset);
 	const [toggle, setToggle] = useState(startingToggle);
 	const hamburgerRef = useRef<HTMLButtonElement>(null);
+
+	const cvPath = language === "slo" ? "/src/cv/slo/cv_sl.pdf" : "/src/cv/en/cv_eng.pdf";
+	const cvName = language === "slo" ? "Življenjepis_MatijaKočevar.pdf" : "Resume_MatijaKočevar.pdf";
 
 	const onLanguageChange = (language: string) => {
 		setLanguage(language);
@@ -152,26 +156,11 @@ const NavBar = () => {
 							{getTranslation("Navigation_Interests")}
 						</Link>
 					</li>
-					{/* <li className='nav-item'>
-						<Link
-							smooth={true}
-							to='contacts'
-							offset={offset}
-							duration={2}
-							ignoreCancelEvents={true}
-							className='nav-link'
-							href='#'
-							data-toggle={toggle}
-							data-target='#navbarText'
-							// onClick={() => hamburgerRef.current?.click()}
-						>
-							{getTranslation("Navigation_ContactMe")}
-						</Link>
-					</li> */}
 				</ul>
 				<div className='navbar-right'>
 					<IconLink iconName='github' href='https://github.com/MatijaKocevar' title='GitHub' svgProp={{ width: "2rem", height: "2rem" }} />
 					<IconLink iconName='linkedin' href='https://www.linkedin.com/in/matija-ko%C4%8Devar-59a198109/' title='Linkedin' svgProp={{ width: "2rem", height: "2rem" }} />
+					<DownloadFile path={cvPath} fileName={cvName} title='Download CV' iconName='resumeRound' svgProp={{ width: "2rem", height: "2rem" }} />
 					<ToggleSwitch title='Change language' onChange={onLanguageChange} language='en' />
 				</div>
 			</div>
