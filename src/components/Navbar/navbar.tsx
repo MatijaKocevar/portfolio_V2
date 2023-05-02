@@ -152,7 +152,7 @@ const NavBar = () => {
 							{getTranslation("Navigation_Interests")}
 						</Link>
 					</li>
-					<li className='nav-item'>
+					{/* <li className='nav-item'>
 						<Link
 							smooth={true}
 							to='contacts'
@@ -167,12 +167,12 @@ const NavBar = () => {
 						>
 							{getTranslation("Navigation_ContactMe")}
 						</Link>
-					</li>
+					</li> */}
 				</ul>
 				<div className='navbar-right'>
-					<IconLink iconName='github' href='https://github.com/MatijaKocevar' svgProp={{ width: "2rem", height: "2rem" }} />
-					<IconLink iconName='linkedin' href='https://www.linkedin.com/in/matija-ko%C4%8Devar-59a198109/' svgProp={{ width: "2rem", height: "2rem" }} />
-					<ToggleSwitch onChange={onLanguageChange} language='en' />
+					<IconLink iconName='github' href='https://github.com/MatijaKocevar' title='GitHub' svgProp={{ width: "2rem", height: "2rem" }} />
+					<IconLink iconName='linkedin' href='https://www.linkedin.com/in/matija-ko%C4%8Devar-59a198109/' title='Linkedin' svgProp={{ width: "2rem", height: "2rem" }} />
+					<ToggleSwitch title='Change language' onChange={onLanguageChange} language='en' />
 				</div>
 			</div>
 		</nav>

@@ -29,8 +29,8 @@ export const Translations = [
   },
   {
     id: 'Navigation_Interests',
-    en: 'Interests & Hobies',
-    slo: 'Interesi & Hobiji',
+    en: 'Interests',
+    slo: 'Interesi',
   },
   {
     id: 'Navigation_ContactMe',

@@ -19,10 +19,14 @@ const Skills = () => {
 					<FlipBox
 						frontContent={
 							<div className='box'>
-								<div className='circle'>
-									<SvgIcon iconName='fileCode' svgProp={{ className: "skill-icon-front" }} />
+								<div className='front-wrapper'>
+									<div className='circle'>
+										<SvgIcon iconName='fileCode' svgProp={{ className: "skill-icon-front" }} />
+									</div>
+									<div className='skill-title'>
+										<h3>{getTranslation("Skills_WebDevelopment_Title")}</h3>
+									</div>
 								</div>
-								<h3>{getTranslation("Skills_WebDevelopment_Title")}</h3>
 							</div>
 						}
 						backContent={
@@ -73,10 +77,14 @@ const Skills = () => {
 					<FlipBox
 						frontContent={
 							<div className='box'>
-								<div className='circle'>
-									<SvgIcon iconName='pen' svgProp={{ className: "skill-icon-front" }} />
+								<div className='front-wrapper'>
+									<div className='circle'>
+										<SvgIcon iconName='pen' svgProp={{ className: "skill-icon-front" }} />
+									</div>
+									<div className='skill-title'>
+										<h3>{getTranslation("Skills_Design_Title")}</h3>
+									</div>
 								</div>
-								<h3>{getTranslation("Skills_Design_Title")}</h3>
 							</div>
 						}
 						backContent={
@@ -111,10 +119,14 @@ const Skills = () => {
 					<FlipBox
 						frontContent={
 							<div className='box'>
-								<div className='circle'>
-									<SvgIcon iconName='desktopMono' svgProp={{ className: "skill-icon-front" }} />
+								<div className='front-wrapper'>
+									<div className='circle'>
+										<SvgIcon iconName='desktopMono' svgProp={{ className: "skill-icon-front" }} />
+									</div>
+									<div className='skill-title'>
+										<h3>{getTranslation("Skills_PcMobileRepair_Title")}</h3>
+									</div>
 								</div>
-								<h3>{getTranslation("Skills_PcMobileRepair_Title")}</h3>
 							</div>
 						}
 						backContent={
@@ -145,10 +157,14 @@ const Skills = () => {
 					<FlipBox
 						frontContent={
 							<div className='box'>
-								<div className='circle'>
-									<SvgIcon iconName='table' svgProp={{ className: "skill-icon-front" }} />
+								<div className='front-wrapper'>
+									<div className='circle'>
+										<SvgIcon iconName='table' svgProp={{ className: "skill-icon-front" }} />
+									</div>
+									<div className='skill-title'>
+										<h3>{getTranslation("Skills_DataVisualising_Title")}</h3>
+									</div>
 								</div>
-								<h3>{getTranslation("Skills_DataVisualising_Title")}</h3>
 							</div>
 						}
 						backContent={

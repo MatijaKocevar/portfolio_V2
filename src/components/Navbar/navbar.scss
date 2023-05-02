@@ -1,3 +1,5 @@
+@use "../../variables" as v;
+
 .navbar {
 	.logo {
 		width: 10rem;
@@ -7,9 +9,15 @@
 		justify-content: space-between;
 	}
 
-	.nav-link:focus,
+	.nav-link {
+		color: v.$medium-gray;
+	}
+
+	.nav-link:focus {
+		color: v.$medium-gray;
+	}
 	.nav-link:hover {
-		color: red;
+		color: v.$lightPurple;
 	}
 
 	.navbar-right {
