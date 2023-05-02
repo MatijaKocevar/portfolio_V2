@@ -13,7 +13,7 @@ const Education = () => {
 			</Row>
 			<Row className='timeline-wrapper'>
 				{/* - */}
-				<Row>
+				<Row className='education-section'>
 					<Col className='timeline-block timeline-block-left' xs={12} sm={12} md={12} lg={6}>
 						<div className='line-wrapper'>
 							<div className='line'></div>
@@ -24,7 +24,7 @@ const Education = () => {
 					<Col xs={0} sm={0} md={0} lg={6}></Col>
 				</Row>
 				{/* - */}
-				<Row>
+				<Row className='education-section'>
 					<Col xs={0} sm={0} md={0} lg={6}></Col>
 					<Col className='timeline-block timeline-block-right' xs={12} sm={12} md={12} lg={6}>
 						<div className='line-wrapper'>
@@ -35,7 +35,7 @@ const Education = () => {
 					</Col>
 				</Row>
 				{/* - */}
-				<Row>
+				<Row className='education-section'>
 					<Col className='timeline-block timeline-block-left' xs={12} sm={12} md={12} lg={6}>
 						<div className='line-wrapper'>
 							<div className='line'></div>

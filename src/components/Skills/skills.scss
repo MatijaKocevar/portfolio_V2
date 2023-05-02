@@ -71,19 +71,25 @@
 				height: 50%;
 			}
 
-			.circle {
-				background: v.$white;
-				border-radius: 50%;
-				width: 5rem;
-				height: 5rem;
+			.front-wrapper {
 				display: flex;
+				flex-direction: column;
 				justify-content: center;
 				align-items: center;
-				margin-bottom: 1rem;
+				.circle {
+					background: v.$white;
+					border-radius: 50%;
+					width: 5rem;
+					height: 5rem;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					margin-bottom: 1rem;
 
-				.skill-icon-front {
-					width: 3rem;
-					height: 3rem;
+					.skill-icon-front {
+						width: 3rem;
+						height: 3rem;
+					}
 				}
 			}
 

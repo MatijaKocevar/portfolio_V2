@@ -1,4 +1,4 @@
-import { forwardRef, useContext, useRef } from "react";
+import { forwardRef, useContext } from "react";
 import InterestsCarousel from "./interestsCarousel";
 import "./interests.scss";
 import { Container, Row } from "react-bootstrap";

@@ -7,8 +7,3 @@ export interface Translation {
   id: string;
   message: string;
 }
-
-export interface ToggleSwitchProps {
-  onChange: (language: string) => void;
-  language: string;
-}

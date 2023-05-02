@@ -1,3 +1,5 @@
+@use "../../variables" as v;
+
 .navbar {
 	.logo {
 		width: 10rem;
@@ -7,14 +9,34 @@
 		justify-content: space-between;
 	}
 
-	.nav-link:focus,
+	.nav-link {
+		color: v.$medium-gray;
+	}
+
+	.nav-link:focus {
+		color: v.$medium-gray;
+	}
 	.nav-link:hover {
-		color: red;
+		color: v.$lightPurple;
 	}
 
 	.navbar-right {
 		display: flex;
-		align-items: center;
-		gap: 1rem;
+		justify-content: space-between;
+		gap: 0.5rem;
+
+		.navbar-icon-links {
+			display: flex;
+			align-items: center;
+			flex-direction: row;
+			gap: 0.5rem;
+			justify-content: flex-start;
+		}
+
+		.navbar-language-switch {
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+		}
 	}
 }
