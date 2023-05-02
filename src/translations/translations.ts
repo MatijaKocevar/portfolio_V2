@@ -166,7 +166,7 @@ export const Translations = [
     id: 'Experience_Agitavit',
     en: `<h3>Software developer - Agitavit Solutions d.o.o.</h3>
          <h5>2021 - current / Employment</h5>
-         <p>As a developer, I have gained a good understanding of general development workflows and made tremendous progress in my technical skills, particularly with front-end technologies. I have become highly proficient with React and Typescript. Additionally, I have worked extensively with .NET and SQL, improving my understanding of back-end technologies.</p>`,
+         <p>As a developer, I have gained a good understanding of general development workflows and made tremendous progress in my technical skills, particularly with front-end technologies. I have become very proficient with React and Typescript. Additionally, I have worked extensively with .NET and SQL, improving my understanding of back-end technologies.</p>`,
     slo: `<h3>Razvijalec programske opreme - Agitavit Solutions d.o.o.</h3>
           <h5>2021 - tekoče / Zaposlitev</h5>
           <p>Kot razvijalec sem pridobil dobro razumevanje splošnih razvojnih delovnih procesov in naredil izjemne korake pri razvoju svojih tehničnih veščin, še posebej pri tehnologijah front-enda. Postal sem kar vešč v Reactu in Typescriptu. Poleg tega sem veliko delal s .NET in SQL ter izboljšal svoje razumevanje tehnologij na strani back-enda.</p>`,

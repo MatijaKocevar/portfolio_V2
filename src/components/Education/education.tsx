@@ -34,17 +34,6 @@ const Education = () => {
 						<div className='timeline-content'>{getTranslation("Education_RIT")}</div>
 					</Col>
 				</Row>
-				{/* - */}
-				<Row className='education-section'>
-					<Col className='timeline-block timeline-block-left' xs={12} sm={12} md={12} lg={6}>
-						<div className='line-wrapper'>
-							<div className='line'></div>
-							<div className='marker'></div>
-						</div>
-						<div className='timeline-content'>{getTranslation("Education_Personal")}</div>
-					</Col>
-					<Col xs={0} sm={0} md={0} lg={6}></Col>
-				</Row>
 			</Row>
 		</Container>
 	);
