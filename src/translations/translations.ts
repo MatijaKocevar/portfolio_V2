@@ -122,10 +122,10 @@ export const Translations = [
     id: 'Education_Personal',
     en: `<h3>Learning web development</h3>
          <h5>2020 - 2021 / Personal</h5>
-         <p>HTML, CSS, SQL, React JS, Vue JS, Node JS, .NET core, C#</p>`,
+         <p>After years of working in sales and having jobs where I didn't really enjoy myself, I began learning how to develop web apps. I used tutorials and independent searches to find out about modern frameworks and started making my own projects. The stacks I looked at were HTML, CSS, SQL, React JS, Vue JS, Node JS, .NET Core, and C#.</p>`,
     slo: `<h3>Samostojno učenje razvijanja web aplikacij</h3>
           <h5>2020 - 2021 / Personal</h5>
-          <p>HTML, CSS, SQL, React JS, Vue JS, Node JS, .NET core, C#</p>`,
+          <p>Po letih dela v prodaji in službah, kjer se nisem zares zabaval, sem se začel učiti razvoja spletnih aplikacij. Uporabljal sem tutorial-e in samostojno raziskoval, da sem izvedel več o sodobnih ogrodjih ter začel ustvarjati lastne projekte. Ogrodja, ki sem jih preučeval, so bila HTML, CSS, SQL, React JS, Vue JS, Node JS, .NET Core in C#.</p>`,
   },
   /**
    * EXPERIENCE
@@ -157,7 +157,7 @@ export const Translations = [
     id: 'Experience_Webpage',
     en: `<h3>Created first webpage</h3>
          <h5>2021 / Personal</h5>
-         <p>Developed with React JS & Bootstrap 4.</p>`,
+         <p>Developed with React JS & Bootstrap.</p>`,
     slo: `<h3>Ustvaril prvo spletno stran</h3>
           <h5>2021 / Osebno</h5>
           <p>Razvit v React JS in z uporabo Boostrap 4.</p>`,
@@ -166,10 +166,10 @@ export const Translations = [
     id: 'Experience_Agitavit',
     en: `<h3>Software developer - Agitavit Solutions d.o.o.</h3>
          <h5>2021 - current / Employment</h5>
-         <p>React, Typescript, .NET 7, Sql server, jQuery, VUE</p>`,
+         <p>As a developer, I have gained a good understanding of general development workflows and made tremendous progress in my technical skills, particularly with front-end technologies. I have become highly proficient with React and Typescript. Additionally, I have worked extensively with .NET and SQL, improving my understanding of back-end technologies.</p>`,
     slo: `<h3>Razvijalec programske opreme - Agitavit Solutions d.o.o.</h3>
           <h5>2021 - tekoče / Zaposlitev</h5>
-          <p>React, Typescript, .NET 7, Sql server, jQuery, VUE</p>`,
+          <p>Kot razvijalec sem pridobil dobro razumevanje splošnih razvojnih delovnih procesov in naredil izjemne korake pri razvoju svojih tehničnih veščin, še posebej pri tehnologijah front-enda. Postal sem kar vešč v Reactu in Typescriptu. Poleg tega sem veliko delal s .NET in SQL ter izboljšal svoje razumevanje tehnologij na strani back-enda.</p>`,
   },
   /**
    * SKILLS
