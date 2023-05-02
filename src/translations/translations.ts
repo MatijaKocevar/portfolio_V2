@@ -68,8 +68,8 @@ export const Translations = [
             <br />
             One of my strengths as a software developer is my ability to analyze problems and provide innovative solutions. I enjoy working
             collaboratively with my team members to create software that is not only efficient but also user-friendly. I am also committed to writing
-            clean, maintainable, and well-documented code (because let&apos;s face it, no one wants to inherit a mess of spaghetti code). In addition
-            to my technical skills, I like to think I have a pretty good sense of humor (but I&apos;ll let you be the judge of that). When I&apos;m
+            clean, maintainable, and well-documented code (because let's face it, no one wants to inherit a mess of spaghetti code). In addition
+            to my technical skills, I like to think I have a pretty good sense of humor (but I'll let you be the judge of that). When I'm
             not coding, i'm probablly skating or playing some intrument...or you don't find me.
             <br />
             <br />
@@ -214,4 +214,58 @@ export const Translations = [
     en: `Hardware and software configuring, problem solving, tech support.`,
     slo: `Konfiguracija strojne in programske opreme, reševanje problemov, tehnična podpora.`,
   },
+   /**
+   * PROJECTS
+   */
+  {
+    id: 'Projects_Portfolio_Title',
+    en: `Portfolio v1`,
+    slo: `Portfolio v1`,
+  },
+  {
+    id: 'Projects_HolidaysCalculator_Title',
+    en: `Holidays calculator`,
+    slo: `Kalkulator praznikov`,
+  },
+  {
+    id: 'Projects_DiffingAPI_Title',
+    en: `Diffing API`,
+    slo: `Diffing API`,
+  },
+  {
+    id: 'Projects_PortfolioV2_Title',
+    en: `Portfolio v2`,
+    slo: `Portfolio v2`,
+  },
+  {
+    id: 'Projects_Drumbox_Title',
+    en: `Drumbox`,
+    slo: `Drumbox`,
+  },
+  {
+    id: 'Projects_Portfolio_Description',
+    en: `As a beginner developer, I created my first webpage using React JS and create-react-app. Although I followed some tutorials and did not understand the inner workings of development, it was an exciting opportunity for me to showcase my skills and creativity. This project served as a solid foundation for me to further develop my skills in web development. Despite it being my first project, I am proud of the outcome and look forward to continually improving my skills in the field.`,
+    slo: `Kot začetnik sem ustvaril svojo prvo spletno stran z uporabo React JS in create-react-app. Čeprav sem sledil nekaterim vadnicam in nisem razumel notranjih delovanj razvoja, je bila to zame dobra priložnost, da pokažem svoje spretnosti in ustvarjalnost. Ta projekt mi je služil kot trdna osnova za nadaljnji razvoj mojih veščin na področju spletnega razvoja. Kljub temu, da je to moj prvi projekt, sem ponosen na rezultat in se veselim nadaljnjega izboljševanja svojih veščin na tem področju.`,
+  },
+  {
+    id: 'Projects_HolidaysCalculator_Description',
+    en: `A simple holiday calculator for Slovenian holidays. Made with .NET core and Vue JS. This is probably the first project I ever made. It was my first attempt to connect the backend and
+		frontend. It was a valuable learning experience that allowed me to expand my skills and develop innovative applications that provide real-world value.`,
+    slo: `Preprost kalkulator za slovenske praznike. Narejen z .NET core in Vue JS. To je verjetno prvi projekt, ki sem ga kdaj naredil. To je bil moj prvi poskus povezave backend in frontend. To je bila dragocena izkušnja, ki mi je omogočila razširitev mojih veščin in razvoj inovativnih aplikacij, ki prinašajo vrednost v resničnem svetu.`,
+  },
+  {
+    id: 'Projects_DiffingApi_Description',
+    en: `This is a project I developed using .NET 5.0 and Vue.js 3. It offers an API with 4 endpoints and a user interface. The application takes two base64 encoded strings, performs a diffing
+    operation between them, and returns objects with calculations. It was a valuable learning experience that allowed me to expand my skills and develop innovative applications that provide
+    real-world value.`,
+    slo: `To je projekt, ki sem ga razvil z uporabo .NET 5.0 in Vue.js 3. Ponuja API s 4. endpointi in uporabniškim vmesnikom. Aplikacija vzame dva niza kodirana v base64, opravi operacijo diffing med njima in vrne objekte z izračuni. To je bila dragocena izkušnja, ki mi je omogočila razširitev mojih veščin in razvoj inovativnih aplikacij, ki prinašajo vrednost v resničnem svetu.`,
+  },
+  {
+    id: 'Projects_PortfoliV2_Description',
+    en: `This is my latest project. After 2 years of working as an actual developer, I decided to take what I've learned so far and apply it to my portfolio webpage. I started a completely new
+    project with Vite, React and Typescript. I've also used Bootstrap and Sass for styling. The goal was to create a modern, responsive, and user-friendly website that showcases my
+    skills. With the first version of this website I used a lot of external libraries and components. This time I wanted to create everything from scratch. I replaced most of the external
+    libraries with my own components and animations. Redid the styling and added new features. I'm very happy with the outcome and I'm looking forward to improving it even further.`,
+    slo: `To je moj najnovejši projekt. Po 2 letih dela kot pravi razvijalec sem se odločil, da bom to, kar sem se do zdaj naučil, uporabil za svojo spletno stran. Začel sem popolnoma nov projekt z Vite, React in Typescript. Za oblikovanje sem uporabil tudi Bootstrap in Sass. Cilj je bil ustvariti sodobno, odzivno in uporabniku prijazno spletno mesto, ki prikazuje moje veščine. Pri prvi različici te spletne strani sem uporabil veliko zunanjih knjižnic in komponent. Tokrat sem želel vse ustvariti od začetka. Večino zunanjih knjižnic sem zamenjal s svojimi komponentami in animacijami. Ponovno sem naredil oblikovanje in dodal nove funkcije. Z rezultatom sem zelo zadovoljen in veselim se nadaljnjega izboljševanja.`,
+  }
 ];

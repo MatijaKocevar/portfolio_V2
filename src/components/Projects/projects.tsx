@@ -1,7 +1,8 @@
-import project1 from "../../images/project1.png";
-import project2 from "../../images/project2.png";
-import project3 from "../../images/project3.png";
-import woi from "../../images/woi.png";
+import portfolioV1 from "../../images/portfolioV1/portfolioV1.png";
+import holidaysCalculator from "../../images/holidaysCalculator/holidaysCalculator.png";
+import diffingApi from "../../images/diffingApi/diffingApi.png";
+import portfoliV2 from "../../images/portfolioV2/portfolioV2.png";
+import drumbox from "../../images/drumbox/drumbox.png";
 import "./projects.scss";
 import { useContext, useState } from "react";
 import PopupBox from "../Shared/PopupBox/PopupBox";
@@ -15,37 +16,106 @@ const Projects = () => {
 	const [showPopupResume, setShowPopupResume] = useState(false);
 	const [showPopupHolidays, setShowPopupHolidays] = useState(false);
 	const [showPopupDiffing, setShowPopupDiffing] = useState(false);
-	const [showPopupWOI, setShowPopupWOI] = useState(false);
+	const [showPopupportfoliV2, setShowPopupportfoliV2] = useState(false);
+	const [showPopupDrumbox, setShowPopupDrumbox] = useState(false);
 
 	const magnifyingGlass = <SvgIcon iconName='magnifyingGlass' svgProp={{ width: "2rem", height: "2rem", fill: "white" }} />;
 
 	const resumeContent = (
-			<>
-				<h3>Portfolio</h3>
-				<img className='projects-image-popupbox' src={project1} alt='Online resume' />
-				<p>This is a popup box!This is a popup box!This is a popup box!This is a popup box!This is a popup box!This is a popup box!</p>
-			</>
+			<Row className='popupbox-content'>
+				<Col className='popupbox-heading'>
+					<h3>{getTranslation("Projects_Portfolio_Title")}</h3>
+				</Col>
+				<Col className='popupbox-image'>
+					<img src={portfolioV1} alt='Online resume' />
+				</Col>
+				<Col className='popupbox-description'>
+					<p>{getTranslation("Projects_Portfolio_Description")}</p>
+				</Col>
+				<Col className='popupbox-links'>
+					<a href='https://github.com/MatijaKocevar/myPortfolio' target='_blank' rel='noopener noreferrer'>
+						GitHub
+					</a>
+					<a href='https://matijakocevar.github.io/myPortfolio/' target='_blank' rel='noopener noreferrer'>
+						Live
+					</a>
+				</Col>
+			</Row>
 		),
 		holidayContent = (
-			<>
-				<h3>Holidays calculator</h3>
-				<img className='projects-image-popupbox' src={project2} alt='Online resume' />
-				<p>This is a popup box!This is a popup box!This is a popup box!This is a popup box!This is a popup box!This is a popup box!</p>
-			</>
+			<Row className='popupbox-content'>
+				<Col className='popupbox-heading'>
+					<h3>{getTranslation("Projects_HolidaysCalculator_Title")}</h3>
+				</Col>
+				<Col className='popupbox-image'>
+					<img src={holidaysCalculator} alt='Online resume' />
+				</Col>
+				<Col className='popupbox-description'>
+					<p>{getTranslation("Projects_HolidaysCalculator_Description")}</p>
+				</Col>
+				<Col className='popupbox-links'>
+					<a href='https://github.com/MatijaKocevar/myPortfolio' target='_blank' rel='noopener noreferrer'>
+						GitHub
+					</a>
+				</Col>
+			</Row>
 		),
 		diffingContent = (
-			<>
-				<h3>Diffing API</h3>
-				<img className='projects-image-popupbox' src={project3} alt='Online resume' />
-				<p>This is a popup box!This is a popup box!This is a popup box!This is a popup box!This is a popup box!This is a popup box!</p>
-			</>
+			<Row className='popupbox-content'>
+				<Col className='popupbox-heading'>
+					<h3>{getTranslation("Projects_DiffingAPI_Title")}</h3>
+				</Col>
+				<Col className='popupbox-image'>
+					<img src={diffingApi} alt='Online resume' />
+				</Col>
+				<Col className='popupbox-description'>
+					<p>{getTranslation("Projects_DiffingApi_Description")}</p>
+				</Col>
+				<Col className='popupbox-links'>
+					<a href='https://github.com/MatijaKocevar/diffs' target='_blank' rel='noopener noreferrer'>
+						GitHub
+					</a>
+				</Col>
+			</Row>
 		),
-		WOIContent = (
-			<>
-				<h3>WORKING ON IT</h3>
-				<img className='projects-image-popupbox' src={woi} alt='Online resume' />
-				<p>This is a popup box!This is a popup box!This is a popup box!This is a popup box!This is a popup box!This is a popup box!</p>
-			</>
+		portfoliV2Content = (
+			<Row className='popupbox-content'>
+				<Col className='popupbox-heading'>
+					<h3>{getTranslation("Projects_PortfolioV2_Title")}</h3>
+				</Col>
+				<Col className='popupbox-image'>
+					<img src={portfoliV2} alt='Online resume' />
+				</Col>
+				<Col className='popupbox-description'>
+					<p>{getTranslation("Projects_PortfoliV2_Description")}</p>
+				</Col>
+				<Col className='popupbox-links'>
+					<a href='https://github.com/MatijaKocevar/myPortfolio' target='_blank' rel='noopener noreferrer'>
+						GitHub
+					</a>
+				</Col>
+			</Row>
+		),
+		drumboxContent = (
+			<Row className='popupbox-content'>
+				<Col className='popupbox-heading'>
+					<h3>{getTranslation("Projects_Drumbox_Title")}</h3>
+				</Col>
+				<Col className='popupbox-image'>
+					<img src={drumbox} alt='Online resume' />
+				</Col>
+				<Col className='popupbox-description'>
+					<p>
+						This is fun project that I&apos;m working on with a friend, it consumes Web Midi API. The end goal is to build an Web DAW(digital audio workstation). So far it can accept different MIDI
+						controllers as inputs and can play back notes selected on the screen.
+					</p>
+				</Col>
+				<Col className='popupbox-links'>
+					<a href='https://github.com/MatijaKocevar/drumbox' target='_blank' rel='noopener noreferrer'>
+						GitHub
+					</a>
+				</Col>
+			</Row>
 		);
 
 	return (
@@ -53,48 +123,60 @@ const Projects = () => {
 			<Row className='heading-row'>
 				<h1 className=''>{getTranslation("Navigation_Projects")}</h1>
 			</Row>
-			<Row>
-				{showPopupResume && <PopupBox content={resumeContent} onClose={() => setShowPopupResume(false)} />}
-				<Col lg={3} md={6} sm={6} xs={12}>
-					<div className='project-wrapper' onClick={() => setShowPopupResume(true)}>
+			<Row className='projects-wrapper'>
+				{/* - */}
+				{showPopupportfoliV2 && <PopupBox content={portfoliV2Content} onClose={() => setShowPopupportfoliV2(false)} />}
+				<Col lg={4} md={6} sm={6} xs={12}>
+					<div className='project-wrapper' onClick={() => setShowPopupportfoliV2(true)}>
 						<div className='project'>
 							<div className='project-icon'>{magnifyingGlass}</div>
-							<img className='project-image' src={project1} alt='project webpage' />
+							<img className='project-image' src={portfoliV2} alt='Project 4...' />
 						</div>
-						<h3>Portfolio</h3>
+						<h3>{getTranslation("Projects_PortfolioV2_Title")}</h3>
+					</div>
+				</Col>
+				{/* - */}
+				{showPopupDrumbox && <PopupBox content={drumboxContent} onClose={() => setShowPopupDrumbox(false)} />}
+				<Col lg={4} md={6} sm={6} xs={12}>
+					<div className='project-wrapper' onClick={() => setShowPopupDrumbox(true)}>
+						<div className='project'>
+							<div className='project-icon'>{magnifyingGlass}</div>
+							<img className='project-image' src={drumbox} alt='Project 3...' />
+						</div>
+						<h3>{getTranslation("Projects_Drumbox_Title")}</h3>
 					</div>
 				</Col>
 				{/* - */}
 				{showPopupHolidays && <PopupBox content={holidayContent} onClose={() => setShowPopupHolidays(false)} />}
-				<Col lg={3} md={6} sm={6} xs={12}>
+				<Col lg={4} md={6} sm={6} xs={12}>
 					<div className='project-wrapper' onClick={() => setShowPopupHolidays(true)}>
 						<div className='project'>
 							<div className='project-icon'>{magnifyingGlass}</div>
-							<img className='project-image' src={project2} alt='Project 2...' />
+							<img className='project-image' src={holidaysCalculator} alt='Project 2...' />
 						</div>
-						<h3>Holidays calculator</h3>
+						<h3>{getTranslation("Projects_HolidaysCalculator_Title")}</h3>
 					</div>
 				</Col>
 				{/* - */}
 				{showPopupDiffing && <PopupBox content={diffingContent} onClose={() => setShowPopupDiffing(false)} />}
-				<Col lg={3} md={6} sm={6} xs={12}>
+				<Col lg={4} md={6} sm={6} xs={12}>
 					<div className='project-wrapper' onClick={() => setShowPopupDiffing(true)}>
 						<div className='project'>
 							<div className='project-icon'>{magnifyingGlass}</div>
-							<img className='project-image' src={project3} alt='Project 3...' />
+							<img className='project-image' src={diffingApi} alt='Project 3...' />
 						</div>
-						<h3>Diffing API</h3>
+						<h3>{getTranslation("Projects_DiffingAPI_Title")}</h3>
 					</div>
 				</Col>
 				{/* - */}
-				{showPopupWOI && <PopupBox content={WOIContent} onClose={() => setShowPopupWOI(false)} />}
-				<Col lg={3} md={6} sm={6} xs={12}>
-					<div className='project-wrapper' onClick={() => setShowPopupWOI(true)}>
+				{showPopupResume && <PopupBox content={resumeContent} onClose={() => setShowPopupResume(false)} />}
+				<Col lg={4} md={6} sm={6} xs={12}>
+					<div className='project-wrapper' onClick={() => setShowPopupResume(true)}>
 						<div className='project'>
 							<div className='project-icon'>{magnifyingGlass}</div>
-							<img className='project-image' src={woi} alt='Project 4...' />
+							<img className='project-image' src={portfolioV1} alt='project webpage' />
 						</div>
-						<h3>...</h3>
+						<h3>{getTranslation("Projects_Portfolio_Title")}</h3>
 					</div>
 				</Col>
 			</Row>
