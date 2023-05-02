@@ -248,6 +248,11 @@ export const Translations = [
     slo: `Kot začetnik sem ustvaril svojo prvo spletno stran z uporabo React JS in create-react-app. Čeprav sem sledil nekaterim vadnicam in nisem razumel notranjih delovanj razvoja, je bila to zame dobra priložnost, da pokažem svoje spretnosti in ustvarjalnost. Ta projekt mi je služil kot trdna osnova za nadaljnji razvoj mojih veščin na področju spletnega razvoja. Kljub temu, da je to moj prvi projekt, sem ponosen na rezultat in se veselim nadaljnjega izboljševanja svojih veščin na tem področju.`,
   },
   {
+    id: 'Projects_Drumbox_Description',
+    en: `This is fun project that I'm working on with a friend, it consumes Web Midi API. The end goal is to build an Web DAW(digital audio workstation). So far it can accept different MIDI controllers as inputs and can play back notes selected on the screen.`,
+    slo: `To je zabaven projekt, ki ga delam s prijateljem, uporablja Web Midi API. Končni cilj je zgraditi spletno DAW (digitalno avdio delovno postajo). Do zdaj lahko sprejme različne MIDI kontrolerje kot vhode in lahko predvaja note, izbrane na zaslonu.`,
+  },
+  {
     id: 'Projects_HolidaysCalculator_Description',
     en: `A simple holiday calculator for Slovenian holidays. Made with .NET core and Vue JS. This is probably the first project I ever made. It was my first attempt to connect the backend and
 		frontend. It was a valuable learning experience that allowed me to expand my skills and develop innovative applications that provide real-world value.`,
@@ -263,9 +268,8 @@ export const Translations = [
   {
     id: 'Projects_PortfoliV2_Description',
     en: `This is my latest project. After 2 years of working as an actual developer, I decided to take what I've learned so far and apply it to my portfolio webpage. I started a completely new
-    project with Vite, React and Typescript. I've also used Bootstrap and Sass for styling. The goal was to create a modern, responsive, and user-friendly website that showcases my
-    skills. With the first version of this website I used a lot of external libraries and components. This time I wanted to create everything from scratch. I replaced most of the external
+    project with Vite, React and Typescript. I've also used Bootstrap and Sass for styling. With the first version of this website I used a lot of external libraries and components. This time I wanted to create everything from scratch. I replaced most of the external
     libraries with my own components and animations. Redid the styling and added new features. I'm very happy with the outcome and I'm looking forward to improving it even further.`,
-    slo: `To je moj najnovejši projekt. Po 2 letih dela kot pravi razvijalec sem se odločil, da bom to, kar sem se do zdaj naučil, uporabil za svojo spletno stran. Začel sem popolnoma nov projekt z Vite, React in Typescript. Za oblikovanje sem uporabil tudi Bootstrap in Sass. Cilj je bil ustvariti sodobno, odzivno in uporabniku prijazno spletno mesto, ki prikazuje moje veščine. Pri prvi različici te spletne strani sem uporabil veliko zunanjih knjižnic in komponent. Tokrat sem želel vse ustvariti od začetka. Večino zunanjih knjižnic sem zamenjal s svojimi komponentami in animacijami. Ponovno sem naredil oblikovanje in dodal nove funkcije. Z rezultatom sem zelo zadovoljen in veselim se nadaljnjega izboljševanja.`,
+    slo: `To je moj najnovejši projekt. Po 2 letih dela kot pravi razvijalec sem se odločil, da bom to, kar sem se do zdaj naučil, uporabil za svojo spletno stran. Začel sem popolnoma nov projekt z Vite, React in Typescript. Za oblikovanje sem uporabil tudi Bootstrap in Sass. Pri prvi različici te spletne strani sem uporabil veliko zunanjih knjižnic in komponent. Tokrat sem želel vse ustvariti od začetka. Večino zunanjih knjižnic sem zamenjal s svojimi komponentami in animacijami. Ponovno sem naredil oblikovanje in dodal nove funkcije. Z rezultatom sem zelo zadovoljen in veselim se nadaljnjega izboljševanja.`,
   }
 ];
