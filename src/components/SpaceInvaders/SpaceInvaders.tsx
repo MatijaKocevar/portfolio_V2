@@ -29,6 +29,23 @@ class GameObject {
 }
 
 class Laser extends GameObject {
+	fire() {
+		const projectile = new Projectile(
+			this.x + this.width / 2 - 2.5, // Set the projectile's x position to the center of the laser
+			this.y,
+			5, // Set the projectile's width and height
+			10,
+			10 // Set the projectile's speed
+		);
+
+		return projectile;
+	}
+
+	move(dx: number, dy: number) {
+		this.x += dx;
+		this.y += dy;
+	}
+
 	moveLeft(context: CanvasRenderingContext2D) {
 		if (this.x > 0) {
 			this.drawInactive(context);
@@ -43,6 +60,19 @@ class Laser extends GameObject {
 			this.x += 10;
 			this.drawActive(context);
 		}
+	}
+}
+
+class Projectile extends GameObject {
+	speed: number;
+
+	constructor(x: number, y: number, width: number, height: number, speed: number) {
+		super(x, y, width, height);
+		this.speed = speed;
+	}
+
+	move() {
+		this.y -= this.speed;
 	}
 }
 
@@ -68,15 +98,25 @@ const GameBoard = () => {
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 	const laserRef = useRef<Laser>();
 	const invaderRef = useRef<Invader>();
+	const projectiles: Projectile[] = [];
 
 	useEffect(() => {
 		const canvas = canvasRef.current;
 		const context = canvas?.getContext("2d");
 
 		const handleKeyDown = (event: KeyboardEvent) => {
+			event.preventDefault();
+
 			if (context) {
 				if (event.key === "ArrowLeft") laserRef.current?.moveLeft(context);
 				else if (event.key === "ArrowRight") laserRef.current?.moveRight(canvas?.width || 0, context);
+				else if (event.key === " ") {
+					// Listen for the spacebar key
+					const projectile = laserRef.current?.fire();
+					if (projectile) {
+						projectiles.push(projectile);
+					}
+				}
 			}
 		};
 
@@ -94,10 +134,12 @@ const GameBoard = () => {
 
 		window.addEventListener("keydown", handleKeyDown);
 
+		let test = 1;
+
 		return () => {
 			window.removeEventListener("keydown", handleKeyDown);
 		};
-	}, [laserRef]);
+	}, []);
 
 	return <canvas ref={canvasRef} width={500} height={450}></canvas>;
 };
