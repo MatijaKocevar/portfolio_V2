@@ -15,6 +15,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		padding-top: 2rem;
 
 		background-color: v.$darkerPurpleSE;
 		border-radius: 10px;
@@ -79,9 +80,6 @@
 			justify-content: center;
 			height: fit-content;
 			padding: 2rem 0;
-			gap: 2rem;
-			// width: 100%;
-			// height: 50%;
 
 			.skill-icon {
 				display: flex;
@@ -90,7 +88,7 @@
 				color: v.$white;
 				align-items: center;
 				text-align: center;
-				padding: 0;
+				padding: 1rem;
 
 				.skill-icon-back {
 					width: 3rem;

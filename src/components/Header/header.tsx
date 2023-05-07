@@ -25,19 +25,19 @@ const Header = () => {
 						<h3>{getTranslation("Header_Subtitle")}</h3>
 					</Row>
 					<Row className='skill-icons-wrapper'>
-						<Col xs={2} sm={2} md={2} lg={2} className='skill-icon'>
+						<Col xs={6} sm={6} md={3} lg={3} className='skill-icon'>
 							<SvgIcon iconName='javascript' svgProp={{ className: "skill-icon-back" }} />
 							<span>Javascript</span>
 						</Col>
-						<Col xs={2} sm={2} md={2} lg={2} className='skill-icon'>
+						<Col xs={6} sm={6} md={3} lg={3} className='skill-icon'>
 							<SvgIcon iconName='typescript' svgProp={{ className: "skill-icon-back" }} />
 							<span>Typescript</span>
 						</Col>
-						<Col xs={2} sm={2} md={2} lg={2} className='skill-icon'>
+						<Col xs={6} sm={6} md={3} lg={3} className='skill-icon'>
 							<SvgIcon iconName='dotNet' svgProp={{ className: "skill-icon-back" }} />
 							<span>.NET(C#)</span>
 						</Col>
-						<Col xs={2} sm={2} md={2} lg={2} className='skill-icon'>
+						<Col xs={6} sm={6} md={3} lg={3} className='skill-icon'>
 							<SvgIcon iconName='sql' svgProp={{ className: "skill-icon-back" }} />
 							<span>SQL</span>
 						</Col>

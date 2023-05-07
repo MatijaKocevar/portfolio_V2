@@ -1,12 +1,14 @@
 @use "../../variables" as v;
 
 .navbar {
-	height: 4rem;
+	background-color: rgba(var(--bs-dark-rgb));
+
 	.logo {
 		width: 10rem;
 	}
-
+	.navbar-collapse,
 	.collapse {
+		background-color: rgba(var(--bs-dark-rgb));
 		justify-content: space-between;
 	}
 
