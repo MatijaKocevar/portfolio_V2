@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 
 class GameObject {
 	x: number;
@@ -14,20 +14,6 @@ class GameObject {
 	}
 
 	drawActive(context: CanvasRenderingContext2D) {
-		// Draw the game object using canvas API
-	}
-
-	drawInactive(context: CanvasRenderingContext2D) {
-		// Draw the game object using canvas API
-	}
-
-	update() {
-		// Update the game object's state
-	}
-}
-
-class Laser extends GameObject {
-	drawActive(context: CanvasRenderingContext2D) {
 		context.fillStyle = "white";
 		context.fillRect(this.x, this.y, this.width, this.height);
 	}
@@ -37,6 +23,12 @@ class Laser extends GameObject {
 		context.fillRect(this.x, this.y, this.width, this.height);
 	}
 
+	update() {
+		// Update the game object's state
+	}
+}
+
+class Laser extends GameObject {
 	moveLeft(context: CanvasRenderingContext2D) {
 		if (this.x > 0) {
 			this.drawInactive(context);
@@ -55,14 +47,20 @@ class Laser extends GameObject {
 }
 
 class Invader extends GameObject {
-	drawActive(context: CanvasRenderingContext2D) {
-		context.fillStyle = "white";
-		context.fillRect(this.x, this.y, this.width, this.height);
+	moveLeft(context: CanvasRenderingContext2D) {
+		if (this.x > 0) {
+			this.drawInactive(context);
+			this.x -= 10;
+			this.drawActive(context);
+		}
 	}
 
-	drawInactive(context: CanvasRenderingContext2D) {
-		context.fillStyle = "black";
-		context.fillRect(this.x, this.y, this.width, this.height);
+	moveRight(canvasWidth: number, context: CanvasRenderingContext2D) {
+		if (this.x + this.width < canvasWidth) {
+			this.drawInactive(context);
+			this.x += 10;
+			this.drawActive(context);
+		}
 	}
 }
 

@@ -14,7 +14,7 @@ const Header = () => {
 	return (
 		<Container id='home' className='header-wraper'>
 			<Row className='main-info'>
-				<Col className='photo'>
+				<Col className='photo-header'>
 					<img className='profile-img' src={author} alt='author' />
 				</Col>
 				<Col className='headings'>

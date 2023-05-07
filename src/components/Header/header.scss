@@ -20,7 +20,7 @@
 		background-color: v.$darkerPurpleSE;
 		border-radius: 10px;
 
-		.photo {
+		.photo-header {
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -32,7 +32,6 @@
 				border-radius: 50%;
 				border: 5px solid v.$lightPurple;
 				padding: 1rem;
-				max-width: 20rem;
 			}
 		}
 
@@ -133,9 +132,9 @@
 	.header-wraper {
 		flex-direction: row;
 
-		.photo {
+		.photo-header {
 			.profile-img {
-				max-width: 15rem !important;
+				max-width: 20rem !important;
 			}
 		}
 
@@ -159,9 +158,9 @@
 		height: fit-content;
 		flex-direction: column;
 
-		.photo {
+		.photo-header {
 			.profile-img {
-				max-width: 15rem !important;
+				max-width: 20rem !important;
 			}
 		}
 
@@ -184,7 +183,7 @@
 		height: fit-content;
 		flex-direction: column;
 
-		.photo {
+		.photo-header {
 			.profile-img {
 				max-width: 15rem !important;
 			}
@@ -209,9 +208,9 @@
 		height: fit-content;
 		flex-direction: column;
 
-		.photo {
+		.photo-header {
 			.profile-img {
-				max-width: 13rem !important;
+				max-width: 12rem !important;
 			}
 		}
 

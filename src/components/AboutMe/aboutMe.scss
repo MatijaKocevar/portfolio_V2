@@ -20,17 +20,6 @@
 		width: 100%;
 		margin: 0;
 
-		// .photo {
-		// 	display: flex;
-		// 	justify-content: center;
-
-		// 	.profile-img {
-		// 		border-radius: 50%;
-		// 		border: 5px solid v.$lightPurple;
-		// 		padding: 1rem;
-		// 	}
-		// }
-
 		.description {
 			text-align: center;
 			color: v.$white;
@@ -42,10 +31,6 @@
 @media (min-width: 992px) {
 	.about-content {
 		.col-lg-5 {
-			.profile-img {
-				width: 70%;
-				// height: 50%;
-			}
 		}
 	}
 }
@@ -55,10 +40,6 @@
 	.about-content {
 		.col-md-12 {
 			padding: 0.5rem 0;
-
-			.profile-img {
-				width: 60%;
-			}
 		}
 
 		.description {
@@ -76,10 +57,6 @@
 	.about-content {
 		.col-sm-12 {
 			// padding: 0.5rem 0;
-
-			.profile-img {
-				width: 80%;
-			}
 		}
 	}
 }
@@ -89,10 +66,6 @@
 	.about-content {
 		.col-12 {
 			// padding: 0.5rem 0;
-
-			.profile-img {
-				width: 90%;
-			}
 		}
 	}
 }
