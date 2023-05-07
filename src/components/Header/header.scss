@@ -1,33 +1,213 @@
 @use "../../variables" as v;
 
 .header-wraper {
-  background: url(/src/images/portfolio-background.jpg);
-  background-size: cover;
-  width: 100%;
-  height: 100vh;
-  width: 100vw;
-  backdrop-filter: blur(50px);
+	background: url(/src/images/portfolio-background.jpg);
+	background-size: cover;
+	margin-top: 4rem !important;
+	height: calc(100vh - 4rem);
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
 
+	.main-info {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		width: 100%;
+		height: 100%;
+		background-color: v.$darkerPurpleSE;
+		border-radius: 10px;
 
+		.photo {
+			display: flex;
+			justify-content: center;
+			align-items: center;
 
-  .main-info {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
+			// width: 100%;
+			// height: 100%;
 
-    h1 {
-      color: v.$white;
-      text-transform: uppercase;
-    }
+			.profile-img {
+				border-radius: 50%;
+				border: 5px solid v.$lightPurple;
+				padding: 1rem;
+				max-width: 20rem;
+			}
+		}
 
-    .text-transition {
-      color: white;
-      font-size: 2rem;
-      transition: 10ms;
-    }
-  }
+		.headings {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
 
+			.heading-row {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				width: 100%;
+				// height: 100%;
+
+				h1 {
+					color: v.$white;
+					text-transform: uppercase;
+					width: fit-content;
+				}
+			}
+
+			.subtitle-row {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				width: 100%;
+				// height: 100%;
+
+				h3 {
+					color: v.$white;
+					font-size: 1.3rem;
+					font-weight: normal;
+					text-align: center;
+				}
+			}
+		}
+
+		.skill-icons-wrapper {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			height: fit-content;
+			padding: 2rem 0;
+			gap: 2rem;
+			// width: 100%;
+			// height: 50%;
+
+			.skill-icon {
+				display: flex;
+				justify-content: center;
+				flex-direction: column;
+				color: v.$white;
+				align-items: center;
+				text-align: center;
+				padding: 0;
+
+				.skill-icon-back {
+					width: 3rem;
+					height: 3rem;
+				}
+
+				span {
+					white-space: nowrap;
+					font-size: 0.8rem;
+				}
+			}
+		}
+
+		.text-transition {
+			color: white;
+			font-size: 2rem;
+			transition: 10ms;
+		}
+	}
+
+	.games {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: v.$darkerPurpleSE;
+		// opacity: 0.7;
+		border-radius: 10px;
+		padding: 1rem;
+
+		.game {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			opacity: 1;
+		}
+	}
+}
+
+//lg
+@media (min-width: 992px) {
+}
+
+//md
+@media (max-width: 992px) {
+	.header-wraper {
+		height: fit-content;
+		flex-direction: column;
+
+		.photo {
+			.profile-img {
+				max-width: 15rem !important;
+			}
+		}
+
+		.subtitle-row {
+			h3 {
+				font-size: 1rem !important;
+			}
+		}
+
+		.main-info {
+			height: calc(100vh - 10rem) !important;
+		}
+	}
+}
+
+//sm
+@media (max-width: 768px) {
+	.header-wraper {
+		height: fit-content;
+		flex-direction: column;
+
+		.photo {
+			.profile-img {
+				max-width: 15rem !important;
+			}
+		}
+
+		.subtitle-row {
+			h3 {
+				font-size: 1rem !important;
+			}
+		}
+
+		.main-info {
+			height: calc(100vh - 10rem) !important;
+		}
+	}
+}
+
+//xs
+@media (max-width: 576px) {
+	.header-wraper {
+		height: fit-content;
+		flex-direction: column;
+
+		.photo {
+			.profile-img {
+				max-width: 13rem !important;
+			}
+		}
+
+		.subtitle-row {
+			h3 {
+				font-size: 1rem !important;
+			}
+		}
+
+		.main-info {
+			height: calc(100vh - 10rem) !important;
+		}
+	}
 }

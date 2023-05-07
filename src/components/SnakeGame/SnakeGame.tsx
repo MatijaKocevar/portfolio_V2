@@ -108,7 +108,7 @@ const SnakeGame: React.FC = () => {
 		const head = snake.body[0];
 
 		// Check for collision with game board walls
-		if (head.x < 0 || head.x >= 20 || head.y < 0 || head.y >= 20) {
+		if (head.x < 0 || head.x >= 13.2 || head.y < 0 || head.y >= 13.2) {
 			setGameOver(true);
 			return;
 		}

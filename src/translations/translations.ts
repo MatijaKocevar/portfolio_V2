@@ -47,8 +47,27 @@ export const Translations = [
   },
   {
     id: 'Header_Subtitle',
-    en: 'WORK IN PROGRESS',
-    slo: 'PRENOVA V TEKU',
+    en: `Hello and welcome to my portfolio page!
+         <br />
+         I am a software developer with 2 years of experience in the industry.
+         <br />
+         <br />
+         My most commonly used stacks:`,
+    slo: `Pozdravljeni in dobrodošli na moji spletni strani!
+          <br />
+          Sem razvijalec programske opreme z 2 leti izkušenj v industriji.
+          <br />
+          <br />
+          Tehnologije, ki jih najpogosteje uporabljam:`,
+  },
+  {
+    id: 'Header_AdditionalInfo',
+    en: `If you don&apos;t feel like scrolling, you can play this game =)
+         <br />
+         GAME IN DEVELOPMENT`,
+    slo: `Če se vam ne da scrollat, lahko igrate tole igro =)
+         <br />
+         IGRA V RAZVOJU`,
   },
   /**
    * ABOUT ME
@@ -56,11 +75,6 @@ export const Translations = [
   {
     id: 'AboutMe_Bio',
     en: `<div>
-            Hello and welcome to my portfolio page!
-            <br />
-            My name is Matija, and I am a passionate software developer with 2 years of experience in the industry.
-            <br />
-            <br />
             Before becoming a developer, I spent 7 years in sales, which helped me develop excellent communication and problem-solving skills.
             Throughout my career as a developer, I have worked on various projects, from small web applications to mid-scale enterprise systems. I
             have experience working with .NET, Umbraco, JavaScript, and Vue, but I am most experienced with React and Typescript.
@@ -77,11 +91,6 @@ export const Translations = [
             your favorite cat video), please feel free to contact me. I would be happy to chat with you!
           </div>`,
     slo: `<div>
-            Pozdravljeni in dobrodošli na moji spletni strani!
-            <br />
-            Moje ime je Matija in sem razvijalec programske opreme z 2 leti izkušenj v industriji.
-            <br />
-            <br />
             Preden sem postal razvijalec, sem 7 let preživel v prodaji, kar mi je pomagalo razviti odlične komunikacijske sposobnosti in veščine reševanja problemov.
             V svoji karieri razvijalca sem delal na različnih projektih, od majhnih spletnih aplikacij do srednje velikih poslovnih sistemov. Imam izkušnje pri delu 
             s .NET, Umbraco, JavaScript in Vue, največ izkušenj pa imam s React in Typescript.

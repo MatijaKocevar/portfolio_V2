@@ -10,7 +10,7 @@ import { DownloadFile } from "../Shared/DownloadFile/DownloadFile";
 const NavBar = () => {
 	const { setLanguage, getTranslation, language } = useContext(TranslationContext);
 
-	const startingOffset = -66;
+	const startingOffset = -58;
 	const startingToggle = window.innerWidth < 1199 ? "collapse" : "keep";
 	const [offset, setOffset] = useState(startingOffset);
 	const [toggle, setToggle] = useState(startingToggle);
@@ -26,7 +26,7 @@ const NavBar = () => {
 
 	useEffect(() => {
 		const handleResize = () => {
-			setOffset(-66);
+			setOffset(-58);
 			setToggle(window.innerWidth < 1199 ? "collapse" : "keep");
 		};
 
@@ -39,7 +39,7 @@ const NavBar = () => {
 		<nav className='navbar fixed-top navbar-expand-lg navbar-dark bg-dark p-2'>
 			<Link
 				smooth={true}
-				to='home'
+				to='root'
 				className='navbar-brand'
 				href='#'
 				duration={2}

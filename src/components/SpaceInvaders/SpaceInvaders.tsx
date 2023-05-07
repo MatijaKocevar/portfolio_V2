@@ -13,7 +13,11 @@ class GameObject {
 		this.height = height;
 	}
 
-	draw(context: CanvasRenderingContext2D) {
+	drawActive(context: CanvasRenderingContext2D) {
+		// Draw the game object using canvas API
+	}
+
+	drawInactive(context: CanvasRenderingContext2D) {
 		// Draw the game object using canvas API
 	}
 
@@ -23,40 +27,41 @@ class GameObject {
 }
 
 class Laser extends GameObject {
-	move(dx: number) {
-		this.x += dx;
-	}
-
-	draw(context: CanvasRenderingContext2D) {
+	drawActive(context: CanvasRenderingContext2D) {
 		context.fillStyle = "white";
 		context.fillRect(this.x, this.y, this.width, this.height);
 	}
 
-	moveLeft() {
+	drawInactive(context: CanvasRenderingContext2D) {
+		context.fillStyle = "black";
+		context.fillRect(this.x, this.y, this.width, this.height);
+	}
+
+	moveLeft(context: CanvasRenderingContext2D) {
 		if (this.x > 0) {
+			this.drawInactive(context);
 			this.x -= 10;
+			this.drawActive(context);
 		}
 	}
 
-	moveRight(canvasWidth: number) {
+	moveRight(canvasWidth: number, context: CanvasRenderingContext2D) {
 		if (this.x + this.width < canvasWidth) {
+			this.drawInactive(context);
 			this.x += 10;
+			this.drawActive(context);
 		}
 	}
 }
 
 class Invader extends GameObject {
-	move(dx: number, dy: number) {
-		this.x += dx;
-		this.y += dy;
-	}
-
-	drop() {
-		this.y += this.height;
-	}
-
-	draw(context: CanvasRenderingContext2D) {
+	drawActive(context: CanvasRenderingContext2D) {
 		context.fillStyle = "white";
+		context.fillRect(this.x, this.y, this.width, this.height);
+	}
+
+	drawInactive(context: CanvasRenderingContext2D) {
+		context.fillStyle = "black";
 		context.fillRect(this.x, this.y, this.width, this.height);
 	}
 }
@@ -71,24 +76,22 @@ const GameBoard = () => {
 		const context = canvas?.getContext("2d");
 
 		const handleKeyDown = (event: KeyboardEvent) => {
-			if (event.key === "ArrowLeft") {
-				laserRef.current?.moveLeft();
-				if (context) laserRef.current?.draw(context);
-			} else if (event.key === "ArrowRight") {
-				laserRef.current?.moveRight(canvasRef.current?.width || 0);
-				if (context) laserRef.current?.draw(context);
+			if (context) {
+				if (event.key === "ArrowLeft") laserRef.current?.moveLeft(context);
+				else if (event.key === "ArrowRight") laserRef.current?.moveRight(canvas?.width || 0, context);
 			}
 		};
+
 		if (canvas && context) {
 			// Draw the game board using the canvas API
 			context.fillStyle = "black";
 			context.fillRect(0, 0, canvas.width, canvas.height);
 
 			laserRef.current = new Laser(canvas.width / 2, canvas.height - 50, 10, 20);
-			laserRef.current.draw(context);
+			laserRef.current.drawActive(context);
 
 			invaderRef.current = new Invader(canvas.width / 2, 0, 10, 20);
-			invaderRef.current.draw(context);
+			invaderRef.current.drawActive(context);
 		}
 
 		window.addEventListener("keydown", handleKeyDown);
@@ -98,7 +101,7 @@ const GameBoard = () => {
 		};
 	}, [laserRef]);
 
-	return <canvas ref={canvasRef} width={400} height={300}></canvas>;
+	return <canvas ref={canvasRef} width={600} height={600}></canvas>;
 };
 
 export default GameBoard;
