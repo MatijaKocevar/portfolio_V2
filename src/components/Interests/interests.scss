@@ -1,7 +1,7 @@
 @use "../../variables" as v;
 
 .interests {
-	background-color: v.$mediumPurple;
+	background-color: v.$darkerPurple;
 	background-size: cover;
 	text-align: center;
 	padding-bottom: 3rem;
@@ -24,7 +24,7 @@
 	text-align: center;
 	max-width: 80%;
 	margin: 0 auto 2rem auto;
-	background: v.$darkerPurple;
+	background: v.$darkPurple;
 	border-radius: 10px;
 }
 

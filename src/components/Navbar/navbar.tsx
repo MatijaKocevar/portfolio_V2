@@ -89,6 +89,26 @@ const NavBar = () => {
 					<li className='nav-item'>
 						<Link
 							smooth={true}
+							to='projects'
+							offset={offset}
+							duration={2}
+							ignoreCancelEvents={true}
+							className='nav-link'
+							href='#'
+							data-toggle={toggle}
+							data-target='#navbarText'
+							onClick={() => {
+								if (hamburgerRef.current?.ariaExpanded === "true" && navbarRef.current) {
+									hamburgerRef.current.click();
+								}
+							}}
+						>
+							{getTranslation("Navigation_Projects")}
+						</Link>
+					</li>
+					<li className='nav-item'>
+						<Link
+							smooth={true}
 							to='education'
 							offset={offset}
 							duration={2}
@@ -144,26 +164,6 @@ const NavBar = () => {
 							}}
 						>
 							{getTranslation("Navigation_Skills")}
-						</Link>
-					</li>
-					<li className='nav-item'>
-						<Link
-							smooth={true}
-							to='projects'
-							offset={offset}
-							duration={2}
-							ignoreCancelEvents={true}
-							className='nav-link'
-							href='#'
-							data-toggle={toggle}
-							data-target='#navbarText'
-							onClick={() => {
-								if (hamburgerRef.current?.ariaExpanded === "true" && navbarRef.current) {
-									hamburgerRef.current.click();
-								}
-							}}
-						>
-							{getTranslation("Navigation_Projects")}
 						</Link>
 					</li>
 					<li className='nav-item'>
