@@ -13,10 +13,10 @@ const AboutMe = () => {
 				<h1>{getTranslation("Navigation_AboutMe")}</h1>
 			</Row>
 			<Row className='about-content'>
-				<Col className='photo' xs={12} sm={12} md={12} lg={5}>
+				{/* <Col className='photo' xs={12} sm={12} md={12} lg={5}>
 					<img className='profile-img' src={author} alt='author' />
-				</Col>
-				<Col className='description' xs={12} sm={12} md={12} lg={7}>
+				</Col> */}
+				<Col className='description' xs={12} sm={12} md={12} lg={12}>
 					{getTranslation("AboutMe_Bio")}
 				</Col>
 			</Row>
