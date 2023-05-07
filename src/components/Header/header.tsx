@@ -42,9 +42,6 @@ const Header = () => {
 							<span>SQL</span>
 						</Col>
 					</Row>
-					<Row>
-						<div style={{ color: "white", textAlign: "center", paddingBottom: "2rem" }}>{getTranslation("Header_AdditionalInfo")}</div>
-					</Row>
 				</Col>
 			</Row>
 			<Row className='games'>
@@ -53,7 +50,14 @@ const Header = () => {
 				</Col> */}
 				<Col className='game'>
 					<Row className='heading-row'>
-						<h1>GAME</h1>
+						<h1>Work in progress: SPACE INVADERS</h1>
+						<p>
+							<span style={{ color: "white" }}>Developing a Space Invaders like game.</span>
+							<br />
+							<span style={{ color: "green" }}>WORKING: Ship movement.</span>
+							<br />
+							<span>TODO: Invaders movement, collision detection, score, lives, etc.</span>
+						</p>
 					</Row>
 					<Row>
 						<SpaceInvaders />

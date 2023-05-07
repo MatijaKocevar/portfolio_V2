@@ -42,21 +42,6 @@
 			align-items: center;
 			flex-direction: column;
 
-			.heading-row {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				flex-direction: column;
-				width: 100%;
-				// height: 100%;
-
-				h1 {
-					color: v.$white;
-					text-transform: uppercase;
-					width: fit-content;
-				}
-			}
-
 			.subtitle-row {
 				display: flex;
 				justify-content: center;
@@ -128,6 +113,17 @@
 			align-items: center;
 			flex-direction: column;
 			opacity: 1;
+
+			.heading-row {
+				h1 {
+					text-transform: none;
+				}
+
+				p {
+					text-align: center;
+					color: red;
+				}
+			}
 		}
 	}
 }

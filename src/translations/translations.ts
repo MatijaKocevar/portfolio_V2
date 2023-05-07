@@ -60,15 +60,6 @@ export const Translations = [
           <br />
           Tehnologije, ki jih najpogosteje uporabljam:`,
   },
-  {
-    id: 'Header_AdditionalInfo',
-    en: `If you don&apos;t feel like scrolling, you can play this game =)
-         <br />
-         GAME IN DEVELOPMENT`,
-    slo: `Če se vam ne da scrollat, lahko igrate tole igro =)
-         <br />
-         IGRA V RAZVOJU`,
-  },
   /**
    * ABOUT ME
    */

@@ -101,7 +101,7 @@ const GameBoard = () => {
 		};
 	}, [laserRef]);
 
-	return <canvas ref={canvasRef} width={600} height={600}></canvas>;
+	return <canvas ref={canvasRef} width={500} height={450}></canvas>;
 };
 
 export default GameBoard;
