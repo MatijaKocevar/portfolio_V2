@@ -23,10 +23,10 @@ module.exports = {
     },
   },
   rules: {
-     "react/react-in-jsx-scope": "off",
-     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
-     "@typescript-eslint/no-empty-function": "off",
-     "prefer-const": "warn",
-     "react/display-name" : "off"
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+    "@typescript-eslint/no-empty-function": "off",
+    "prefer-const": "warn",
+    "react/display-name": "off",
   },
 };

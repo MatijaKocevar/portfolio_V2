@@ -1,8 +1,8 @@
-import portfolioV1 from "../../images/portfolioV1/portfolioV1.png";
-import holidaysCalculator from "../../images/holidaysCalculator/holidaysCalculator.png";
-import diffingApi from "../../images/diffingApi/diffingApi.png";
-import portfoliV2 from "../../images/portfolioV2/portfolioV2.png";
-import drumbox from "../../images/drumbox/drumbox.png";
+import PortfolioV1 from "../../images/portfolioV1/portfolioV1.png";
+import HolidaysCalculator from "../../images/holidaysCalculator/holidaysCalculator.png";
+import DiffingApi from "../../images/diffingApi/diffingApi.png";
+import PortfoliV2 from "../../images/portfolioV2/portfolioV2.png";
+import Drumbox from "../../images/drumbox/drumbox.png";
 import "./projects.scss";
 import { useContext, useState } from "react";
 import PopupBox from "../Shared/PopupBox/PopupBox";
@@ -27,7 +27,7 @@ const Projects = () => {
 					<h3>{getTranslation("Projects_Portfolio_Title")}</h3>
 				</Col>
 				<Col className='popupbox-image'>
-					<img src={portfolioV1} alt='Online resume' />
+					<img src={PortfolioV1} alt='Online resume' />
 				</Col>
 				<Col className='popupbox-description'>
 					<p>{getTranslation("Projects_Portfolio_Description")}</p>
@@ -48,7 +48,7 @@ const Projects = () => {
 					<h3>{getTranslation("Projects_HolidaysCalculator_Title")}</h3>
 				</Col>
 				<Col className='popupbox-image'>
-					<img src={holidaysCalculator} alt='Online resume' />
+					<img src={HolidaysCalculator} alt='Online resume' />
 				</Col>
 				<Col className='popupbox-description'>
 					<p>{getTranslation("Projects_HolidaysCalculator_Description")}</p>
@@ -66,7 +66,7 @@ const Projects = () => {
 					<h3>{getTranslation("Projects_DiffingAPI_Title")}</h3>
 				</Col>
 				<Col className='popupbox-image'>
-					<img src={diffingApi} alt='Online resume' />
+					<img src={DiffingApi} alt='Online resume' />
 				</Col>
 				<Col className='popupbox-description'>
 					<p>{getTranslation("Projects_DiffingApi_Description")}</p>
@@ -84,7 +84,7 @@ const Projects = () => {
 					<h3>{getTranslation("Projects_PortfolioV2_Title")}</h3>
 				</Col>
 				<Col className='popupbox-image'>
-					<img src={portfoliV2} alt='Online resume' />
+					<img src={PortfoliV2} alt='Online resume' />
 				</Col>
 				<Col className='popupbox-description'>
 					<p>{getTranslation("Projects_PortfoliV2_Description")}</p>
@@ -102,7 +102,7 @@ const Projects = () => {
 					<h3>{getTranslation("Projects_Drumbox_Title")}</h3>
 				</Col>
 				<Col className='popupbox-image'>
-					<img src={drumbox} alt='Online resume' />
+					<img src={Drumbox} alt='Online resume' />
 				</Col>
 				<Col className='popupbox-description'>
 					<p>{getTranslation("Projects_Drumbox_Description")}</p>
@@ -124,10 +124,10 @@ const Projects = () => {
 				{/* - */}
 				{showPopupportfoliV2 && <PopupBox content={portfoliV2Content} onClose={() => setShowPopupportfoliV2(false)} />}
 				<Col lg={4} md={6} sm={6} xs={12}>
-					<div className='project-wrapper' onClick={() => setShowPopupportfoliV2(true)}>
+					<div className='project-wrapper' role='presentation' onClick={() => setShowPopupportfoliV2(true)}>
 						<div className='project'>
 							<div className='project-icon'>{magnifyingGlass}</div>
-							<img className='project-image' src={portfoliV2} alt='Project 4...' />
+							<img className='project-image' src={PortfoliV2} alt='Project 4...' />
 						</div>
 						<h3>{getTranslation("Projects_PortfolioV2_Title")}</h3>
 					</div>
@@ -135,10 +135,10 @@ const Projects = () => {
 				{/* - */}
 				{showPopupDrumbox && <PopupBox content={drumboxContent} onClose={() => setShowPopupDrumbox(false)} />}
 				<Col lg={4} md={6} sm={6} xs={12}>
-					<div className='project-wrapper' onClick={() => setShowPopupDrumbox(true)}>
+					<div className='project-wrapper' role='presentation' onClick={() => setShowPopupDrumbox(true)}>
 						<div className='project'>
 							<div className='project-icon'>{magnifyingGlass}</div>
-							<img className='project-image' src={drumbox} alt='Project 3...' />
+							<img className='project-image' src={Drumbox} alt='Project 3...' />
 						</div>
 						<h3>{getTranslation("Projects_Drumbox_Title")}</h3>
 					</div>
@@ -146,10 +146,10 @@ const Projects = () => {
 				{/* - */}
 				{showPopupHolidays && <PopupBox content={holidayContent} onClose={() => setShowPopupHolidays(false)} />}
 				<Col lg={4} md={6} sm={6} xs={12}>
-					<div className='project-wrapper' onClick={() => setShowPopupHolidays(true)}>
+					<div className='project-wrapper' role='presentation' onClick={() => setShowPopupHolidays(true)}>
 						<div className='project'>
 							<div className='project-icon'>{magnifyingGlass}</div>
-							<img className='project-image' src={holidaysCalculator} alt='Project 2...' />
+							<img className='project-image' src={HolidaysCalculator} alt='Project 2...' />
 						</div>
 						<h3>{getTranslation("Projects_HolidaysCalculator_Title")}</h3>
 					</div>
@@ -157,10 +157,10 @@ const Projects = () => {
 				{/* - */}
 				{showPopupDiffing && <PopupBox content={diffingContent} onClose={() => setShowPopupDiffing(false)} />}
 				<Col lg={4} md={6} sm={6} xs={12}>
-					<div className='project-wrapper' onClick={() => setShowPopupDiffing(true)}>
+					<div className='project-wrapper' role='presentation' onClick={() => setShowPopupDiffing(true)}>
 						<div className='project'>
 							<div className='project-icon'>{magnifyingGlass}</div>
-							<img className='project-image' src={diffingApi} alt='Project 3...' />
+							<img className='project-image' src={DiffingApi} alt='Project 3...' />
 						</div>
 						<h3>{getTranslation("Projects_DiffingAPI_Title")}</h3>
 					</div>
@@ -168,10 +168,10 @@ const Projects = () => {
 				{/* - */}
 				{showPopupResume && <PopupBox content={resumeContent} onClose={() => setShowPopupResume(false)} />}
 				<Col lg={4} md={6} sm={6} xs={12}>
-					<div className='project-wrapper' onClick={() => setShowPopupResume(true)}>
+					<div className='project-wrapper' role='presentation' onClick={() => setShowPopupResume(true)}>
 						<div className='project'>
 							<div className='project-icon'>{magnifyingGlass}</div>
-							<img className='project-image' src={portfolioV1} alt='project webpage' />
+							<img className='project-image' src={PortfolioV1} alt='project webpage' />
 						</div>
 						<h3>{getTranslation("Projects_Portfolio_Title")}</h3>
 					</div>

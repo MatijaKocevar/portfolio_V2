@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import author from "../../images/me.jpg";
 import "./aboutMe.scss";
 import { Col, Container, Row } from "react-bootstrap";
 import { TranslationContext } from "../../translations/components/TranslationContext";

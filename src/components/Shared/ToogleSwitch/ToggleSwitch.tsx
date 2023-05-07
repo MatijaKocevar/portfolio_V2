@@ -18,7 +18,10 @@ const ToggleSwitch: React.FC<ToggleSwitchProps> = ({ onChange, language, title }
 
 	return (
 		<div className={`toggle-switch ${isChecked ? "toggle-switch-checked" : ""}`} title={title ?? ""}>
-			<label className='toggle-switch-toggle' htmlFor='toggleSwitch' onClick={handleChange} />
+			<label className='toggle-switch-toggle' role='presentation' htmlFor='toggleSwitch' onClick={handleChange}>
+				<input style={{ display: "none" }} name='toggleSwitch'></input>
+			</label>
+
 			<div className='toggle-switch-labels'>
 				<div className={`toggle-switch-label ${!isChecked ? "toggle-switch-label-selected" : ""}`}>EN</div>
 				<div className={`toggle-switch-label ${isChecked ? "toggle-switch-label-selected" : ""}`}>SLO</div>

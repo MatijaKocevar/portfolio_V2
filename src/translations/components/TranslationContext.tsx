@@ -67,8 +67,6 @@ export const TranslationProvider: React.FC<TranslationProviderProps> = ({ childr
 		} else return "N/A";
 	};
 
-	let test = 2;
-
 	// Load translations when language changes
 	React.useEffect(() => {
 		loadTranslations(language);

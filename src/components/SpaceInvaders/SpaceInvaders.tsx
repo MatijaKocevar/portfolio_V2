@@ -71,8 +71,9 @@ class Projectile extends GameObject {
 		this.speed = speed;
 	}
 
-	move() {
+	move(context: CanvasRenderingContext2D) {
 		this.y -= this.speed;
+		this.drawActive(context);
 	}
 }
 
@@ -98,7 +99,7 @@ const GameBoard = () => {
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 	const laserRef = useRef<Laser>();
 	const invaderRef = useRef<Invader>();
-	const projectiles: Projectile[] = [];
+	const projectiles = useRef<Projectile[]>([]);
 
 	useEffect(() => {
 		const canvas = canvasRef.current;
@@ -114,7 +115,7 @@ const GameBoard = () => {
 					// Listen for the spacebar key
 					const projectile = laserRef.current?.fire();
 					if (projectile) {
-						projectiles.push(projectile);
+						projectiles.current.push(projectile);
 					}
 				}
 			}
@@ -133,8 +134,6 @@ const GameBoard = () => {
 		}
 
 		window.addEventListener("keydown", handleKeyDown);
-
-		let test = 1;
 
 		return () => {
 			window.removeEventListener("keydown", handleKeyDown);

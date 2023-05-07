@@ -14,7 +14,7 @@ const Box: React.FC<BoxProps> = ({ frontContent, backContent }) => {
 	};
 
 	return (
-		<div className={`flip-box ${flipped ? "flipped" : ""}`} onClick={handleBoxClick}>
+		<div className={`flip-box ${flipped ? "flipped" : ""}`} role='presentation' onClick={handleBoxClick}>
 			<div className='front'>{frontContent}</div>
 			<div className='back'>{backContent}</div>
 		</div>
