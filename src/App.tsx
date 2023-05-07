@@ -24,6 +24,9 @@ const App = () => {
 				<AboutMe />
 			</Row>
 			<Row>
+				<Projects />
+			</Row>
+			<Row>
 				<Education />
 			</Row>
 			<Row>
@@ -31,9 +34,6 @@ const App = () => {
 			</Row>
 			<Row>
 				<Skills />
-			</Row>
-			<Row>
-				<Projects />
 			</Row>
 			<Row>
 				<Interests />

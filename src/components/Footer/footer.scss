@@ -1,7 +1,7 @@
 @use "../../variables" as v;
 
 .footer-container {
-	background-color: v.$darkerPurple;
+	background-color: rgba(var(--bs-dark-rgb));
 	display: flex;
 	justify-content: center;
 
