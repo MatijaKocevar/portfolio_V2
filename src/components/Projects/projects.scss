@@ -83,14 +83,13 @@
 			}
 
 			.popupbox-image {
-				width: 100%;
+				// width: 100%;
 				height: fit-content;
 				display: flex;
 				justify-content: center;
 				padding: 1rem;
 
 				img {
-					max-height: 35rem;
 				}
 			}
 
@@ -119,6 +118,66 @@
 					color: v.$lightPurple !important;
 				}
 			}
+		}
+	}
+}
+
+//lg
+@media (min-width: 992px) {
+	.popupbox-image {
+		// width: 100%;
+		height: fit-content;
+		display: flex;
+		justify-content: center;
+		padding: 1rem;
+
+		img {
+			max-width: 18rem;
+		}
+	}
+}
+
+//md
+@media (max-width: 992px) {
+	.popupbox-image {
+		// width: 100%;
+		height: fit-content;
+		display: flex;
+		justify-content: center;
+		padding: 1rem;
+
+		img {
+			max-width: 18rem;
+		}
+	}
+}
+
+//sm
+@media (max-width: 768px) {
+	.popupbox-image {
+		// width: 100%;
+		height: fit-content;
+		display: flex;
+		justify-content: center;
+		padding: 1rem;
+
+		img {
+			max-width: 18rem;
+		}
+	}
+}
+
+//xs
+@media (max-width: 576px) {
+	.popupbox-image {
+		// width: 100%;
+		height: fit-content;
+		display: flex;
+		justify-content: center;
+		padding: 1rem;
+
+		img {
+			max-width: 18rem;
 		}
 	}
 }

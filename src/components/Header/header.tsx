@@ -43,7 +43,7 @@ const Header = () => {
 						</Col>
 					</Row>
 					<Row>
-						<div style={{ color: "white", textAlign: "center" }}>{getTranslation("Header_AdditionalInfo")}</div>
+						<div style={{ color: "white", textAlign: "center", paddingBottom: "2rem" }}>{getTranslation("Header_AdditionalInfo")}</div>
 					</Row>
 				</Col>
 			</Row>
