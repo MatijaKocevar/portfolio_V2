@@ -23,8 +23,11 @@ class GameObject {
 		context.fillRect(this.x, this.y, this.width, this.height);
 	}
 
-	update() {
-		// Update the game object's state
+	update(context: CanvasRenderingContext2D, position: { x?: number; y?: number }) {
+		this.drawInactive(context);
+		if (position.x) this.x = position.x;
+		if (position.y) this.y = position.y;
+		this.drawActive(context);
 	}
 }
 
@@ -41,24 +44,15 @@ class Laser extends GameObject {
 		return projectile;
 	}
 
-	move(dx: number, dy: number) {
-		this.x += dx;
-		this.y += dy;
-	}
-
 	moveLeft(context: CanvasRenderingContext2D) {
 		if (this.x > 0) {
-			this.drawInactive(context);
-			this.x -= 10;
-			this.drawActive(context);
+			this.update(context, { x: this.x - 10 });
 		}
 	}
 
 	moveRight(canvasWidth: number, context: CanvasRenderingContext2D) {
 		if (this.x + this.width < canvasWidth) {
-			this.drawInactive(context);
-			this.x += 10;
-			this.drawActive(context);
+			this.update(context, { x: this.x + 10 });
 		}
 	}
 }
@@ -72,39 +66,35 @@ class Projectile extends GameObject {
 	}
 
 	move(context: CanvasRenderingContext2D) {
-		this.y -= this.speed;
-		this.drawActive(context);
+		this.update(context, { y: this.y - this.speed });
 	}
 }
 
 class Invader extends GameObject {
-	moveLeft(context: CanvasRenderingContext2D) {
+	moveLeft() {
 		if (this.x > 0) {
-			this.drawInactive(context);
 			this.x -= 10;
-			this.drawActive(context);
 		}
 	}
 
-	moveRight(canvasWidth: number, context: CanvasRenderingContext2D) {
+	moveRight(canvasWidth: number) {
 		if (this.x + this.width < canvasWidth) {
-			this.drawInactive(context);
 			this.x += 10;
-			this.drawActive(context);
 		}
 	}
+
+	update() {}
 }
 
 const GameBoard = () => {
 	const canvasRef = useRef<HTMLCanvasElement>(null);
+	const canvas = canvasRef.current;
+	const context = canvas?.getContext("2d");
 	const laserRef = useRef<Laser>();
 	const invaderRef = useRef<Invader>();
 	const projectiles = useRef<Projectile[]>([]);
 
 	useEffect(() => {
-		const canvas = canvasRef.current;
-		const context = canvas?.getContext("2d");
-
 		const handleKeyDown = (event: KeyboardEvent) => {
 			event.preventDefault();
 
@@ -138,7 +128,25 @@ const GameBoard = () => {
 		return () => {
 			window.removeEventListener("keydown", handleKeyDown);
 		};
-	}, []);
+	}, [canvas, context]);
+
+	useEffect(() => {
+		const interval = setInterval(() => {
+			if (context) {
+				context.fillStyle = "black";
+				context.fillRect(0, 0, canvas?.width || 0, canvas?.height || 0);
+				projectiles.current?.forEach((projectile) => {
+					projectile.move(context);
+				});
+				laserRef.current?.drawActive(context);
+				invaderRef.current?.drawActive(context);
+			}
+		}, 100);
+
+		return () => {
+			clearInterval(interval);
+		};
+	}, [context, canvas]);
 
 	return <canvas ref={canvasRef} width={500} height={450}></canvas>;
 };
