@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 
 class GameObject {
 	x: number;
@@ -65,8 +65,14 @@ class Projectile extends GameObject {
 		this.speed = speed;
 	}
 
-	move(context: CanvasRenderingContext2D) {
+	move(context: CanvasRenderingContext2D, projectiles: Projectile[], setProjectilies: React.Dispatch<React.SetStateAction<Projectile[]>>) {
 		this.update(context, { y: this.y - this.speed });
+
+		if (this.y <= 10)
+			if (projectiles) {
+				const newProjectiles = projectiles.slice(1);
+				if (newProjectiles) setProjectilies(newProjectiles);
+			}
 	}
 }
 
@@ -92,26 +98,30 @@ const GameBoard = () => {
 	const context = canvas?.getContext("2d");
 	const laserRef = useRef<Laser>();
 	const invaderRef = useRef<Invader>();
-	const projectiles = useRef<Projectile[]>([]);
+	const [projectiles, setProjectilies] = useState<Projectile[]>([]);
 
 	useEffect(() => {
 		const handleKeyDown = (event: KeyboardEvent) => {
-			event.preventDefault();
-
 			if (context) {
 				if (event.key === "ArrowLeft") laserRef.current?.moveLeft(context);
 				else if (event.key === "ArrowRight") laserRef.current?.moveRight(canvas?.width || 0, context);
 				else if (event.key === " ") {
+					event.preventDefault();
 					// Listen for the spacebar key
 					const projectile = laserRef.current?.fire();
 					if (projectile) {
-						projectiles.current.push(projectile);
+						setProjectilies([...projectiles, projectile]);
+
+						projectile.move(context, projectiles, setProjectilies);
+
+						laserRef.current?.drawActive(context);
+						invaderRef.current?.drawActive(context);
 					}
 				}
 			}
 		};
 
-		if (canvas && context) {
+		if (canvas && context && !projectiles.length && !laserRef.current && !invaderRef.current) {
 			// Draw the game board using the canvas API
 			context.fillStyle = "black";
 			context.fillRect(0, 0, canvas.width, canvas.height);
@@ -128,25 +138,21 @@ const GameBoard = () => {
 		return () => {
 			window.removeEventListener("keydown", handleKeyDown);
 		};
-	}, [canvas, context]);
+	}, [canvas, context, projectiles]);
 
 	useEffect(() => {
 		const interval = setInterval(() => {
 			if (context) {
 				context.fillStyle = "black";
-				context.fillRect(0, 0, canvas?.width || 0, canvas?.height || 0);
-				projectiles.current?.forEach((projectile) => {
-					projectile.move(context);
-				});
+				context.fillRect(0, 0, canvas?.width ?? 0, canvas?.height ?? 0);
+				projectiles.forEach((projectile) => projectile.move(context, projectiles, setProjectilies));
 				laserRef.current?.drawActive(context);
 				invaderRef.current?.drawActive(context);
 			}
 		}, 100);
 
-		return () => {
-			clearInterval(interval);
-		};
-	}, [context, canvas]);
+		return () => clearInterval(interval);
+	}, [projectiles, context, canvas]);
 
 	return <canvas ref={canvasRef} width={500} height={450}></canvas>;
 };
