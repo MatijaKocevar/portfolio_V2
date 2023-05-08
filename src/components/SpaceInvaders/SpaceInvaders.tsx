@@ -1,107 +1,19 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useCallback } from "react";
+import { Invader, Invaders, Laser, Projectile } from "./components/GameObject";
 
-class GameObject {
-	x: number;
-	y: number;
-	width: number;
-	height: number;
-
-	constructor(x: number, y: number, width: number, height: number) {
-		this.x = x;
-		this.y = y;
-		this.width = width;
-		this.height = height;
-	}
-
-	drawActive(context: CanvasRenderingContext2D) {
-		context.fillStyle = "white";
-		context.fillRect(this.x, this.y, this.width, this.height);
-	}
-
-	drawInactive(context: CanvasRenderingContext2D) {
-		context.fillStyle = "black";
-		context.fillRect(this.x, this.y, this.width, this.height);
-	}
-
-	update(context: CanvasRenderingContext2D, position: { x?: number; y?: number }) {
-		this.drawInactive(context);
-		if (position.x) this.x = position.x;
-		if (position.y) this.y = position.y;
-		this.drawActive(context);
-	}
-}
-
-class Laser extends GameObject {
-	fire() {
-		const projectile = new Projectile(
-			this.x + this.width / 2 - 2.5, // Set the projectile's x position to the center of the laser
-			this.y,
-			5, // Set the projectile's width and height
-			10,
-			10 // Set the projectile's speed
-		);
-
-		return projectile;
-	}
-
-	moveLeft(context: CanvasRenderingContext2D) {
-		if (this.x > 0) {
-			this.update(context, { x: this.x - 10 });
-		}
-	}
-
-	moveRight(canvasWidth: number, context: CanvasRenderingContext2D) {
-		if (this.x + this.width < canvasWidth) {
-			this.update(context, { x: this.x + 10 });
-		}
-	}
-}
-
-class Projectile extends GameObject {
-	speed: number;
-
-	constructor(x: number, y: number, width: number, height: number, speed: number) {
-		super(x, y, width, height);
-		this.speed = speed;
-	}
-
-	move(context: CanvasRenderingContext2D, projectiles: Projectile[], setProjectilies: React.Dispatch<React.SetStateAction<Projectile[]>>) {
-		this.update(context, { y: this.y - this.speed });
-
-		if (this.y <= 10)
-			if (projectiles) {
-				const newProjectiles = projectiles.slice(1);
-				if (newProjectiles) setProjectilies(newProjectiles);
-			}
-	}
-}
-
-class Invader extends GameObject {
-	moveLeft() {
-		if (this.x > 0) {
-			this.x -= 10;
-		}
-	}
-
-	moveRight(canvasWidth: number) {
-		if (this.x + this.width < canvasWidth) {
-			this.x += 10;
-		}
-	}
-
-	update() {}
-}
+export type IDirection = "left" | "right";
 
 const GameBoard = () => {
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 	const canvas = canvasRef.current;
 	const context = canvas?.getContext("2d");
 	const laserRef = useRef<Laser>();
-	const invaderRef = useRef<Invader>();
+	const invadersRef = useRef<Invader[]>();
+	const directionRef = useRef<IDirection>("left");
 	const [projectiles, setProjectilies] = useState<Projectile[]>([]);
 
-	useEffect(() => {
-		const handleKeyDown = (event: KeyboardEvent) => {
+	const handleKeyDown = useCallback(
+		(event: KeyboardEvent) => {
 			if (context) {
 				if (event.key === "ArrowLeft") laserRef.current?.moveLeft(context);
 				else if (event.key === "ArrowRight") laserRef.current?.moveRight(canvas?.width || 0, context);
@@ -114,23 +26,26 @@ const GameBoard = () => {
 
 						projectile.move(context, projectiles, setProjectilies);
 
-						laserRef.current?.drawActive(context);
-						invaderRef.current?.drawActive(context);
+						// laserRef.current?.drawActive(context, "white");
+						// invadersRef.current?.forEach((e) => e.drawActive(context, "white"));
 					}
 				}
 			}
-		};
+		},
+		[context, canvas, projectiles, laserRef]
+	);
 
-		if (canvas && context && !projectiles.length && !laserRef.current && !invaderRef.current) {
+	useEffect(() => {
+		if (canvas && context && !projectiles.length && !laserRef.current && !invadersRef.current) {
 			// Draw the game board using the canvas API
 			context.fillStyle = "black";
 			context.fillRect(0, 0, canvas.width, canvas.height);
 
 			laserRef.current = new Laser(canvas.width / 2, canvas.height - 50, 10, 20);
-			laserRef.current.drawActive(context);
+			laserRef.current.drawActive(context, "white");
 
-			invaderRef.current = new Invader(canvas.width / 2, 0, 10, 20);
-			invaderRef.current.drawActive(context);
+			invadersRef.current = new Invaders(50).createInvaders();
+			invadersRef.current.forEach((e) => e.drawActive(context, "white"));
 		}
 
 		window.addEventListener("keydown", handleKeyDown);
@@ -138,21 +53,62 @@ const GameBoard = () => {
 		return () => {
 			window.removeEventListener("keydown", handleKeyDown);
 		};
-	}, [canvas, context, projectiles]);
+	}, [canvas, context, handleKeyDown, projectiles]);
 
+	/**
+	 * gameboard time interval
+	 */
 	useEffect(() => {
 		const interval = setInterval(() => {
 			if (context) {
 				context.fillStyle = "black";
 				context.fillRect(0, 0, canvas?.width ?? 0, canvas?.height ?? 0);
-				projectiles.forEach((projectile) => projectile.move(context, projectiles, setProjectilies));
-				laserRef.current?.drawActive(context);
-				invaderRef.current?.drawActive(context);
 			}
-		}, 100);
+		}, 500);
 
 		return () => clearInterval(interval);
-	}, [projectiles, context, canvas]);
+	}, [context, canvas]);
+
+	/**
+	 * Projectile time interval
+	 */
+	useEffect(() => {
+		const interval = setInterval(() => {
+			if (context && projectiles.length && canvas) {
+				//
+				projectiles.forEach((projectile) => projectile.move(context, projectiles, setProjectilies));
+			}
+		}, 500);
+
+		return () => clearInterval(interval);
+	}, [context, projectiles, canvas]);
+
+	/**
+	 * Laser time interval
+	 */
+	useEffect(() => {
+		const interval = setInterval(() => {
+			if (invadersRef.current && canvas && context) {
+				laserRef.current?.drawActive(context, "white");
+			}
+		}, 500);
+
+		return () => clearInterval(interval);
+	}, [canvas, context]);
+
+	/**
+	 * Invaders time interval
+	 */
+	useEffect(() => {
+		const interval = setInterval(() => {
+			if (invadersRef.current && canvas && context) {
+				invadersRef.current?.forEach((e) => e.drawActive(context, "white"));
+				invadersRef.current?.forEach((e) => e.updateInvader(canvas?.width ?? 0, directionRef));
+			}
+		}, 500);
+
+		return () => clearInterval(interval);
+	}, [canvas, context]);
 
 	return <canvas ref={canvasRef} width={500} height={450}></canvas>;
 };
