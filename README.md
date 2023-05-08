@@ -10,7 +10,7 @@ This is a portfolio page built with React, TypeScript, and Vite. It showcases my
 -   Skills section with custom icons (SVG)
 -   Work/Education timelines
 -   Contact section with contact information and social media links
--   Working on section
+-   "Work in progress" section
 
 ## Installation
 
