@@ -52,11 +52,17 @@ const Header = () => {
 					<Row className='heading-row'>
 						<h1>Work in progress: SPACE INVADERS</h1>
 						<p>
-							<span style={{ color: "white" }}>Developing a Space Invaders like game.</span>
+							<span style={{ color: "white" }}>Just trying to hone my skills and have some fun.</span>
 							<br />
-							<span style={{ color: "green" }}>WORKING: Ship movement, fire projectile, projectile movement, projectile destroy</span>
-							<br />
-							<span>TODO: Invaders movement, collision detection, score, lives, etc.</span>
+							<a
+								style={{ color: "white" }}
+								href='https://github.com/MatijaKocevar/portfolio_V2/tree/master/src/components/SpaceInvaders'
+								target='_blank'
+								title='Open in GitHub'
+								rel='noopener noreferrer'
+							>
+								CODE
+							</a>
 						</p>
 					</Row>
 					<Row>
