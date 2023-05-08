@@ -53,7 +53,7 @@ const Header = () => {
 						<h1>Work in progress: SPACE INVADERS</h1>
 						<p>
 							<span style={{ color: "white" }}>
-								Just trying to hone my skills and have some fun. Currently figuring out how to make each object render separately so the animation will be smooth when firing. TEst
+								Just trying to hone my skills and have some fun. Currently figuring out how to make each object render separately so the animation will be smooth when firing.
 							</span>
 							<br />
 							<a
