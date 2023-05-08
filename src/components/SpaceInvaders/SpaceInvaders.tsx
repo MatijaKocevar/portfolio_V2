@@ -23,60 +23,91 @@ class GameObject {
 		context.fillRect(this.x, this.y, this.width, this.height);
 	}
 
-	update() {
-		// Update the game object's state
+	update(context: CanvasRenderingContext2D, position: { x?: number; y?: number }) {
+		this.drawInactive(context);
+		if (position.x) this.x = position.x;
+		if (position.y) this.y = position.y;
+		this.drawActive(context);
 	}
 }
 
 class Laser extends GameObject {
+	fire() {
+		const projectile = new Projectile(
+			this.x + this.width / 2 - 2.5, // Set the projectile's x position to the center of the laser
+			this.y,
+			5, // Set the projectile's width and height
+			10,
+			10 // Set the projectile's speed
+		);
+
+		return projectile;
+	}
+
 	moveLeft(context: CanvasRenderingContext2D) {
 		if (this.x > 0) {
-			this.drawInactive(context);
-			this.x -= 10;
-			this.drawActive(context);
+			this.update(context, { x: this.x - 10 });
 		}
 	}
 
 	moveRight(canvasWidth: number, context: CanvasRenderingContext2D) {
 		if (this.x + this.width < canvasWidth) {
-			this.drawInactive(context);
-			this.x += 10;
-			this.drawActive(context);
+			this.update(context, { x: this.x + 10 });
 		}
+	}
+}
+
+class Projectile extends GameObject {
+	speed: number;
+
+	constructor(x: number, y: number, width: number, height: number, speed: number) {
+		super(x, y, width, height);
+		this.speed = speed;
+	}
+
+	move(context: CanvasRenderingContext2D) {
+		this.update(context, { y: this.y - this.speed });
 	}
 }
 
 class Invader extends GameObject {
-	moveLeft(context: CanvasRenderingContext2D) {
+	moveLeft() {
 		if (this.x > 0) {
-			this.drawInactive(context);
 			this.x -= 10;
-			this.drawActive(context);
 		}
 	}
 
-	moveRight(canvasWidth: number, context: CanvasRenderingContext2D) {
+	moveRight(canvasWidth: number) {
 		if (this.x + this.width < canvasWidth) {
-			this.drawInactive(context);
 			this.x += 10;
-			this.drawActive(context);
 		}
 	}
+
+	update() {}
 }
 
 const GameBoard = () => {
 	const canvasRef = useRef<HTMLCanvasElement>(null);
+	const canvas = canvasRef.current;
+	const context = canvas?.getContext("2d");
 	const laserRef = useRef<Laser>();
 	const invaderRef = useRef<Invader>();
+	const projectiles = useRef<Projectile[]>([]);
 
 	useEffect(() => {
-		const canvas = canvasRef.current;
-		const context = canvas?.getContext("2d");
-
 		const handleKeyDown = (event: KeyboardEvent) => {
+			event.preventDefault();
+
 			if (context) {
 				if (event.key === "ArrowLeft") laserRef.current?.moveLeft(context);
 				else if (event.key === "ArrowRight") laserRef.current?.moveRight(canvas?.width || 0, context);
+				else if (event.key === " ") {
+					// Listen for the spacebar key
+					const projectile = laserRef.current?.fire();
+					if (projectile) {
+						projectiles.current.push(projectile);
+					}
+				}
 			}
 		};
 
@@ -97,7 +128,25 @@ const GameBoard = () => {
 		return () => {
 			window.removeEventListener("keydown", handleKeyDown);
 		};
-	}, [laserRef]);
+	}, [canvas, context]);
+
+	useEffect(() => {
+		const interval = setInterval(() => {
+			if (context) {
+				context.fillStyle = "black";
+				context.fillRect(0, 0, canvas?.width || 0, canvas?.height || 0);
+				projectiles.current?.forEach((projectile) => {
+					projectile.move(context);
+				});
+				laserRef.current?.drawActive(context);
+				invaderRef.current?.drawActive(context);
+			}
+		}, 100);
+
+		return () => {
+			clearInterval(interval);
+		};
+	}, [context, canvas]);
 
 	return <canvas ref={canvasRef} width={500} height={450}></canvas>;
 };

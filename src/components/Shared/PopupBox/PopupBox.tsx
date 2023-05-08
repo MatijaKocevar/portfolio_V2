@@ -19,9 +19,9 @@ const PopupBox: React.FC<PopupBoxProps> = ({ content, onClose }) => {
 
 	return (
 		<>
-			<div className='popup-box-background' onClick={onClose}></div>
+			<div className='popup-box-background' role='presentation' onClick={onClose}></div>
 			<div className='popup-box'>
-				<span className='close-icon' onClick={onClose}>
+				<span className='close-icon' role='presentation' onClick={onClose}>
 					&times;
 				</span>
 				{content}

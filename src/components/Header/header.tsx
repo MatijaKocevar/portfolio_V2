@@ -4,7 +4,7 @@ import { TranslationContext } from "../../translations/components/TranslationCon
 // import SnakeGame from "../SnakeGame/SnakeGame";
 // import GameBoard from "../SpaceInvaders/SpaceInvaders";
 import { Col, Container, Row } from "react-bootstrap";
-import author from "../../images/me.jpg";
+import Author from "../../images/me.jpg";
 import SpaceInvaders from "../SpaceInvaders/SpaceInvaders";
 import SvgIcon from "../Shared/SvgIcon/SvgIcon";
 
@@ -15,7 +15,7 @@ const Header = () => {
 		<Container id='home' className='header-wraper'>
 			<Row className='main-info'>
 				<Col className='photo-header'>
-					<img className='profile-img' src={author} alt='author' />
+					<img className='profile-img' src={Author} alt='author' />
 				</Col>
 				<Col className='headings'>
 					<Row className='heading-row'>

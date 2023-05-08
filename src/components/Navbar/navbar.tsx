@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import "./navbar.scss";
 import { Link } from "react-scroll";
-import logo from "../../images/logo.png";
+import Logo from "../../images/logo.png";
 import ToggleSwitch from "../Shared/ToogleSwitch/ToggleSwitch";
 import { TranslationContext } from "../../translations/components/TranslationContext";
 import { IconLink } from "../Shared/IconLink/iconLink";
@@ -49,7 +49,7 @@ const NavBar = () => {
 					}
 				}}
 			>
-				<img className='logo' src={logo} alt='logo' />
+				<img className='logo' src={Logo} alt='logo' />
 			</Link>
 			<button
 				id='navbar-toggler'
