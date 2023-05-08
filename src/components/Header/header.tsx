@@ -54,7 +54,7 @@ const Header = () => {
 						<p>
 							<span style={{ color: "white" }}>Developing a Space Invaders like game.</span>
 							<br />
-							<span style={{ color: "green" }}>WORKING: Ship movement.</span>
+							<span style={{ color: "green" }}>WORKING: Ship movement, fire projectile, projectile movement, projectile destroy</span>
 							<br />
 							<span>TODO: Invaders movement, collision detection, score, lives, etc.</span>
 						</p>
