@@ -122,18 +122,17 @@
 			flex-direction: column;
 			opacity: 1;
 			padding-bottom: 1rem;
+		}
+	}
+	.heading-row {
+		h1 {
+			text-transform: none;
+			text-align: center !important;
+		}
 
-			.heading-row {
-				h1 {
-					text-transform: none;
-					text-align: center;
-				}
-
-				p {
-					text-align: center;
-					color: red;
-				}
-			}
+		p {
+			text-align: center;
+			color: red;
 		}
 	}
 }

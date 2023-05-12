@@ -51,11 +51,9 @@ const Header = () => {
 				</Col> */}
 					<Col className='game'>
 						<Row className='heading-row'>
-							<h1>Work in progress: SPACE INVADERS</h1>
+							<h1>{getTranslation("Header_WIP_Title")}</h1>
 							<p>
-								<span style={{ color: "white" }}>
-									Just trying to hone my skills and have some fun. Currently figuring out how to make each object render separately so the animation will be smooth when firing.
-								</span>
+								<span style={{ color: "white" }}>{getTranslation("Header_WIP_Description")}</span>
 								<br />
 								<a
 									style={{ color: "white" }}
