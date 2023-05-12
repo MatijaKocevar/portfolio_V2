@@ -42,8 +42,8 @@ export const Translations = [
    */
   {
     id: 'Header_Title',
-    en: 'Portfolio',
-    slo: 'Portfolio',
+    en: 'Software Developer',
+    slo: 'Software Developer',
   },
   {
     id: 'Header_Subtitle',
@@ -59,6 +59,16 @@ export const Translations = [
           <br />
           <br />
           Tehnologije, ki jih najpogosteje uporabljam:`,
+  },
+  {
+    id: 'Header_WIP_Title',
+    en: 'Work in progress: SPACE INVADERS',
+    slo: 'Work in progress: SPACE INVADERS',
+  },
+  {
+    id: 'Header_WIP_Description',
+    en: 'Just trying to hone my skills in React and have some fun with building a game. Currently figuring out how to make each object render separately so the animation will be smooth when firing.',
+    slo: 'Trudim se izpopolniti svoje spretnosti v Reactu in se hkrati zabavati z izdelavo igre. Trenutno poskušam ugotoviti, kako narediti, da se vsak objekt izrisuje ločeno, da bo animacija gladka pri streljanju.',
   },
   /**
    * ABOUT ME
