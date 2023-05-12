@@ -1,8 +1,6 @@
 import { useContext } from "react";
 import "./header.scss";
 import { TranslationContext } from "../../translations/components/TranslationContext";
-// import SnakeGame from "../SnakeGame/SnakeGame";
-// import GameBoard from "../SpaceInvaders/SpaceInvaders";
 import { Col, Container, Row } from "react-bootstrap";
 import Author from "../../images/me.jpg";
 import SpaceInvaders from "../SpaceInvaders/SpaceInvaders";
