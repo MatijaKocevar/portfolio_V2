@@ -141,7 +141,7 @@
 @media (min-width: 992px) {
 	.header-wraper {
 		flex-direction: row;
-		height: calc(100vh - 4rem);
+		// height: calc(100%);
 
 		.personal-row {
 			height: 100% !important;
