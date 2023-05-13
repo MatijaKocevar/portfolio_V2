@@ -1,10 +1,11 @@
 import context from "react-bootstrap/esm/AccordionContext";
 import { Game } from "./Game";
 import { InputHandler } from "./InputHandler";
+import { Projectile } from "./Projectile";
 
-type IDefender = {
+interface IDefender {
 	game: Game;
-};
+}
 
 export class Defender {
 	game: Game;
@@ -14,9 +15,11 @@ export class Defender {
 	y: number;
 	speed: number;
 	maxSpeed: number;
+	timeout = 0;
+	reload = false;
 
-	constructor(props: IDefender) {
-		this.game = props.game;
+	constructor({ game }: IDefender) {
+		this.game = game;
 		this.width = 40;
 		this.height = 20;
 		this.x = this.game.props.width / 2 - this.width / 2;
@@ -32,9 +35,33 @@ export class Defender {
 		else if (input.includes("KeyA")) this.speed = -this.maxSpeed;
 		else this.speed = 0;
 
+		//fire
+		if (input.includes("Space")) {
+			if (!this.reload) {
+				this.game.projectiles.push(this.fire());
+				this.reload = true;
+				this.timeout = setTimeout(() => {
+					this.reload = false;
+				}, 200);
+			}
+		}
+
 		//dont allow defender to go off screen
 		if (this.x < 0) this.x = 0;
 		if (this.x > this.game.props.width - this.width) this.x = this.game.props.width - this.width;
+	}
+
+	fire() {
+		//this.x + this.width / 2 - 2.5, this.y, 5, 10, 20
+		const projectile = new Projectile({
+			height: 10,
+			width: 5,
+			speed: 10,
+			x: this.x + this.width / 2 - 2.5,
+			y: this.y,
+		});
+
+		return projectile;
 	}
 
 	draw(context: CanvasRenderingContext2D) {

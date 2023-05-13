@@ -10,18 +10,26 @@ export class InputHandler {
 
 	keydownHandler = (e: KeyboardEvent) => {
 		e.preventDefault();
-		if ((e.code === "KeyW" || e.code === "KeyA" || e.code === "KeyS" || e.code === "KeyD" || e.code === "Space") && this.keys.indexOf(e.code) === -1) {
+
+		if ((e.code === "KeyW" || e.code === "KeyA" || e.code === "KeyS" || e.code === "KeyD") && this.keys.indexOf(e.code) === -1) {
 			this.keys.push(e.code);
 		}
-		console.log(e.code, this.keys);
+
+		if (e.code === "Space" && this.keys.indexOf(e.code) === -1) {
+			this.keys.push(e.code);
+		}
+
+		// console.log(e.code, this.keys);
 	};
 
 	keyupHandler = (e: KeyboardEvent) => {
 		e.preventDefault();
+
 		if (e.code === "KeyW" || e.code === "KeyA" || e.code === "KeyS" || e.code === "KeyD" || e.code === "Space") {
 			this.keys.splice(this.keys.indexOf(e.code), 1);
 		}
-		console.log(e.code, this.keys);
+
+		// console.log(e.code, this.keys);
 	};
 
 	destroy() {
