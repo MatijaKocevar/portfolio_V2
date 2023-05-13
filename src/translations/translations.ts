@@ -85,7 +85,7 @@ export const Translations = [
             collaboratively with my team members to create software that is not only efficient but also user-friendly. I am also committed to writing
             clean, maintainable, and well-documented code (because let's face it, no one wants to inherit a mess of spaghetti code). In addition
             to my technical skills, I like to think I have a pretty good sense of humor (but I'll let you be the judge of that). When I'm
-            not coding, i'm probablly skating or playing some intrument...or you don't find me.
+            not coding, you'll probablly find me skating or playing some intrument...or you don't find me.
             <br />
             <br />
             Thank you for taking the time to visit my portfolio page. If you have any questions or would like to discuss a potential project (or share
