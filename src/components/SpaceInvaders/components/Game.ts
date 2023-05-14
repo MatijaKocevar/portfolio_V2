@@ -13,27 +13,42 @@ export class Game {
 	defender: Defender;
 	inputHandler: InputHandler;
 	projectiles: Projectile[] = [];
-	invaders: Invader[];
+	invaders: Invaders;
+	invadersArray: Invader[] = [];
+	currentDirection: "left" | "right";
 
 	constructor({ height, width }: IGame) {
 		this.props = { height, width };
 		this.defender = new Defender({ game: this });
 		this.inputHandler = new InputHandler();
-		this.invaders = new Invaders(120).createInvaders();
+		this.invaders = new Invaders(120);
+		this.currentDirection = this.invaders.direction;
+		this.invadersArray = this.invaders.createInvaders();
 	}
 
 	update = () => {
 		this.projectiles.forEach((projectile) => projectile.update(this.projectiles));
 		this.defender.update(this.inputHandler.keys);
-		this.invaders.forEach((invader) => {
-			invader.updateInvader(this.props.width);
-		});
+
+		if (this.invadersArray) {
+			this.invadersArray.forEach((invader) => {
+				invader.updateInvader(this.props.width);
+			});
+		}
 	};
 
 	draw = (context: CanvasRenderingContext2D) => {
 		this.projectiles.forEach((projectile) => projectile.draw(context));
 		this.defender.draw(context);
-		this.invaders.forEach((invader) => invader.draw(context));
+
+		const invadersDirection = this.invaders.getDirection();
+
+		if (invadersDirection !== this.currentDirection) {
+			this.invadersArray = this.invadersArray.reverse();
+			this.currentDirection = invadersDirection;
+		}
+
+		this.invadersArray.forEach((invader) => invader.draw(context));
 	};
 
 	destroy = () => {

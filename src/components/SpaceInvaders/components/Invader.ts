@@ -16,32 +16,33 @@ export class Invader {
 	}
 
 	moveLeft = () => {
-		if (this.props.x > 0) {
+		if (this.props.x > 5) {
 			this.props.x -= this.props.speed;
 		}
 	};
 
 	moveRight = (canvasWidth: number) => {
-		if (this.props.x + this.props.width < canvasWidth) {
+		if (this.props.x + this.props.width + 5 < canvasWidth) {
 			this.props.x += this.props.speed;
 		}
 	};
 
 	updateInvader = (canvasWidth: number) => {
 		// Check if the invader has hit the left or right wall
-		if (this.props.x <= 0) {
+		if (this.props.x <= 5) {
+			// this.moveRight(canvasWidth);
 			this.props.setDirection("right");
-			this.moveRight(canvasWidth);
-		} else if (this.props.x + this.props.width >= canvasWidth) {
+			// this.moveRight(canvasWidth);
+		} else if (this.props.x + this.props.width + 5 >= canvasWidth) {
+			// this.moveLeft();
 			this.props.setDirection("left");
+			// this.moveLeft();
+		}
+		// If the invader is not at the edge of the canvas, continue moving in the current direction
+		if (this.props.getDirection() === "left") {
 			this.moveLeft();
 		} else {
-			// If the invader is not at the edge of the canvas, continue moving in the current direction
-			if (this.props.getDirection() === "left") {
-				this.moveLeft();
-			} else {
-				this.moveRight(canvasWidth);
-			}
+			this.moveRight(canvasWidth);
 		}
 	};
 
@@ -72,7 +73,7 @@ export class Invaders {
 		for (let i = 0; i < this.invadersCount; i++) {
 			const invaderX = (i % 20) * (invaderWidth + invaderPadding) + invaderOffsetLeft;
 			const invaderY = Math.floor(i / 20) * (invaderHeight + invaderPadding) + invaderOffsetTop;
-			const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: 1, getDirection: this.getDirection, setDirection: this.setDirection });
+			const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: 0.5, getDirection: this.getDirection, setDirection: this.setDirection });
 			invaders.push(invader);
 		}
 

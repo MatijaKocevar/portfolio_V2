@@ -11,11 +11,7 @@ export class InputHandler {
 	keydownHandler = (e: KeyboardEvent) => {
 		e.preventDefault();
 
-		if ((e.code === "KeyW" || e.code === "KeyA" || e.code === "KeyS" || e.code === "KeyD") && this.keys.indexOf(e.code) === -1) {
-			this.keys.push(e.code);
-		}
-
-		if (e.code === "Space" && this.keys.indexOf(e.code) === -1) {
+		if ((e.code === "KeyW" || e.code === "KeyA" || e.code === "KeyS" || e.code === "KeyD" || e.code === "Enter") && this.keys.indexOf(e.code) === -1) {
 			this.keys.push(e.code);
 		}
 
@@ -25,7 +21,7 @@ export class InputHandler {
 	keyupHandler = (e: KeyboardEvent) => {
 		e.preventDefault();
 
-		if (e.code === "KeyW" || e.code === "KeyA" || e.code === "KeyS" || e.code === "KeyD" || e.code === "Space") {
+		if (e.code === "KeyW" || e.code === "KeyA" || e.code === "KeyS" || e.code === "KeyD" || e.code === "Enter") {
 			this.keys.splice(this.keys.indexOf(e.code), 1);
 		}
 
