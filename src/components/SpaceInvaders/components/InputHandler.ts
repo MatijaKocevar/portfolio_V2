@@ -32,8 +32,8 @@ export class InputHandler {
 		// console.log(e.code, this.keys);
 	};
 
-	destroy() {
+	destroy = () => {
 		window.removeEventListener("keydown", this.keydownHandler);
 		window.removeEventListener("keyup", this.keyupHandler);
-	}
+	};
 }
