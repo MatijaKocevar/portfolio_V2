@@ -67,8 +67,8 @@ export const Translations = [
 	},
 	{
 		id: "Header_WIP_Description",
-		en: "Just trying to hone my skills in React and have some fun with building a game. Figured out how to animate things in canvas API.The player can move left/right with A/D and shoot with Space. Now I need to make the invaders",
-		slo: "Trudim se izpopolniti svoje spretnosti v Reactu in se hkrati zabavati z izdelavo igre. Ugotovil sem, kako animirati stvari v canvas API. Igralec se lahko premika levo/desno z A/D in strelja z Space. Zdaj moram narediti invaderje",
+		en: "Just trying to hone my skills in React and have some fun with building a game. Figured out how to animate things in canvas API. The player can move left/right with 'A/D' and shoot with 'Space'. I've added some Invaders, but they don't do anything yet except move. I need to figure out why when they bump into walls they shift positions.",
+		slo: "Trudim se izpopolniti svoje spretnosti v Reactu in se hkrati zabavati z izdelavo igre. Ugotovil sem, kako animirati stvari v canvas API. Igralec se lahko premika levo/desno z 'A/D' in strelja z 'Space'. Dodal sem nekaj Invaderjev, vendar še ne delajo ničesar razen premikanja. Moram ugotoviti, zakaj premaknejo pozicijo, ko se zaletijo v steno.",
 	},
 	/**
 	 * ABOUT ME

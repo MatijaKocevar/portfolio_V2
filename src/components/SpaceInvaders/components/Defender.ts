@@ -28,7 +28,7 @@ export class Defender {
 		this.maxSpeed = 5;
 	}
 
-	update(input: InputHandler["keys"]) {
+	update = (input: InputHandler["keys"]) => {
 		//horizontal movement
 		this.x += this.speed;
 		if (input.includes("KeyD")) this.speed = this.maxSpeed;
@@ -49,10 +49,9 @@ export class Defender {
 		//dont allow defender to go off screen
 		if (this.x < 0) this.x = 0;
 		if (this.x > this.game.props.width - this.width) this.x = this.game.props.width - this.width;
-	}
+	};
 
-	fire() {
-		//this.x + this.width / 2 - 2.5, this.y, 5, 10, 20
+	fire = () => {
 		const projectile = new Projectile({
 			height: 10,
 			width: 5,
@@ -62,7 +61,7 @@ export class Defender {
 		});
 
 		return projectile;
-	}
+	};
 
 	draw(context: CanvasRenderingContext2D) {
 		context.fillStyle = "white";
