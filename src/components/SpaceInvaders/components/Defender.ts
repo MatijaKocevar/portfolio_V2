@@ -20,7 +20,7 @@ export class Defender {
 
 	constructor({ game }: IDefender) {
 		this.game = game;
-		this.width = 40;
+		this.width = 30;
 		this.height = 20;
 		this.x = this.game.props.width / 2 - this.width / 2;
 		this.y = this.game.props.height - (this.height + 10);
@@ -36,7 +36,7 @@ export class Defender {
 		else this.speed = 0;
 
 		//fire
-		if (input.includes("Space")) {
+		if (input.includes("Enter")) {
 			if (!this.reload) {
 				this.game.projectiles.push(this.fire());
 				this.reload = true;
