@@ -21,7 +21,7 @@ export class Game {
 		this.props = { height, width };
 		this.defender = new Defender({ game: this });
 		this.inputHandler = new InputHandler();
-		this.invaders = new Invaders(120);
+		this.invaders = new Invaders(126);
 		this.currentDirection = this.invaders.direction;
 		this.invadersArray = this.invaders.createInvaders();
 	}
@@ -40,18 +40,20 @@ export class Game {
 	draw = (context: CanvasRenderingContext2D) => {
 		this.projectiles.forEach((projectile) => projectile.draw(context));
 		this.defender.draw(context);
-
 		const invadersDirection = this.invaders.getDirection();
 
 		if (invadersDirection !== this.currentDirection) {
-			this.invadersArray = this.invadersArray.reverse();
+			const newArray = this.invadersArray.reverse();
+			this.invadersArray = newArray;
 			this.currentDirection = invadersDirection;
 		}
 
 		this.invadersArray.forEach((invader) => invader.draw(context));
+		// console.log("drawn invaders: ", this.invadersArray);
 	};
 
 	destroy = () => {
 		this.inputHandler.destroy();
+		this.invaders.destroy();
 	};
 }

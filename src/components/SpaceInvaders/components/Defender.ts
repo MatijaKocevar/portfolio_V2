@@ -2,7 +2,6 @@ import context from "react-bootstrap/esm/AccordionContext";
 import { Game } from "./Game";
 import { InputHandler } from "./InputHandler";
 import { Projectile } from "./Projectile";
-
 interface IDefender {
 	game: Game;
 }
@@ -20,8 +19,8 @@ export class Defender {
 
 	constructor({ game }: IDefender) {
 		this.game = game;
-		this.width = 30;
-		this.height = 20;
+		this.width = 40;
+		this.height = 40;
 		this.x = this.game.props.width / 2 - this.width / 2;
 		this.y = this.game.props.height - (this.height + 10);
 		this.speed = 0;
@@ -64,7 +63,10 @@ export class Defender {
 	};
 
 	draw(context: CanvasRenderingContext2D) {
-		context.fillStyle = "white";
-		context.fillRect(this.x, this.y, this.width, this.height);
+		// context.fillStyle = "white";
+		// context.fillRect(this.x, this.y, this.width, this.height);
+
+		const image = document.getElementById("playerImage") as HTMLImageElement;
+		if (image) context.drawImage(image, this.x, this.y, this.width, this.height);
 	}
 }
