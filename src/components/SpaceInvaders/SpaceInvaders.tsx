@@ -1,12 +1,21 @@
-import { useRef, useEffect, useMemo } from "react";
+import { useRef, useEffect } from "react";
 import { Game } from "./components/Game";
 import "./SpaceInvaders.scss";
+import player from "./sprites/player.png";
+import invader from "./sprites/invader.png";
 
 export type IDirection = "left" | "right";
 
 const GameBoard = () => {
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 	const gameRef = useRef<Game>();
+
+	const onClick = () => {
+		if (gameRef.current) {
+			const random = Math.floor(Math.random() * 120);
+			delete gameRef.current.invadersArray[random];
+		}
+	};
 
 	useEffect(() => {
 		const canvas = canvasRef.current;
@@ -36,7 +45,14 @@ const GameBoard = () => {
 		};
 	}, []);
 
-	return <canvas ref={canvasRef} width={500} height={500}></canvas>;
+	return (
+		<>
+			{/* <button onClick={onClick} style={{ height: "3rem" }}></button> */}
+			<img id='playerImage' src={player} alt='' style={{ display: "none" }} />
+			<img id='invaderImage' src={invader} alt='' style={{ display: "none" }} />
+			<canvas ref={canvasRef} width={800} height={535}></canvas>
+		</>
+	);
 };
 
 export default GameBoard;
