@@ -48,22 +48,18 @@ const Header = () => {
 					<SnakeGame />
 				</Col> */}
 				<Col className='game'>
-					<Row className='heading-row'>
+					<Row className='heading-row' style={{ textAlign: "center" }}>
 						<h1>{getTranslation("Header_WIP_Title")}</h1>
 						<ExpandableText content={getTranslation("Header_WIP_Description")} />
-						{/* <p>
-							<span style={{ color: "white" }}>{getTranslation("Header_WIP_Description")}</span>
-							<br />
-							<a
-								style={{ color: "white" }}
-								href='https://github.com/MatijaKocevar/portfolio_V2/tree/master/src/components/SpaceInvaders'
-								target='_blank'
-								title='Open in GitHub'
-								rel='noopener noreferrer'
-							>
-								CODE
-							</a>
-						</p> */}
+						<a
+							style={{ color: "white" }}
+							href='https://github.com/MatijaKocevar/portfolio_V2/tree/master/src/components/SpaceInvaders'
+							target='_blank'
+							title='Open in GitHub'
+							rel='noopener noreferrer'
+						>
+							CODE
+						</a>
 					</Row>
 					<Row>
 						<SpaceInvaders />
