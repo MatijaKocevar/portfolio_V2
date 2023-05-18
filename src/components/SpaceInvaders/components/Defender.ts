@@ -53,9 +53,9 @@ export class Defender {
 	fire = () => {
 		const projectile = new Projectile({
 			height: 10,
-			width: 5,
+			width: 3,
 			speed: 10,
-			x: this.x + this.width / 2 - 2.5,
+			x: this.x + this.width / 2 - 2,
 			y: this.y,
 		});
 

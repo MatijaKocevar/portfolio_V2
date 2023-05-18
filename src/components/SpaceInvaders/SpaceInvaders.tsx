@@ -10,13 +10,6 @@ const GameBoard = () => {
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 	const gameRef = useRef<Game>();
 
-	const onClick = () => {
-		if (gameRef.current) {
-			const random = Math.floor(Math.random() * 120);
-			delete gameRef.current.invadersArray[random];
-		}
-	};
-
 	useEffect(() => {
 		const canvas = canvasRef.current;
 		const context = canvas?.getContext("2d");
