@@ -56,7 +56,7 @@ export class Invader {
 	};
 
 	draw = (context: CanvasRenderingContext2D) => {
-		// context.fillStyle = "white";
+		// context.fillStyle = "blue";
 		// context.fillRect(this.props.x, this.props.y, this.props.width, this.props.height);
 
 		const image = document.getElementById("invaderImage") as HTMLImageElement;

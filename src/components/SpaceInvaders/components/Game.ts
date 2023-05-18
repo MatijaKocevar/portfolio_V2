@@ -31,9 +31,34 @@ export class Game {
 		this.defender.update(this.inputHandler.keys);
 
 		if (this.invadersArray) {
+			this.checkCollision();
 			this.invadersArray.forEach((invader) => {
 				invader.updateInvader(this.props.width);
 			});
+		}
+	};
+
+	checkCollision = () => {
+		const projectilesToRemove: { index: number }[] = [];
+		const invadersToRemove: { index: number }[] = [];
+
+		this.invadersArray.forEach((invader, i) => {
+			this.projectiles.forEach((projectile, j) => {
+				const rect1 = { x: invader.props.x, y: invader.props.y, width: invader.props.width, height: invader.props.height };
+				const rect2 = { x: projectile.props.x, y: projectile.props.y, width: projectile.props.width, height: projectile.props.height };
+
+				if (rect1.x > rect2.x + rect2.width || rect1.x + rect1.width < rect2.x || rect1.y > rect2.y + rect2.height || rect1.y + rect1.height < rect2.y) {
+					// console.log("no collision");
+				} else {
+					projectilesToRemove.push({ index: j });
+					invadersToRemove.push({ index: i });
+				}
+			});
+		});
+
+		if (projectilesToRemove.length > 0 && invadersToRemove.length > 0) {
+			invadersToRemove.forEach((invader) => delete this.invadersArray[invader.index]);
+			projectilesToRemove.forEach((projectile) => delete this.projectiles[projectile.index]);
 		}
 	};
 
