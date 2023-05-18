@@ -63,7 +63,7 @@ export class Defender {
 	};
 
 	draw(context: CanvasRenderingContext2D) {
-		// context.fillStyle = "white";
+		// context.fillStyle = "red";
 		// context.fillRect(this.x, this.y, this.width, this.height);
 
 		const image = document.getElementById("playerImage") as HTMLImageElement;

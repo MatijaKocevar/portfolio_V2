@@ -49,6 +49,7 @@ export const Translations = [
 		id: "Header_Subtitle",
 		en: `Hello and welcome to my portfolio page!
          <br />
+         <br />
          I am a software developer with 2 years of experience in the industry.
          <br />
          <br />
@@ -67,8 +68,20 @@ export const Translations = [
 	},
 	{
 		id: "Header_WIP_Description",
-		en: "Just trying to hone my skills in React and have some fun with building a game. Figured out how to animate things in canvas API. The player can move left/right with 'A/D' and shoot with 'Enter'. I've added some Invaders, but they don't do anything yet except move. Now I need to figure out collision detection and how to make them shoot back.",
-		slo: "Trudim se izpopolniti svoje spretnosti v Reactu in se hkrati zabavati z izdelavo igre. Ugotovil sem, kako animirati stvari v canvas API. Igralec se lahko premika levo/desno z 'A/D' in strelja z 'Enter'. Dodal sem nekaj Invaderjev, vendar še ne delajo ničesar razen premikanja. Zdaj moram ugotoviti zaznavanje trkov in kako jih narediti, da bodo streljali nazaj.",
+		en: `Just trying to hone my skills in Javascript and have some fun with building a game.
+		<br />
+		Figured out how to animate things in canvas API. The player can move left/right with 'A/D' and shoot with 'Enter'. 
+		<br />
+		I've added some Invaders, but they don't do anything yet except move. I also figured out how to check for collisions with projectiles.
+		<br />
+		Now I have to make them shoot back. And I also want to animate the sprites.`,
+		slo: `Trudim se izpopolniti svoje spretnosti v Javascriptu in se hkrati zabavati z izdelavo igre. 
+		<br />
+		Ugotovil sem, kako animirati stvari v canvas API. Igralec se lahko premika levo/desno z 'A/D' in strelja z 'Enter'. 
+		<br />
+		Dodal sem nekaj Invaderjev, vendar še ne delajo ničesar razen premikanja. Prav tako sem ugotovil, kako preveriti trke s projektili.
+		<br />
+		Zdaj jih moram narediti, da bodo streljali nazaj. In tudi želim animirati like.`,
 	},
 	/**
 	 * ABOUT ME

@@ -5,6 +5,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import Author from "../../images/me.jpg";
 import SpaceInvaders from "../SpaceInvaders/SpaceInvaders";
 import SvgIcon from "../Shared/SvgIcon/SvgIcon";
+import ExpandableText from "../Shared/ExpandableText/ExpandableText";
 
 const Header = () => {
 	const { getTranslation } = useContext(TranslationContext);
@@ -49,7 +50,8 @@ const Header = () => {
 				<Col className='game'>
 					<Row className='heading-row'>
 						<h1>{getTranslation("Header_WIP_Title")}</h1>
-						<p>
+						<ExpandableText content={getTranslation("Header_WIP_Description")} />
+						{/* <p>
 							<span style={{ color: "white" }}>{getTranslation("Header_WIP_Description")}</span>
 							<br />
 							<a
@@ -61,7 +63,7 @@ const Header = () => {
 							>
 								CODE
 							</a>
-						</p>
+						</p> */}
 					</Row>
 					<Row>
 						<SpaceInvaders />
