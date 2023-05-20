@@ -2,7 +2,7 @@ import { useRef, useEffect } from "react";
 import { Game } from "./components/Game";
 import "./SpaceInvaders.scss";
 import player from "./sprites/player.png";
-import invader from "./sprites/invader.png";
+import invader2 from "./sprites/invader2.png";
 
 export type IDirection = "left" | "right";
 
@@ -41,8 +41,6 @@ const GameBoard = () => {
 	return (
 		<>
 			{/* <button onClick={onClick} style={{ height: "3rem" }}></button> */}
-			<img id='playerImage' src={player} alt='' style={{ display: "none" }} />
-			<img id='invaderImage' src={invader} alt='' style={{ display: "none" }} />
 			<canvas ref={canvasRef} width={800} height={535}></canvas>
 		</>
 	);
