@@ -1,8 +1,6 @@
 import { useRef, useEffect } from "react";
 import { Game } from "./components/Game";
 import "./SpaceInvaders.scss";
-import player from "./sprites/player.png";
-import invader2 from "./sprites/invader2.png";
 
 export type IDirection = "left" | "right";
 
