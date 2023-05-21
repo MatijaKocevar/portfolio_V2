@@ -20,8 +20,8 @@ export class Defender {
 
 	constructor({ game }: IDefender) {
 		this.game = game;
-		this.width = 40;
-		this.height = 40;
+		this.width = 35;
+		this.height = 35;
 		this.x = this.game.props.width / 2 - this.width / 2;
 		this.y = this.game.props.height - (this.height + 10);
 		this.speed = 0;

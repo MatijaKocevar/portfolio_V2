@@ -21,7 +21,7 @@ export class Game {
 		this.props = { height, width };
 		this.defender = new Defender({ game: this });
 		this.inputHandler = new InputHandler();
-		this.invaders = new Invaders(126);
+		this.invaders = new Invaders();
 		this.currentDirection = "left";
 		this.invadersArray = this.invaders.createInvaders();
 	}
@@ -38,14 +38,14 @@ export class Game {
 		}
 	};
 
-	update = () => {
+	update = (gameFrame: number) => {
 		this.projectiles.forEach((projectile) => projectile.update(this.projectiles));
 		this.defender.update(this.inputHandler.keys);
 
 		if (this.invadersArray) {
 			this.updateDirection();
 			this.invadersArray.forEach((invader) => {
-				invader.updateInvader(this.currentDirection);
+				invader.updateInvader(this.currentDirection, gameFrame);
 			});
 		}
 	};

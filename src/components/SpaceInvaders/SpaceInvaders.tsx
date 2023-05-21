@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { Game } from "./components/Game";
 import "./SpaceInvaders.scss";
 
@@ -7,6 +7,8 @@ export type IDirection = "left" | "right";
 const GameBoard = () => {
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 	const gameRef = useRef<Game>();
+	const gameFrame = useRef<number>(0);
+	const [gameOver, setGameOver] = useState(false);
 
 	useEffect(() => {
 		const canvas = canvasRef.current;
@@ -20,10 +22,15 @@ const GameBoard = () => {
 			const animate = () => {
 				if (context && gameRef.current && canvas) {
 					context.clearRect(0, 0, canvas?.width ?? 0, canvas?.height ?? 0);
-					gameRef.current?.update();
+					gameRef.current?.update(gameFrame.current);
 					gameRef.current?.draw(context);
 				}
-				animationFrame = requestAnimationFrame(animate);
+				gameFrame.current++;
+
+				if (gameRef.current?.invadersArray.length === 0) {
+					setGameOver(true);
+				}
+				if (!gameOver) animationFrame = requestAnimationFrame(animate);
 			};
 
 			//loops the animation. 60fps
@@ -34,12 +41,12 @@ const GameBoard = () => {
 			gameRef.current?.destroy();
 			if (animationFrame) cancelAnimationFrame(animationFrame);
 		};
-	}, []);
+	}, [gameOver]);
 
 	return (
 		<>
 			{/* <button onClick={onClick} style={{ height: "3rem" }}></button> */}
-			<canvas ref={canvasRef} width={800} height={535}></canvas>
+			<canvas ref={canvasRef} width={600} height={600}></canvas>
 		</>
 	);
 };
