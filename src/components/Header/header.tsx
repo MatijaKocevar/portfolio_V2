@@ -73,7 +73,7 @@ const Header = () => {
 						<div className='subtitle-links'>
 							{showChangeLogUpcoming && <PopupBox content={changeLogUpcomingContent} onClose={() => setShowChangeLogUpcoming(false)} />}
 							<button className='change-log' onClick={() => setShowChangeLogUpcoming(true)} title='Open change log' rel='noopener noreferrer'>
-								Change Log / Upcoming
+								Change Log
 							</button>
 							<a
 								className='game-code-link'
@@ -82,7 +82,7 @@ const Header = () => {
 								title='Open in GitHub'
 								rel='noopener noreferrer'
 							>
-								CODE
+								Code
 							</a>
 						</div>
 					</Row>

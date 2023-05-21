@@ -69,8 +69,10 @@ export class Game {
 		});
 
 		if (projectilesToRemove.length > 0 && invadersToRemove.length > 0) {
-			invadersToRemove.forEach((invader) => delete this.invadersArray[invader.index]);
-			projectilesToRemove.forEach((projectile) => delete this.projectiles[projectile.index]);
+			// invadersToRemove.forEach((invader) => delete this.invadersArray[invader.index]);
+			// projectilesToRemove.forEach((projectile) => delete this.projectiles[projectile.index]);
+			invadersToRemove.forEach((invader) => this.invadersArray.splice(invader.index, 1));
+			projectilesToRemove.forEach((projectile) => this.projectiles.splice(projectile.index, 1));
 		}
 	};
 
