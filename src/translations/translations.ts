@@ -85,11 +85,12 @@ export const Translations = [
 	{
 		id: "Header_WIP_Changelog",
 		en: `
-		<span>- Animated invader movement. Invaders move down. Reset button</span>
+		<span>- Invader movement resembles original.</span>
+		<span>- Animated invader movement. Invaders move down. Reset button.</span>
 		<span>- Added sprites for player and invaders.</span>
 		<span>- Figured out how to check for collisions with projectiles.</span>
-		<span>- Invader movement</span>
-		<span>- Added Invaders</span>
+		<span>- Invader movement.</span>
+		<span>- Added Invaders.</span>
 		<span>- Added projectiles.</span>
 		<span>- The player can move left/right with 'A/D' and shoot with 'Enter'.</span>
 		<span>- Added player.</span>
@@ -97,6 +98,7 @@ export const Translations = [
 		<span>- Drawn a box with Canvas API.</span>
 		`,
 		slo: `
+		<span>- Premikanje invader-jev je podobno originalu.</span>
 		<span>- Animirano premikanje invader-jev. Invader-ji se premikajo dol. Gumb za reset.</span>
 		<span>- Dodani sprite-i za igralca in invader-je.</span>
 		<span>- Ugotovil kako preverjati trke s projektili.</span>
@@ -112,12 +114,16 @@ export const Translations = [
 	{
 		id: "Header_WIP_Upcoming",
 		en: `
-		<span>- I need to make the animations more like the game.</span>
 		<span>- Invaders need to shoot back.</span>
+		<span>- Invaders should move faster the fever there are.</span>
+		<span>- Need to make sheild blocks.</span>
+		<span>- Sounds !</span>
 		`,
 		slo: `
-		<span>- Animacije morajo biti bolj podobne igri.</span>
 		<span>- Invader-ji morajo streljati nazaj.</span>
+		<span>- Invader-ji bi se morali premikati hitreje, manj jih je.</span>
+		<span>- Potrebno je narediti ščitne bloke.</span>
+		<span>- Zvoki !</span>
 		`,
 	},
 	/**

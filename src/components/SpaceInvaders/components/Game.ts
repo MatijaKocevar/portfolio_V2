@@ -22,7 +22,7 @@ export class Game {
 		this.defender = new Defender({ game: this });
 		this.inputHandler = new InputHandler();
 		this.invaders = new Invaders();
-		this.currentDirection = "left";
+		this.currentDirection = "right";
 		this.invadersArray = this.invaders.createInvaders();
 	}
 
@@ -42,7 +42,7 @@ export class Game {
 		this.projectiles.forEach((projectile) => projectile.update(this.projectiles));
 		this.defender.update(this.inputHandler.keys);
 
-		if (this.invadersArray) {
+		if (this.invadersArray && gameFrame % 70 === 0) {
 			this.updateDirection();
 			this.invadersArray.forEach((invader) => {
 				invader.updateInvader(this.currentDirection, gameFrame);
