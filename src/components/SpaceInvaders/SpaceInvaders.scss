@@ -4,3 +4,27 @@ canvas {
 	background-color: black;
 	border-radius: 10px;
 }
+
+.mobile-controls {
+	padding-top: 1rem;
+	display: flex;
+	justify-content: center;
+	margin: 1rem 0;
+	gap: 1rem;
+}
+
+.left {
+	width: 20%;
+	border-radius: 10px;
+	background-color: transparent;
+}
+.fire {
+	width: 60%;
+	border-radius: 10px;
+	background-color: transparent;
+}
+.right {
+	width: 20%;
+	border-radius: 10px;
+	background-color: transparent;
+}

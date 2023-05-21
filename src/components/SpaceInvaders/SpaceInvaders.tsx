@@ -9,18 +9,23 @@ const GameBoard = () => {
 	const gameRef = useRef<Game>();
 	const gameFrame = useRef<number>(0);
 	const [gameOver, setGameOver] = useState(false);
+	const left = useRef<HTMLButtonElement>(null);
+	const fire = useRef<HTMLButtonElement>(null);
+	const right = useRef<HTMLButtonElement>(null);
+	const [isMobile, setIsmobile] = useState<boolean>(window.innerWidth < 576);
 
-	const onClick = () => {
-		setGameOver(!gameOver);
-	};
+	addEventListener("resize", () => {
+		setIsmobile(window.innerWidth < 576);
+	});
 
 	useEffect(() => {
 		const canvas = canvasRef.current;
 		const context = canvas?.getContext("2d");
 		let animationFrame: number;
+		const mobileControls = [left, fire, right];
 
 		if (canvas && context) {
-			gameRef.current = new Game({ height: canvas?.height ?? 0, width: canvas?.width ?? 0 });
+			gameRef.current = new Game({ height: canvas?.height ?? 0, width: canvas?.width ?? 0, mobileControls });
 
 			//draws the game
 			const animate = () => {
@@ -51,9 +56,19 @@ const GameBoard = () => {
 	return (
 		<>
 			<canvas ref={canvasRef} width={600} height={510}></canvas>
-			<button onClick={onClick} style={{ height: "2rem", border: "0", background: "none", color: "white", margin: "0" }}>
-				Reset
-			</button>
+			{isMobile && (
+				<div className='mobile-controls'>
+					<button id='left' ref={left} className='left'>
+						&larr;
+					</button>
+					<button id='fire' ref={fire} className='fire'>
+						fire
+					</button>
+					<button id='right' ref={right} className='right'>
+						&rarr;
+					</button>
+				</div>
+			)}
 		</>
 	);
 };
