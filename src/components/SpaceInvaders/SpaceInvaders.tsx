@@ -31,14 +31,15 @@ const GameBoard = () => {
 				}
 				gameFrame.current++;
 
-				if (gameRef.current?.invadersArray.length === 0) {
-					setGameOver(true);
-				}
+				if (gameRef.current?.invadersArray.length === 0) setGameOver(true);
+
+				if (gameRef.current?.invadersArray.some((invader) => invader.props.y > 450)) setGameOver(true);
+
 				if (!gameOver) animationFrame = requestAnimationFrame(animate);
 			};
 
 			//loops the animation. 60fps
-			animate();
+			if (!gameOver) animate();
 		}
 
 		return () => {

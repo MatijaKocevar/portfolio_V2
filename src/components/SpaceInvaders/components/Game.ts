@@ -79,14 +79,6 @@ export class Game {
 	draw = (context: CanvasRenderingContext2D) => {
 		this.projectiles.forEach((projectile) => projectile.draw(context));
 		this.defender.draw(context);
-		const invadersDirection = this.currentDirection;
-
-		if (invadersDirection !== this.currentDirection) {
-			const newArray = this.invadersArray.reverse();
-			this.invadersArray = newArray;
-			this.currentDirection = invadersDirection;
-		}
-
 		this.invadersArray.forEach((invader) => invader.draw(context));
 		this.handleCollision();
 		// console.log("drawn invaders: ", this.invadersArray);
