@@ -1,7 +1,7 @@
-import context from "react-bootstrap/esm/AccordionContext";
 import { Game } from "./Game";
 import { InputHandler } from "./InputHandler";
 import { Projectile } from "./Projectile";
+import player from "../sprites/player.png";
 interface IDefender {
 	game: Game;
 }
@@ -16,15 +16,18 @@ export class Defender {
 	maxSpeed: number;
 	timeout = 0;
 	reload = false;
+	image: HTMLImageElement;
 
 	constructor({ game }: IDefender) {
 		this.game = game;
-		this.width = 40;
-		this.height = 40;
+		this.width = 35;
+		this.height = 35;
 		this.x = this.game.props.width / 2 - this.width / 2;
 		this.y = this.game.props.height - (this.height + 10);
 		this.speed = 0;
 		this.maxSpeed = 5;
+		this.image = new Image();
+		this.image.src = player;
 	}
 
 	update = (input: InputHandler["keys"]) => {
@@ -66,7 +69,7 @@ export class Defender {
 		// context.fillStyle = "red";
 		// context.fillRect(this.x, this.y, this.width, this.height);
 
-		const image = document.getElementById("playerImage") as HTMLImageElement;
-		if (image) context.drawImage(image, this.x, this.y, this.width, this.height);
+		// const image = document.getElementById("playerImage") as HTMLImageElement;
+		if (this.image) context.drawImage(this.image, this.x, this.y, this.width, this.height);
 	}
 }

@@ -21,24 +21,36 @@ export class Game {
 		this.props = { height, width };
 		this.defender = new Defender({ game: this });
 		this.inputHandler = new InputHandler();
-		this.invaders = new Invaders(126);
-		this.currentDirection = this.invaders.direction;
+		this.invaders = new Invaders();
+		this.currentDirection = "left";
 		this.invadersArray = this.invaders.createInvaders();
 	}
 
-	update = () => {
+	updateDirection = () => {
+		// Check if the invader has hit the left or right wall
+
+		if (this.invadersArray.some((invader) => invader.props.x <= 5)) {
+			this.currentDirection = "right";
+		}
+
+		if (this.invadersArray.some((invader) => invader.props.x + invader.props.width + 5 >= this.props.width)) {
+			this.currentDirection = "left";
+		}
+	};
+
+	update = (gameFrame: number) => {
 		this.projectiles.forEach((projectile) => projectile.update(this.projectiles));
 		this.defender.update(this.inputHandler.keys);
 
 		if (this.invadersArray) {
-			this.checkCollision();
+			this.updateDirection();
 			this.invadersArray.forEach((invader) => {
-				invader.updateInvader(this.props.width);
+				invader.updateInvader(this.currentDirection, gameFrame);
 			});
 		}
 	};
 
-	checkCollision = () => {
+	handleCollision = () => {
 		const projectilesToRemove: { index: number }[] = [];
 		const invadersToRemove: { index: number }[] = [];
 
@@ -65,7 +77,7 @@ export class Game {
 	draw = (context: CanvasRenderingContext2D) => {
 		this.projectiles.forEach((projectile) => projectile.draw(context));
 		this.defender.draw(context);
-		const invadersDirection = this.invaders.getDirection();
+		const invadersDirection = this.currentDirection;
 
 		if (invadersDirection !== this.currentDirection) {
 			const newArray = this.invadersArray.reverse();
@@ -74,6 +86,7 @@ export class Game {
 		}
 
 		this.invadersArray.forEach((invader) => invader.draw(context));
+		this.handleCollision();
 		// console.log("drawn invaders: ", this.invadersArray);
 	};
 

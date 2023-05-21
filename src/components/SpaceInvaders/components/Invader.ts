@@ -1,103 +1,95 @@
+import invader1 from "../sprites/invader1.png";
+import invader2_3 from "../sprites/invader2-3.png";
+import invader3_4 from "../sprites/invader3-4.png";
 interface IInvader {
 	x: number;
 	y: number;
 	width: number;
 	height: number;
 	speed: number;
-	getDirection: () => "left" | "right";
-	setDirection: (direction: "left" | "right") => void;
+	image: HTMLImageElement;
 }
 
 let counter = 0;
 
 export class Invader {
 	props: IInvader;
-	// color: string;
 	id: number;
+	spriteWidth: number;
+	spriteHeight: number;
+	frame = 0;
 
-	constructor({ x, y, width, height, speed, getDirection, setDirection }: IInvader) {
-		this.props = { x, y, width, height, speed, getDirection, setDirection };
-		// this.color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+	constructor({ x, y, width, height, speed, image }: IInvader) {
+		this.props = { x, y, width, height, speed, image };
 		this.id = counter;
+		this.spriteWidth = 57;
+		this.spriteHeight = 38;
 		counter++;
 	}
 
-	moveLeft = () => {
-		if (this.props.x >= 5) {
-			this.props.x -= this.props.speed;
-		}
-	};
+	moveLeft = () => (this.props.x -= this.props.speed);
 
-	moveRight = (canvasWidth: number) => {
-		if (this.props.x + this.props.width + 5 <= canvasWidth) {
-			this.props.x += this.props.speed;
-		}
-	};
+	moveRight = () => (this.props.x += this.props.speed);
 
-	updateInvader = (canvasWidth: number) => {
-		// Check if the invader has hit the left or right wall
-		if (this.props.x <= 5) {
-			this.props.setDirection("right");
-			this.moveRight(canvasWidth);
-			return;
-			// this.moveRight(canvasWidth);
-		} else if (this.props.x + this.props.width + 5 >= canvasWidth) {
-			this.props.setDirection("left");
-			this.moveLeft();
-			return;
-			// this.moveLeft();
-		}
+	updateInvader = (direction: "left" | "right", gameFrame: number) => {
 		// If the invader is not at the edge of the canvas, continue moving in the current direction
-		if (this.props.getDirection() === "left") {
-			this.moveLeft();
-		} else {
-			this.moveRight(canvasWidth);
-		}
+		if (direction === "left") this.moveLeft();
+
+		if (direction === "right") this.moveRight();
+
+		if (gameFrame % 30 === 0) this.frame > 0 ? (this.frame = 0) : this.frame++;
 	};
 
 	draw = (context: CanvasRenderingContext2D) => {
 		// context.fillStyle = "blue";
 		// context.fillRect(this.props.x, this.props.y, this.props.width, this.props.height);
 
-		const image = document.getElementById("invaderImage") as HTMLImageElement;
-		if (image) context.drawImage(image, this.props.x, this.props.y, this.props.width, this.props.height);
+		if (this.props.image) context.drawImage(this.props.image, this.frame * this.spriteWidth, 0, this.spriteWidth, this.spriteHeight, this.props.x, this.props.y, this.props.width, this.props.height);
 	};
 }
 
 export class Invaders {
-	private invadersCount: number;
-	direction: "left" | "right";
+	private invadersCount = 55;
+	invader1 = new Image();
+	invader2_3 = new Image();
+	invader3_4 = new Image();
 
-	constructor(invadersCount: number) {
-		this.invadersCount = invadersCount;
-		this.direction = "left";
+	constructor() {
+		this.invader1.src = invader1;
+		this.invader2_3.src = invader2_3;
+		this.invader3_4.src = invader3_4;
 	}
 
 	createInvaders = () => {
-		const invaderWidth = 25;
-		const invaderHeight = 25;
-		const invaderPadding = 10;
+		const invaderWidth = 32;
+		const invaderHeight = 24;
+		const invaderPadding = 20;
 		const invaderOffsetTop = 30;
 		const invaderOffsetLeft = 30;
 
 		const invaders: Invader[] = [];
 
 		for (let i = 0; i < this.invadersCount; i++) {
-			const invaderX = (i % 21) * (invaderWidth + invaderPadding) + invaderOffsetLeft;
-			const invaderY = Math.floor(i / 21) * (invaderHeight + invaderPadding) + invaderOffsetTop;
-			const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: 0.5, getDirection: this.getDirection, setDirection: this.setDirection });
-			invaders.push(invader);
+			const invaderX = (i % 11) * (invaderWidth + invaderPadding - 5) + invaderOffsetLeft;
+			const invaderY = Math.floor(i / 11) * (invaderHeight + invaderPadding) + invaderOffsetTop;
+
+			if (i < 11) {
+				const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: 0.5, image: this.invader1 });
+				invaders.push(invader);
+			}
+
+			if (i < 33 && i >= 11) {
+				const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: 0.5, image: this.invader2_3 });
+				invaders.push(invader);
+			}
+
+			if (i < 55 && i >= 33) {
+				const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: 0.5, image: this.invader3_4 });
+				invaders.push(invader);
+			}
 		}
 
 		return invaders;
-	};
-
-	getDirection = () => {
-		return this.direction;
-	};
-
-	setDirection = (direction: "left" | "right") => {
-		this.direction = direction;
 	};
 
 	destroy = () => {
