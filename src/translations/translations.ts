@@ -68,20 +68,44 @@ export const Translations = [
 	},
 	{
 		id: "Header_WIP_Description",
-		en: `Just trying to hone my skills in Javascript and have some fun with building a game.
-		<br />
-		Figured out how to animate things in canvas API. The player can move left/right with 'A/D' and shoot with 'Enter'. 
-		<br />
-		I've added some Invaders, but they don't do anything yet except move. I also figured out how to check for collisions with projectiles.
-		<br />
-		Now I have to make them shoot back. And I also want to animate the sprites.`,
-		slo: `Trudim se izpopolniti svoje spretnosti v Javascriptu in se hkrati zabavati z izdelavo igre. 
-		<br />
-		Ugotovil sem, kako animirati stvari v canvas API. Igralec se lahko premika levo/desno z 'A/D' in strelja z 'Enter'. 
-		<br />
-		Dodal sem nekaj Invaderjev, vendar še ne delajo ničesar razen premikanja. Prav tako sem ugotovil, kako preveriti trke s projektili.
-		<br />
-		Zdaj jih moram narediti, da bodo streljali nazaj. In tudi želim animirati like.`,
+		en: `Just trying to hone my skills in Javascript and have some fun with building a game.`,
+		slo: `Trudim se izpopolniti svoje spretnosti v Javascriptu in se hkrati zabavati z izdelavo igre.`,
+	},
+	{
+		id: "Header_WIP_Changelog",
+		en: `
+		<span>- Added sprites for player and invaders.</span>
+		<span>- Figured out how to check for collisions with projectiles.</span>
+		<span>- Invader movement</span>
+		<span>- Added Invaders</span>
+		<span>- Added projectiles.</span>
+		<span>- The player can move left/right with 'A/D' and shoot with 'Enter'.</span>
+		<span>- Added player.</span>
+		<span>- Figured out how to animate things.</span>
+		<span>- Drawn a box with Canvas API.</span>
+		`,
+		slo: `
+		<span>- Dodani sprite-i za igralca in invader-je.</span>
+		<span>- Ugotovil kako preverjati trke s projektili.</span>
+		<span>- Premikanje invader-jev.</span>
+		<span>- Dodani invader-ji.</span>
+		<span>- Dodani projektili.</span>
+		<span>- Igralec se lahko premika levo/desno z 'A/D' in strelja z 'Enter'.</span>
+		<span>- Dodan igralec.</span>
+		<span>- Ugotovil kako animirati stvari.</span>
+		<span>- Narisal kvadrat z Canvas API.</span>
+		`,
+	},
+	{
+		id: "Header_WIP_Upcoming",
+		en: `
+		<span>- I need to make the animations more like the game.</span>
+		<span>- Invaders need to shoot back.</span>
+		`,
+		slo: `
+		<span>- Animacije morajo biti bolj podobne igri.</span>
+		<span>- Invader-ji morajo streljati nazaj.</span>
+		`,
 	},
 	/**
 	 * ABOUT ME

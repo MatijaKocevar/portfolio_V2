@@ -25,8 +25,57 @@
 	z-index: 1100000000000000000;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 	display: flex;
-	flex-direction: column;
+	// flex-direction: column;
 	align-items: center;
+
+	.popupbox-content {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		// height: 100%;
+
+		.popupbox-heading {
+			width: 100%;
+			height: fit-content;
+			display: flex;
+			justify-content: center;
+			padding: 1rem;
+			color: v.$white;
+		}
+
+		.popupbox-image {
+			// width: 100%;
+			display: flex;
+			justify-content: center;
+			padding: 1rem;
+		}
+
+		.popupbox-description {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			padding: 1rem;
+			color: v.$white;
+
+			p {
+				text-align: center;
+				margin: 0;
+			}
+		}
+
+		.popupbox-links {
+			display: flex;
+			justify-content: center;
+			gap: 1rem;
+			a {
+				color: v.$white !important;
+			}
+
+			a:hover {
+				color: v.$lightPurple !important;
+			}
+		}
+	}
 }
 
 .close-icon {
