@@ -68,8 +68,16 @@ export const Translations = [
 	},
 	{
 		id: "Header_WIP_Description",
-		en: `Just trying to hone my skills in Javascript and have some fun with building a game.`,
-		slo: `Trudim se izpopolniti svoje spretnosti v Javascriptu in se hkrati zabavati z izdelavo igre.`,
+		en: `
+		Just trying to hone my skills in Javascript and have some fun with building a game.
+		<br />
+		Controls: 'A/D' to move left/right, 'Enter' to shoot.
+		`,
+		slo: `
+		Trudim se izpopolniti svoje spretnosti v Javascriptu in se hkrati zabavati z izdelavo igre.
+		<br />
+		Kontrole: 'A/D' za premikanje levo/desno, 'Enter' za streljanje.		
+		`,
 	},
 	{
 		id: "Header_WIP_Changelog",
