@@ -66,8 +66,8 @@ export const Translations = [
 	},
 	{
 		id: "Header_WIP_Title",
-		en: "Work in progress: SPACE INVADERS",
-		slo: "Work in progress: SPACE INVADERS",
+		en: "SPACE INVADERS",
+		slo: "SPACE INVADERS",
 	},
 	{
 		id: "Header_WIP_Description",

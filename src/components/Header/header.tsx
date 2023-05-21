@@ -67,8 +67,10 @@ const Header = () => {
 					<SnakeGame />
 				</Col> */}
 				<Col className='game'>
+					{/* <p className='WIP'>Work in progress</p> */}
 					<Row className='heading-row' style={{ textAlign: "center" }}>
 						<h1>{getTranslation("Header_WIP_Title")}</h1>
+						<h5 style={{ fontSize: "1rem", marginBottom: ".5rem", color: "red" }}>Work in progress</h5>
 						<div className='game-description'>{getTranslation("Header_WIP_Description")}</div>
 						<div className='subtitle-links'>
 							{showChangeLogUpcoming && <PopupBox content={changeLogUpcomingContent} onClose={() => setShowChangeLogUpcoming(false)} />}
@@ -86,7 +88,7 @@ const Header = () => {
 							</a>
 						</div>
 					</Row>
-					<Row>
+					<Row className='space-invaders'>
 						<SpaceInvaders />
 					</Row>
 				</Col>
