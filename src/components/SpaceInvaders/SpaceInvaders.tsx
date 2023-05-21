@@ -49,7 +49,7 @@ const GameBoard = () => {
 
 	return (
 		<>
-			<canvas ref={canvasRef} width={600} height={550}></canvas>
+			<canvas ref={canvasRef} width={600} height={510}></canvas>
 			<button onClick={onClick} style={{ height: "2rem", border: "0", background: "none", color: "white", margin: "0" }}>
 				Reset
 			</button>
