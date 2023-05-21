@@ -1,14 +1,33 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import "./header.scss";
 import { TranslationContext } from "../../translations/components/TranslationContext";
 import { Col, Container, Row } from "react-bootstrap";
 import Author from "../../images/me.jpg";
 import SpaceInvaders from "../SpaceInvaders/SpaceInvaders";
 import SvgIcon from "../Shared/SvgIcon/SvgIcon";
-import ExpandableText from "../Shared/ExpandableText/ExpandableText";
+import PopupBox from "../Shared/PopupBox/PopupBox";
 
 const Header = () => {
 	const { getTranslation } = useContext(TranslationContext);
+	const [showChangeLogUpcoming, setShowChangeLogUpcoming] = useState(false);
+
+	const changeLogUpcomingContent = (
+		<Row className='popupbox-content'>
+			<div style={{ width: "fit-content" }}>
+				<Col className='popupbox-heading'>
+					<h3>Upcoming</h3>
+				</Col>
+				<Col className='popupbox-description'>{getTranslation("Header_WIP_Upcoming")}</Col>
+			</div>
+
+			<div style={{ width: "fit-content" }}>
+				<Col className='popupbox-heading'>
+					<h3>Change Log</h3>
+				</Col>
+				<Col className='popupbox-description'>{getTranslation("Header_WIP_Changelog")}</Col>
+			</div>
+		</Row>
+	);
 
 	return (
 		<Container id='home' className='header-wraper'>
@@ -50,16 +69,22 @@ const Header = () => {
 				<Col className='game'>
 					<Row className='heading-row' style={{ textAlign: "center" }}>
 						<h1>{getTranslation("Header_WIP_Title")}</h1>
-						<ExpandableText content={getTranslation("Header_WIP_Description")} />
-						<a
-							style={{ color: "white" }}
-							href='https://github.com/MatijaKocevar/portfolio_V2/tree/master/src/components/SpaceInvaders'
-							target='_blank'
-							title='Open in GitHub'
-							rel='noopener noreferrer'
-						>
-							CODE
-						</a>
+						<div className='game-description'>{getTranslation("Header_WIP_Description")}</div>
+						<div className='subtitle-links'>
+							{showChangeLogUpcoming && <PopupBox content={changeLogUpcomingContent} onClose={() => setShowChangeLogUpcoming(false)} />}
+							<button className='change-log' onClick={() => setShowChangeLogUpcoming(true)} title='Open change log' rel='noopener noreferrer'>
+								Change Log / Upcoming
+							</button>
+							<a
+								className='game-code-link'
+								href='https://github.com/MatijaKocevar/portfolio_V2/tree/master/src/components/SpaceInvaders'
+								target='_blank'
+								title='Open in GitHub'
+								rel='noopener noreferrer'
+							>
+								CODE
+							</a>
+						</div>
 					</Row>
 					<Row>
 						<SpaceInvaders />

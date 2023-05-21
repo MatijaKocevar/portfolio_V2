@@ -122,6 +122,32 @@
 			flex-direction: column;
 			opacity: 1;
 			padding-bottom: 1rem;
+
+			.game-description {
+				color: white;
+				padding-bottom: 1rem;
+			}
+
+			.change-log {
+				color: white;
+				border: 0;
+				background-color: 0;
+				background: none;
+				text-decoration: underline;
+				width: fit-content;
+
+				&:hover {
+					color: v.$lightPurple;
+				}
+			}
+
+			.game-code-link {
+				color: white;
+
+				&:hover {
+					color: v.$lightPurple;
+				}
+			}
 		}
 	}
 
@@ -136,7 +162,30 @@
 
 		p {
 			text-align: center;
-			color: red;
+			// color: red;
+		}
+
+		.subtitle-links {
+			justify-content: center;
+			display: flex;
+			gap: 2rem;
+
+			// .change-upcoming-content {
+			// 	display: flex;
+			// }
+
+			.popupbox-content {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-around;
+
+				.popupbox-description {
+					div {
+						display: flex;
+						flex-direction: column;
+					}
+				}
+			}
 		}
 	}
 }

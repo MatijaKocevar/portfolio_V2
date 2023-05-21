@@ -65,52 +65,6 @@
 				}
 			}
 		}
-
-		.popupbox-content {
-			display: flex;
-			flex-direction: column;
-
-			.popupbox-heading {
-				width: 100%;
-				height: fit-content;
-				display: flex;
-				justify-content: center;
-				padding: 1rem;
-				color: v.$white;
-			}
-
-			.popupbox-image {
-				// width: 100%;
-				display: flex;
-				justify-content: center;
-				padding: 1rem;
-			}
-
-			.popupbox-description {
-				width: 100%;
-				display: flex;
-				justify-content: center;
-				padding: 1rem;
-				color: v.$white;
-
-				p {
-					text-align: center;
-				}
-			}
-
-			.popupbox-links {
-				display: flex;
-				justify-content: center;
-				gap: 1rem;
-				a {
-					color: v.$white !important;
-				}
-
-				a:hover {
-					color: v.$lightPurple !important;
-				}
-			}
-		}
 	}
 }
 
