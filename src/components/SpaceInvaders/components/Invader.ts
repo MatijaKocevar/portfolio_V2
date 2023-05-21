@@ -18,7 +18,7 @@ export class Invader {
 	spriteWidth: number;
 	spriteHeight: number;
 	frame = 0;
-	currentDirection: "left" | "right" = "left";
+	currentDirection: "left" | "right" = "right";
 
 	constructor({ x, y, width, height, speed, image }: IInvader) {
 		this.props = { x, y, width, height, speed, image };
@@ -38,6 +38,7 @@ export class Invader {
 		if (this.currentDirection != direction) {
 			this.moveDown();
 			this.currentDirection = direction;
+			return;
 		}
 		// If the invader is not at the edge of the canvas, continue moving in the current direction
 		if (direction === "left") this.moveLeft();
@@ -81,17 +82,17 @@ export class Invaders {
 			const invaderY = Math.floor(i / 11) * (invaderHeight + invaderPadding) + invaderOffsetTop;
 
 			if (i < 11) {
-				const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: 0.2, image: this.invader1 });
+				const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: 5, image: this.invader1 });
 				invaders.push(invader);
 			}
 
 			if (i < 33 && i >= 11) {
-				const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: 0.2, image: this.invader2_3 });
+				const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: 5, image: this.invader2_3 });
 				invaders.push(invader);
 			}
 
 			if (i < 55 && i >= 33) {
-				const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: 0.2, image: this.invader3_4 });
+				const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: 5, image: this.invader3_4 });
 				invaders.push(invader);
 			}
 		}
