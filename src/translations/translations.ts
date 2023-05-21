@@ -47,19 +47,22 @@ export const Translations = [
 	},
 	{
 		id: "Header_Subtitle",
-		en: `Hello and welcome to my portfolio page!
-         <br />
-         <br />
-         I am a software developer with 2 years of experience in the industry.
-         <br />
-         <br />
-         My most commonly used stacks:`,
-		slo: `Pozdravljeni in dobrodošli na moji spletni strani!
-          <br />
-          Sem razvijalec programske opreme z 2 leti izkušenj v industriji.
-          <br />
-          <br />
-          Tehnologije, ki jih najpogosteje uporabljam:`,
+		en: `
+		Hello and welcome to my portfolio page!
+        <br />
+        <br />
+        I am a software developer with 2 years of experience in the industry.
+        <br />
+        <br />
+        My most commonly used stacks:`,
+		slo: `
+		Pozdravljeni in dobrodošli na moji spletni strani!
+        <br />
+        <br />
+        Sem razvijalec programske opreme z 2 leti izkušenj v industriji.
+        <br />
+        <br />
+        Tehnologije, ki jih najpogosteje uporabljam:`,
 	},
 	{
 		id: "Header_WIP_Title",
@@ -82,6 +85,7 @@ export const Translations = [
 	{
 		id: "Header_WIP_Changelog",
 		en: `
+		<span>- Animated invader movement. Invaders move down. Reset button</span>
 		<span>- Added sprites for player and invaders.</span>
 		<span>- Figured out how to check for collisions with projectiles.</span>
 		<span>- Invader movement</span>
@@ -93,6 +97,7 @@ export const Translations = [
 		<span>- Drawn a box with Canvas API.</span>
 		`,
 		slo: `
+		<span>- Animirano premikanje invader-jev. Invader-ji se premikajo dol. Gumb za reset.</span>
 		<span>- Dodani sprite-i za igralca in invader-je.</span>
 		<span>- Ugotovil kako preverjati trke s projektili.</span>
 		<span>- Premikanje invader-jev.</span>

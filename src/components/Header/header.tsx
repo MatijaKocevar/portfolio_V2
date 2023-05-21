@@ -13,14 +13,14 @@ const Header = () => {
 
 	const changeLogUpcomingContent = (
 		<Row className='popupbox-content'>
-			<div style={{ width: "fit-content" }}>
+			<div className='upcoming-section'>
 				<Col className='popupbox-heading'>
 					<h3>Upcoming</h3>
 				</Col>
 				<Col className='popupbox-description'>{getTranslation("Header_WIP_Upcoming")}</Col>
 			</div>
 
-			<div style={{ width: "fit-content" }}>
+			<div className='changelog-section'>
 				<Col className='popupbox-heading'>
 					<h3>Change Log</h3>
 				</Col>
