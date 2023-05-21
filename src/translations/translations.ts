@@ -85,6 +85,7 @@ export const Translations = [
 	{
 		id: "Header_WIP_Changelog",
 		en: `
+		<span>- Temporary mobile controls.</span>
 		<span>- Invader movement resembles original.</span>
 		<span>- Animated invader movement. Invaders move down. Reset button.</span>
 		<span>- Added sprites for player and invaders.</span>
@@ -98,6 +99,7 @@ export const Translations = [
 		<span>- Drawn a box with Canvas API.</span>
 		`,
 		slo: `
+		<span>- Začasne mobilne kontrole.</span>
 		<span>- Premikanje invader-jev je podobno originalu.</span>
 		<span>- Animirano premikanje invader-jev. Invader-ji se premikajo dol. Gumb za reset.</span>
 		<span>- Dodani sprite-i za igralca in invader-je.</span>

@@ -6,6 +6,7 @@ import { Projectile } from "./Projectile";
 interface IGame {
 	width: number;
 	height: number;
+	mobileControls: React.RefObject<HTMLButtonElement>[];
 }
 
 export class Game {
@@ -17,10 +18,10 @@ export class Game {
 	invadersArray: Invader[] = [];
 	currentDirection: "left" | "right";
 
-	constructor({ height, width }: IGame) {
-		this.props = { height, width };
+	constructor({ height, width, mobileControls }: IGame) {
+		this.props = { height, width, mobileControls };
 		this.defender = new Defender({ game: this });
-		this.inputHandler = new InputHandler();
+		this.inputHandler = new InputHandler(mobileControls);
 		this.invaders = new Invaders();
 		this.currentDirection = "right";
 		this.invadersArray = this.invaders.createInvaders();
