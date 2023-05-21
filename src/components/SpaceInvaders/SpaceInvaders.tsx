@@ -10,6 +10,10 @@ const GameBoard = () => {
 	const gameFrame = useRef<number>(0);
 	const [gameOver, setGameOver] = useState(false);
 
+	const onClick = () => {
+		setGameOver(!gameOver);
+	};
+
 	useEffect(() => {
 		const canvas = canvasRef.current;
 		const context = canvas?.getContext("2d");
@@ -45,8 +49,10 @@ const GameBoard = () => {
 
 	return (
 		<>
-			{/* <button onClick={onClick} style={{ height: "3rem" }}></button> */}
-			<canvas ref={canvasRef} width={600} height={600}></canvas>
+			<canvas ref={canvasRef} width={600} height={550}></canvas>
+			<button onClick={onClick} style={{ height: "2rem", border: "0", background: "none", color: "white", margin: "0" }}>
+				Reset
+			</button>
 		</>
 	);
 };
