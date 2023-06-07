@@ -3,6 +3,7 @@ import HolidaysCalculator from "../../images/holidaysCalculator/holidaysCalculat
 import DiffingApi from "../../images/diffingApi/diffingApi.png";
 import PortfoliV2 from "../../images/portfolioV2/portfolioV2.png";
 import Drumbox from "../../images/drumbox/drumbox.png";
+import TaskManagement from "../../images/task-management/task-management.png";
 import "./projects.scss";
 import { useContext, useState } from "react";
 import PopupBox from "../Shared/PopupBox/PopupBox";
@@ -18,6 +19,7 @@ const Projects = () => {
 	const [showPopupDiffing, setShowPopupDiffing] = useState(false);
 	const [showPopupportfoliV2, setShowPopupportfoliV2] = useState(false);
 	const [showPopupDrumbox, setShowPopupDrumbox] = useState(false);
+	const [showPopupTaskManagement, setShowPopupTaskManagement] = useState(false);
 
 	const magnifyingGlass = <SvgIcon iconName='magnifyingGlass' svgProp={{ width: "2rem", height: "2rem", fill: "white" }} />;
 
@@ -113,6 +115,24 @@ const Projects = () => {
 					</a>
 				</Col>
 			</Row>
+		),
+		taskManagementContent = (
+			<Row className='popupbox-content'>
+				<Col className='popupbox-heading'>
+					<h3>{getTranslation("Projects_TaskManagement_Title")}</h3>
+				</Col>
+				<Col className='popupbox-image'>
+					<img src={TaskManagement} alt='Task Management' />
+				</Col>
+				<Col className='popupbox-description'>
+					<p>{getTranslation("Projects_TaskManagement_Description")}</p>
+				</Col>
+				<Col className='popupbox-links'>
+					<a href='https://github.com/MatijaKocevar/task-management' target='_blank' rel='noopener noreferrer'>
+						GitHub
+					</a>
+				</Col>
+			</Row>
 		);
 
 	return (
@@ -130,6 +150,17 @@ const Projects = () => {
 							<img className='project-image' src={PortfoliV2} alt='Project 4...' />
 						</div>
 						<h3>{getTranslation("Projects_PortfolioV2_Title")}</h3>
+					</div>
+				</Col>
+				{/* - */}
+				{showPopupTaskManagement && <PopupBox content={taskManagementContent} onClose={() => setShowPopupTaskManagement(false)} />}
+				<Col lg={4} md={6} sm={6} xs={12}>
+					<div className='project-wrapper' role='presentation' onClick={() => setShowPopupTaskManagement(true)}>
+						<div className='project'>
+							<div className='project-icon'>{magnifyingGlass}</div>
+							<img className='project-image' src={TaskManagement} alt='project webpage' />
+						</div>
+						<h3>{getTranslation("Projects_TaskManagement_Title")}</h3>
 					</div>
 				</Col>
 				{/* - */}

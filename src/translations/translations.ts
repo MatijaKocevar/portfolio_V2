@@ -311,9 +311,19 @@ export const Translations = [
 		slo: `Drumbox`,
 	},
 	{
+		id: "Projects_TaskManagement_Title",
+		en: `Task Management`,
+		slo: `Task Management`,
+	},
+	{
 		id: "Projects_Portfolio_Description",
 		en: `As a beginner developer, I created my first webpage using React JS and create-react-app. Although I followed some tutorials and did not understand the inner workings of development, it was an exciting opportunity for me to showcase my skills and creativity. This project served as a solid foundation for me to further develop my skills in web development. Despite it being my first project, I am proud of the outcome and look forward to continually improving my skills in the field.`,
 		slo: `Kot začetnik sem ustvaril svojo prvo spletno stran z uporabo React JS in create-react-app. Čeprav sem sledil nekaterim vadnicam in nisem razumel notranjih delovanj razvoja, je bila to zame dobra priložnost, da pokažem svoje spretnosti in ustvarjalnost. Ta projekt mi je služil kot trdna osnova za nadaljnji razvoj mojih veščin na področju spletnega razvoja. Kljub temu, da je to moj prvi projekt, sem ponosen na rezultat in se veselim nadaljnjega izboljševanja svojih veščin na tem področju.`,
+	},
+	{
+		id: "Projects_TaskManagement_Description",
+		en: `A simple task management app. It support creating tasks, updating them and deleting them. It is made with React, Typescript, .NET for backedn and a SQL server database. THe project can be run in docker containers. It is a work in progress and will be updated in the future.`,
+		slo: `Preprosta aplikacija za upravljanje opravil. Podpira ustvarjanje opravil, posodabljanje in brisanje. Narejen je z React, Typescript, .NET za backend in SQL strežnikom. Projekt se lahko zažene v docker kontejnerjih. Je delo v teku in bo posodobljen v prihodnosti.`,
 	},
 	{
 		id: "Projects_Drumbox_Description",
