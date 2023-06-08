@@ -8,6 +8,7 @@ interface IInvader {
 	height: number;
 	speed: number;
 	image: HTMLImageElement;
+	animationSpeed: number;
 }
 
 let counter = 0;
@@ -20,8 +21,8 @@ export class Invader {
 	frame = 0;
 	currentDirection: "left" | "right" = "right";
 
-	constructor({ x, y, width, height, speed, image }: IInvader) {
-		this.props = { x, y, width, height, speed, image };
+	constructor({ x, y, width, height, speed, image, animationSpeed }: IInvader) {
+		this.props = { x, y, width, height, speed, image, animationSpeed };
 		this.id = counter;
 		this.spriteWidth = 57;
 		this.spriteHeight = 38;
@@ -45,7 +46,7 @@ export class Invader {
 
 		if (direction === "right") this.moveRight();
 
-		if (gameFrame % 70 === 0) this.frame > 0 ? (this.frame = 0) : this.frame++;
+		if (gameFrame % this.props.animationSpeed === 0) this.frame > 0 ? (this.frame = 0) : this.frame++;
 	};
 
 	draw = (context: CanvasRenderingContext2D) => {
@@ -56,16 +57,22 @@ export class Invader {
 	};
 }
 
+interface IInvaders {
+	invadersSpeed: number;
+}
+
 export class Invaders {
 	private invadersCount = 55;
 	invader1 = new Image();
 	invader2_3 = new Image();
 	invader3_4 = new Image();
+	animationSpeed: number;
 
-	constructor() {
+	constructor({ invadersSpeed }: IInvaders) {
 		this.invader1.src = invader1;
 		this.invader2_3.src = invader2_3;
 		this.invader3_4.src = invader3_4;
+		this.animationSpeed = invadersSpeed;
 	}
 
 	createInvaders = () => {
@@ -82,17 +89,17 @@ export class Invaders {
 			const invaderY = Math.floor(i / 11) * (invaderHeight + invaderPadding) + invaderOffsetTop;
 
 			if (i < 11) {
-				const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: 5, image: this.invader1 });
+				const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: 5, image: this.invader1, animationSpeed: this.animationSpeed });
 				invaders.push(invader);
 			}
 
 			if (i < 33 && i >= 11) {
-				const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: 5, image: this.invader2_3 });
+				const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: 5, image: this.invader2_3, animationSpeed: this.animationSpeed });
 				invaders.push(invader);
 			}
 
 			if (i < 55 && i >= 33) {
-				const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: 5, image: this.invader3_4 });
+				const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: 5, image: this.invader3_4, animationSpeed: this.animationSpeed });
 				invaders.push(invader);
 			}
 		}

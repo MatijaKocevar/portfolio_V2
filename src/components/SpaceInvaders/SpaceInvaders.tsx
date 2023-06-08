@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState, useCallback, useMemo } from "react";
+import { useRef, useEffect, useState, useCallback } from "react";
 import { Game } from "./components/Game";
 import "./SpaceInvaders.scss";
 
@@ -23,7 +23,7 @@ const GameBoard = () => {
 		const context = canvas?.getContext("2d");
 		let animationFrame: number;
 		if (canvas && context) {
-			gameRef.current = new Game({ height: canvas?.height ?? 0, width: canvas?.width ?? 0, mobileControls: [left, fire, right] });
+			gameRef.current = new Game({ height: canvas?.height ?? 0, width: canvas?.width ?? 0, mobileControls: [left, fire, right], setGameOver: setGameOver });
 
 			//draws the game
 			const animate = () => {
@@ -66,9 +66,11 @@ const GameBoard = () => {
 	}, [gameOver]);
 
 	const handleReset = useCallback(() => {
-		setGameOver(false);
-		gameRef.current = new Game({ height: canvasRef.current?.height ?? 0, width: canvasRef.current?.width ?? 0, mobileControls: [left, fire, right] });
-	}, []);
+		if (gameOver) {
+			setGameOver(false);
+			gameRef.current = new Game({ height: canvasRef.current?.height ?? 0, width: canvasRef.current?.width ?? 0, mobileControls: [left, fire, right], setGameOver: setGameOver });
+		}
+	}, [gameOver]);
 
 	return (
 		<>
