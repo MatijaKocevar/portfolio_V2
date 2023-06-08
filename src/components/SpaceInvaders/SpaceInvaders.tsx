@@ -13,7 +13,6 @@ const GameBoard = () => {
 	const fire = useRef<HTMLButtonElement>(null);
 	const right = useRef<HTMLButtonElement>(null);
 	const [isMobile, setIsmobile] = useState<boolean>(window.innerWidth < 576);
-	const mobileControls = [left, fire, right];
 
 	addEventListener("resize", () => {
 		setIsmobile(window.innerWidth < 576);
@@ -24,7 +23,7 @@ const GameBoard = () => {
 		const context = canvas?.getContext("2d");
 		let animationFrame: number;
 		if (canvas && context) {
-			gameRef.current = new Game({ height: canvas?.height ?? 0, width: canvas?.width ?? 0, mobileControls });
+			gameRef.current = new Game({ height: canvas?.height ?? 0, width: canvas?.width ?? 0, mobileControls: [left, fire, right], setGameOver: setGameOver });
 
 			//draws the game
 			const animate = () => {
@@ -64,12 +63,14 @@ const GameBoard = () => {
 			gameRef.current?.destroy();
 			if (animationFrame) cancelAnimationFrame(animationFrame);
 		};
-	}, [gameOver, mobileControls]);
+	}, [gameOver]);
 
 	const handleReset = useCallback(() => {
-		setGameOver(false);
-		gameRef.current = new Game({ height: canvasRef.current?.height ?? 0, width: canvasRef.current?.width ?? 0, mobileControls });
-	}, [mobileControls]);
+		if (gameOver) {
+			setGameOver(false);
+			gameRef.current = new Game({ height: canvasRef.current?.height ?? 0, width: canvasRef.current?.width ?? 0, mobileControls: [left, fire, right], setGameOver: setGameOver });
+		}
+	}, [gameOver]);
 
 	return (
 		<>
