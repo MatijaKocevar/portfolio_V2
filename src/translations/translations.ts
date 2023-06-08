@@ -345,10 +345,10 @@ export const Translations = [
 	},
 	{
 		id: "Projects_PortfoliV2_Description",
-		en: `This is my latest project. After 2 years of working as an actual developer, I decided to take what I've learned so far and apply it to my portfolio webpage. I started a completely new
+		en: `After 2 years of working as an actual developer, I decided to take what I've learned so far and apply it to my portfolio webpage. I started a completely new
     project with Vite, React and Typescript. I've also used Bootstrap and Sass for styling. With the first version of this website I used a lot of external libraries and components. This time I wanted to create everything from scratch. I replaced most of the external
     libraries with my own components and animations. Redid the styling and added new features. I'm very happy with the outcome and I'm looking forward to improving it even further.`,
-		slo: `To je moj najnovejši projekt. Po 2 letih dela kot pravi razvijalec sem se odločil, da bom to, kar sem se do zdaj naučil, uporabil za svojo spletno stran. Začel sem popolnoma nov projekt z Vite, React in Typescript. Za oblikovanje sem uporabil tudi Bootstrap in Sass. Pri prvi različici te spletne strani sem uporabil veliko zunanjih knjižnic in komponent. Tokrat sem želel vse ustvariti od začetka. Večino zunanjih knjižnic sem zamenjal s svojimi komponentami in animacijami. Ponovno sem naredil oblikovanje in dodal nove funkcije. Z rezultatom sem zelo zadovoljen in veselim se nadaljnjega izboljševanja.`,
+		slo: `Po 2 letih dela kot pravi razvijalec sem se odločil, da bom to, kar sem se do zdaj naučil, uporabil za svojo spletno stran. Začel sem popolnoma nov projekt z Vite, React in Typescript. Za oblikovanje sem uporabil tudi Bootstrap in Sass. Pri prvi različici te spletne strani sem uporabil veliko zunanjih knjižnic in komponent. Tokrat sem želel vse ustvariti od začetka. Večino zunanjih knjižnic sem zamenjal s svojimi komponentami in animacijami. Ponovno sem naredil oblikovanje in dodal nove funkcije. Z rezultatom sem zelo zadovoljen in veselim se nadaljnjega izboljševanja.`,
 	},
 	/**
 	 * INTERESTS

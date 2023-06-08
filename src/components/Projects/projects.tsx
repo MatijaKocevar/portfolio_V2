@@ -142,17 +142,6 @@ const Projects = () => {
 			</Row>
 			<Row className='projects-wrapper'>
 				{/* - */}
-				{showPopupportfoliV2 && <PopupBox content={portfoliV2Content} onClose={() => setShowPopupportfoliV2(false)} />}
-				<Col lg={4} md={6} sm={6} xs={12}>
-					<div className='project-wrapper' role='presentation' onClick={() => setShowPopupportfoliV2(true)}>
-						<div className='project'>
-							<div className='project-icon'>{magnifyingGlass}</div>
-							<img className='project-image' src={PortfoliV2} alt='Project 4...' />
-						</div>
-						<h3>{getTranslation("Projects_PortfolioV2_Title")}</h3>
-					</div>
-				</Col>
-				{/* - */}
 				{showPopupTaskManagement && <PopupBox content={taskManagementContent} onClose={() => setShowPopupTaskManagement(false)} />}
 				<Col lg={4} md={6} sm={6} xs={12}>
 					<div className='project-wrapper' role='presentation' onClick={() => setShowPopupTaskManagement(true)}>
@@ -161,6 +150,17 @@ const Projects = () => {
 							<img className='project-image' src={TaskManagement} alt='project webpage' />
 						</div>
 						<h3>{getTranslation("Projects_TaskManagement_Title")}</h3>
+					</div>
+				</Col>
+				{/* - */}
+				{showPopupportfoliV2 && <PopupBox content={portfoliV2Content} onClose={() => setShowPopupportfoliV2(false)} />}
+				<Col lg={4} md={6} sm={6} xs={12}>
+					<div className='project-wrapper' role='presentation' onClick={() => setShowPopupportfoliV2(true)}>
+						<div className='project'>
+							<div className='project-icon'>{magnifyingGlass}</div>
+							<img className='project-image' src={PortfoliV2} alt='Project 4...' />
+						</div>
+						<h3>{getTranslation("Projects_PortfolioV2_Title")}</h3>
 					</div>
 				</Col>
 				{/* - */}
