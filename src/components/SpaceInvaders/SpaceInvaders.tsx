@@ -6,84 +6,114 @@ export type IDirection = "left" | "right";
 
 const GameBoard = () => {
 	const canvasRef = useRef<HTMLCanvasElement>(null);
-	const gameRef = useRef<Game>();
-	const gameFrame = useRef<number>(0);
+	const gameRef = useRef<Game | null>(null);
+	const gameFrame = useRef(0);
 	const [gameOver, setGameOver] = useState(false);
-	const left = useRef<HTMLButtonElement>(null);
-	const fire = useRef<HTMLButtonElement>(null);
-	const right = useRef<HTMLButtonElement>(null);
-	const [isMobile, setIsmobile] = useState<boolean>(window.innerWidth < 576);
+	const leftRef = useRef<HTMLButtonElement>(null);
+	const fireRef = useRef<HTMLButtonElement>(null);
+	const rightRef = useRef<HTMLButtonElement>(null);
+	const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 576); // State for mobile device detection
 
-	addEventListener("resize", () => {
-		setIsmobile(window.innerWidth < 576);
-	});
+	// Callback function for handling window resize
+	const handleResize = useCallback(() => {
+		setIsMobile(window.innerWidth < 576);
+	}, []);
+
+	useEffect(() => {
+		window.addEventListener("resize", handleResize);
+		return () => {
+			window.removeEventListener("resize", handleResize);
+		};
+	}, [handleResize]);
 
 	useEffect(() => {
 		const canvas = canvasRef.current;
 		const context = canvas?.getContext("2d");
 		let animationFrame: number;
-		if (canvas && context) {
-			gameRef.current = new Game({ height: canvas?.height ?? 0, width: canvas?.width ?? 0, mobileControls: [left, fire, right], setGameOver: setGameOver });
 
-			//draws the game
+		if (canvas && context) {
+			// Create a new instance of the Game class with necessary parameters
+			gameRef.current = new Game({
+				height: canvas.height,
+				width: canvas.width,
+				mobileControls: [leftRef, fireRef, rightRef],
+				setGameOver,
+			});
+
+			// Function to animate the game
 			const animate = () => {
-				if (context && gameRef.current && canvas) {
-					context.clearRect(0, 0, canvas?.width ?? 0, canvas?.height ?? 0);
-					gameRef.current?.update(gameFrame.current);
-					gameRef.current?.draw(context);
-				}
+				context.clearRect(0, 0, canvas.width, canvas.height);
+				gameRef.current?.update(gameFrame.current);
+				gameRef.current?.draw(context);
 				gameFrame.current++;
 
-				if (gameRef.current?.invadersArray.length === 0) setGameOver(true);
+				// Check if all invaders are destroyed or if any invader has reached the bottom of the canvas
+				if (gameRef.current?.invaders.alive.length === 0 || gameRef.current?.invaders.alive.some((invader) => invader.props.y > 450)) {
+					setGameOver(true);
+				}
 
-				if (gameRef.current?.invadersArray.some((invader) => invader.props.y > 450)) setGameOver(true);
+				if (!gameOver) {
+					animationFrame = requestAnimationFrame(animate); // Continue the animation loop
+				} else {
+					// Display game over text on the canvas
+					context.fillStyle = "rgba(0, 0, 0, 0.7)";
+					context.fillRect(0, 0, canvas.width, canvas.height);
 
-				if (!gameOver) animationFrame = requestAnimationFrame(animate);
+					context.fillStyle = "white";
+					context.font = "48px Arial";
+					context.textAlign = "center";
+					context.fillText("GAME OVER", canvas.width / 2, canvas.height / 2);
+
+					context.fillStyle = "white";
+					context.font = "24px Arial";
+					context.textAlign = "center";
+					context.fillText("Click anywhere to reset", canvas.width / 2, canvas.height / 2 + 50);
+				}
 			};
 
-			//loops the animation. 60fps
-			if (!gameOver) animate();
-			else {
-				context.fillStyle = "rgba(0, 0, 0, 0.7)";
-				context.fillRect(0, 0, canvas.width, canvas.height);
-
-				context.fillStyle = "white";
-				context.font = "48px Arial";
-				context.textAlign = "center";
-				context.fillText("GAME OVER", canvas.width / 2, canvas.height / 2);
-
-				context.fillStyle = "white";
-				context.font = "24px Arial";
-				context.textAlign = "center";
-				context.fillText("Click anywhere to reset", canvas.width / 2, canvas.height / 2 + 50);
-			}
+			animate(); // Start the animation loop
 		}
 
 		return () => {
 			gameRef.current?.destroy();
-			if (animationFrame) cancelAnimationFrame(animationFrame);
+			if (animationFrame) {
+				cancelAnimationFrame(animationFrame);
+			}
 		};
 	}, [gameOver]);
 
+	// Callback function for handling game reset
 	const handleReset = useCallback(() => {
 		if (gameOver) {
 			setGameOver(false);
-			gameRef.current = new Game({ height: canvasRef.current?.height ?? 0, width: canvasRef.current?.width ?? 0, mobileControls: [left, fire, right], setGameOver: setGameOver });
+			const canvas = canvasRef.current;
+			const context = canvas?.getContext("2d");
+
+			if (canvas && context) {
+				gameRef.current = new Game({
+					height: canvas.height,
+					width: canvas.width,
+					mobileControls: [leftRef, fireRef, rightRef],
+					setGameOver,
+				});
+			}
 		}
 	}, [gameOver]);
 
 	return (
 		<>
-			<canvas ref={canvasRef} width={600} height={510} onClick={handleReset} />
+			<canvas ref={canvasRef} width={600} height={510} onClick={handleReset} /> {/* Canvas element */}
 			{isMobile && (
 				<div className='mobile-controls'>
-					<button id='left' ref={left} className='left'>
+					{" "}
+					{/* Mobile controls */}
+					<button ref={leftRef} className='left'>
 						&larr;
 					</button>
-					<button id='fire' ref={fire} className='fire'>
+					<button ref={fireRef} className='fire'>
 						fire
 					</button>
-					<button id='right' ref={right} className='right'>
+					<button ref={rightRef} className='right'>
 						&rarr;
 					</button>
 				</div>
