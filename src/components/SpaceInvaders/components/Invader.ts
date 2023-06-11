@@ -1,6 +1,7 @@
 import invader1 from "../sprites/invader1.png";
 import invader2_3 from "../sprites/invader2-3.png";
 import invader3_4 from "../sprites/invader3-4.png";
+
 interface IInvader {
 	x: number;
 	y: number;
@@ -37,23 +38,26 @@ export class Invader {
 
 	updateInvader = (direction: "left" | "right", gameFrame: number) => {
 		if (this.currentDirection != direction) {
+			// Change direction and move down when the invader reaches the edge of the canvas
 			this.moveDown();
 			this.currentDirection = direction;
 			return;
 		}
 		// If the invader is not at the edge of the canvas, continue moving in the current direction
 		if (direction === "left") this.moveLeft();
-
 		if (direction === "right") this.moveRight();
 
-		if (gameFrame % this.props.animationSpeed === 0) this.frame > 0 ? (this.frame = 0) : this.frame++;
+		// Update the frame of the invader's animation
+		if (gameFrame % this.props.animationSpeed === 0) {
+			this.frame > 0 ? (this.frame = 0) : this.frame++;
+		}
 	};
 
 	draw = (context: CanvasRenderingContext2D) => {
-		// context.fillStyle = "blue";
-		// context.fillRect(this.props.x, this.props.y, this.props.width, this.props.height);
-
-		if (this.props.image) context.drawImage(this.props.image, this.frame * this.spriteWidth, 0, this.spriteWidth, this.spriteHeight, this.props.x, this.props.y, this.props.width, this.props.height);
+		// Draw the invader on the canvas
+		if (this.props.image) {
+			context.drawImage(this.props.image, this.frame * this.spriteWidth, 0, this.spriteWidth, this.spriteHeight, this.props.x, this.props.y, this.props.width, this.props.height);
+		}
 	};
 }
 
@@ -67,8 +71,10 @@ export class Invaders {
 	invader2_3 = new Image();
 	invader3_4 = new Image();
 	animationSpeed: number;
+	alive: Invader[] = [];
 
 	constructor({ animationSpeed }: IInvaders) {
+		// Load the invader sprite images
 		this.invader1.src = invader1;
 		this.invader2_3.src = invader2_3;
 		this.invader3_4.src = invader3_4;
@@ -85,26 +91,29 @@ export class Invaders {
 		const invaders: Invader[] = [];
 
 		for (let i = 0; i < this.invadersCount; i++) {
-			const invaderX = (i % 11) * (invaderWidth + invaderPadding - 5) + invaderOffsetLeft;
-			const invaderY = Math.floor(i / 11) * (invaderHeight + invaderPadding) + invaderOffsetTop;
+			const invaderX = (i % 11) * (invaderWidth + invaderPadding - 5) + invaderOffsetLeft; // Calculate the X position of the invader
+			const invaderY = Math.floor(i / 11) * (invaderHeight + invaderPadding) + invaderOffsetTop; // Calculate the Y position of the invader
 
 			if (i < 11) {
+				// first row from top
 				const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: 5, image: this.invader1, animationSpeed: this.animationSpeed });
 				invaders.push(invader);
 			}
 
 			if (i < 33 && i >= 11) {
+				// second and thrird row from top
 				const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: 5, image: this.invader2_3, animationSpeed: this.animationSpeed });
 				invaders.push(invader);
 			}
 
 			if (i < 55 && i >= 33) {
+				// fourth and fifth row from top
 				const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: 5, image: this.invader3_4, animationSpeed: this.animationSpeed });
 				invaders.push(invader);
 			}
 		}
 
-		return invaders;
+		this.alive = invaders;
 	};
 
 	destroy = () => {
