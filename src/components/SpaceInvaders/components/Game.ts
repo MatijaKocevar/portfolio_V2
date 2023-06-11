@@ -18,12 +18,13 @@ export class Game {
 	invaders: Invaders;
 	currentDirection: "left" | "right";
 	invadersAnimationSpeed = 70;
+	invaderSpeed = 5;
 
 	constructor({ height, width, mobileControls, setGameOver }: IGame) {
 		this.props = { height, width, mobileControls, setGameOver };
 		this.defender = new Defender({ game: this });
 		this.inputHandler = new InputHandler(mobileControls);
-		this.invaders = new Invaders({ animationSpeed: this.invadersAnimationSpeed });
+		this.invaders = new Invaders({ animationSpeed: this.invadersAnimationSpeed, speed: this.invaderSpeed });
 		this.currentDirection = "right";
 
 		this.invaders.createInvaders();
@@ -70,9 +71,9 @@ export class Game {
 				const rect2 = { x: projectile.props.x, y: projectile.props.y, width: projectile.props.width, height: projectile.props.height };
 
 				// Check if the invader and projectile rectangles intersect
-				const collision = rect1.x > rect2.x + rect2.width || rect1.x + rect1.width < rect2.x || rect1.y > rect2.y + rect2.height || rect1.y + rect1.height < rect2.y || rect2.y < 0;
+				const noCollision = rect1.x > rect2.x + rect2.width || rect1.x + rect1.width < rect2.x || rect1.y > rect2.y + rect2.height || rect1.y + rect1.height < rect2.y || rect2.y < 0;
 
-				if (!collision) {
+				if (!noCollision) {
 					// Register the projectile and invader to remove
 					projectilesToRemove.push({ index: j });
 					invadersToRemove.push({ index: i });
@@ -94,43 +95,53 @@ export class Game {
 		}
 
 		const invadersArrayLength = this.invaders.alive.length;
+		let speedChanged = false;
 
 		// Adjust the animation speed and invader speed based on the number of remaining invaders
-		if (invadersArrayLength < 44) {
+		if (invadersArrayLength < 44 && this.invadersAnimationSpeed != 30 && this.invaderSpeed != 6) {
+			this.invaderSpeed = 6;
 			this.invadersAnimationSpeed = 30;
-			this.invaders.alive.forEach((invader) => (invader.props.speed = 6));
+			speedChanged = true;
 		}
-		if (invadersArrayLength < 33) {
-			this.invaders.alive.forEach((invader) => (invader.props.speed = 7));
+		if (invadersArrayLength < 33 && this.invadersAnimationSpeed != 20 && this.invaderSpeed != 7) {
+			this.invaderSpeed = 7;
 			this.invadersAnimationSpeed = 20;
+			speedChanged = true;
 		}
-		if (invadersArrayLength < 22) {
-			this.invaders.alive.forEach((invader) => (invader.props.speed = 8));
+		if (invadersArrayLength < 22 && this.invadersAnimationSpeed != 10 && this.invaderSpeed != 8) {
+			this.invaderSpeed = 8;
 			this.invadersAnimationSpeed = 10;
+			speedChanged = true;
 		}
-		if (invadersArrayLength < 11) {
-			this.invaders.alive.forEach((invader) => (invader.props.speed = 10));
+		if (invadersArrayLength < 11 && this.invadersAnimationSpeed != 5 && this.invaderSpeed != 10) {
+			this.invaderSpeed = 10;
 			this.invadersAnimationSpeed = 5;
+			speedChanged = true;
 		}
-		if (invadersArrayLength === 1) {
-			this.invaders.alive.forEach((invader) => (invader.props.speed = 11));
+		if (invadersArrayLength === 1 && this.invadersAnimationSpeed != 1 && this.invaderSpeed != 11) {
+			this.invaderSpeed = 11;
 			this.invadersAnimationSpeed = 1;
+			speedChanged = true;
 		}
+		console.log(this.invadersAnimationSpeed, this.invaderSpeed);
 
-		// Update the animation speed for each invader
-		this.invaders.alive.forEach((invader) => {
-			invader.props.animationSpeed = this.invadersAnimationSpeed;
-		});
-
+		if (speedChanged) {
+			// Update the animation speed and speed for each invader
+			this.invaders.alive.forEach((invader) => {
+				this.invaders.alive.forEach((invader) => (invader.props.speed = this.invaderSpeed));
+				invader.props.animationSpeed = this.invadersAnimationSpeed;
+			});
+			speedChanged = false;
+		}
 		// Check for collision between any invader and the defender
 		this.invaders.alive.forEach((invader) => {
 			const rect1 = { x: invader.props.x, y: invader.props.y, width: invader.props.width, height: invader.props.height };
 			const rect2 = { x: this.defender.x, y: this.defender.y, width: this.defender.width, height: this.defender.height };
 
 			// Check if the invader and defender rectangles intersect
-			const collision = rect1.x > rect2.x + rect2.width || rect1.x + rect1.width < rect2.x || rect1.y > rect2.y + rect2.height || rect1.y + rect1.height < rect2.y;
+			const noCollision = rect1.x > rect2.x + rect2.width || rect1.x + rect1.width < rect2.x || rect1.y > rect2.y + rect2.height || rect1.y + rect1.height < rect2.y;
 
-			if (!collision) {
+			if (!noCollision) {
 				// Set the game over flag if there is a collision
 				this.props.setGameOver(true);
 			}
