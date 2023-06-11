@@ -58,7 +58,7 @@ export class Invader {
 }
 
 interface IInvaders {
-	invadersSpeed: number;
+	animationSpeed: number;
 }
 
 export class Invaders {
@@ -68,11 +68,11 @@ export class Invaders {
 	invader3_4 = new Image();
 	animationSpeed: number;
 
-	constructor({ invadersSpeed }: IInvaders) {
+	constructor({ animationSpeed }: IInvaders) {
 		this.invader1.src = invader1;
 		this.invader2_3.src = invader2_3;
 		this.invader3_4.src = invader3_4;
-		this.animationSpeed = invadersSpeed;
+		this.animationSpeed = animationSpeed;
 	}
 
 	createInvaders = () => {
