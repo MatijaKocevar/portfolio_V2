@@ -61,6 +61,7 @@ export class Defender {
 			x: this.x + this.width / 2 - 2,
 			y: this.y,
 			color: "red",
+			direction: "up",
 		});
 
 		return projectile;

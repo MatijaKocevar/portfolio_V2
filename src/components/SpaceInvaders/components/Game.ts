@@ -8,6 +8,7 @@ interface IGame {
 	height: number;
 	mobileControls: React.RefObject<HTMLButtonElement>[];
 	setGameOver: React.Dispatch<React.SetStateAction<boolean>>;
+	setGameOverMessage: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export class Game {
@@ -15,13 +16,14 @@ export class Game {
 	defender: Defender;
 	inputHandler: InputHandler;
 	playerProjectiles: Projectile[] = [];
+	invaderProjectiles: Projectile[] = [];
 	invaders: Invaders;
 	currentDirection: "left" | "right";
 	invadersAnimationSpeed = 70;
 	invaderSpeed = 5;
 
-	constructor({ height, width, mobileControls, setGameOver }: IGame) {
-		this.props = { height, width, mobileControls, setGameOver };
+	constructor({ height, width, mobileControls, setGameOver, setGameOverMessage }: IGame) {
+		this.props = { height, width, mobileControls, setGameOver, setGameOverMessage };
 		this.defender = new Defender({ game: this });
 		this.inputHandler = new InputHandler(mobileControls);
 		this.invaders = new Invaders({ animationSpeed: this.invadersAnimationSpeed, speed: this.invaderSpeed });
@@ -46,6 +48,12 @@ export class Game {
 
 	// Update the game state in each frame
 	update = (gameFrame: number) => {
+		if (this.invaders.alive.some((invader) => invader.props.y > 510)) {
+			this.props.setGameOver(true);
+		}
+
+		// Update invaderProjectiles' positions
+		this.invaderProjectiles.forEach((projectile) => projectile.update());
 		// Update playerProjectiles' positions
 		this.playerProjectiles.forEach((projectile) => projectile.update());
 		// Update defender's position based on input
@@ -57,12 +65,17 @@ export class Game {
 			this.invaders.alive.forEach((invader) => {
 				invader.updateInvader(this.currentDirection, gameFrame);
 			});
+
+			const randomInvader = Math.floor(Math.random() * this.invaders.alive.length);
+
+			if (gameFrame % 50 === 0) this.invaderProjectiles.push(this.invaders.alive[randomInvader].fire());
 		}
 	};
 
 	// Handle collisions between playerProjectiles, invaders, and defender
 	handleCollision = () => {
 		const playerProjectilesToRemove: { index: number }[] = [];
+		const invaderProjectilesToRemove: { index: number }[] = [];
 		const invadersToRemove: { index: number }[] = [];
 
 		this.invaders.alive.forEach((invader, i) => {
@@ -88,10 +101,33 @@ export class Game {
 			}
 		});
 
+		this.invaderProjectiles.forEach((projectile, i) => {
+			const rect1 = { x: this.defender.x, y: this.defender.y, width: this.defender.width, height: this.defender.height };
+			const rect2 = { x: projectile.props.x, y: projectile.props.y, width: projectile.props.width, height: projectile.props.height };
+
+			// Check if the defender and projectile rectangles intersect
+			const noCollision = rect1.x > rect2.x + rect2.width || rect1.x + rect1.width < rect2.x || rect1.y > rect2.y + rect2.height || rect1.y + rect1.height < rect2.y || rect2.y > this.props.height;
+
+			if (!noCollision) {
+				// Register the projectile to remove
+				invaderProjectilesToRemove.push({ index: i });
+				this.props.setGameOverMessage("You Lose!");
+				this.props.setGameOver(true);
+			}
+		});
+
+		this.invaderProjectiles.forEach((projectile, i) => {
+			if (projectile.props.y > this.props.height) {
+				// Remove invaderProjectiles that go off the screen
+				invaderProjectilesToRemove.push({ index: i });
+			}
+		});
+
 		// Remove the playerProjectiles and invaders that collided
-		if (playerProjectilesToRemove.length > 0 || invadersToRemove.length > 0) {
+		if (playerProjectilesToRemove.length > 0 || invadersToRemove.length > 0 || invaderProjectilesToRemove.length > 0) {
 			invadersToRemove?.forEach((invader) => this.invaders.alive.splice(invader.index, 1));
 			playerProjectilesToRemove?.forEach((projectile) => this.playerProjectiles.splice(projectile.index, 1));
+			invaderProjectilesToRemove.forEach((projectile) => this.invaderProjectiles.splice(projectile.index, 1));
 		}
 
 		const invadersArrayLength = this.invaders.alive.length;
@@ -142,6 +178,7 @@ export class Game {
 
 			if (!noCollision) {
 				// Set the game over flag if there is a collision
+				this.props.setGameOverMessage("You Lose!");
 				this.props.setGameOver(true);
 			}
 		});
@@ -150,6 +187,7 @@ export class Game {
 	// Draw the game entities on the canvas
 	draw = (context: CanvasRenderingContext2D) => {
 		this.playerProjectiles.forEach((projectile) => projectile.draw(context));
+		this.invaderProjectiles.forEach((projectile) => projectile.draw(context));
 		this.defender.draw(context);
 		this.invaders.alive.forEach((invader) => invader.draw(context));
 		this.handleCollision();
