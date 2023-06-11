@@ -63,6 +63,7 @@ export class Invader {
 
 interface IInvaders {
 	animationSpeed: number;
+	speed: number;
 }
 
 export class Invaders {
@@ -72,13 +73,15 @@ export class Invaders {
 	invader3_4 = new Image();
 	animationSpeed: number;
 	alive: Invader[] = [];
+	speed: number;
 
-	constructor({ animationSpeed }: IInvaders) {
+	constructor({ animationSpeed, speed }: IInvaders) {
 		// Load the invader sprite images
 		this.invader1.src = invader1;
 		this.invader2_3.src = invader2_3;
 		this.invader3_4.src = invader3_4;
 		this.animationSpeed = animationSpeed;
+		this.speed = speed;
 	}
 
 	createInvaders = () => {
@@ -96,19 +99,19 @@ export class Invaders {
 
 			if (i < 11) {
 				// first row from top
-				const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: 5, image: this.invader1, animationSpeed: this.animationSpeed });
+				const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: this.speed, image: this.invader1, animationSpeed: this.animationSpeed });
 				invaders.push(invader);
 			}
 
 			if (i < 33 && i >= 11) {
 				// second and thrird row from top
-				const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: 5, image: this.invader2_3, animationSpeed: this.animationSpeed });
+				const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: this.speed, image: this.invader2_3, animationSpeed: this.animationSpeed });
 				invaders.push(invader);
 			}
 
 			if (i < 55 && i >= 33) {
 				// fourth and fifth row from top
-				const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: 5, image: this.invader3_4, animationSpeed: this.animationSpeed });
+				const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: this.speed, image: this.invader3_4, animationSpeed: this.animationSpeed });
 				invaders.push(invader);
 			}
 		}
