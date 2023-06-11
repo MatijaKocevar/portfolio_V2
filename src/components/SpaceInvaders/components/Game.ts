@@ -14,7 +14,7 @@ export class Game {
 	props: IGame;
 	defender: Defender;
 	inputHandler: InputHandler;
-	projectiles: Projectile[] = [];
+	playerProjectiles: Projectile[] = [];
 	invaders: Invaders;
 	currentDirection: "left" | "right";
 	invadersAnimationSpeed = 70;
@@ -46,8 +46,8 @@ export class Game {
 
 	// Update the game state in each frame
 	update = (gameFrame: number) => {
-		// Update projectiles' positions
-		this.projectiles.forEach((projectile) => projectile.update());
+		// Update playerProjectiles' positions
+		this.playerProjectiles.forEach((projectile) => projectile.update());
 		// Update defender's position based on input
 		this.defender.update(this.inputHandler.keys);
 
@@ -60,13 +60,13 @@ export class Game {
 		}
 	};
 
-	// Handle collisions between projectiles, invaders, and defender
+	// Handle collisions between playerProjectiles, invaders, and defender
 	handleCollision = () => {
-		const projectilesToRemove: { index: number }[] = [];
+		const playerProjectilesToRemove: { index: number }[] = [];
 		const invadersToRemove: { index: number }[] = [];
 
 		this.invaders.alive.forEach((invader, i) => {
-			this.projectiles.forEach((projectile, j) => {
+			this.playerProjectiles.forEach((projectile, j) => {
 				const rect1 = { x: invader.props.x, y: invader.props.y, width: invader.props.width, height: invader.props.height };
 				const rect2 = { x: projectile.props.x, y: projectile.props.y, width: projectile.props.width, height: projectile.props.height };
 
@@ -75,23 +75,23 @@ export class Game {
 
 				if (!noCollision) {
 					// Register the projectile and invader to remove
-					projectilesToRemove.push({ index: j });
+					playerProjectilesToRemove.push({ index: j });
 					invadersToRemove.push({ index: i });
 				}
 			});
 		});
 
-		this.projectiles.forEach((projectile, i) => {
+		this.playerProjectiles.forEach((projectile, i) => {
 			if (projectile.props.y < 0) {
-				// Remove projectiles that go off the screen
-				projectilesToRemove.push({ index: i });
+				// Remove playerProjectiles that go off the screen
+				playerProjectilesToRemove.push({ index: i });
 			}
 		});
 
-		// Remove the projectiles and invaders that collided
-		if (projectilesToRemove.length > 0 || invadersToRemove.length > 0) {
+		// Remove the playerProjectiles and invaders that collided
+		if (playerProjectilesToRemove.length > 0 || invadersToRemove.length > 0) {
 			invadersToRemove?.forEach((invader) => this.invaders.alive.splice(invader.index, 1));
-			projectilesToRemove?.forEach((projectile) => this.projectiles.splice(projectile.index, 1));
+			playerProjectilesToRemove?.forEach((projectile) => this.playerProjectiles.splice(projectile.index, 1));
 		}
 
 		const invadersArrayLength = this.invaders.alive.length;
@@ -123,7 +123,6 @@ export class Game {
 			this.invadersAnimationSpeed = 1;
 			speedChanged = true;
 		}
-		console.log(this.invadersAnimationSpeed, this.invaderSpeed);
 
 		if (speedChanged) {
 			// Update the animation speed and speed for each invader
@@ -150,7 +149,7 @@ export class Game {
 
 	// Draw the game entities on the canvas
 	draw = (context: CanvasRenderingContext2D) => {
-		this.projectiles.forEach((projectile) => projectile.draw(context));
+		this.playerProjectiles.forEach((projectile) => projectile.draw(context));
 		this.defender.draw(context);
 		this.invaders.alive.forEach((invader) => invader.draw(context));
 		this.handleCollision();

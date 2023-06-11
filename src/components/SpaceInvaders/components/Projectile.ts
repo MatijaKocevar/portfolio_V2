@@ -4,13 +4,14 @@ interface IProjectile {
 	y: number;
 	width: number;
 	height: number;
+	color: string;
 }
 
 export class Projectile {
 	props: IProjectile;
 
-	constructor({ height, speed, width, x, y }: IProjectile) {
-		this.props = { height, speed, width, x, y };
+	constructor({ height, speed, width, x, y, color }: IProjectile) {
+		this.props = { height, speed, width, x, y, color };
 	}
 
 	update() {
@@ -18,7 +19,7 @@ export class Projectile {
 	}
 
 	draw(context: CanvasRenderingContext2D) {
-		context.fillStyle = "green";
+		context.fillStyle = this.props.color;
 		context.fillRect(this.props.x, this.props.y, this.props.width, this.props.height);
 	}
 

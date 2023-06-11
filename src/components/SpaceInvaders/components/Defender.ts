@@ -40,7 +40,7 @@ export class Defender {
 		//fire
 		if (input.includes("Enter")) {
 			if (!this.reload) {
-				this.game.projectiles.push(this.fire());
+				this.game.playerProjectiles.push(this.fire());
 				this.reload = true;
 				this.timeout = setTimeout(() => {
 					this.reload = false;
@@ -60,6 +60,7 @@ export class Defender {
 			speed: 10,
 			x: this.x + this.width / 2 - 2,
 			y: this.y,
+			color: "red",
 		});
 
 		return projectile;
