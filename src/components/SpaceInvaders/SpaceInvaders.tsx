@@ -107,13 +107,13 @@ const GameBoard = () => {
 				<div className='mobile-controls'>
 					{" "}
 					{/* Mobile controls */}
-					<button ref={leftRef} className='left'>
+					<button id='left' ref={leftRef} className='left'>
 						&larr;
 					</button>
-					<button ref={fireRef} className='fire'>
+					<button id='fire' ref={fireRef} className='fire'>
 						fire
 					</button>
-					<button ref={rightRef} className='right'>
+					<button id='right' ref={rightRef} className='right'>
 						&rarr;
 					</button>
 				</div>
