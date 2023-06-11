@@ -85,6 +85,11 @@ export const Translations = [
 	{
 		id: "Header_WIP_Changelog",
 		en: `
+		<span>- Added sheild blocks.</span>
+		<span>- Click to reset.</span>
+		<span>- Added game over sign.</span>
+		<span>- Invaders shoot back.</span>
+		<span>- Invaders move faster the fever there are.</span>
 		<span>- Temporary mobile controls.</span>
 		<span>- Invader movement resembles original.</span>
 		<span>- Animated invader movement. Invaders move down. Reset button.</span>
@@ -99,6 +104,10 @@ export const Translations = [
 		<span>- Drawn a box with Canvas API.</span>
 		`,
 		slo: `
+		<span>- Klik za reset.</span>
+		<span>- Dodan napis za konec igre.</span>
+		<span>- Invader-ji streljajo nazaj.</span>
+		<span>- Invader-ji se premikajo hitreje, manj jih je.</span>
 		<span>- Začasne mobilne kontrole.</span>
 		<span>- Premikanje invader-jev je podobno originalu.</span>
 		<span>- Animirano premikanje invader-jev. Invader-ji se premikajo dol. Gumb za reset.</span>
@@ -116,14 +125,12 @@ export const Translations = [
 	{
 		id: "Header_WIP_Upcoming",
 		en: `
-		<span>- Invaders need to shoot back.</span>
-		<span>- Invaders should move faster the fever there are.</span>
+		<span>- Add highscore panel.</span>
 		<span>- Need to make sheild blocks.</span>
 		<span>- Sounds !</span>
 		`,
 		slo: `
-		<span>- Invader-ji morajo streljati nazaj.</span>
-		<span>- Invader-ji bi se morali premikati hitreje, manj jih je.</span>
+		<span>- Dodati panel za najboljše rezultate.</span>
 		<span>- Potrebno je narediti ščitne bloke.</span>
 		<span>- Zvoki !</span>
 		`,
