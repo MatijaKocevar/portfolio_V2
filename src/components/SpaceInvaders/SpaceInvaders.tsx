@@ -9,6 +9,7 @@ const GameBoard = () => {
 	const gameRef = useRef<Game | null>(null);
 	const gameFrame = useRef(0);
 	const [gameOver, setGameOver] = useState(false);
+	const [gameOverMessage, setGameOverMessage] = useState("");
 	const leftRef = useRef<HTMLButtonElement>(null);
 	const fireRef = useRef<HTMLButtonElement>(null);
 	const rightRef = useRef<HTMLButtonElement>(null);
@@ -38,21 +39,22 @@ const GameBoard = () => {
 				width: canvas.width,
 				mobileControls: [leftRef, fireRef, rightRef],
 				setGameOver,
+				setGameOverMessage,
 			});
 
 			// Function to animate the game
 			const animate = () => {
-				context.clearRect(0, 0, canvas.width, canvas.height);
-				gameRef.current?.update(gameFrame.current);
-				gameRef.current?.draw(context);
-				gameFrame.current++;
-
-				// Check if all invaders are destroyed or if any invader has reached the bottom of the canvas
-				if (gameRef.current?.invaders.alive.length === 0 || gameRef.current?.invaders.alive.some((invader) => invader.props.y > 450)) {
+				// Check if all invaders are destroyed and stop the animation loop
+				if (gameRef.current?.invaders.alive.length === 0) {
+					setGameOverMessage("You win!");
 					setGameOver(true);
 				}
 
 				if (!gameOver) {
+					context.clearRect(0, 0, canvas.width, canvas.height);
+					gameRef.current?.update(gameFrame.current);
+					gameRef.current?.draw(context);
+					gameFrame.current++;
 					animationFrame = requestAnimationFrame(animate); // Continue the animation loop
 				} else {
 					// Display game over text on the canvas
@@ -64,10 +66,15 @@ const GameBoard = () => {
 					context.textAlign = "center";
 					context.fillText("GAME OVER", canvas.width / 2, canvas.height / 2);
 
-					context.fillStyle = "white";
+					context.fillStyle = gameOverMessage === "You win!" ? "green" : "red";
 					context.font = "24px Arial";
 					context.textAlign = "center";
-					context.fillText("Click anywhere to reset", canvas.width / 2, canvas.height / 2 + 50);
+					context.fillText(gameOverMessage ?? "", canvas.width / 2, canvas.height / 2 + 50);
+
+					context.fillStyle = "white";
+					context.font = "18px Arial";
+					context.textAlign = "center";
+					context.fillText("Click anywhere to reset", canvas.width / 2, canvas.height / 2 + 100);
 				}
 			};
 
@@ -80,7 +87,7 @@ const GameBoard = () => {
 				cancelAnimationFrame(animationFrame);
 			}
 		};
-	}, [gameOver]);
+	}, [gameOver, gameOverMessage]);
 
 	// Callback function for handling game reset
 	const handleReset = useCallback(() => {
@@ -95,6 +102,7 @@ const GameBoard = () => {
 					width: canvas.width,
 					mobileControls: [leftRef, fireRef, rightRef],
 					setGameOver,
+					setGameOverMessage,
 				});
 			}
 		}

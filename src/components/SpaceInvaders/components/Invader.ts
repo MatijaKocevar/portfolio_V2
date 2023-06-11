@@ -1,6 +1,7 @@
 import invader1 from "../sprites/invader1.png";
 import invader2_3 from "../sprites/invader2-3.png";
 import invader3_4 from "../sprites/invader3-4.png";
+import { Projectile } from "./Projectile";
 
 interface IInvader {
 	x: number;
@@ -12,11 +13,8 @@ interface IInvader {
 	animationSpeed: number;
 }
 
-let counter = 0;
-
 export class Invader {
 	props: IInvader;
-	id: number;
 	spriteWidth: number;
 	spriteHeight: number;
 	frame = 0;
@@ -24,10 +22,8 @@ export class Invader {
 
 	constructor({ x, y, width, height, speed, image, animationSpeed }: IInvader) {
 		this.props = { x, y, width, height, speed, image, animationSpeed };
-		this.id = counter;
 		this.spriteWidth = 57;
 		this.spriteHeight = 38;
-		counter++;
 	}
 
 	moveLeft = () => (this.props.x -= this.props.speed);
@@ -51,6 +47,20 @@ export class Invader {
 		if (gameFrame % this.props.animationSpeed === 0) {
 			this.frame > 0 ? (this.frame = 0) : this.frame++;
 		}
+	};
+
+	fire = () => {
+		const projectile = new Projectile({
+			height: 10,
+			width: 3,
+			speed: 10,
+			x: this.props.x + this.props.width / 2 - 2,
+			y: this.props.y,
+			color: "white",
+			direction: "down",
+		});
+
+		return projectile;
 	};
 
 	draw = (context: CanvasRenderingContext2D) => {
