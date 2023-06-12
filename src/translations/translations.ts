@@ -41,6 +41,11 @@ export const Translations = [
 	 * HEADER
 	 */
 	{
+		id: "Header_WIP-Title",
+		en: "Work in progress",
+		slo: "V izdelavi",
+	},
+	{
 		id: "Header_Title",
 		en: "Software Developer",
 		slo: "Software Developer",
@@ -51,35 +56,35 @@ export const Translations = [
 		Hello and welcome to my portfolio page!
         <br />
         <br />
-        I am a software developer with 2 years of experience in the industry.
-        <br />
-        <br />
-        My most commonly used stacks:`,
+        I am a software developer with 2 years of experience in the industry.`,
 		slo: `
 		Pozdravljeni in dobrodošli na moji spletni strani!
         <br />
         <br />
-        Sem razvijalec programske opreme z 2 leti izkušenj v industriji.
-        <br />
-        <br />
-        Tehnologije, ki jih najpogosteje uporabljam:`,
+        Sem razvijalec programske opreme z 2 leti izkušenj v industriji.`,
 	},
 	{
-		id: "Header_WIP_Title",
+		id: "Header_Sub_Subtitle",
+		en: `My most commonly used stacks:`,
+		slo: `Tehnologije, ki jih najpogosteje uporabljam:`,
+	},
+	{
+		id: "Header_SpaceInvaders_Title",
 		en: "SPACE INVADERS",
 		slo: "SPACE INVADERS",
+	},
+	{
+		id: "Header_SpaceInvaders_Sub-Title",
+		en: "Controls: Move left/right with A/D, shoot with Enter.",
+		slo: "Kontrole: Premik levo/desno z A/D, streljanje z Enter.",
 	},
 	{
 		id: "Header_WIP_Description",
 		en: `
 		Just trying to hone my skills in Javascript and have some fun with building a game.
-		<br />
-		Controls: 'A/D' to move left/right, 'Enter' to shoot.
 		`,
 		slo: `
-		Trudim se izpopolniti svoje spretnosti v Javascriptu in se hkrati zabavati z izdelavo igre.
-		<br />
-		Kontrole: 'A/D' za premikanje levo/desno, 'Enter' za streljanje.		
+		Trudim se izpopolniti svoje spretnosti v Javascriptu in se hkrati zabavati z izdelavo igre.	
 		`,
 	},
 	{

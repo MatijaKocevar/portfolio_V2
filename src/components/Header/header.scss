@@ -2,291 +2,348 @@
 
 .header-wraper {
 	background: url(/src/images/portfolio-background.jpg);
-	background-size: cover;
 	margin-top: 4rem !important;
-	width: 100%;
+	height: calc(100vh - 4rem);
+	min-height: calc(100vh - 4rem);
 	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 2rem;
-	// position: relative;
 
-	.WIP {
-		// margin-top: -1rem;
-		// position: absolute;
-		color: white;
-	}
-
-	.main-info {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		padding-top: 2rem;
+	.header-content {
 		height: 100%;
-		background-color: v.$darkerPurpleSE;
-		border-radius: 10px;
-		max-width: 100%;
-		max-height: 100%;
-		overflow: auto;
+		gap: 1rem;
+		display: flex;
+		width: 100%;
+		flex-direction: column;
 
-		.photo-header {
+		.main-info {
 			display: flex;
-			justify-content: center;
-			align-items: center;
-			width: 100%;
-
-			.profile-img {
-				height: 15rem;
-				margin: 0;
-				padding: 0;
-				border-radius: 50%;
-				border: 5px solid v.$lightPurple;
-				padding: 1rem;
-			}
-		}
-
-		.headings {
-			display: flex;
-			justify-content: center;
 			align-items: center;
 			flex-direction: column;
-			width: 100%;
-			padding-top: 1rem;
+			background-color: v.$darkerPurpleSE;
+			border-radius: 10px;
+			height: 100%;
+			justify-content: space-around;
+			padding: 1rem;
 
-			.subtitle-row {
+			.photo-header {
 				display: flex;
-				justify-content: center;
-				align-items: center;
 				flex-direction: column;
+				align-items: center;
+				justify-content: center;
 
-				h3 {
-					color: v.$white;
-					font-size: 1rem;
-					font-weight: normal;
+				.profile-img {
+					width: 70%;
+					margin: 0;
+					padding: 0;
+					border-radius: 50%;
+					border: 5px solid v.$lightPurple;
+					box-sizing: border-box;
+					margin-bottom: 2rem;
+				}
+
+				h1 {
+					color: white;
+					font-size: 2rem;
 					text-align: center;
 				}
 			}
-		}
 
-		.skill-icons-wrapper {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
-			height: fit-content;
-
-			.skill-icon {
-				display: flex;
-				justify-content: center;
-				flex-direction: column;
-				color: v.$white;
-				align-items: center;
+			.heading-row {
 				text-align: center;
-				padding: 1rem;
+				color: white;
+				width: 100%;
 
-				.skill-icon-back {
-					width: 3rem;
-					height: 3rem;
+				h3 {
+					font-size: 1rem;
+				}
+			}
+
+			.skill-icons-wrapper {
+				width: 100%;
+
+				.icon-heading {
+					text-align: center;
+					color: white;
+					font-size: 1rem;
+					margin-bottom: 2rem;
 				}
 
-				span {
-					white-space: nowrap;
-					font-size: 0.8rem;
+				.skills-neka {
+					.skill-icon {
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+						align-items: center;
+
+						.skill-icon-svg {
+							width: 2rem;
+							height: 2rem;
+						}
+
+						span {
+							color: white;
+						}
+					}
 				}
 			}
 		}
 
-		.text-transition {
-			color: white;
-			font-size: 2rem;
-			transition: 10ms;
-		}
-	}
-
-	.games {
-		display: flex;
-		background-color: v.$darkerPurpleSE;
-		height: 100%;
-		border-radius: 10px;
-		padding: 1rem;
-		width: 100%;
-		max-width: 100%;
-		max-height: 100%;
-		overflow: auto;
-
-		.game {
-			// height: 100%;
-			width: 100%;
+		.games {
 			display: flex;
 			align-items: center;
 			flex-direction: column;
-			justify-content: space-around;
+			background-color: v.$darkerPurpleSE;
+			border-radius: 10px;
+			padding: 2rem;
+			height: 100%;
 
-			.game-description {
-				color: white;
-				padding-bottom: 1rem;
-			}
-
-			.change-log {
-				color: white;
-				border: 0;
-				background-color: 0;
-				background: none;
-				text-decoration: underline;
+			.heading-row {
 				width: fit-content;
-
-				&:hover {
-					color: v.$lightPurple;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				h1 {
+					width: fit-content;
+					margin-bottom: 1rem;
 				}
-			}
 
-			.game-code-link {
-				color: white;
+				h5 {
+					width: fit-content;
+					font-size: 1rem;
+					margin-bottom: 1rem;
+					color: red;
+				}
 
-				&:hover {
-					color: v.$lightPurple;
+				.game-description {
+					width: fit-content;
+					color: white;
+					margin-bottom: 1rem;
 				}
 			}
 
 			.space-invaders {
 				display: flex;
+
+				.game-wrapper {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					cursor: pointer;
+					margin-bottom: 2rem;
+
+					.game {
+						position: relative;
+
+						.game-image {
+							border-radius: 10px;
+							height: 25rem;
+							min-height: 10rem;
+						}
+
+						.project-icon {
+							position: absolute;
+							top: calc(50% - 1.5rem);
+							left: calc(50% - 1rem);
+							z-index: 5;
+							font-size: 2rem;
+							color: v.$white;
+							// display: none;
+							opacity: 0;
+						}
+					}
+
+					&:hover {
+						.game-image {
+							transform: scale(1.1);
+							transition: 0.4s ease-in-out;
+						}
+
+						.project-icon {
+							opacity: 1;
+							// display: block;
+							transition: 0.4s ease-in-out;
+						}
+					}
+				}
+
+				.space-invaders-wrapper {
+					height: 100%;
+					width: 100%;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+
+					.space-invaders__title {
+						color: white;
+						font-size: 1.5rem;
+						margin-bottom: 1rem;
+						text-align: center;
+					}
+
+					.space-invaders__sub-title {
+						color: white;
+						font-size: 1rem;
+						margin-bottom: 1rem;
+						text-align: center;
+					}
+				}
+			}
+
+			.subtitle-links {
+				display: flex;
+				flex-direction: row;
 				justify-content: center;
-				align-items: center;
+				gap: 2rem;
+				margin-bottom: 2rem;
+
+				button {
+					background-color: v.$lightPurple;
+					border: none;
+					border-radius: 5px;
+					padding: 0.5rem;
+					color: white;
+					font-size: 0.8rem;
+					transition: 0.3s;
+					width: 10rem;
+
+					&:hover {
+						background-color: v.$darkerPurple;
+					}
+				}
+
+				a {
+					background-color: v.$lightPurple;
+					border-radius: 5px;
+					padding: 0.5rem;
+					color: white;
+					text-decoration: none;
+					font-size: 0.8rem;
+					transition: 0.3s;
+					text-align: center;
+					width: 10rem;
+
+					&:hover {
+						background-color: v.$darkerPurple;
+					}
+				}
+			}
+		}
+	}
+}
+
+.popup-box {
+	display: flex;
+	overflow-y: scroll;
+	overflow-x: hidden;
+
+	.popupbox-content {
+		max-height: 90vh;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+
+		.upcoming-section {
+			width: "fit-content";
+			height: 20%;
+
+			.popupbox-description {
+				div {
+					display: flex;
+					flex-direction: column;
+				}
+			}
+		}
+
+		.changelog-section {
+			width: "fit-content";
+			height: 80%;
+
+			.popupbox-description {
+				div {
+					display: flex;
+					flex-direction: column;
+				}
 			}
 		}
 	}
 
-	.heading-row {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		padding-bottom: 1rem;
+	&::-webkit-scrollbar {
+		display: block;
+		width: 10px; /* Customize the width of the scrollbar */
+	}
 
-		h1 {
-			text-transform: none;
-			text-align: center !important;
-			margin-bottom: 0;
-		}
+	&::-webkit-scrollbar-thumb {
+		background-color: #999; /* Customize the color of the thumb */
+		border-radius: 5px; /* Customize the border radius of the thumb */
+	}
 
-		p {
-			text-align: center;
-		}
+	&::-webkit-scrollbar-track {
+		background-color: v.$darkerPurpleSE; /* Customize the color of the track */
+	}
 
-		.subtitle-links {
-			justify-content: center;
-			display: flex;
-			gap: 2rem;
-
-			.popup-box {
-				display: flex;
-				overflow-y: scroll;
-				overflow-x: hidden;
-
-				.popupbox-content {
-					max-height: 90vh;
-					display: flex;
-					flex-direction: row;
-					justify-content: space-around;
-
-					.upcoming-section {
-						width: "fit-content";
-						height: 20%;
-
-						.popupbox-description {
-							div {
-								display: flex;
-								flex-direction: column;
-							}
-						}
-					}
-
-					.changelog-section {
-						width: "fit-content";
-						height: 80%;
-
-						.popupbox-description {
-							div {
-								display: flex;
-								flex-direction: column;
-							}
-						}
-					}
-				}
-
-				&::-webkit-scrollbar {
-					display: block;
-					width: 10px; /* Customize the width of the scrollbar */
-				}
-
-				&::-webkit-scrollbar-thumb {
-					background-color: #999; /* Customize the color of the thumb */
-					border-radius: 5px; /* Customize the border radius of the thumb */
-				}
-
-				&::-webkit-scrollbar-track {
-					background-color: v.$darkerPurpleSE; /* Customize the color of the track */
-				}
-
-				&::-webkit-scrollbar-thumb:hover {
-					background-color: #555; /* Customize the color of the thumb on hover */
-				}
-			}
-		}
+	&::-webkit-scrollbar-thumb:hover {
+		background-color: #555; /* Customize the color of the thumb on hover */
 	}
 }
 
 //lg
 @media (min-width: 992px) {
 	.header-wraper {
-		height: calc(100vh - 4rem);
-	}
-}
+		background-size: cover;
 
-// //md
-// @media (max-width: 992px) {
-// 	.header-wraper {
-// 		flex-direction: row;
-
-// 		.main-info {
-// 			flex-direction: column;
-// 			width: 100% !important;
-// 		}
-
-// 		.popup-box {
-// 			width: 80% !important;
-// 			min-width: 260px;
-// 		}
-// 	}
-// }
-
-//sm
-@media (max-width: 768px) {
-	.header-wraper {
-		flex-direction: column;
-
-		.main-info {
-			overflow: visible;
-			// padding-bottom: 2rem;
+		canvas {
+			border-radius: 10px;
+			height: 100%;
+			width: fit-content;
 		}
 	}
 }
 
-// //xs
-// @media (max-width: 576px) {
-// 	.header-wraper {
-// 		flex-direction: column;
+@media (max-width: 992px) {
+	.header-wraper {
+		background-size: none;
+		height: 100%;
 
-// 		.main-info {
-// 			flex-direction: column;
-// 		}
+		canvas {
+			border-radius: 10px;
+			height: 70%;
+			width: fit-content;
+		}
+	}
+}
 
-// 		.skill-icon-back {
-// 			width: 2rem !important;
-// 			height: 2rem !important;
-// 		}
+@media (max-width: 768px) {
+	.header-wraper {
+		canvas {
+			border-radius: 10px;
+			height: 50%;
+			width: fit-content;
+		}
+	}
+}
 
-// 		.popup-box {
-// 			width: 80% !important;
-// 			min-width: 260px;
-// 		}
-// 	}
-// }
+@media (max-width: 500px) {
+	.header-wraper {
+		.game-image {
+			height: 15rem !important;
+		}
+
+		// .space-invaders-wrapper {
+		// 	justify-content: center;
+		// }
+
+		canvas {
+			border-radius: 10px;
+			height: 30%;
+			width: fit-content;
+		}
+	}
+}
+
+@media (max-width: 350px) {
+	.header-wraper {
+		.game-image {
+			height: 10rem !important;
+		}
+	}
+}
