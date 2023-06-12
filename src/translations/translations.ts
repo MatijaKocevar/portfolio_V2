@@ -91,18 +91,19 @@ export const Translations = [
 		id: "Header_WIP_Upcoming",
 		en: `
 		<span>- Add highscore panel.</span>
-		<span>- Need to make sheild blocks crumble on impact.</span>
+		<span>- The crumble effect on shields needs to be refined.</span>
 		<span>- Sounds !</span>
 		`,
 		slo: `
 		<span>- Dodati panel za najboljše rezultate.</span>
-		<span>- Ščitni bloki naj se razletijo ob trku.</span>
+		<span>- Učinek razpadanja ščitov je potrebno izpopolniti.</span>
 		<span>- Zvoki !</span>
 		`,
 	},
 	{
 		id: "Header_WIP_Changelog",
 		en: `
+		<span>- Sheild block crumble.</span>
 		<span>- Added sheild blocks.</span>
 		<span>- Click to reset.</span>
 		<span>- Added game over sign.</span>
@@ -122,6 +123,7 @@ export const Translations = [
 		<span>- Drawn a box with Canvas API.</span>
 		`,
 		slo: `
+		<span>- Ščitni bloki se razletijo.</span>
 		<span>- Klik za reset.</span>
 		<span>- Dodan napis za konec igre.</span>
 		<span>- Invader-ji streljajo nazaj.</span>
