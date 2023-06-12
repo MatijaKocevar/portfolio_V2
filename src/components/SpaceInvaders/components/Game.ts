@@ -10,6 +10,7 @@ interface IGame {
 	mobileControls: React.RefObject<HTMLButtonElement>[];
 	setGameOver: React.Dispatch<React.SetStateAction<boolean>>;
 	setGameOverMessage: React.Dispatch<React.SetStateAction<string>>;
+	context: CanvasRenderingContext2D;
 }
 
 export class Game {
@@ -19,19 +20,14 @@ export class Game {
 	playerProjectiles: Projectile[] = [];
 	invaderProjectiles: Projectile[] = [];
 	invaders: Invaders;
-	shieldBlock1: ShieldBlock;
-	shieldBlock2: ShieldBlock;
-	shieldBlock3: ShieldBlock;
-	shieldBlock4: ShieldBlock;
+	shieldBlocks: ShieldBlock[] = [];
 	currentDirection: "left" | "right";
-	invadersAnimationSpeed = 70;
-	invaderSpeed = 5;
 
-	constructor({ height, width, mobileControls, setGameOver, setGameOverMessage }: IGame) {
-		this.props = { height, width, mobileControls, setGameOver, setGameOverMessage };
+	constructor({ height, width, mobileControls, setGameOver, setGameOverMessage, context }: IGame) {
+		this.props = { height, width, mobileControls, setGameOver, setGameOverMessage, context };
 		this.defender = new Defender({ game: this });
 		this.inputHandler = new InputHandler(mobileControls);
-		this.invaders = new Invaders({ animationSpeed: this.invadersAnimationSpeed, speed: this.invaderSpeed });
+		this.invaders = new Invaders();
 		this.currentDirection = "right";
 
 		this.invaders.createInvaders();
@@ -40,10 +36,10 @@ export class Game {
 		const shieldWidth = 68.1;
 		const shieldSpacing = (canvasWidth - 4 * shieldWidth) / 5; // Total spacing divided equally before and after the shields
 
-		this.shieldBlock1 = new ShieldBlock({ x: shieldSpacing, y: 500 });
-		this.shieldBlock2 = new ShieldBlock({ x: shieldSpacing + shieldWidth + shieldSpacing, y: 500 });
-		this.shieldBlock3 = new ShieldBlock({ x: shieldSpacing + 2 * shieldWidth + 2 * shieldSpacing, y: 500 });
-		this.shieldBlock4 = new ShieldBlock({ x: shieldSpacing + 3 * shieldWidth + 3 * shieldSpacing, y: 500 });
+		this.shieldBlocks.push(new ShieldBlock({ x: shieldSpacing, y: 500 }));
+		this.shieldBlocks.push(new ShieldBlock({ x: shieldSpacing + shieldWidth + shieldSpacing, y: 500 }));
+		this.shieldBlocks.push(new ShieldBlock({ x: shieldSpacing + 2 * shieldWidth + 2 * shieldSpacing, y: 500 }));
+		this.shieldBlocks.push(new ShieldBlock({ x: shieldSpacing + 3 * shieldWidth + 3 * shieldSpacing, y: 500 }));
 	}
 
 	// Update the direction of the invaders based on their position and the game boundaries
@@ -62,10 +58,11 @@ export class Game {
 
 	// Update the game state in each frame
 	update = (gameFrame: number) => {
+		this.invaders.updateInvaders();
+
 		if (this.invaders.alive.some((invader) => invader.props.y > 510)) {
 			this.props.setGameOver(true);
 		}
-
 		// Update invaderProjectiles' positions
 		this.invaderProjectiles.forEach((projectile) => projectile.update());
 		// Update playerProjectiles' positions
@@ -73,7 +70,7 @@ export class Game {
 		// Update defender's position based on input
 		this.defender.update(this.inputHandler.keys);
 
-		if (this.invaders.alive && gameFrame % this.invadersAnimationSpeed === 0) {
+		if (this.invaders.alive && gameFrame % this.invaders.animationSpeed === 0) {
 			// Update invaders' positions and animations
 			this.updateDirection();
 			this.invaders.alive.forEach((invader) => {
@@ -91,7 +88,53 @@ export class Game {
 		const playerProjectilesToRemove: { index: number }[] = [];
 		const invaderProjectilesToRemove: { index: number }[] = [];
 		const invadersToRemove: { index: number }[] = [];
+		const shieldBlocksToRemove: { index: number; shieldIndex: number }[] = [];
 
+		this.shieldBlocks.forEach((shieldBlock, s) => {
+			shieldBlock.particles.forEach((particle, i) => {
+				this.playerProjectiles.forEach((projectile, j) => {
+					const rect1 = { x: particle.x, y: particle.y, width: particle.width, height: particle.height };
+					const rect2 = { x: projectile.props.x, y: projectile.props.y, width: projectile.props.width, height: projectile.props.height };
+
+					// Check if the particle and projectile rectangles intersect
+					const noCollision = rect1.x > rect2.x + rect2.width || rect1.x + rect1.width < rect2.x || rect1.y > rect2.y + rect2.height || rect1.y + rect1.height < rect2.y;
+
+					if (!noCollision) {
+						playerProjectilesToRemove.push({ index: j });
+						shieldBlocksToRemove.push({ index: i, shieldIndex: s });
+					}
+				});
+				this.invaderProjectiles.forEach((projectile, j) => {
+					const rect1 = { x: particle.x, y: particle.y, width: particle.width, height: particle.height };
+					const rect2 = { x: projectile.props.x, y: projectile.props.y, width: projectile.props.width, height: projectile.props.height };
+
+					// Check if the particle and projectile rectangles intersect
+					const noCollision = rect1.x > rect2.x + rect2.width || rect1.x + rect1.width < rect2.x || rect1.y > rect2.y + rect2.height || rect1.y + rect1.height < rect2.y;
+
+					if (!noCollision) {
+						invaderProjectilesToRemove.push({ index: j });
+						shieldBlocksToRemove.push({ index: i, shieldIndex: s });
+					}
+				});
+			});
+		});
+
+		// Check for collision between any invader and the defender
+		this.invaders.alive.forEach((invader) => {
+			const rect1 = { x: invader.props.x, y: invader.props.y, width: invader.props.width, height: invader.props.height };
+			const rect2 = { x: this.defender.x, y: this.defender.y, width: this.defender.width, height: this.defender.height };
+
+			// Check if the invader and defender rectangles intersect
+			const noCollision = rect1.x > rect2.x + rect2.width || rect1.x + rect1.width < rect2.x || rect1.y > rect2.y + rect2.height || rect1.y + rect1.height < rect2.y;
+
+			if (!noCollision) {
+				// Set the game over flag if there is a collision
+				this.props.setGameOverMessage("You Lose!");
+				this.props.setGameOver(true);
+			}
+		});
+
+		// Check for collisions between playerProjectiles and invaders
 		this.invaders.alive.forEach((invader, i) => {
 			this.playerProjectiles.forEach((projectile, j) => {
 				const rect1 = { x: invader.props.x, y: invader.props.y, width: invader.props.width, height: invader.props.height };
@@ -108,6 +151,7 @@ export class Game {
 			});
 		});
 
+		// Chech if playerProjectiles go off the screen
 		this.playerProjectiles.forEach((projectile, i) => {
 			if (projectile.props.y < 0) {
 				// Remove playerProjectiles that go off the screen
@@ -115,6 +159,7 @@ export class Game {
 			}
 		});
 
+		// Check if enemy projectiles hit the defender
 		this.invaderProjectiles.forEach((projectile, i) => {
 			const rect1 = { x: this.defender.x, y: this.defender.y, width: this.defender.width, height: this.defender.height };
 			const rect2 = { x: projectile.props.x, y: projectile.props.y, width: projectile.props.width, height: projectile.props.height };
@@ -130,6 +175,7 @@ export class Game {
 			}
 		});
 
+		// Chech if invaderProjectiles go off the screen
 		this.invaderProjectiles.forEach((projectile, i) => {
 			if (projectile.props.y > this.props.height) {
 				// Remove invaderProjectiles that go off the screen
@@ -138,77 +184,25 @@ export class Game {
 		});
 
 		// Remove the playerProjectiles and invaders that collided
-		if (playerProjectilesToRemove.length > 0 || invadersToRemove.length > 0 || invaderProjectilesToRemove.length > 0) {
+		if (playerProjectilesToRemove.length > 0 || invadersToRemove.length > 0 || invaderProjectilesToRemove.length > 0 || shieldBlocksToRemove.length > 0) {
 			invadersToRemove?.forEach((invader) => this.invaders.alive.splice(invader.index, 1));
 			playerProjectilesToRemove?.forEach((projectile) => this.playerProjectiles.splice(projectile.index, 1));
 			invaderProjectilesToRemove.forEach((projectile) => this.invaderProjectiles.splice(projectile.index, 1));
-		}
-
-		const invadersArrayLength = this.invaders.alive.length;
-		let speedChanged = false;
-
-		// Adjust the animation speed and invader speed based on the number of remaining invaders
-		if (invadersArrayLength < 44 && this.invadersAnimationSpeed != 30 && this.invaderSpeed != 6) {
-			this.invaderSpeed = 6;
-			this.invadersAnimationSpeed = 30;
-			speedChanged = true;
-		}
-		if (invadersArrayLength < 33 && this.invadersAnimationSpeed != 20 && this.invaderSpeed != 7) {
-			this.invaderSpeed = 7;
-			this.invadersAnimationSpeed = 20;
-			speedChanged = true;
-		}
-		if (invadersArrayLength < 22 && this.invadersAnimationSpeed != 10 && this.invaderSpeed != 8) {
-			this.invaderSpeed = 8;
-			this.invadersAnimationSpeed = 10;
-			speedChanged = true;
-		}
-		if (invadersArrayLength < 11 && this.invadersAnimationSpeed != 5 && this.invaderSpeed != 10) {
-			this.invaderSpeed = 10;
-			this.invadersAnimationSpeed = 5;
-			speedChanged = true;
-		}
-		if (invadersArrayLength === 1 && this.invadersAnimationSpeed != 1 && this.invaderSpeed != 11) {
-			this.invaderSpeed = 11;
-			this.invadersAnimationSpeed = 1;
-			speedChanged = true;
-		}
-
-		if (speedChanged) {
-			// Update the animation speed and speed for each invader
-			this.invaders.alive.forEach((invader) => {
-				this.invaders.alive.forEach((invader) => (invader.props.speed = this.invaderSpeed));
-				invader.props.animationSpeed = this.invadersAnimationSpeed;
+			shieldBlocksToRemove.forEach((block) => {
+				this.shieldBlocks[block.shieldIndex].particles.splice(block.index, 1);
+				console.log("Shield: ", block.shieldIndex, "Particle: ", block.index);
 			});
-			speedChanged = false;
 		}
-		// Check for collision between any invader and the defender
-		this.invaders.alive.forEach((invader) => {
-			const rect1 = { x: invader.props.x, y: invader.props.y, width: invader.props.width, height: invader.props.height };
-			const rect2 = { x: this.defender.x, y: this.defender.y, width: this.defender.width, height: this.defender.height };
-
-			// Check if the invader and defender rectangles intersect
-			const noCollision = rect1.x > rect2.x + rect2.width || rect1.x + rect1.width < rect2.x || rect1.y > rect2.y + rect2.height || rect1.y + rect1.height < rect2.y;
-
-			if (!noCollision) {
-				// Set the game over flag if there is a collision
-				this.props.setGameOverMessage("You Lose!");
-				this.props.setGameOver(true);
-			}
-		});
 	};
 
 	// Draw the game entities on the canvas
 	draw = (context: CanvasRenderingContext2D) => {
-		this.shieldBlock1.draw(context);
-		this.shieldBlock2.draw(context);
-		this.shieldBlock3.draw(context);
-		this.shieldBlock4.draw(context);
 		this.playerProjectiles.forEach((projectile) => projectile.draw(context));
 		this.invaderProjectiles.forEach((projectile) => projectile.draw(context));
 		this.defender.draw(context);
 		this.invaders.alive.forEach((invader) => invader.draw(context));
 		this.handleCollision();
+		this.shieldBlocks.forEach((block) => block.draw(context));
 	};
 
 	// Destroy the game by cleaning up event listeners and resources

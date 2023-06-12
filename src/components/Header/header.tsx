@@ -11,7 +11,7 @@ import SpaceInvaderPic from "../../images/space-invaders/space-invaders.png";
 const Header = () => {
 	const { getTranslation } = useContext(TranslationContext);
 	const [showChangeLogUpcoming, setShowChangeLogUpcoming] = useState(false);
-	const [showPopupSpaceInvaders, setShowPopupSpaceInvaders] = useState(false);
+	const [showPopupSpaceInvaders, setShowPopupSpaceInvaders] = useState(true);
 
 	const magnifyingGlass = <SvgIcon iconName='magnifyingGlass' svgProp={{ width: "2rem", height: "2rem", fill: "white" }} />;
 
