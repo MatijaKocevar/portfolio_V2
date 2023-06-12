@@ -26,7 +26,6 @@ const ExpandableText = (props: { content: string | JSX.Element }) => {
 		} else {
 			content.current = <div></div>;
 		}
-		console.log(isMobile);
 	}, [isMobile, isExpanded, props.content]);
 
 	return (

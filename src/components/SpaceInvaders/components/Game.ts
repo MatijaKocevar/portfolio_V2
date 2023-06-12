@@ -190,7 +190,6 @@ export class Game {
 			invaderProjectilesToRemove.forEach((projectile) => this.invaderProjectiles.splice(projectile.index, 1));
 			shieldBlocksToRemove.forEach((block) => {
 				this.shieldBlocks[block.shieldIndex].particles.splice(block.index, 1);
-				console.log("Shield: ", block.shieldIndex, "Particle: ", block.index);
 			});
 		}
 	};
