@@ -110,7 +110,7 @@ const GameBoard = () => {
 
 	return (
 		<>
-			<canvas ref={canvasRef} width={600} height={510} onClick={handleReset} /> {/* Canvas element */}
+			<canvas ref={canvasRef} width={600} height={600} onClick={handleReset} /> {/* Canvas element */}
 			{isMobile && (
 				<div className='mobile-controls'>
 					{" "}
