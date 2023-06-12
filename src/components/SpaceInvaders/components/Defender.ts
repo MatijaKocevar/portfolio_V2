@@ -20,8 +20,8 @@ export class Defender {
 
 	constructor({ game }: IDefender) {
 		this.game = game;
-		this.width = 35;
-		this.height = 35;
+		this.width = 42;
+		this.height = 40;
 		this.x = this.game.props.width / 2 - this.width / 2;
 		this.y = this.game.props.height - (this.height + 10);
 		this.speed = 0;
@@ -60,7 +60,7 @@ export class Defender {
 			speed: 10,
 			x: this.x + this.width / 2 - 2,
 			y: this.y,
-			color: "red",
+			color: "#00d300",
 			direction: "up",
 		});
 

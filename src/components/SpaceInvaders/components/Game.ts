@@ -2,6 +2,7 @@ import { Defender } from "./Defender";
 import { InputHandler } from "./InputHandler";
 import { Invaders } from "./Invader";
 import { Projectile } from "./Projectile";
+import { ShieldBlock } from "./ShieldBlock";
 
 interface IGame {
 	width: number;
@@ -18,6 +19,10 @@ export class Game {
 	playerProjectiles: Projectile[] = [];
 	invaderProjectiles: Projectile[] = [];
 	invaders: Invaders;
+	shieldBlock1: ShieldBlock;
+	shieldBlock2: ShieldBlock;
+	shieldBlock3: ShieldBlock;
+	shieldBlock4: ShieldBlock;
 	currentDirection: "left" | "right";
 	invadersAnimationSpeed = 70;
 	invaderSpeed = 5;
@@ -30,6 +35,15 @@ export class Game {
 		this.currentDirection = "right";
 
 		this.invaders.createInvaders();
+
+		const canvasWidth = width;
+		const shieldWidth = 68.1;
+		const shieldSpacing = (canvasWidth - 4 * shieldWidth) / 5; // Total spacing divided equally before and after the shields
+
+		this.shieldBlock1 = new ShieldBlock({ x: shieldSpacing, y: 500 });
+		this.shieldBlock2 = new ShieldBlock({ x: shieldSpacing + shieldWidth + shieldSpacing, y: 500 });
+		this.shieldBlock3 = new ShieldBlock({ x: shieldSpacing + 2 * shieldWidth + 2 * shieldSpacing, y: 500 });
+		this.shieldBlock4 = new ShieldBlock({ x: shieldSpacing + 3 * shieldWidth + 3 * shieldSpacing, y: 500 });
 	}
 
 	// Update the direction of the invaders based on their position and the game boundaries
@@ -186,6 +200,10 @@ export class Game {
 
 	// Draw the game entities on the canvas
 	draw = (context: CanvasRenderingContext2D) => {
+		this.shieldBlock1.draw(context);
+		this.shieldBlock2.draw(context);
+		this.shieldBlock3.draw(context);
+		this.shieldBlock4.draw(context);
 		this.playerProjectiles.forEach((projectile) => projectile.draw(context));
 		this.invaderProjectiles.forEach((projectile) => projectile.draw(context));
 		this.defender.draw(context);

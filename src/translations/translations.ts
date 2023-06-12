@@ -83,6 +83,19 @@ export const Translations = [
 		`,
 	},
 	{
+		id: "Header_WIP_Upcoming",
+		en: `
+		<span>- Add highscore panel.</span>
+		<span>- Need to make sheild blocks crumble on impact.</span>
+		<span>- Sounds !</span>
+		`,
+		slo: `
+		<span>- Dodati panel za najboljše rezultate.</span>
+		<span>- Ščitni bloki naj se razletijo ob trku.</span>
+		<span>- Zvoki !</span>
+		`,
+	},
+	{
 		id: "Header_WIP_Changelog",
 		en: `
 		<span>- Added sheild blocks.</span>
@@ -120,19 +133,6 @@ export const Translations = [
 		<span>- Dodan igralec.</span>
 		<span>- Ugotovil kako animirati stvari.</span>
 		<span>- Narisal kvadrat z Canvas API.</span>
-		`,
-	},
-	{
-		id: "Header_WIP_Upcoming",
-		en: `
-		<span>- Add highscore panel.</span>
-		<span>- Need to make sheild blocks.</span>
-		<span>- Sounds !</span>
-		`,
-		slo: `
-		<span>- Dodati panel za najboljše rezultate.</span>
-		<span>- Potrebno je narediti ščitne bloke.</span>
-		<span>- Zvoki !</span>
 		`,
 	},
 	/**
