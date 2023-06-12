@@ -110,12 +110,6 @@ const GameBoard = () => {
 		}
 	}, [gameOver]);
 
-	const consoleLogShield = useCallback(() => {
-		gameRef.current?.shieldBlocks.forEach((shieldBlock) => {
-			console.log(shieldBlock.particles);
-		});
-	}, []);
-
 	return (
 		<>
 			<canvas ref={canvasRef} width={600} height={600} onClick={handleReset} /> {/* Canvas element */}
@@ -132,7 +126,6 @@ const GameBoard = () => {
 					<button id='right' ref={rightRef} className='right'>
 						&rarr;
 					</button>
-					<button onClick={consoleLogShield}>Console log sheild array</button>
 				</div>
 			)}
 		</>
