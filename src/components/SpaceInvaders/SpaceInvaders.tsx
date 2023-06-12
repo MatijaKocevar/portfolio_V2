@@ -40,6 +40,7 @@ const GameBoard = () => {
 				mobileControls: [leftRef, fireRef, rightRef],
 				setGameOver,
 				setGameOverMessage,
+				context,
 			});
 
 			// Function to animate the game
@@ -103,10 +104,17 @@ const GameBoard = () => {
 					mobileControls: [leftRef, fireRef, rightRef],
 					setGameOver,
 					setGameOverMessage,
+					context,
 				});
 			}
 		}
 	}, [gameOver]);
+
+	const consoleLogShield = useCallback(() => {
+		gameRef.current?.shieldBlocks.forEach((shieldBlock) => {
+			console.log(shieldBlock.particles);
+		});
+	}, []);
 
 	return (
 		<>
@@ -124,6 +132,7 @@ const GameBoard = () => {
 					<button id='right' ref={rightRef} className='right'>
 						&rarr;
 					</button>
+					<button onClick={consoleLogShield}>Console log sheild array</button>
 				</div>
 			)}
 		</>

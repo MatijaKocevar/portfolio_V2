@@ -71,27 +71,20 @@ export class Invader {
 	};
 }
 
-interface IInvaders {
-	animationSpeed: number;
-	speed: number;
-}
-
 export class Invaders {
 	private invadersCount = 55;
 	invader1 = new Image();
 	invader2_3 = new Image();
 	invader3_4 = new Image();
-	animationSpeed: number;
+	animationSpeed = 70;
 	alive: Invader[] = [];
-	speed: number;
+	speed = 5;
 
-	constructor({ animationSpeed, speed }: IInvaders) {
+	constructor() {
 		// Load the invader sprite images
 		this.invader1.src = invader1;
 		this.invader2_3.src = invader2_3;
 		this.invader3_4.src = invader3_4;
-		this.animationSpeed = animationSpeed;
-		this.speed = speed;
 	}
 
 	createInvaders = () => {
@@ -127,6 +120,47 @@ export class Invaders {
 		}
 
 		this.alive = invaders;
+	};
+
+	updateInvaders = () => {
+		const invadersArrayLength = this.alive.length;
+		let speedChanged = false;
+
+		// Adjust the animation speed and invader speed based on the number of remaining invaders
+		if (invadersArrayLength < 44 && this.animationSpeed != 30 && this.speed != 6) {
+			this.speed = 6;
+			this.animationSpeed = 30;
+			speedChanged = true;
+		}
+		if (invadersArrayLength < 33 && this.animationSpeed != 20 && this.speed != 7) {
+			this.speed = 7;
+			this.animationSpeed = 20;
+			speedChanged = true;
+		}
+		if (invadersArrayLength < 22 && this.animationSpeed != 10 && this.speed != 8) {
+			this.speed = 8;
+			this.animationSpeed = 10;
+			speedChanged = true;
+		}
+		if (invadersArrayLength < 11 && this.animationSpeed != 5 && this.speed != 10) {
+			this.speed = 10;
+			this.animationSpeed = 5;
+			speedChanged = true;
+		}
+		if (invadersArrayLength === 1 && this.animationSpeed != 1 && this.speed != 11) {
+			this.speed = 11;
+			this.animationSpeed = 1;
+			speedChanged = true;
+		}
+
+		if (speedChanged) {
+			// Update the animation speed and speed for each invader
+			this.alive.forEach((invader) => {
+				invader.props.speed = this.speed;
+				invader.props.animationSpeed = this.animationSpeed;
+			});
+			speedChanged = false;
+		}
 	};
 
 	destroy = () => {
