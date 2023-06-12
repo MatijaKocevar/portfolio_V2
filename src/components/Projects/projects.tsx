@@ -25,113 +25,113 @@ const Projects = () => {
 
 	const resumeContent = (
 			<Row className='popupbox-content'>
-				<Col className='popupbox-heading'>
+				<Row className='popupbox-heading'>
 					<h3>{getTranslation("Projects_Portfolio_Title")}</h3>
-				</Col>
-				<Col className='popupbox-image'>
+				</Row>
+				<Row className='popupbox-image'>
 					<img src={PortfolioV1} alt='Online resume' />
-				</Col>
-				<Col className='popupbox-description'>
+				</Row>
+				<Row className='popupbox-description'>
 					<p>{getTranslation("Projects_Portfolio_Description")}</p>
-				</Col>
-				<Col className='popupbox-links'>
+				</Row>
+				<Row className='popupbox-links'>
 					<a href='https://github.com/MatijaKocevar/myPortfolio' target='_blank' rel='noopener noreferrer'>
 						GitHub
 					</a>
 					<a href='https://matijakocevar.github.io/myPortfolio/' target='_blank' rel='noopener noreferrer'>
 						Live
 					</a>
-				</Col>
+				</Row>
 			</Row>
 		),
 		holidayContent = (
 			<Row className='popupbox-content'>
-				<Col className='popupbox-heading'>
+				<Row className='popupbox-heading'>
 					<h3>{getTranslation("Projects_HolidaysCalculator_Title")}</h3>
-				</Col>
-				<Col className='popupbox-image'>
+				</Row>
+				<Row className='popupbox-image'>
 					<img src={HolidaysCalculator} alt='Online resume' />
-				</Col>
-				<Col className='popupbox-description'>
+				</Row>
+				<Row className='popupbox-description'>
 					<p>{getTranslation("Projects_HolidaysCalculator_Description")}</p>
-				</Col>
-				<Col className='popupbox-links'>
+				</Row>
+				<Row className='popupbox-links'>
 					<a href='https://github.com/MatijaKocevar/HolidaysApi' target='_blank' rel='noopener noreferrer'>
 						GitHub
 					</a>
-				</Col>
+				</Row>
 			</Row>
 		),
 		diffingContent = (
 			<Row className='popupbox-content'>
-				<Col className='popupbox-heading'>
+				<Row className='popupbox-heading'>
 					<h3>{getTranslation("Projects_DiffingAPI_Title")}</h3>
-				</Col>
-				<Col className='popupbox-image'>
+				</Row>
+				<Row className='popupbox-image'>
 					<img src={DiffingApi} alt='Online resume' />
-				</Col>
-				<Col className='popupbox-description'>
+				</Row>
+				<Row className='popupbox-description'>
 					<p>{getTranslation("Projects_DiffingApi_Description")}</p>
-				</Col>
-				<Col className='popupbox-links'>
+				</Row>
+				<Row className='popupbox-links'>
 					<a href='https://github.com/MatijaKocevar/diffs' target='_blank' rel='noopener noreferrer'>
 						GitHub
 					</a>
-				</Col>
+				</Row>
 			</Row>
 		),
 		portfoliV2Content = (
 			<Row className='popupbox-content'>
-				<Col className='popupbox-heading'>
+				<Row className='popupbox-heading'>
 					<h3>{getTranslation("Projects_PortfolioV2_Title")}</h3>
-				</Col>
-				<Col className='popupbox-image'>
+				</Row>
+				<Row className='popupbox-image'>
 					<img src={PortfoliV2} alt='Online resume' />
-				</Col>
-				<Col className='popupbox-description'>
+				</Row>
+				<Row className='popupbox-description'>
 					<p>{getTranslation("Projects_PortfoliV2_Description")}</p>
-				</Col>
-				<Col className='popupbox-links'>
+				</Row>
+				<Row className='popupbox-links'>
 					<a href='https://github.com/MatijaKocevar/portfolio_V2' target='_blank' rel='noopener noreferrer'>
 						GitHub
 					</a>
-				</Col>
+				</Row>
 			</Row>
 		),
 		drumboxContent = (
 			<Row className='popupbox-content'>
-				<Col className='popupbox-heading'>
+				<Row className='popupbox-heading'>
 					<h3>{getTranslation("Projects_Drumbox_Title")}</h3>
-				</Col>
-				<Col className='popupbox-image'>
+				</Row>
+				<Row className='popupbox-image'>
 					<img src={Drumbox} alt='Online resume' />
-				</Col>
-				<Col className='popupbox-description'>
+				</Row>
+				<Row className='popupbox-description'>
 					<p>{getTranslation("Projects_Drumbox_Description")}</p>
-				</Col>
-				<Col className='popupbox-links'>
+				</Row>
+				<Row className='popupbox-links'>
 					<a href='https://github.com/MatijaKocevar/drumbox' target='_blank' rel='noopener noreferrer'>
 						GitHub
 					</a>
-				</Col>
+				</Row>
 			</Row>
 		),
 		taskManagementContent = (
 			<Row className='popupbox-content'>
-				<Col className='popupbox-heading'>
+				<Row className='popupbox-heading'>
 					<h3>{getTranslation("Projects_TaskManagement_Title")}</h3>
-				</Col>
-				<Col className='popupbox-image'>
+				</Row>
+				<Row className='popupbox-image'>
 					<img src={TaskManagement} alt='Task Management' />
-				</Col>
-				<Col className='popupbox-description'>
+				</Row>
+				<Row className='popupbox-description'>
 					<p>{getTranslation("Projects_TaskManagement_Description")}</p>
-				</Col>
-				<Col className='popupbox-links'>
+				</Row>
+				<Row className='popupbox-links'>
 					<a href='https://github.com/MatijaKocevar/task-management' target='_blank' rel='noopener noreferrer'>
 						GitHub
 					</a>
-				</Col>
+				</Row>
 			</Row>
 		);
 

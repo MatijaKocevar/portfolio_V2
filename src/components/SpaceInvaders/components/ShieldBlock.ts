@@ -46,7 +46,6 @@ export class ShieldBlock {
 		const y10 = y - 8;
 		const y11 = y;
 
-		// Draw the left side of the shape
 		region.moveTo(x0, y0);
 		region.lineTo(x1, y1);
 		region.lineTo(x2, y2);

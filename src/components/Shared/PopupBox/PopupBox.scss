@@ -13,6 +13,7 @@
 
 .popup-box {
 	width: 80% !important;
+	height: 90vh;
 	max-width: 90vw;
 	max-height: 90vh;
 	position: fixed;
@@ -28,16 +29,16 @@
 	// flex-direction: column;
 	align-items: center;
 	min-width: 300px;
+	justify-content: flex-start;
+	overflow: auto;
+	align-items: center;
 
 	.popupbox-content {
 		display: flex;
-		flex-direction: column;
-		width: 100%;
-		// height: 100%;
+		text-align: center;
 
 		.popupbox-heading {
 			width: 100%;
-			height: fit-content;
 			display: flex;
 			justify-content: center;
 			padding: 1rem;
@@ -45,7 +46,7 @@
 		}
 
 		.popupbox-image {
-			// width: 100%;
+			width: 100%;
 			display: flex;
 			justify-content: center;
 			padding: 1rem;
@@ -68,6 +69,8 @@
 			display: flex;
 			justify-content: center;
 			gap: 1rem;
+			padding: 1rem;
+
 			a {
 				color: v.$white !important;
 			}

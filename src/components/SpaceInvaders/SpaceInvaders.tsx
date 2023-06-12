@@ -13,11 +13,11 @@ const GameBoard = () => {
 	const leftRef = useRef<HTMLButtonElement>(null);
 	const fireRef = useRef<HTMLButtonElement>(null);
 	const rightRef = useRef<HTMLButtonElement>(null);
-	const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 576); // State for mobile device detection
+	const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 992); // State for mobile device detection
 
 	// Callback function for handling window resize
 	const handleResize = useCallback(() => {
-		setIsMobile(window.innerWidth < 576);
+		setIsMobile(window.innerWidth < 992);
 	}, []);
 
 	useEffect(() => {
