@@ -12,20 +12,21 @@ canvas {
 	margin: 1rem 0;
 	gap: 1rem;
 	padding-bottom: 1rem;
+	width: 100%;
 }
 
 .left {
-	width: 20%;
+	width: 30%;
 	border-radius: 10px;
 	background-color: transparent;
 }
 .fire {
-	width: 60%;
+	width: 40%;
 	border-radius: 10px;
 	background-color: transparent;
 }
 .right {
-	width: 20%;
+	width: 30%;
 	border-radius: 10px;
 	background-color: transparent;
 }
