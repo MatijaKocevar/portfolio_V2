@@ -293,6 +293,19 @@
 	.header-wraper {
 		background-size: cover;
 
+		.main-info {
+			.heading-row {
+				h3 {
+					div {
+						font-size: 1.1rem;
+					}
+				}
+			}
+		}
+		.games {
+			font-size: 1rem;
+		}
+
 		canvas {
 			border-radius: 10px;
 			height: 100%;
