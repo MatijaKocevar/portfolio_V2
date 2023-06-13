@@ -17,6 +17,8 @@ export default defineConfig({
 	base: "/portfolio_V2/",
 	plugins: [react(), svgr(), fullReloadAlways, mkcert()],
 	server: {
+		port: 44444,
 		host: true,
+		https: true,
 	},
 });
