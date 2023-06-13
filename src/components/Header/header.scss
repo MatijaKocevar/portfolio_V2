@@ -198,6 +198,10 @@
 				gap: 2rem;
 				margin-bottom: 2rem;
 
+				.popup-box {
+					justify-content: center;
+				}
+
 				button {
 					background-color: v.$lightPurple;
 					border: none;
