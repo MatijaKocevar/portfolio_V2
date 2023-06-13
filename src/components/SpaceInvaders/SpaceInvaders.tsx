@@ -52,7 +52,6 @@ const GameBoard = () => {
 				}
 
 				if (!gameOver) {
-					context.clearRect(0, 0, canvas.width, canvas.height);
 					gameRef.current?.update(gameFrame.current);
 					gameRef.current?.draw(context);
 					gameFrame.current++;

@@ -93,6 +93,7 @@ export class Game {
 		this.shieldBlocks.forEach((shieldBlock, s) => {
 			shieldBlock.particles.forEach((particle, i) => {
 				this.playerProjectiles.forEach((projectile, j) => {
+					if (!particle.active) return;
 					const rect1 = { x: particle.x, y: particle.y, width: particle.width, height: particle.height };
 					const rect2 = { x: projectile.props.x, y: projectile.props.y, width: projectile.props.width, height: projectile.props.height };
 
@@ -105,6 +106,7 @@ export class Game {
 					}
 				});
 				this.invaderProjectiles.forEach((projectile, j) => {
+					if (!particle.active) return;
 					const rect1 = { x: particle.x, y: particle.y, width: particle.width, height: particle.height };
 					const rect2 = { x: projectile.props.x, y: projectile.props.y, width: projectile.props.width, height: projectile.props.height };
 
@@ -189,19 +191,22 @@ export class Game {
 			playerProjectilesToRemove?.forEach((projectile) => this.playerProjectiles.splice(projectile.index, 1));
 			invaderProjectilesToRemove.forEach((projectile) => this.invaderProjectiles.splice(projectile.index, 1));
 			shieldBlocksToRemove.forEach((block) => {
-				this.shieldBlocks[block.shieldIndex].particles.splice(block.index, 1);
+				// this.shieldBlocks[block.shieldIndex].particles.splice(block.index, 1);
+				// delete this.shieldBlocks[block.shieldIndex].particles[block.index];
+				this.shieldBlocks[block.shieldIndex].particles[block.index].active = false;
 			});
 		}
 	};
 
 	// Draw the game entities on the canvas
 	draw = (context: CanvasRenderingContext2D) => {
+		this.handleCollision();
+		context.clearRect(0, 0, this.props.width, this.props.height);
+		this.shieldBlocks.forEach((block) => block.draw(context));
 		this.playerProjectiles.forEach((projectile) => projectile.draw(context));
 		this.invaderProjectiles.forEach((projectile) => projectile.draw(context));
 		this.defender.draw(context);
 		this.invaders.alive.forEach((invader) => invader.draw(context));
-		this.handleCollision();
-		this.shieldBlocks.forEach((block) => block.draw(context));
 	};
 
 	// Destroy the game by cleaning up event listeners and resources
