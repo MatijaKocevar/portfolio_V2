@@ -58,17 +58,15 @@ export class Game {
 
 	// Update the game state in each frame
 	update = (gameFrame: number) => {
-		this.invaders.updateInvaders();
-
-		if (this.invaders.alive.some((invader) => invader.props.y > 510)) {
-			this.props.setGameOver(true);
-		}
 		// Update invaderProjectiles' positions
 		this.invaderProjectiles.forEach((projectile) => projectile.update());
 		// Update playerProjectiles' positions
 		this.playerProjectiles.forEach((projectile) => projectile.update());
 		// Update defender's position based on input
 		this.defender.update(this.inputHandler.keys);
+		if (this.invaders.alive.some((invader) => invader.props.y > 510)) {
+			this.props.setGameOver(true);
+		}
 
 		if (this.invaders.alive && gameFrame % this.invaders.animationSpeed === 0) {
 			// Update invaders' positions and animations
@@ -81,6 +79,7 @@ export class Game {
 
 			if (gameFrame % 50 === 0) this.invaderProjectiles.push(this.invaders.alive[randomInvader].fire());
 		}
+		this.invaders.updateInvaders();
 	};
 
 	// Handle collisions between playerProjectiles, invaders, and defender
@@ -191,8 +190,6 @@ export class Game {
 			playerProjectilesToRemove?.forEach((projectile) => this.playerProjectiles.splice(projectile.index, 1));
 			invaderProjectilesToRemove.forEach((projectile) => this.invaderProjectiles.splice(projectile.index, 1));
 			shieldBlocksToRemove.forEach((block) => {
-				// this.shieldBlocks[block.shieldIndex].particles.splice(block.index, 1);
-				// delete this.shieldBlocks[block.shieldIndex].particles[block.index];
 				this.shieldBlocks[block.shieldIndex].particles[block.index].active = false;
 			});
 		}
@@ -200,13 +197,13 @@ export class Game {
 
 	// Draw the game entities on the canvas
 	draw = (context: CanvasRenderingContext2D) => {
-		this.handleCollision();
 		context.clearRect(0, 0, this.props.width, this.props.height);
+		this.invaders.alive.forEach((invader) => invader.draw(context));
 		this.shieldBlocks.forEach((block) => block.draw(context));
 		this.playerProjectiles.forEach((projectile) => projectile.draw(context));
 		this.invaderProjectiles.forEach((projectile) => projectile.draw(context));
 		this.defender.draw(context);
-		this.invaders.alive.forEach((invader) => invader.draw(context));
+		this.handleCollision();
 	};
 
 	// Destroy the game by cleaning up event listeners and resources
