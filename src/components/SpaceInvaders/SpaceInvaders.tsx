@@ -34,6 +34,7 @@ const GameBoard = () => {
 
 		if (canvas && context) {
 			// Create a new instance of the Game class with necessary parameters
+			gameFrame.current = 0;
 			gameRef.current = new Game({
 				height: canvas.height,
 				width: canvas.width,
@@ -45,12 +46,6 @@ const GameBoard = () => {
 
 			// Function to animate the game
 			const animate = () => {
-				// Check if all invaders are destroyed and stop the animation loop
-				if (gameRef.current?.invaders.alive.length === 0) {
-					setGameOverMessage("You win!");
-					setGameOver(true);
-				}
-
 				if (!gameOver) {
 					gameRef.current?.update(gameFrame.current);
 					gameRef.current?.draw(context);
@@ -83,6 +78,7 @@ const GameBoard = () => {
 
 		return () => {
 			gameRef.current?.destroy();
+			gameRef.current = null;
 			if (animationFrame) {
 				cancelAnimationFrame(animationFrame);
 			}
@@ -97,6 +93,7 @@ const GameBoard = () => {
 			const context = canvas?.getContext("2d");
 
 			if (canvas && context) {
+				gameFrame.current = 0;
 				gameRef.current = new Game({
 					height: canvas.height,
 					width: canvas.width,
@@ -111,7 +108,7 @@ const GameBoard = () => {
 
 	return (
 		<>
-			<canvas ref={canvasRef} width={600} height={600} onClick={handleReset} /> {/* Canvas element */}
+			<canvas ref={canvasRef} width={600} height={600} onClick={handleReset} />
 			{isMobile && (
 				<div className='mobile-controls'>
 					{" "}

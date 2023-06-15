@@ -1,6 +1,7 @@
 import invader1 from "../sprites/invader1.png";
 import invader2_3 from "../sprites/invader2-3.png";
 import invader3_4 from "../sprites/invader3-4.png";
+import { Game } from "./Game";
 import { Projectile } from "./Projectile";
 
 interface IInvader {
@@ -11,6 +12,7 @@ interface IInvader {
 	speed: number;
 	image: HTMLImageElement;
 	animationSpeed: number;
+	game: Game;
 }
 
 export class Invader {
@@ -20,8 +22,8 @@ export class Invader {
 	frame = 0;
 	currentDirection: "left" | "right" = "right";
 
-	constructor({ x, y, width, height, speed, image, animationSpeed }: IInvader) {
-		this.props = { x, y, width, height, speed, image, animationSpeed };
+	constructor({ x, y, width, height, speed, image, animationSpeed, game }: IInvader) {
+		this.props = { x, y, width, height, speed, image, animationSpeed, game };
 		this.spriteWidth = 57;
 		this.spriteHeight = 38;
 	}
@@ -58,12 +60,14 @@ export class Invader {
 			y: this.props.y,
 			color: "white",
 			direction: "down",
+			game: this.props.game,
 		});
 
 		return projectile;
 	};
 
-	draw = (context: CanvasRenderingContext2D) => {
+	draw = () => {
+		const { context } = this.props.game.props;
 		// Draw the invader on the canvas
 		if (this.props.image) {
 			context.drawImage(this.props.image, this.frame * this.spriteWidth, 0, this.spriteWidth, this.spriteHeight, this.props.x, this.props.y, this.props.width, this.props.height);
@@ -71,23 +75,48 @@ export class Invader {
 	};
 }
 
+interface IInvaders {
+	game: Game;
+}
+
 export class Invaders {
-	private invadersCount = 55;
+	props: IInvaders;
+	invadersCount = 55;
 	invader1 = new Image();
 	invader2_3 = new Image();
 	invader3_4 = new Image();
 	animationSpeed = 70;
 	alive: Invader[] = [];
 	speed = 5;
+	currentDirection: "left" | "right";
 
-	constructor() {
-		// Load the invader sprite images
+	constructor({ game }: IInvaders) {
+		this.props = { game };
 		this.invader1.src = invader1;
 		this.invader2_3.src = invader2_3;
 		this.invader3_4.src = invader3_4;
+		this.currentDirection = "right";
+
+		this.createInvaders();
 	}
 
+	updateDirection = () => {
+		const { game } = this.props;
+
+		const hitLeftWall = this.alive.some((invader) => invader.props.x <= 5);
+		const hitRightWall = this.alive.some((invader) => invader.props.x + invader.props.width + 5 >= game.props.width);
+
+		if (hitLeftWall) {
+			this.currentDirection = "right";
+		}
+
+		if (hitRightWall) {
+			this.currentDirection = "left";
+		}
+	};
+
 	createInvaders = () => {
+		const { game } = this.props;
 		const invaderWidth = 32;
 		const invaderHeight = 24;
 		const invaderPadding = 20;
@@ -97,24 +126,24 @@ export class Invaders {
 		const invaders: Invader[] = [];
 
 		for (let i = 0; i < this.invadersCount; i++) {
-			const invaderX = (i % 11) * (invaderWidth + invaderPadding - 5) + invaderOffsetLeft; // Calculate the X position of the invader
+			const invaderX = (i % 11) * (invaderWidth + invaderPadding - 5) + invaderOffsetLeft + 20; // Calculate the X position of the invader
 			const invaderY = Math.floor(i / 11) * (invaderHeight + invaderPadding) + invaderOffsetTop; // Calculate the Y position of the invader
 
 			if (i < 11) {
 				// first row from top
-				const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: this.speed, image: this.invader1, animationSpeed: this.animationSpeed });
+				const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: this.speed, image: this.invader1, animationSpeed: this.animationSpeed, game });
 				invaders.push(invader);
 			}
 
 			if (i < 33 && i >= 11) {
 				// second and thrird row from top
-				const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: this.speed, image: this.invader2_3, animationSpeed: this.animationSpeed });
+				const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: this.speed, image: this.invader2_3, animationSpeed: this.animationSpeed, game });
 				invaders.push(invader);
 			}
 
 			if (i < 55 && i >= 33) {
 				// fourth and fifth row from top
-				const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: this.speed, image: this.invader3_4, animationSpeed: this.animationSpeed });
+				const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: this.speed, image: this.invader3_4, animationSpeed: this.animationSpeed, game });
 				invaders.push(invader);
 			}
 		}
@@ -122,7 +151,8 @@ export class Invaders {
 		this.alive = invaders;
 	};
 
-	updateInvaders = () => {
+	updateInvaders = (gameFrame: number) => {
+		const { game } = this.props;
 		const invadersArrayLength = this.alive.length;
 		let speedChanged = false;
 
@@ -161,9 +191,71 @@ export class Invaders {
 			});
 			speedChanged = false;
 		}
+
+		if (this.alive.length > 0 && gameFrame % this.animationSpeed === 0) {
+			// Update invaders' positions and animations
+			this.updateDirection();
+			this.alive.forEach((invader) => {
+				invader.updateInvader(this.currentDirection, gameFrame);
+			});
+		}
+
+		if (this.alive.length > 0 && gameFrame % this.animationSpeed === 0) {
+			const randomInvader = Math.floor(Math.random() * this.alive.length);
+
+			if (gameFrame % 50 === 0) {
+				game.projectiles.invader.push(this.alive[randomInvader].fire());
+			}
+		}
+
+		if (this.alive.some((invader) => invader.props.y > 550)) {
+			game.props.setGameOverMessage("Invaders have reached the ground! You lose!");
+			game.props.setGameOver(true);
+		}
+
+		if (this.alive.length === 0) {
+			game.props.setGameOverMessage("You win!");
+			game.props.setGameOver(true);
+		}
+	};
+
+	handleCollision = () => {
+		const playerProjectilesToRemove: { index: number }[] = [];
+		const invadersToRemove: { index: number }[] = [];
+		const { game } = this.props;
+		// Check if any of the invaders have been hit by a projectile
+		this.alive.forEach((invader, i) => {
+			game.projectiles.defender.forEach((projectile, p) => {
+				if (
+					projectile.props.x > invader.props.x &&
+					projectile.props.x < invader.props.x + invader.props.width &&
+					projectile.props.y > invader.props.y &&
+					projectile.props.y < invader.props.y + invader.props.height
+				) {
+					playerProjectilesToRemove.push({ index: p });
+					invadersToRemove.push({ index: i });
+				}
+			});
+		});
+
+		// Remove the playerProjectiles and invaders that collided
+		if (playerProjectilesToRemove.length > 0 || invadersToRemove.length > 0) {
+			for (let i = invadersToRemove.length - 1; i >= 0; i--) {
+				this.alive.splice(invadersToRemove[i].index, 1);
+			}
+
+			for (let i = playerProjectilesToRemove.length - 1; i >= 0; i--) {
+				game.projectiles.defender.splice(playerProjectilesToRemove[i].index, 1);
+			}
+		}
+	};
+
+	draw = () => {
+		this.alive.forEach((invader) => invader.draw());
 	};
 
 	destroy = () => {
 		this.invadersCount = 0;
+		this.alive = [];
 	};
 }

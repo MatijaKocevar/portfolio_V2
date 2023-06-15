@@ -1,3 +1,5 @@
+import { Game } from "./Game";
+
 interface IProjectile {
 	speed: number;
 	x: number;
@@ -6,13 +8,14 @@ interface IProjectile {
 	height: number;
 	color: string;
 	direction: "up" | "down";
+	game: Game;
 }
 
 export class Projectile {
 	props: IProjectile;
 
-	constructor({ height, speed, width, x, y, color, direction }: IProjectile) {
-		this.props = { height, speed, width, x, y, color, direction };
+	constructor({ height, speed, width, x, y, color, direction, game }: IProjectile) {
+		this.props = { height, speed, width, x, y, color, direction, game };
 	}
 
 	update() {
@@ -20,10 +23,69 @@ export class Projectile {
 		if (this.props.direction === "up") this.props.y -= this.props.speed;
 	}
 
-	draw(context: CanvasRenderingContext2D) {
+	draw() {
+		const { context } = this.props.game.props;
 		context.fillStyle = this.props.color;
 		context.fillRect(this.props.x, this.props.y, this.props.width, this.props.height);
 	}
 
 	destroy = () => {};
+}
+
+interface IProjectiles {
+	game: Game;
+}
+
+export class Projectiles {
+	props: IProjectiles;
+	defender: Projectile[];
+	invader: Projectile[];
+	defenderProjectilesToRemove: { index: number }[];
+	invaderProjectilesToRemove: { index: number }[];
+
+	constructor({ game }: IProjectiles) {
+		this.props = { game };
+		this.defender = [];
+		this.invader = [];
+		this.defenderProjectilesToRemove = [];
+		this.invaderProjectilesToRemove = [];
+	}
+
+	checkOutOfBounds = () => {
+		const { height } = this.props.game.props;
+		this.defenderProjectilesToRemove = [];
+		this.invaderProjectilesToRemove = [];
+
+		// Chech if playerProjectiles go off the screen
+		this.defender.forEach((projectile, i) => {
+			if (projectile.props.y < 0) {
+				// Remove playerProjectiles that go off the screen
+				this.defenderProjectilesToRemove.push({ index: i });
+			}
+		});
+
+		// Chech if invaderProjectiles go off the screen
+		this.invader.forEach((projectile, i) => {
+			if (projectile.props.y > height) {
+				// Remove invaderProjectiles that go off the screen
+				this.invaderProjectilesToRemove.push({ index: i });
+			}
+		});
+
+		// Remove the playerProjectiles and invaders that collided
+		if (this.invaderProjectilesToRemove.length > 0 || this.defenderProjectilesToRemove.length > 0) {
+			this.defenderProjectilesToRemove?.forEach((projectile) => this.defender.splice(projectile.index, 1));
+			this.invaderProjectilesToRemove.forEach((projectile) => this.invader.splice(projectile.index, 1));
+		}
+	};
+
+	update = () => {
+		this.defender.forEach((projectile) => projectile.update());
+		this.invader.forEach((projectile) => projectile.update());
+	};
+
+	draw = () => {
+		this.defender.forEach((projectile) => projectile.draw());
+		this.invader.forEach((projectile) => projectile.draw());
+	};
 }
