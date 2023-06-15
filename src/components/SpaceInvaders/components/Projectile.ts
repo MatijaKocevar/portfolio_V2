@@ -59,7 +59,6 @@ export class Projectiles {
 		// Chech if playerProjectiles go off the screen
 		this.defender.forEach((projectile, i) => {
 			if (projectile.props.y < 0) {
-				// Remove playerProjectiles that go off the screen
 				this.defenderProjectilesToRemove.push({ index: i });
 			}
 		});
@@ -67,7 +66,6 @@ export class Projectiles {
 		// Chech if invaderProjectiles go off the screen
 		this.invader.forEach((projectile, i) => {
 			if (projectile.props.y > height) {
-				// Remove invaderProjectiles that go off the screen
 				this.invaderProjectilesToRemove.push({ index: i });
 			}
 		});

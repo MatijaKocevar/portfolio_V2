@@ -22,13 +22,11 @@ export class ShieldBlock {
 	constructor({ x, y, game }: IShieldBlock) {
 		this.props = { x, y, game };
 		this.particles = this.getShape();
-
-		console;
 	}
 
 	getShape = () => {
 		const { x, y } = this.props;
-		const blockSize = 3; // Size of each smaller rectangle
+		const blockSize = 5; // Size of each smaller rectangle
 
 		const rectangles: IParticles[] = [];
 
@@ -105,11 +103,50 @@ export class ShieldBlock {
 		return rectangles;
 	};
 
-	handleCollision(projectiles: Projectiles) {
-		this.particles.forEach((particle) => {
-			particle.active = true;
-		});
-	}
+	handleCollision = (projectiles: Projectiles, index: number) => {
+		const playerProjectilesToRemove: { index: number }[] = [];
+		const invaderProjectilesToRemove: { index: number }[] = [];
+		const shieldBlocksToRemove: { index: number; shieldIndex: number }[] = [];
+
+		if (projectiles.defender.some((projectile) => projectile.props.y < 550) || projectiles.invader.some((projectile) => projectile.props.y > 400)) {
+			this.particles.forEach((particle, i) => {
+				projectiles.defender.forEach((projectile, j) => {
+					if (!particle.active) return;
+					const rect1 = { x: particle.x, y: particle.y, width: particle.width, height: particle.height };
+					const rect2 = { x: projectile.props.x, y: projectile.props.y, width: projectile.props.width, height: projectile.props.height };
+
+					// Check if the particle and projectile rectangles intersect
+					const noCollision = rect1.x > rect2.x + rect2.width || rect1.x + rect1.width < rect2.x || rect1.y > rect2.y + rect2.height || rect1.y + rect1.height < rect2.y;
+
+					if (!noCollision) {
+						playerProjectilesToRemove.push({ index: j });
+						shieldBlocksToRemove.push({ index: i, shieldIndex: index });
+					}
+				});
+				projectiles.invader.forEach((projectile, j) => {
+					if (!particle.active) return;
+					const rect1 = { x: particle.x, y: particle.y, width: particle.width, height: particle.height };
+					const rect2 = { x: projectile.props.x, y: projectile.props.y, width: projectile.props.width, height: projectile.props.height };
+
+					// Check if the particle and projectile rectangles intersect
+					const noCollision = rect1.x > rect2.x + rect2.width || rect1.x + rect1.width < rect2.x || rect1.y > rect2.y + rect2.height || rect1.y + rect1.height < rect2.y;
+
+					if (!noCollision) {
+						invaderProjectilesToRemove.push({ index: j });
+						shieldBlocksToRemove.push({ index: i, shieldIndex: index });
+					}
+				});
+			});
+		}
+
+		if (playerProjectilesToRemove.length > 0 || invaderProjectilesToRemove.length > 0 || shieldBlocksToRemove.length > 0) {
+			playerProjectilesToRemove?.forEach((projectile) => projectiles.defender.splice(projectile.index, 1));
+			invaderProjectilesToRemove.forEach((projectile) => projectiles.invader.splice(projectile.index, 1));
+			shieldBlocksToRemove?.forEach((block) => {
+				this.particles[block.index].active = false;
+			});
+		}
+	};
 
 	draw() {
 		const { context } = this.props.game.props;
@@ -154,8 +191,8 @@ export class Shields {
 	handleCollision() {
 		const projectiles = this.props.game.projectiles;
 
-		this.shieldArray.forEach((shield) => {
-			shield.handleCollision(projectiles);
+		this.shieldArray.forEach((shieldBlock, s) => {
+			shieldBlock.handleCollision(projectiles, s);
 		});
 	}
 
@@ -166,8 +203,6 @@ export class Shields {
 	}
 
 	destroy = () => {
-		this.shieldArray.forEach((shield) => {
-			shield.destroy();
-		});
+		this.shieldArray = [];
 	};
 }
