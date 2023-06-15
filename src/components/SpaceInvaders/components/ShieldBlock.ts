@@ -104,13 +104,18 @@ export class ShieldBlock {
 	};
 
 	handleCollision = (projectiles: Projectiles, index: number) => {
+		const { game } = this.props;
 		const playerProjectilesToRemove: { index: number }[] = [];
 		const invaderProjectilesToRemove: { index: number }[] = [];
 		const shieldBlocksToRemove: { index: number; shieldIndex: number }[] = [];
 
-		if (projectiles.defender.some((projectile) => projectile.props.y < 550) || projectiles.invader.some((projectile) => projectile.props.y > 400)) {
+		if (
+			projectiles.defender.some((projectile) => projectile.props.y < 550) ||
+			projectiles.invader.some((projectile) => projectile.props.y > 400) ||
+			game.invaders.alive.some((invader) => invader.props.y > 400)
+		) {
 			this.particles.forEach((particle, i) => {
-				projectiles.defender.forEach((projectile, j) => {
+				projectiles.defender.forEach((projectile, d) => {
 					if (!particle.active) return;
 					const rect1 = { x: particle.x, y: particle.y, width: particle.width, height: particle.height };
 					const rect2 = { x: projectile.props.x, y: projectile.props.y, width: projectile.props.width, height: projectile.props.height };
@@ -119,11 +124,11 @@ export class ShieldBlock {
 					const noCollision = rect1.x > rect2.x + rect2.width || rect1.x + rect1.width < rect2.x || rect1.y > rect2.y + rect2.height || rect1.y + rect1.height < rect2.y;
 
 					if (!noCollision) {
-						playerProjectilesToRemove.push({ index: j });
+						playerProjectilesToRemove.push({ index: d });
 						shieldBlocksToRemove.push({ index: i, shieldIndex: index });
 					}
 				});
-				projectiles.invader.forEach((projectile, j) => {
+				projectiles.invader.forEach((projectile, p) => {
 					if (!particle.active) return;
 					const rect1 = { x: particle.x, y: particle.y, width: particle.width, height: particle.height };
 					const rect2 = { x: projectile.props.x, y: projectile.props.y, width: projectile.props.width, height: projectile.props.height };
@@ -132,7 +137,19 @@ export class ShieldBlock {
 					const noCollision = rect1.x > rect2.x + rect2.width || rect1.x + rect1.width < rect2.x || rect1.y > rect2.y + rect2.height || rect1.y + rect1.height < rect2.y;
 
 					if (!noCollision) {
-						invaderProjectilesToRemove.push({ index: j });
+						invaderProjectilesToRemove.push({ index: p });
+						shieldBlocksToRemove.push({ index: i, shieldIndex: index });
+					}
+				});
+				game.invaders.alive.forEach((invader) => {
+					if (!particle.active) return;
+					const rect1 = { x: particle.x, y: particle.y, width: particle.width, height: particle.height };
+					const rect2 = { x: invader.props.x, y: invader.props.y, width: invader.props.width, height: invader.props.height };
+
+					// Check if the particle and invader rectangles intersect
+					const noCollision = rect1.x > rect2.x + rect2.width || rect1.x + rect1.width < rect2.x || rect1.y > rect2.y + rect2.height || rect1.y + rect1.height < rect2.y;
+
+					if (!noCollision) {
 						shieldBlocksToRemove.push({ index: i, shieldIndex: index });
 					}
 				});
