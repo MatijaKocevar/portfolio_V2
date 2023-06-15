@@ -1,5 +1,4 @@
 import { Game } from "./Game";
-import { InputHandler } from "./InputHandler";
 import { Projectile } from "./Projectile";
 import player from "../sprites/player.png";
 interface IDefender {
@@ -30,17 +29,18 @@ export class Defender {
 		this.image.src = player;
 	}
 
-	update = (input: InputHandler["keys"]) => {
+	update = () => {
+		const { inputHandler } = this.game;
 		//horizontal movement
 		this.x += this.speed;
-		if (input.includes("KeyD")) this.speed = this.maxSpeed;
-		else if (input.includes("KeyA")) this.speed = -this.maxSpeed;
+		if (inputHandler.keys.includes("KeyD")) this.speed = this.maxSpeed;
+		else if (inputHandler.keys.includes("KeyA")) this.speed = -this.maxSpeed;
 		else this.speed = 0;
 
 		//fire
-		if (input.includes("Enter")) {
+		if (inputHandler.keys.includes("Enter")) {
 			if (!this.reload) {
-				this.game.playerProjectiles.push(this.fire());
+				this.game.projectiles.defender.push(this.fire());
 				this.reload = true;
 				this.timeout = setTimeout(() => {
 					this.reload = false;
@@ -62,12 +62,34 @@ export class Defender {
 			y: this.y,
 			color: "#00d300",
 			direction: "up",
+			game: this.game,
 		});
 
 		return projectile;
 	};
 
-	draw(context: CanvasRenderingContext2D) {
+	draw() {
+		const { context } = this.game.props;
 		if (this.image) context.drawImage(this.image, this.x, this.y, this.width, this.height);
 	}
+
+	handleCollision = () => {
+		const { projectiles } = this.game;
+		if (projectiles.invader.some((projectile) => projectile.props.y > this.game.props.height - 500)) {
+			projectiles.invader.forEach((projectile) => {
+				const { x: pX, y: pY, width: pW, height: pH } = projectile.props;
+
+				const collided = pX < this.x + this.width && pX + pW > this.x && pY < this.y + this.height && pY + pH > this.y;
+
+				if (collided) {
+					this.game.props.setGameOverMessage("An invader shot you! You Lose!");
+					this.game.props.setGameOver(true);
+				}
+			});
+		}
+	};
+
+	destroy = () => {
+		clearTimeout(this.timeout);
+	};
 }
