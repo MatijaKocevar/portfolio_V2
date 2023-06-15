@@ -26,7 +26,7 @@ export class ShieldBlock {
 
 	getShape = () => {
 		const { x, y } = this.props;
-		const blockSize = 5; // Size of each smaller rectangle
+		const blockSize = 1; // Size of each smaller rectangle
 
 		const rectangles: IParticles[] = [];
 

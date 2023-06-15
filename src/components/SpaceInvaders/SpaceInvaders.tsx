@@ -106,13 +106,15 @@ const GameBoard = () => {
 		}
 	}, [gameOver]);
 
+	// const onConsoleLogShields = () => {
+	// 	console.log(gameRef.current?.shields);
+	// };
+
 	return (
 		<>
 			<canvas ref={canvasRef} width={600} height={600} onClick={handleReset} />
 			{isMobile && (
 				<div className='mobile-controls'>
-					{" "}
-					{/* Mobile controls */}
 					<button id='left' ref={leftRef} className='left'>
 						&larr;
 					</button>
@@ -122,6 +124,7 @@ const GameBoard = () => {
 					<button id='right' ref={rightRef} className='right'>
 						&rarr;
 					</button>
+					{/* <button onClick={onConsoleLogShields}>Console log shields</button> */}
 				</div>
 			)}
 		</>
