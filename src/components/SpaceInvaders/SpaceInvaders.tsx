@@ -13,11 +13,11 @@ const GameBoard = () => {
 	const leftRef = useRef<HTMLButtonElement>(null);
 	const fireRef = useRef<HTMLButtonElement>(null);
 	const rightRef = useRef<HTMLButtonElement>(null);
-	const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 992); // State for mobile device detection
+	const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768); // State for mobile device detection
 
 	// Callback function for handling window resize
 	const handleResize = useCallback(() => {
-		setIsMobile(window.innerWidth < 992);
+		setIsMobile(window.innerWidth < 768);
 	}, []);
 
 	useEffect(() => {
@@ -48,7 +48,7 @@ const GameBoard = () => {
 			const animate = () => {
 				if (!gameOver) {
 					gameRef.current?.update(gameFrame.current);
-					gameRef.current?.draw(context);
+					gameRef.current?.draw();
 					gameFrame.current++;
 					animationFrame = requestAnimationFrame(animate); // Continue the animation loop
 				} else {
