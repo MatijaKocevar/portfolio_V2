@@ -16,6 +16,7 @@ export class Defender {
 	timeout = 0;
 	reload = false;
 	image: HTMLImageElement;
+	lives = 3;
 
 	constructor({ game }: IDefender) {
 		this.game = game;
@@ -38,7 +39,7 @@ export class Defender {
 		else this.speed = 0;
 
 		//fire
-		if (inputHandler.keys.includes("Enter")) {
+		if (inputHandler.keys.includes("Enter") && this.game.projectiles.defender.length == 0) {
 			if (!this.reload) {
 				this.game.projectiles.defender.push(this.fire());
 				this.reload = true;

@@ -13,6 +13,7 @@ interface IInvader {
 	image: HTMLImageElement;
 	animationSpeed: number;
 	game: Game;
+	points: number;
 }
 
 export class Invader {
@@ -22,8 +23,8 @@ export class Invader {
 	frame = 0;
 	currentDirection: "left" | "right" = "right";
 
-	constructor({ x, y, width, height, speed, image, animationSpeed, game }: IInvader) {
-		this.props = { x, y, width, height, speed, image, animationSpeed, game };
+	constructor({ x, y, width, height, speed, image, animationSpeed, game, points }: IInvader) {
+		this.props = { x, y, width, height, speed, image, animationSpeed, game, points };
 		this.spriteWidth = 57;
 		this.spriteHeight = 38;
 	}
@@ -131,19 +132,49 @@ export class Invaders {
 
 			if (i < 11) {
 				// first row from top
-				const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: this.speed, image: this.invader1, animationSpeed: this.animationSpeed, game });
+				const invader = new Invader({
+					x: invaderX,
+					y: invaderY,
+					width: invaderWidth,
+					height: invaderHeight,
+					speed: this.speed,
+					image: this.invader1,
+					animationSpeed: this.animationSpeed,
+					game,
+					points: 30,
+				});
 				invaders.push(invader);
 			}
 
 			if (i < 33 && i >= 11) {
 				// second and thrird row from top
-				const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: this.speed, image: this.invader2_3, animationSpeed: this.animationSpeed, game });
+				const invader = new Invader({
+					x: invaderX,
+					y: invaderY,
+					width: invaderWidth,
+					height: invaderHeight,
+					speed: this.speed,
+					image: this.invader2_3,
+					animationSpeed: this.animationSpeed,
+					game,
+					points: 20,
+				});
 				invaders.push(invader);
 			}
 
 			if (i < 55 && i >= 33) {
 				// fourth and fifth row from top
-				const invader = new Invader({ x: invaderX, y: invaderY, width: invaderWidth, height: invaderHeight, speed: this.speed, image: this.invader3_4, animationSpeed: this.animationSpeed, game });
+				const invader = new Invader({
+					x: invaderX,
+					y: invaderY,
+					width: invaderWidth,
+					height: invaderHeight,
+					speed: this.speed,
+					image: this.invader3_4,
+					animationSpeed: this.animationSpeed,
+					game,
+					points: 10,
+				});
 				invaders.push(invader);
 			}
 		}
@@ -203,7 +234,7 @@ export class Invaders {
 		if (this.alive.length > 0 && gameFrame % this.animationSpeed === 0) {
 			const randomInvader = Math.floor(Math.random() * this.alive.length);
 
-			if (gameFrame % 50 === 0) {
+			if (gameFrame % 25 === 0 && game.projectiles.invader.length < 3) {
 				game.projectiles.invader.push(this.alive[randomInvader].fire());
 			}
 		}
@@ -234,6 +265,8 @@ export class Invaders {
 				) {
 					playerProjectilesToRemove.push({ index: p });
 					invadersToRemove.push({ index: i });
+
+					game.score += invader.props.points;
 				}
 			});
 		});

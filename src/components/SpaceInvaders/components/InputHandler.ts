@@ -1,10 +1,14 @@
+import { Game } from "./Game";
+
 export class InputHandler {
 	keys: string[]; // Array to store the currently pressed keys
 	mobileControls: React.RefObject<HTMLButtonElement>[]; // Refs to the mobile control buttons
+	game: Game;
 
-	constructor(mobileControls: React.RefObject<HTMLButtonElement>[]) {
+	constructor(mobileControls: React.RefObject<HTMLButtonElement>[], game: Game) {
 		this.keys = [];
 		this.mobileControls = mobileControls;
+		this.game = game;
 
 		// Add event listeners for touch events on mobile control buttons
 		this.mobileControls?.forEach((control) => {
