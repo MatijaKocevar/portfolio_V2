@@ -1,5 +1,6 @@
 import { Game } from "./Game";
-import { Projectiles } from "./Projectile";
+import { Invader } from "./Invader";
+import { Projectile, Projectiles } from "./Projectile";
 
 interface IShieldBlock {
 	x: number;
@@ -7,7 +8,7 @@ interface IShieldBlock {
 	game: Game;
 }
 
-interface IParticles {
+interface IParticle {
 	x: number;
 	y: number;
 	width: number;
@@ -17,7 +18,7 @@ interface IParticles {
 
 export class ShieldBlock {
 	props: IShieldBlock;
-	particles: IParticles[] = [];
+	particles: IParticle[] = [];
 
 	constructor({ x, y, game }: IShieldBlock) {
 		this.props = { x, y, game };
@@ -28,7 +29,7 @@ export class ShieldBlock {
 		const { x, y } = this.props;
 		const blockSize = 1; // Size of each smaller rectangle
 
-		const rectangles: IParticles[] = [];
+		const rectangles: IParticle[] = [];
 
 		// Define the corner points of the shape
 		const cornerPoints = [
@@ -103,6 +104,20 @@ export class ShieldBlock {
 		return rectangles;
 	};
 
+	isProjectileCollided = (particle: IParticle, projectile: Projectile) => {
+		const rect1 = { x: particle.x, y: particle.y, width: particle.width, height: particle.height };
+		const rect2 = { x: projectile.props.x, y: projectile.props.y, width: projectile.props.width, height: projectile.props.height };
+
+		return !(rect1.x > rect2.x + rect2.width || rect1.x + rect1.width < rect2.x || rect1.y > rect2.y + rect2.height || rect1.y + rect1.height < rect2.y);
+	};
+
+	isInvaderCollided = (particle: IParticle, invader: Invader) => {
+		const rect1 = { x: particle.x, y: particle.y, width: particle.width, height: particle.height };
+		const rect2 = { x: invader.props.x, y: invader.props.y, width: invader.props.width, height: invader.props.height };
+
+		return !(rect1.x > rect2.x + rect2.width || rect1.x + rect1.width < rect2.x || rect1.y > rect2.y + rect2.height || rect1.y + rect1.height < rect2.y);
+	};
+
 	handleCollision = (projectiles: Projectiles, index: number) => {
 		const { game } = this.props;
 		const playerProjectilesToRemove: { index: number }[] = [];
@@ -117,39 +132,24 @@ export class ShieldBlock {
 			this.particles.forEach((particle, i) => {
 				projectiles.defender.forEach((projectile, d) => {
 					if (!particle.active) return;
-					const rect1 = { x: particle.x, y: particle.y, width: particle.width, height: particle.height };
-					const rect2 = { x: projectile.props.x, y: projectile.props.y, width: projectile.props.width, height: projectile.props.height };
 
-					// Check if the particle and projectile rectangles intersect
-					const noCollision = rect1.x > rect2.x + rect2.width || rect1.x + rect1.width < rect2.x || rect1.y > rect2.y + rect2.height || rect1.y + rect1.height < rect2.y;
-
-					if (!noCollision) {
+					if (this.isProjectileCollided(particle, projectile)) {
 						playerProjectilesToRemove.push({ index: d });
 						shieldBlocksToRemove.push({ index: i, shieldIndex: index });
 					}
 				});
 				projectiles.invader.forEach((projectile, p) => {
 					if (!particle.active) return;
-					const rect1 = { x: particle.x, y: particle.y, width: particle.width, height: particle.height };
-					const rect2 = { x: projectile.props.x, y: projectile.props.y, width: projectile.props.width, height: projectile.props.height };
 
-					// Check if the particle and projectile rectangles intersect
-					const noCollision = rect1.x > rect2.x + rect2.width || rect1.x + rect1.width < rect2.x || rect1.y > rect2.y + rect2.height || rect1.y + rect1.height < rect2.y;
-
-					if (!noCollision) {
+					if (this.isProjectileCollided(particle, projectile)) {
 						invaderProjectilesToRemove.push({ index: p });
 						shieldBlocksToRemove.push({ index: i, shieldIndex: index });
 					}
 				});
 				game.invaders.alive.forEach((invader) => {
 					if (!particle.active) return;
-					const rect1 = { x: particle.x, y: particle.y, width: particle.width, height: particle.height };
-					const rect2 = { x: invader.props.x, y: invader.props.y, width: invader.props.width, height: invader.props.height };
 
-					// Check if the particle and invader rectangles intersect
-					const noCollision = rect1.x > rect2.x + rect2.width || rect1.x + rect1.width < rect2.x || rect1.y > rect2.y + rect2.height || rect1.y + rect1.height < rect2.y;
-
-					if (!noCollision) {
+					if (this.isInvaderCollided(particle, invader)) {
 						shieldBlocksToRemove.push({ index: i, shieldIndex: index });
 					}
 				});

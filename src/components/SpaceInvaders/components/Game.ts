@@ -68,9 +68,7 @@ export class Game {
 		context.fillText(this.defender.lives.toString(), width - 80, 20);
 
 		for (let i = 0; i < this.defender.lives - 1; i++) {
-			//write the drawImage finction with spacing berween the images
 			const offset = i * 10;
-
 			context.drawImage(this.defender.image, width - 65 + i * 20 + offset, 3, 20, 20);
 		}
 	};
@@ -86,6 +84,8 @@ export class Game {
 
 		this.drawHighscore();
 		this.drawLives();
+
+		console.log(this.shields.shieldArray[0]);
 	};
 
 	destroy = () => {
