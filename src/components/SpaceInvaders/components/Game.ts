@@ -25,6 +25,7 @@ export class Game {
 	constructor({ height, width, mobileControls, setGameOver, setGameOverMessage, context }: IGame) {
 		this.props = { height, width, mobileControls, setGameOver, setGameOverMessage, context };
 		this.inputHandler = new InputHandler(mobileControls, this);
+		this.inputHandler = new InputHandler(mobileControls, this);
 		this.shields = new Shields({ game: this });
 		this.invaders = new Invaders({ game: this });
 		this.defender = new Defender({ game: this });
