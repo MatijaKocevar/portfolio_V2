@@ -90,12 +90,12 @@ export const Translations = [
 	{
 		id: "Header_WIP_Upcoming",
 		en: `
-		<span>- Add highscore panel.</span>
+		<span>- Add highscore & lives panel.</span>
 		<span>- The crumble effect on shields needs to be refined.</span>
 		<span>- Sounds !</span>
 		`,
 		slo: `
-		<span>- Dodati panel za najboljše rezultate.</span>
+		<span>- Dodati panel za najboljše rezultate in življenja.</span>
 		<span>- Učinek razpadanja ščitov je potrebno izpopolniti.</span>
 		<span>- Zvoki !</span>
 		`,

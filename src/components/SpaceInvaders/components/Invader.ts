@@ -127,8 +127,8 @@ export class Invaders {
 		const invaders: Invader[] = [];
 
 		for (let i = 0; i < this.invadersCount; i++) {
-			const invaderX = (i % 11) * (invaderWidth + invaderPadding - 5) + invaderOffsetLeft + 20; // Calculate the X position of the invader
-			const invaderY = Math.floor(i / 11) * (invaderHeight + invaderPadding) + invaderOffsetTop; // Calculate the Y position of the invader
+			const invaderX = (i % 11) * (invaderWidth + invaderPadding - 5) + invaderOffsetLeft + 20;
+			const invaderY = Math.floor(i / 11) * (invaderHeight + invaderPadding) + invaderOffsetTop;
 
 			if (i < 11) {
 				// first row from top
@@ -215,7 +215,6 @@ export class Invaders {
 		}
 
 		if (speedChanged) {
-			// Update the animation speed and speed for each invader
 			this.alive.forEach((invader) => {
 				invader.props.speed = this.speed;
 				invader.props.animationSpeed = this.animationSpeed;
@@ -224,7 +223,6 @@ export class Invaders {
 		}
 
 		if (this.alive.length > 0 && gameFrame % this.animationSpeed === 0) {
-			// Update invaders' positions and animations
 			this.updateDirection();
 			this.alive.forEach((invader) => {
 				invader.updateInvader(this.currentDirection, gameFrame);
