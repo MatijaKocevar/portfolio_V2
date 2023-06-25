@@ -17,12 +17,13 @@ export class Defender {
 	reload = false;
 	image: HTMLImageElement;
 	lives = 3;
+	previousAnimationSpeed = 0;
 
 	constructor({ game }: IDefender) {
 		this.game = game;
 		this.width = 42;
 		this.height = 40;
-		this.x = this.game.props.width / 2 - this.width / 2;
+		this.x = 50;
 		this.y = this.game.props.height - (this.height + 10);
 		this.speed = 0;
 		this.maxSpeed = 5;
@@ -70,11 +71,9 @@ export class Defender {
 
 	draw() {
 		const { context } = this.game.props;
-		if (this.image) {
-			// context.fillStyle = "red";
-			// context.fillRect(this.x, this.y + 17, this.width, this.height - 23);
-			context.drawImage(this.image, this.x, this.y, this.width, this.height);
-		}
+		// context.fillStyle = "red";
+		// context.fillRect(this.x, this.y + 17, this.width, this.height - 23);
+		context.drawImage(this.image, this.x, this.y, this.width, this.height);
 	}
 
 	handleCollision = () => {
@@ -86,8 +85,17 @@ export class Defender {
 				const collided = pX < this.x + this.width && pX + pW > this.x && pY < this.y + 17 + (this.height - 23) && pY + pH > this.y + 17;
 
 				if (collided) {
-					this.game.props.setGameOverMessage("An invader shot you! You Lose!");
-					this.game.props.setGameOver(true);
+					if (this.lives > 0) {
+						this.lives--;
+						this.x = 50;
+						projectiles.invader.splice(projectiles.invader.indexOf(projectile), 1);
+
+						this.previousAnimationSpeed = this.game.invaders.animationSpeed;
+						this.game.invaders.animationSpeed = 0;
+					} else {
+						this.game.gameOverMessage = "An invader shot you! You Lose!";
+						this.game.setGameOver(true);
+					}
 				}
 			});
 		}

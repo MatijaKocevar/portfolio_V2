@@ -9,13 +9,12 @@ interface IGame {
 	width: number;
 	height: number;
 	mobileControls: React.RefObject<HTMLButtonElement>[];
-	setGameOver: React.Dispatch<React.SetStateAction<boolean>>;
-	setGameOverMessage: React.Dispatch<React.SetStateAction<string>>;
 	context: CanvasRenderingContext2D;
 }
 
 export class Game {
 	props: IGame;
+	gameFrame = 0;
 	inputHandler: InputHandler;
 	defender: Defender;
 	invaders: Invaders;
@@ -23,9 +22,11 @@ export class Game {
 	projectiles: Projectiles;
 	explosions: Explosions;
 	score = 0;
+	gameOverMessage = "";
+	gameOver = false;
 
-	constructor({ height, width, mobileControls, setGameOver, setGameOverMessage, context }: IGame) {
-		this.props = { height, width, mobileControls, setGameOver, setGameOverMessage, context };
+	constructor({ height, width, mobileControls, context }: IGame) {
+		this.props = { height, width, mobileControls, context };
 		this.inputHandler = new InputHandler(mobileControls, this);
 		this.inputHandler = new InputHandler(mobileControls, this);
 		this.shields = new Shields({ game: this });
@@ -35,8 +36,8 @@ export class Game {
 		this.explosions = new Explosions({ game: this });
 	}
 
-	update = (gameFrame: number) => {
-		this.invaders.updateInvaders(gameFrame);
+	update = () => {
+		this.invaders.updateInvaders(this.gameFrame);
 		this.defender.update();
 		this.projectiles.update();
 		this.handleCollision();
@@ -79,6 +80,7 @@ export class Game {
 
 	draw = () => {
 		const { context } = this.props;
+		this.gameFrame++;
 		context.clearRect(0, 0, this.props.width, this.props.height);
 
 		this.invaders.draw();
@@ -89,6 +91,34 @@ export class Game {
 
 		this.drawHighscore();
 		this.drawLives();
+	};
+
+	setGameOver = (gameOver: boolean) => {
+		this.gameOver = gameOver;
+	};
+
+	setGameOverMessage = (message: string) => {
+		this.gameOverMessage = message;
+	};
+
+	drawGameOver = () => {
+		this.props.context.fillStyle = "rgba(0, 0, 0, 0.7)";
+		this.props.context.fillRect(0, 0, this.props.width, this.props.height);
+
+		this.props.context.fillStyle = "white";
+		this.props.context.font = "48px Arial";
+		this.props.context.textAlign = "center";
+		this.props.context.fillText("GAME OVER", this.props.width / 2, this.props.height / 2);
+
+		this.props.context.fillStyle = this.gameOverMessage === "You win!" ? "green" : "red";
+		this.props.context.font = "24px Arial";
+		this.props.context.textAlign = "center";
+		this.props.context.fillText(this.gameOverMessage ?? "", this.props.width / 2, this.props.height / 2 + 50);
+
+		this.props.context.fillStyle = "white";
+		this.props.context.font = "18px Arial";
+		this.props.context.textAlign = "center";
+		this.props.context.fillText("Click anywhere to reset", this.props.width / 2, this.props.height / 2 + 100);
 	};
 
 	destroy = () => {
