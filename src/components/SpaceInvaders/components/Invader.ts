@@ -35,7 +35,9 @@ export class Invader {
 
 	moveDown = () => (this.props.y += this.props.height);
 
-	updateInvader = (direction: "left" | "right", gameFrame: number) => {
+	updateInvader = (direction: "left" | "right") => {
+		const { gameFrame } = this.props.game;
+
 		if (this.currentDirection != direction) {
 			// Change direction and move down when the invader reaches the edge of the canvas
 			this.moveDown();
@@ -189,48 +191,52 @@ export class Invaders {
 		const invadersArrayLength = this.alive.length;
 		let speedChanged = false;
 
-		// Adjust the animation speed and invader speed based on the number of remaining invaders
-		if (invadersArrayLength < 44 && this.animationSpeed != 30 && this.speed != 6) {
-			this.speed = 6;
-			this.animationSpeed = 30;
-			speedChanged = true;
-		}
-		if (invadersArrayLength < 33 && this.animationSpeed != 20 && this.speed != 7) {
-			this.speed = 7;
-			this.animationSpeed = 20;
-			speedChanged = true;
-		}
-		if (invadersArrayLength < 22 && this.animationSpeed != 10 && this.speed != 8) {
-			this.speed = 8;
-			this.animationSpeed = 10;
-			speedChanged = true;
-		}
-		if (invadersArrayLength < 11 && this.animationSpeed != 5 && this.speed != 10) {
-			this.speed = 10;
-			this.animationSpeed = 5;
-			speedChanged = true;
-		}
-		if (invadersArrayLength === 1 && this.animationSpeed != 1 && this.speed != 11) {
-			this.speed = 11;
-			this.animationSpeed = 1;
-			speedChanged = true;
+		if (this.animationSpeed > 0) {
+			// Adjust the animation speed and invader speed based on the number of remaining invaders
+			if (invadersArrayLength < 44 && this.animationSpeed != 30 && this.speed != 6) {
+				this.speed = 6;
+				this.animationSpeed = 30;
+				speedChanged = true;
+			}
+			if (invadersArrayLength < 33 && this.animationSpeed != 20 && this.speed != 7) {
+				this.speed = 7;
+				this.animationSpeed = 20;
+				speedChanged = true;
+			}
+			if (invadersArrayLength < 22 && this.animationSpeed != 10 && this.speed != 8) {
+				this.speed = 8;
+				this.animationSpeed = 10;
+				speedChanged = true;
+			}
+			if (invadersArrayLength < 11 && this.animationSpeed != 5 && this.speed != 10) {
+				this.speed = 10;
+				this.animationSpeed = 5;
+				speedChanged = true;
+			}
+			if (invadersArrayLength === 1 && this.animationSpeed != 1 && this.speed != 11) {
+				this.speed = 11;
+				this.animationSpeed = 1;
+				speedChanged = true;
+			}
+
+			if (speedChanged) {
+				this.alive.forEach((invader) => {
+					invader.props.speed = this.speed;
+					invader.props.animationSpeed = this.animationSpeed;
+				});
+				speedChanged = false;
+			}
 		}
 
-		if (speedChanged) {
-			this.alive.forEach((invader) => {
-				invader.props.speed = this.speed;
-				invader.props.animationSpeed = this.animationSpeed;
-			});
-			speedChanged = false;
-		}
-
+		// Update the invader direction and position
 		if (this.alive.length > 0 && gameFrame % this.animationSpeed === 0) {
 			this.updateDirection();
 			this.alive.forEach((invader) => {
-				invader.updateInvader(this.currentDirection, gameFrame);
+				invader.updateInvader(this.currentDirection);
 			});
 		}
 
+		// Fire a projectile if the invader is alive and the game frame is a multiple of the animation speed
 		if (this.alive.length > 0 && gameFrame % this.animationSpeed === 0) {
 			const randomInvader = Math.floor(Math.random() * this.alive.length);
 
@@ -240,13 +246,13 @@ export class Invaders {
 		}
 
 		if (this.alive.some((invader) => invader.props.y > 550)) {
-			game.props.setGameOverMessage("Invaders have reached the ground! You lose!");
-			game.props.setGameOver(true);
+			game.setGameOverMessage("Invaders have reached the ground! You lose!");
+			game.setGameOver(true);
 		}
 
 		if (this.alive.length === 0) {
-			game.props.setGameOverMessage("You win!");
-			game.props.setGameOver(true);
+			game.setGameOverMessage("You win!");
+			game.setGameOver(true);
 		}
 	};
 

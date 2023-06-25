@@ -91,13 +91,11 @@ export const Translations = [
 		id: "Header_WIP_Upcoming",
 		en: `
 		<span>- Sounds</span>
-		<span>- Lives</span>
 		<span>- Random UFO</span>
 		<span>- Different projectile types for invaders</span>
 		`,
 		slo: `
 		<span>- Zvoki</span>
-		<span>- Življenja</span>
 		<span>- Naključni UFO</span>
 		<span>- Različni tipi projektilov za invader-je</span>
 		`,
@@ -105,6 +103,8 @@ export const Translations = [
 	{
 		id: "Header_WIP_Changelog",
 		en: `
+		<span>- Added explosions for player.</span>
+		<span>- Lives added.</span>
 		<span>- Score board added.</span>
 		<span>- Explosions added for Invaders.</span>
 		<span>- Shield crumble more realistic.</span>
@@ -128,6 +128,8 @@ export const Translations = [
 		<span>- Drawn a box with Canvas API.</span>
 		`,
 		slo: `
+		<span>- Dodane eksplozije za igralca.</span>
+		<span>- Dodana življenja.</span>
 		<span>- Dodana tabela rezultatov.</span>
 		<span>- Dodane eksplozije za Invader-je.</span>
 		<span>- Ščitni bloki se razletijo bolj realistično.</span>

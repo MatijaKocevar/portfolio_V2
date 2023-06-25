@@ -3,21 +3,26 @@ import { Game } from "./components/Game";
 import "./SpaceInvaders.scss";
 
 export type IDirection = "left" | "right";
+let animationFrame: number;
 
 const GameBoard = () => {
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 	const gameRef = useRef<Game | null>(null);
-	const gameFrame = useRef(0);
-	const [gameOver, setGameOver] = useState(false);
-	const [gameOverMessage, setGameOverMessage] = useState("");
 	const leftRef = useRef<HTMLButtonElement>(null);
 	const fireRef = useRef<HTMLButtonElement>(null);
 	const rightRef = useRef<HTMLButtonElement>(null);
-	const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768); // State for mobile device detection
+	const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
 
-	// Callback function for handling window resize
 	const handleResize = useCallback(() => {
 		setIsMobile(window.innerWidth < 768);
+	}, []);
+
+	const animate = useCallback(() => {
+		gameRef.current?.update();
+		gameRef.current?.draw();
+
+		if (!gameRef.current?.gameOver) animationFrame = requestAnimationFrame(animate);
+		else gameRef.current?.drawGameOver();
 	}, []);
 
 	useEffect(() => {
@@ -30,50 +35,16 @@ const GameBoard = () => {
 	useEffect(() => {
 		const canvas = canvasRef.current;
 		const context = canvas?.getContext("2d");
-		let animationFrame: number;
 
 		if (canvas && context) {
-			// Create a new instance of the Game class with necessary parameters
-			gameFrame.current = 0;
 			gameRef.current = new Game({
 				height: canvas.height,
 				width: canvas.width,
 				mobileControls: [leftRef, fireRef, rightRef],
-				setGameOver,
-				setGameOverMessage,
 				context,
 			});
 
-			// Function to animate the game
-			const animate = () => {
-				if (!gameOver) {
-					gameRef.current?.update(gameFrame.current);
-					gameRef.current?.draw();
-					gameFrame.current++;
-					animationFrame = requestAnimationFrame(animate); // Continue the animation loop
-				} else {
-					// Display game over text on the canvas
-					context.fillStyle = "rgba(0, 0, 0, 0.7)";
-					context.fillRect(0, 0, canvas.width, canvas.height);
-
-					context.fillStyle = "white";
-					context.font = "48px Arial";
-					context.textAlign = "center";
-					context.fillText("GAME OVER", canvas.width / 2, canvas.height / 2);
-
-					context.fillStyle = gameOverMessage === "You win!" ? "green" : "red";
-					context.font = "24px Arial";
-					context.textAlign = "center";
-					context.fillText(gameOverMessage ?? "", canvas.width / 2, canvas.height / 2 + 50);
-
-					context.fillStyle = "white";
-					context.font = "18px Arial";
-					context.textAlign = "center";
-					context.fillText("Click anywhere to reset", canvas.width / 2, canvas.height / 2 + 100);
-				}
-			};
-
-			animate(); // Start the animation loop
+			animate();
 		}
 
 		return () => {
@@ -83,28 +54,26 @@ const GameBoard = () => {
 				cancelAnimationFrame(animationFrame);
 			}
 		};
-	}, [gameOver, gameOverMessage]);
+	}, [animate]);
 
-	// Callback function for handling game reset
 	const handleReset = useCallback(() => {
-		if (gameOver) {
-			setGameOver(false);
+		if (gameRef.current?.gameOver) {
+			gameRef.current?.setGameOver(false);
 			const canvas = canvasRef.current;
 			const context = canvas?.getContext("2d");
 
 			if (canvas && context) {
-				gameFrame.current = 0;
 				gameRef.current = new Game({
 					height: canvas.height,
 					width: canvas.width,
 					mobileControls: [leftRef, fireRef, rightRef],
-					setGameOver,
-					setGameOverMessage,
 					context,
 				});
 			}
+
+			animate();
 		}
-	}, [gameOver]);
+	}, [animate]);
 
 	// const onConsoleLogShields = () => {
 	// 	console.log(gameRef.current?.shields);

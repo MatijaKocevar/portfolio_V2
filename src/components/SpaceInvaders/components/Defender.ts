@@ -1,6 +1,7 @@
 import { Game } from "./Game";
 import { Projectile } from "./Projectile";
 import player from "../sprites/player.png";
+import explosion from "../sprites/defenderExplosion.png";
 interface IDefender {
 	game: Game;
 }
@@ -16,42 +17,65 @@ export class Defender {
 	timeout = 0;
 	reload = false;
 	image: HTMLImageElement;
+	explosionImage: HTMLImageElement;
 	lives = 3;
+	previousAnimationSpeed = 0;
+	isCollided = false;
+	collisionPause = 0;
+	frame = 0;
+	spriteWidth: number;
+	spriteHeight: number;
 
 	constructor({ game }: IDefender) {
 		this.game = game;
 		this.width = 42;
 		this.height = 40;
-		this.x = this.game.props.width / 2 - this.width / 2;
+		this.x = 50;
 		this.y = this.game.props.height - (this.height + 10);
 		this.speed = 0;
 		this.maxSpeed = 5;
 		this.image = new Image();
 		this.image.src = player;
+		this.explosionImage = new Image();
+		this.explosionImage.src = explosion;
+		this.spriteWidth = 75;
+		this.spriteHeight = 44;
 	}
 
 	update = () => {
 		const { inputHandler } = this.game;
-		//horizontal movement
-		this.x += this.speed;
-		if (inputHandler.keys.includes("KeyD")) this.speed = this.maxSpeed;
-		else if (inputHandler.keys.includes("KeyA")) this.speed = -this.maxSpeed;
-		else this.speed = 0;
 
-		//fire
-		if (inputHandler.keys.includes("Enter") && this.game.projectiles.defender.length == 0) {
-			if (!this.reload) {
-				this.game.projectiles.defender.push(this.fire());
-				this.reload = true;
-				this.timeout = setTimeout(() => {
-					this.reload = false;
-				}, 200);
-			}
+		if (this.lives === 0) {
+			this.game.gameOverMessage = "An invader shot you! You Lose!";
+			this.game.setGameOver(true);
+			return;
 		}
 
-		//dont allow defender to go off screen
-		if (this.x < 0) this.x = 0;
-		if (this.x > this.game.props.width - this.width) this.x = this.game.props.width - this.width;
+		if (this.game.gameFrame % 10 === 0) {
+			this.frame > 0 ? (this.frame = 0) : this.frame++;
+		}
+
+		if (!this.isCollided) {
+			//horizontal movement
+			this.x += this.speed;
+			if (inputHandler.keys.includes("KeyD")) this.speed = this.maxSpeed;
+			else if (inputHandler.keys.includes("KeyA")) this.speed = -this.maxSpeed;
+			else this.speed = 0;
+
+			if (inputHandler.keys.includes("Enter") && this.game.projectiles.defender.length == 0) {
+				if (!this.reload) {
+					this.game.projectiles.defender.push(this.fire());
+					this.reload = true;
+					this.timeout = setTimeout(() => {
+						this.reload = false;
+					}, 200);
+				}
+			}
+
+			//dont allow defender to go off screen
+			if (this.x < 0) this.x = 0;
+			if (this.x > this.game.props.width - this.width) this.x = this.game.props.width - this.width;
+		}
 	};
 
 	fire = () => {
@@ -71,9 +95,18 @@ export class Defender {
 
 	draw() {
 		const { context } = this.game.props;
-		if (this.image) {
-			// context.fillStyle = "red";
-			// context.fillRect(this.x, this.y + 17, this.width, this.height - 23);
+
+		if (this.collisionPause > 80) {
+			this.isCollided = false;
+			this.x = 50;
+			this.game.invaders.animationSpeed = this.previousAnimationSpeed;
+			this.collisionPause = 0;
+		}
+
+		if (this.isCollided) {
+			this.collisionPause++;
+			context.drawImage(this.explosionImage, this.frame * this.spriteWidth, 0, this.spriteWidth, this.spriteHeight, this.x, this.y - 3, this.width + 2, this.height);
+		} else {
 			context.drawImage(this.image, this.x, this.y, this.width, this.height);
 		}
 	}
@@ -87,8 +120,14 @@ export class Defender {
 				const collided = pX < this.x + this.width && pX + pW > this.x && pY < this.y + 17 + (this.height - 23) && pY + pH > this.y + 17;
 
 				if (collided) {
-					this.game.props.setGameOverMessage("An invader shot you! You Lose!");
-					this.game.props.setGameOver(true);
+					if (this.lives > 0) {
+						this.isCollided = true;
+						this.lives--;
+						projectiles.invader.splice(projectiles.invader.indexOf(projectile), 1);
+
+						this.previousAnimationSpeed = this.game.invaders.animationSpeed;
+						this.game.invaders.animationSpeed = 0;
+					}
 				}
 			});
 		}
