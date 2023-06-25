@@ -57,7 +57,7 @@ export class Defender {
 	fire = () => {
 		const projectile = new Projectile({
 			height: 10,
-			width: 3,
+			width: 2,
 			speed: 10,
 			x: this.x + this.width / 2 - 2,
 			y: this.y,
@@ -71,7 +71,11 @@ export class Defender {
 
 	draw() {
 		const { context } = this.game.props;
-		if (this.image) context.drawImage(this.image, this.x, this.y, this.width, this.height);
+		if (this.image) {
+			// context.fillStyle = "red";
+			// context.fillRect(this.x, this.y + 17, this.width, this.height - 23);
+			context.drawImage(this.image, this.x, this.y, this.width, this.height);
+		}
 	}
 
 	handleCollision = () => {
@@ -80,7 +84,7 @@ export class Defender {
 			projectiles.invader.forEach((projectile) => {
 				const { x: pX, y: pY, width: pW, height: pH } = projectile.props;
 
-				const collided = pX < this.x + this.width && pX + pW > this.x && pY < this.y + this.height && pY + pH > this.y;
+				const collided = pX < this.x + this.width && pX + pW > this.x && pY < this.y + 17 + (this.height - 23) && pY + pH > this.y + 17;
 
 				if (collided) {
 					this.game.props.setGameOverMessage("An invader shot you! You Lose!");
