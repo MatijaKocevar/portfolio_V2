@@ -3,6 +3,7 @@ import { Game } from "./components/Game";
 import "./SpaceInvaders.scss";
 
 export type IDirection = "left" | "right";
+let animationFrame: number;
 
 const GameBoard = () => {
 	const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -16,6 +17,14 @@ const GameBoard = () => {
 		setIsMobile(window.innerWidth < 768);
 	}, []);
 
+	const animate = useCallback(() => {
+		gameRef.current?.update();
+		gameRef.current?.draw();
+
+		if (!gameRef.current?.gameOver) animationFrame = requestAnimationFrame(animate);
+		else gameRef.current?.drawGameOver();
+	}, []);
+
 	useEffect(() => {
 		window.addEventListener("resize", handleResize);
 		return () => {
@@ -26,7 +35,6 @@ const GameBoard = () => {
 	useEffect(() => {
 		const canvas = canvasRef.current;
 		const context = canvas?.getContext("2d");
-		let animationFrame: number;
 
 		if (canvas && context) {
 			gameRef.current = new Game({
@@ -35,14 +43,6 @@ const GameBoard = () => {
 				mobileControls: [leftRef, fireRef, rightRef],
 				context,
 			});
-
-			const animate = () => {
-				gameRef.current?.update();
-				gameRef.current?.draw();
-
-				if (!gameRef.current?.gameOver) animationFrame = requestAnimationFrame(animate);
-				else gameRef.current?.drawGameOver();
-			};
 
 			animate();
 		}
@@ -54,7 +54,7 @@ const GameBoard = () => {
 				cancelAnimationFrame(animationFrame);
 			}
 		};
-	}, []);
+	}, [animate]);
 
 	const handleReset = useCallback(() => {
 		if (gameRef.current?.gameOver) {
@@ -70,8 +70,10 @@ const GameBoard = () => {
 					context,
 				});
 			}
+
+			animate();
 		}
-	}, []);
+	}, [animate]);
 
 	// const onConsoleLogShields = () => {
 	// 	console.log(gameRef.current?.shields);

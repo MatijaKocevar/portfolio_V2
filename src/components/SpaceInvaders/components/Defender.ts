@@ -18,6 +18,8 @@ export class Defender {
 	image: HTMLImageElement;
 	lives = 3;
 	previousAnimationSpeed = 0;
+	isCollided = false;
+	collisionPause = 0;
 
 	constructor({ game }: IDefender) {
 		this.game = game;
@@ -33,25 +35,27 @@ export class Defender {
 
 	update = () => {
 		const { inputHandler } = this.game;
-		//horizontal movement
-		this.x += this.speed;
-		if (inputHandler.keys.includes("KeyD")) this.speed = this.maxSpeed;
-		else if (inputHandler.keys.includes("KeyA")) this.speed = -this.maxSpeed;
-		else this.speed = 0;
+		if (!this.isCollided) {
+			//horizontal movement
+			this.x += this.speed;
+			if (inputHandler.keys.includes("KeyD")) this.speed = this.maxSpeed;
+			else if (inputHandler.keys.includes("KeyA")) this.speed = -this.maxSpeed;
+			else this.speed = 0;
 
-		if (inputHandler.keys.includes("Enter") && this.game.projectiles.defender.length == 0) {
-			if (!this.reload) {
-				this.game.projectiles.defender.push(this.fire());
-				this.reload = true;
-				this.timeout = setTimeout(() => {
-					this.reload = false;
-				}, 200);
+			if (inputHandler.keys.includes("Enter") && this.game.projectiles.defender.length == 0) {
+				if (!this.reload) {
+					this.game.projectiles.defender.push(this.fire());
+					this.reload = true;
+					this.timeout = setTimeout(() => {
+						this.reload = false;
+					}, 200);
+				}
 			}
-		}
 
-		//dont allow defender to go off screen
-		if (this.x < 0) this.x = 0;
-		if (this.x > this.game.props.width - this.width) this.x = this.game.props.width - this.width;
+			//dont allow defender to go off screen
+			if (this.x < 0) this.x = 0;
+			if (this.x > this.game.props.width - this.width) this.x = this.game.props.width - this.width;
+		}
 	};
 
 	fire = () => {
@@ -71,6 +75,16 @@ export class Defender {
 
 	draw() {
 		const { context } = this.game.props;
+
+		if (this.isCollided) this.collisionPause++;
+
+		if (this.collisionPause > 80) {
+			this.isCollided = false;
+			this.x = 50;
+			this.game.invaders.animationSpeed = this.previousAnimationSpeed;
+			this.collisionPause = 0;
+		}
+
 		// context.fillStyle = "red";
 		// context.fillRect(this.x, this.y + 17, this.width, this.height - 23);
 		context.drawImage(this.image, this.x, this.y, this.width, this.height);
@@ -86,8 +100,8 @@ export class Defender {
 
 				if (collided) {
 					if (this.lives > 0) {
+						this.isCollided = true;
 						this.lives--;
-						this.x = 50;
 						projectiles.invader.splice(projectiles.invader.indexOf(projectile), 1);
 
 						this.previousAnimationSpeed = this.game.invaders.animationSpeed;
