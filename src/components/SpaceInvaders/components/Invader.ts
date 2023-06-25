@@ -35,7 +35,9 @@ export class Invader {
 
 	moveDown = () => (this.props.y += this.props.height);
 
-	updateInvader = (direction: "left" | "right", gameFrame: number) => {
+	updateInvader = (direction: "left" | "right") => {
+		const { gameFrame } = this.props.game;
+
 		if (this.currentDirection != direction) {
 			// Change direction and move down when the invader reaches the edge of the canvas
 			this.moveDown();
@@ -230,7 +232,7 @@ export class Invaders {
 		if (this.alive.length > 0 && gameFrame % this.animationSpeed === 0) {
 			this.updateDirection();
 			this.alive.forEach((invader) => {
-				invader.updateInvader(this.currentDirection, gameFrame);
+				invader.updateInvader(this.currentDirection);
 			});
 		}
 

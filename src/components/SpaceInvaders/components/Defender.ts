@@ -1,6 +1,7 @@
 import { Game } from "./Game";
 import { Projectile } from "./Projectile";
 import player from "../sprites/player.png";
+import explosion from "../sprites/defenderExplosion.png";
 interface IDefender {
 	game: Game;
 }
@@ -16,10 +17,14 @@ export class Defender {
 	timeout = 0;
 	reload = false;
 	image: HTMLImageElement;
+	explosionImage: HTMLImageElement;
 	lives = 3;
 	previousAnimationSpeed = 0;
 	isCollided = false;
 	collisionPause = 0;
+	frame = 0;
+	spriteWidth: number;
+	spriteHeight: number;
 
 	constructor({ game }: IDefender) {
 		this.game = game;
@@ -31,10 +36,25 @@ export class Defender {
 		this.maxSpeed = 5;
 		this.image = new Image();
 		this.image.src = player;
+		this.explosionImage = new Image();
+		this.explosionImage.src = explosion;
+		this.spriteWidth = 75;
+		this.spriteHeight = 44;
 	}
 
 	update = () => {
 		const { inputHandler } = this.game;
+
+		if (this.lives === 0) {
+			this.game.gameOverMessage = "An invader shot you! You Lose!";
+			this.game.setGameOver(true);
+			return;
+		}
+
+		if (this.game.gameFrame % 10 === 0) {
+			this.frame > 0 ? (this.frame = 0) : this.frame++;
+		}
+
 		if (!this.isCollided) {
 			//horizontal movement
 			this.x += this.speed;
@@ -76,8 +96,6 @@ export class Defender {
 	draw() {
 		const { context } = this.game.props;
 
-		if (this.isCollided) this.collisionPause++;
-
 		if (this.collisionPause > 80) {
 			this.isCollided = false;
 			this.x = 50;
@@ -85,9 +103,12 @@ export class Defender {
 			this.collisionPause = 0;
 		}
 
-		// context.fillStyle = "red";
-		// context.fillRect(this.x, this.y + 17, this.width, this.height - 23);
-		context.drawImage(this.image, this.x, this.y, this.width, this.height);
+		if (this.isCollided) {
+			this.collisionPause++;
+			context.drawImage(this.explosionImage, this.frame * this.spriteWidth, 0, this.spriteWidth, this.spriteHeight, this.x, this.y - 3, this.width + 2, this.height);
+		} else {
+			context.drawImage(this.image, this.x, this.y, this.width, this.height);
+		}
 	}
 
 	handleCollision = () => {
@@ -106,9 +127,6 @@ export class Defender {
 
 						this.previousAnimationSpeed = this.game.invaders.animationSpeed;
 						this.game.invaders.animationSpeed = 0;
-					} else {
-						this.game.gameOverMessage = "An invader shot you! You Lose!";
-						this.game.setGameOver(true);
 					}
 				}
 			});
