@@ -118,11 +118,67 @@ export class ShieldBlock {
 		return !(rect1.x > rect2.x + rect2.width || rect1.x + rect1.width < rect2.x || rect1.y > rect2.y + rect2.height || rect1.y + rect1.height < rect2.y);
 	};
 
+	// handleCollision = (projectiles: Projectiles, index: number) => {
+	// 	const { game } = this.props;
+	// 	const playerProjectilesToRemove: { index: number }[] = [];
+	// 	const invaderProjectilesToRemove: { index: number }[] = [];
+	// 	const shieldBlocksToRemove: { index: number; shieldIndex: number }[] = [];
+	// 	const particlesToRemove: number[] = [];
+
+	// 	if (
+	// 		projectiles.defender.some((projectile) => projectile.props.y < 550) ||
+	// 		projectiles.invader.some((projectile) => projectile.props.y > 400) ||
+	// 		game.invaders.alive.some((invader) => invader.props.y > 400)
+	// 	) {
+	// 		this.particles.forEach((particle, i) => {
+	// 			projectiles.defender.forEach((projectile, d) => {
+	// 				if (!particle.active) return;
+
+	// 				if (this.isProjectileCollided(particle, projectile)) {
+	// 					playerProjectilesToRemove.push({ index: d });
+	// 					shieldBlocksToRemove.push({ index: i, shieldIndex: index });
+	// 					particlesToRemove.push(i);
+	// 				}
+	// 			});
+
+	// 			projectiles.invader.forEach((projectile, p) => {
+	// 				if (!particle.active) return;
+
+	// 				if (this.isProjectileCollided(particle, projectile)) {
+	// 					invaderProjectilesToRemove.push({ index: p });
+	// 					shieldBlocksToRemove.push({ index: i, shieldIndex: index });
+	// 					particlesToRemove.push(i);
+	// 				}
+	// 			});
+
+	// 			game.invaders.alive.forEach((invader) => {
+	// 				if (!particle.active) return;
+
+	// 				if (this.isInvaderCollided(particle, invader)) {
+	// 					shieldBlocksToRemove.push({ index: i, shieldIndex: index });
+	// 					particlesToRemove.push(i);
+	// 				}
+	// 			});
+	// 		});
+	// 	}
+
+	// 	if (playerProjectilesToRemove.length > 0 || invaderProjectilesToRemove.length > 0 || shieldBlocksToRemove.length > 0 || particlesToRemove.length > 0) {
+	// 		playerProjectilesToRemove?.forEach((projectile) => projectiles.defender.splice(projectile.index, 1));
+	// 		invaderProjectilesToRemove.forEach((projectile) => projectiles.invader.splice(projectile.index, 1));
+	// 		shieldBlocksToRemove?.forEach((block) => {
+	// 			this.particles[block.index].active = false;
+	// 		});
+	// 	}
+	// };
+
 	handleCollision = (projectiles: Projectiles, index: number) => {
 		const { game } = this.props;
 		const playerProjectilesToRemove: { index: number }[] = [];
 		const invaderProjectilesToRemove: { index: number }[] = [];
 		const shieldBlocksToRemove: { index: number; shieldIndex: number }[] = [];
+		const particlesToRemove: number[] = [];
+		const explosionRadius = 2;
+		const explosionChance = 0.5;
 
 		if (
 			projectiles.defender.some((projectile) => projectile.props.y < 550) ||
@@ -136,27 +192,65 @@ export class ShieldBlock {
 					if (this.isProjectileCollided(particle, projectile)) {
 						playerProjectilesToRemove.push({ index: d });
 						shieldBlocksToRemove.push({ index: i, shieldIndex: index });
+						particlesToRemove.push(i);
+
+						// Remove particles in a 3px radius around the hit particle
+						this.particles.forEach((nearbyParticle, j) => {
+							if (Math.hypot(particle.x - nearbyParticle.x, particle.y - nearbyParticle.y) <= explosionRadius) {
+								// 50% chance to destroy the particle
+								if (Math.random() < explosionChance) {
+									shieldBlocksToRemove.push({ index: j, shieldIndex: index });
+									particlesToRemove.push(j);
+								}
+							}
+						});
 					}
 				});
+
 				projectiles.invader.forEach((projectile, p) => {
 					if (!particle.active) return;
 
 					if (this.isProjectileCollided(particle, projectile)) {
 						invaderProjectilesToRemove.push({ index: p });
 						shieldBlocksToRemove.push({ index: i, shieldIndex: index });
+						particlesToRemove.push(i);
+
+						// Remove particles in a 3px radius around the hit particle
+						this.particles.forEach((nearbyParticle, j) => {
+							if (Math.hypot(particle.x - nearbyParticle.x, particle.y - nearbyParticle.y) <= explosionRadius) {
+								// 50% chance to destroy the particle
+								if (Math.random() < explosionChance) {
+									shieldBlocksToRemove.push({ index: j, shieldIndex: index });
+									particlesToRemove.push(j);
+								}
+							}
+						});
 					}
 				});
+
 				game.invaders.alive.forEach((invader) => {
 					if (!particle.active) return;
 
 					if (this.isInvaderCollided(particle, invader)) {
 						shieldBlocksToRemove.push({ index: i, shieldIndex: index });
+						particlesToRemove.push(i);
+
+						// Remove particles in a 3px radius around the hit particle
+						this.particles.forEach((nearbyParticle, j) => {
+							if (Math.hypot(particle.x - nearbyParticle.x, particle.y - nearbyParticle.y) <= explosionRadius) {
+								// 50% chance to destroy the particle
+								if (Math.random() < explosionChance) {
+									shieldBlocksToRemove.push({ index: j, shieldIndex: index });
+									particlesToRemove.push(j);
+								}
+							}
+						});
 					}
 				});
 			});
 		}
 
-		if (playerProjectilesToRemove.length > 0 || invaderProjectilesToRemove.length > 0 || shieldBlocksToRemove.length > 0) {
+		if (playerProjectilesToRemove.length > 0 || invaderProjectilesToRemove.length > 0 || shieldBlocksToRemove.length > 0 || particlesToRemove.length > 0) {
 			playerProjectilesToRemove?.forEach((projectile) => projectiles.defender.splice(projectile.index, 1));
 			invaderProjectilesToRemove.forEach((projectile) => projectiles.invader.splice(projectile.index, 1));
 			shieldBlocksToRemove?.forEach((block) => {
