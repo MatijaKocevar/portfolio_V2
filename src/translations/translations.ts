@@ -90,19 +90,24 @@ export const Translations = [
 	{
 		id: "Header_WIP_Upcoming",
 		en: `
-		<span>- Add highscore & lives panel.</span>
-		<span>- The crumble effect on shields needs to be refined.</span>
-		<span>- Sounds !</span>
+		<span>- Sounds</span>
+		<span>- Lives</span>
+		<span>- Random UFO</span>
+		<span>- Different projectile types for invaders</span>
 		`,
 		slo: `
-		<span>- Dodati panel za najboljše rezultate in življenja.</span>
-		<span>- Učinek razpadanja ščitov je potrebno izpopolniti.</span>
-		<span>- Zvoki !</span>
+		<span>- Zvoki</span>
+		<span>- Življenja</span>
+		<span>- Naključni UFO</span>
+		<span>- Različni tipi projektilov za invader-je</span>
 		`,
 	},
 	{
 		id: "Header_WIP_Changelog",
 		en: `
+		<span>- Score board added.</span>
+		<span>- Explosions added for Invaders.</span>
+		<span>- Shield crumble more realistic.</span>
 		<span>- Sheild block crumble.</span>
 		<span>- Added sheild blocks.</span>
 		<span>- Click to reset.</span>
@@ -123,6 +128,9 @@ export const Translations = [
 		<span>- Drawn a box with Canvas API.</span>
 		`,
 		slo: `
+		<span>- Dodana tabela rezultatov.</span>
+		<span>- Dodane eksplozije za Invader-je.</span>
+		<span>- Ščitni bloki se razletijo bolj realistično.</span>
 		<span>- Ščitni bloki se razletijo.</span>
 		<span>- Klik za reset.</span>
 		<span>- Dodan napis za konec igre.</span>

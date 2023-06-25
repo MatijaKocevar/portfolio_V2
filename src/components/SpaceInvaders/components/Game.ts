@@ -1,5 +1,5 @@
 import { Defender } from "./Defender";
-import { Explosion, Explosions } from "./Explosion";
+import { Explosions } from "./Explosion";
 import { InputHandler } from "./InputHandler";
 import { Invaders } from "./Invader";
 import { Projectiles } from "./Projectile";
