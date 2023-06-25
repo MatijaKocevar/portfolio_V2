@@ -1,4 +1,5 @@
 import { Defender } from "./Defender";
+import { Explosion, Explosions } from "./Explosion";
 import { InputHandler } from "./InputHandler";
 import { Invaders } from "./Invader";
 import { Projectiles } from "./Projectile";
@@ -20,6 +21,7 @@ export class Game {
 	invaders: Invaders;
 	shields: Shields;
 	projectiles: Projectiles;
+	explosions: Explosions;
 	score = 0;
 
 	constructor({ height, width, mobileControls, setGameOver, setGameOverMessage, context }: IGame) {
@@ -30,6 +32,7 @@ export class Game {
 		this.invaders = new Invaders({ game: this });
 		this.defender = new Defender({ game: this });
 		this.projectiles = new Projectiles({ game: this });
+		this.explosions = new Explosions({ game: this });
 	}
 
 	update = (gameFrame: number) => {
@@ -82,11 +85,10 @@ export class Game {
 		this.defender.draw();
 		this.shields.draw();
 		this.projectiles.draw();
+		this.explosions.draw();
 
 		this.drawHighscore();
 		this.drawLives();
-
-		console.log(this.shields.shieldArray[0]);
 	};
 
 	destroy = () => {
