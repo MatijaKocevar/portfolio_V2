@@ -55,7 +55,7 @@ export class Invader {
 	fire = () => {
 		const projectile = new Projectile({
 			height: 10,
-			width: 3,
+			width: 2,
 			speed: 10,
 			x: this.props.x + this.props.width / 2 - 2,
 			y: this.props.y,
@@ -71,6 +71,8 @@ export class Invader {
 		const { context } = this.props.game.props;
 		// Draw the invader on the canvas
 		if (this.props.image) {
+			// context.fillStyle = "red";
+			// context.fillRect(this.props.x, this.props.y, this.props.width, this.props.height);
 			context.drawImage(this.props.image, this.frame * this.spriteWidth, 0, this.spriteWidth, this.spriteHeight, this.props.x, this.props.y, this.props.width, this.props.height);
 		}
 	};
@@ -252,6 +254,7 @@ export class Invaders {
 		const playerProjectilesToRemove: { index: number }[] = [];
 		const invadersToRemove: { index: number }[] = [];
 		const { game } = this.props;
+
 		// Check if any of the invaders have been hit by a projectile
 		this.alive.forEach((invader, i) => {
 			game.projectiles.defender.forEach((projectile, p) => {
@@ -272,6 +275,11 @@ export class Invaders {
 		// Remove the playerProjectiles and invaders that collided
 		if (playerProjectilesToRemove.length > 0 || invadersToRemove.length > 0) {
 			for (let i = invadersToRemove.length - 1; i >= 0; i--) {
+				const invaderX = this.alive[invadersToRemove[i].index].props.x;
+				const invaderY = this.alive[invadersToRemove[i].index].props.y;
+
+				game.explosions.add(invaderX, invaderY);
+
 				this.alive.splice(invadersToRemove[i].index, 1);
 			}
 
