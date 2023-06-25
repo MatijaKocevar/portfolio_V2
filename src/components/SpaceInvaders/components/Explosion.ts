@@ -23,10 +23,9 @@ export class Explosion {
 	}
 
 	draw = () => {
-		this.lingerCount++;
 		const { context } = this.props.game.props;
+		this.lingerCount++;
 		context.drawImage(this.image, this.props.x - 2, this.props.y - 2, this.width, this.height);
-		console.log("draw explosion");
 	};
 }
 
@@ -44,13 +43,11 @@ export class Explosions {
 	};
 
 	draw = () => {
-		this.explosions.forEach((explosion) => {
-			explosion.draw();
-		});
-
 		const explosionsToRemove: number[] = [];
 
 		this.explosions.forEach((explosion) => {
+			explosion.draw();
+
 			if (explosion.lingerCount >= 20) {
 				explosionsToRemove.push(this.explosions.indexOf(explosion));
 			}

@@ -224,6 +224,7 @@ export class Invaders {
 			speedChanged = false;
 		}
 
+		// Update the invader direction and position
 		if (this.alive.length > 0 && gameFrame % this.animationSpeed === 0) {
 			this.updateDirection();
 			this.alive.forEach((invader) => {
@@ -231,6 +232,7 @@ export class Invaders {
 			});
 		}
 
+		// Fire a projectile if the invader is alive and the game frame is a multiple of the animation speed
 		if (this.alive.length > 0 && gameFrame % this.animationSpeed === 0) {
 			const randomInvader = Math.floor(Math.random() * this.alive.length);
 

@@ -70,7 +70,6 @@ export class Projectiles {
 			}
 		});
 
-		// Remove the playerProjectiles and invaders that collided
 		if (this.invaderProjectilesToRemove.length > 0 || this.defenderProjectilesToRemove.length > 0) {
 			this.defenderProjectilesToRemove?.forEach((projectile) => this.defender.splice(projectile.index, 1));
 			this.invaderProjectilesToRemove.forEach((projectile) => this.invader.splice(projectile.index, 1));

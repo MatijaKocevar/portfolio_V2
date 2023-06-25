@@ -38,7 +38,6 @@ export class Defender {
 		else if (inputHandler.keys.includes("KeyA")) this.speed = -this.maxSpeed;
 		else this.speed = 0;
 
-		//fire
 		if (inputHandler.keys.includes("Enter") && this.game.projectiles.defender.length == 0) {
 			if (!this.reload) {
 				this.game.projectiles.defender.push(this.fire());
