@@ -254,9 +254,6 @@ export class Invaders {
 			else this.moveCount++;
 
 			this.moveSounds[this.moveCount.toString()].play();
-
-			console.log(this.moveCount);
-			console.log("invaders moved");
 		}
 
 		// Fire a projectile if the invader is alive and the game frame is a multiple of the animation speed
