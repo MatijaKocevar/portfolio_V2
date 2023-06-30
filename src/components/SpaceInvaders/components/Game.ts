@@ -4,7 +4,6 @@ import { InputHandler } from "./InputHandler";
 import { Invaders } from "./Invader";
 import { Projectiles } from "./Projectile";
 import { Shields } from "./ShieldBlock";
-import { SoundManager } from "./SoundManager";
 
 interface IGame {
 	width: number;
@@ -25,7 +24,6 @@ export class Game {
 	score = 0;
 	gameOverMessage = "";
 	gameOver = false;
-	soundManager: SoundManager;
 
 	constructor({ height, width, mobileControls, context }: IGame) {
 		this.props = { height, width, mobileControls, context };
@@ -36,7 +34,6 @@ export class Game {
 		this.defender = new Defender({ game: this });
 		this.projectiles = new Projectiles({ game: this });
 		this.explosions = new Explosions({ game: this });
-		this.soundManager = new SoundManager();
 	}
 
 	update = () => {
