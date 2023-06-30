@@ -237,7 +237,7 @@ export class Shields {
 
 	createShields = (width: number) => {
 		const { game } = this.props;
-		const shieldWidth = 68.1;
+		const shieldWidth = 68;
 		const shieldSpacing = (width - 4 * shieldWidth) / 5; // Total spacing divided equally before and after the shields
 
 		this.shieldArray.push(new ShieldBlock({ x: shieldSpacing, y: 500, game }));
