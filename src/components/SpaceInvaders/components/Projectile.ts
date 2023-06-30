@@ -1,4 +1,5 @@
 import { Game } from "./Game";
+import shoot from "../audio/shoot.wav";
 
 interface IProjectile {
 	speed: number;
@@ -13,9 +14,11 @@ interface IProjectile {
 
 export class Projectile {
 	props: IProjectile;
+	shoot: HTMLAudioElement;
 
 	constructor({ height, speed, width, x, y, color, direction, game }: IProjectile) {
 		this.props = { height, speed, width, x, y, color, direction, game };
+		this.shoot = new Audio(shoot);
 	}
 
 	update() {

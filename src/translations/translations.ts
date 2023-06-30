@@ -90,19 +90,20 @@ export const Translations = [
 	{
 		id: "Header_WIP_Upcoming",
 		en: `
-		<span>- Sounds</span>
 		<span>- Random UFO</span>
 		<span>- Different projectile types for invaders</span>
+		<span>- Projectile detection with projectile</span>
 		`,
 		slo: `
-		<span>- Zvoki</span>
 		<span>- Naključni UFO</span>
 		<span>- Različni tipi projektilov za invader-je</span>
+		<span>- Detekcija projektilov s projektili</span>
 		`,
 	},
 	{
 		id: "Header_WIP_Changelog",
 		en: `
+		<span>- Added sounds for player death, invader death, shooting.</span>
 		<span>- Added explosions for player.</span>
 		<span>- Lives added.</span>
 		<span>- Score board added.</span>
@@ -128,6 +129,7 @@ export const Translations = [
 		<span>- Drawn a box with Canvas API.</span>
 		`,
 		slo: `
+		<span>- Dodani zvoki za smrt igralca, smrt invader-ja, streljanje.</span>
 		<span>- Dodane eksplozije za igralca.</span>
 		<span>- Dodana življenja.</span>
 		<span>- Dodana tabela rezultatov.</span>
