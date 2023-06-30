@@ -90,6 +90,8 @@ export class Defender {
 			game: this.game,
 		});
 
+		projectile.shoot.play();
+
 		return projectile;
 	};
 
@@ -116,17 +118,15 @@ export class Defender {
 		if (projectiles.invader.some((projectile) => projectile.props.y > this.game.props.height - 500)) {
 			projectiles.invader.forEach((projectile) => {
 				const { x: pX, y: pY, width: pW, height: pH } = projectile.props;
-
 				const collided = pX < this.x + this.width && pX + pW > this.x && pY < this.y + 17 + (this.height - 23) && pY + pH > this.y + 17;
-
 				if (collided) {
 					if (this.lives > 0) {
 						this.isCollided = true;
 						this.lives--;
 						projectiles.invader.splice(projectiles.invader.indexOf(projectile), 1);
-
 						this.previousAnimationSpeed = this.game.invaders.animationSpeed;
 						this.game.invaders.animationSpeed = 0;
+						this.game.soundManager.playSound("explosion");
 					}
 				}
 			});

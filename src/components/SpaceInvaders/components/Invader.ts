@@ -3,6 +3,11 @@ import invader2_3 from "../sprites/invader2-3.png";
 import invader3_4 from "../sprites/invader3-4.png";
 import { Game } from "./Game";
 import { Projectile } from "./Projectile";
+import invaderDeath from "../audio/invaderkilled.wav";
+import invaderMove0 from "../audio/invader-move-0.wav";
+import invaderMove1 from "../audio/invader-move-1.wav";
+import invaderMove2 from "../audio/invader-move-2.wav";
+import invaderMove3 from "../audio/invader-move-3.wav";
 
 interface IInvader {
 	x: number;
@@ -22,11 +27,13 @@ export class Invader {
 	spriteHeight: number;
 	frame = 0;
 	currentDirection: "left" | "right" = "right";
+	invaderDeath: HTMLAudioElement;
 
 	constructor({ x, y, width, height, speed, image, animationSpeed, game, points }: IInvader) {
 		this.props = { x, y, width, height, speed, image, animationSpeed, game, points };
 		this.spriteWidth = 57;
 		this.spriteHeight = 38;
+		this.invaderDeath = new Audio(invaderDeath);
 	}
 
 	moveLeft = () => (this.props.x -= this.props.speed);
@@ -94,6 +101,8 @@ export class Invaders {
 	alive: Invader[] = [];
 	speed = 5;
 	currentDirection: "left" | "right";
+	moveSounds: { [key: string]: HTMLAudioElement };
+	moveCount = 0;
 
 	constructor({ game }: IInvaders) {
 		this.props = { game };
@@ -101,6 +110,12 @@ export class Invaders {
 		this.invader2_3.src = invader2_3;
 		this.invader3_4.src = invader3_4;
 		this.currentDirection = "right";
+		this.moveSounds = {
+			0: new Audio(invaderMove0),
+			1: new Audio(invaderMove1),
+			2: new Audio(invaderMove2),
+			3: new Audio(invaderMove3),
+		};
 
 		this.createInvaders();
 	}
@@ -193,9 +208,9 @@ export class Invaders {
 
 		if (this.animationSpeed > 0) {
 			// Adjust the animation speed and invader speed based on the number of remaining invaders
-			if (invadersArrayLength < 44 && this.animationSpeed != 30 && this.speed != 6) {
+			if (invadersArrayLength < 44 && this.animationSpeed != 35 && this.speed != 6) {
 				this.speed = 6;
-				this.animationSpeed = 30;
+				this.animationSpeed = 35;
 				speedChanged = true;
 			}
 			if (invadersArrayLength < 33 && this.animationSpeed != 20 && this.speed != 7) {
@@ -208,14 +223,14 @@ export class Invaders {
 				this.animationSpeed = 10;
 				speedChanged = true;
 			}
-			if (invadersArrayLength < 11 && this.animationSpeed != 5 && this.speed != 10) {
+			if (invadersArrayLength < 11 && this.animationSpeed != 8 && this.speed != 10) {
 				this.speed = 10;
-				this.animationSpeed = 5;
+				this.animationSpeed = 8;
 				speedChanged = true;
 			}
-			if (invadersArrayLength === 1 && this.animationSpeed != 1 && this.speed != 11) {
-				this.speed = 11;
-				this.animationSpeed = 1;
+			if (invadersArrayLength === 1 && this.animationSpeed != 4 && this.speed != 11) {
+				this.speed = 20;
+				this.animationSpeed = 4;
 				speedChanged = true;
 			}
 
@@ -234,6 +249,14 @@ export class Invaders {
 			this.alive.forEach((invader) => {
 				invader.updateInvader(this.currentDirection);
 			});
+
+			if (this.moveCount >= 3) this.moveCount = 0;
+			else this.moveCount++;
+
+			this.moveSounds[this.moveCount.toString()].play();
+
+			console.log(this.moveCount);
+			console.log("invaders moved");
 		}
 
 		// Fire a projectile if the invader is alive and the game frame is a multiple of the animation speed
@@ -286,6 +309,7 @@ export class Invaders {
 
 				game.explosions.add(invaderX, invaderY);
 
+				this.alive[invadersToRemove[i].index].invaderDeath.play();
 				this.alive.splice(invadersToRemove[i].index, 1);
 			}
 
