@@ -2,6 +2,7 @@ import { Game } from "./Game";
 import { Projectile } from "./Projectile";
 import player from "../sprites/player.png";
 import explosion from "../sprites/defenderExplosion.png";
+import defenderDeath from "../audio/explosion.wav";
 interface IDefender {
 	game: Game;
 }
@@ -25,6 +26,7 @@ export class Defender {
 	frame = 0;
 	spriteWidth: number;
 	spriteHeight: number;
+	defenderDeath: HTMLAudioElement;
 
 	constructor({ game }: IDefender) {
 		this.game = game;
@@ -40,6 +42,7 @@ export class Defender {
 		this.explosionImage.src = explosion;
 		this.spriteWidth = 75;
 		this.spriteHeight = 44;
+		this.defenderDeath = new Audio(defenderDeath);
 	}
 
 	update = () => {
@@ -126,6 +129,7 @@ export class Defender {
 						projectiles.invader.splice(projectiles.invader.indexOf(projectile), 1);
 						this.previousAnimationSpeed = this.game.invaders.animationSpeed;
 						this.game.invaders.animationSpeed = 0;
+						this.defenderDeath.play();
 					}
 				}
 			});
