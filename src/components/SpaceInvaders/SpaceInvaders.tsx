@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState, useCallback } from "react";
 import { Game } from "./components/Game";
 import "./SpaceInvaders.scss";
+import ToggleSwitch from "../Shared/ToogleSwitch/ToggleSwitch";
 
 export type IDirection = "left" | "right";
 let animationFrame: number;
@@ -79,6 +80,14 @@ const GameBoard = () => {
 	// 	console.log(gameRef.current?.shields);
 	// };
 
+	const onSoundChange = (option: string) => {
+		if (gameRef.current) {
+			if (option === "on") gameRef.current.playSound = true;
+
+			if (option === "off") gameRef.current.playSound = false;
+		}
+	};
+
 	return (
 		<>
 			<canvas ref={canvasRef} width={600} height={600} onClick={handleReset} />
@@ -96,6 +105,10 @@ const GameBoard = () => {
 					{/* <button onClick={onConsoleLogShields}>Console log shields</button> */}
 				</div>
 			)}
+			<div className='sound-wrapper'>
+				<div>Sounds:</div>
+				<ToggleSwitch title='Sound On/Off' onChange={onSoundChange} first='off' second='on' />
+			</div>
 		</>
 	);
 };

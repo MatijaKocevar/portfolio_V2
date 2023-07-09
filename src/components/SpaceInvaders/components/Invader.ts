@@ -146,7 +146,7 @@ export class Invaders {
 		const invaders: Invader[] = [];
 
 		for (let i = 0; i < this.invadersCount; i++) {
-			const invaderX = (i % 11) * (invaderWidth + invaderPadding - 5) + invaderOffsetLeft + 20;
+			const invaderX = (i % 11) * (invaderWidth + invaderPadding - 5) + invaderOffsetLeft;
 			const invaderY = Math.floor(i / 11) * (invaderHeight + invaderPadding) + invaderOffsetTop;
 
 			if (i < 11) {
@@ -253,7 +253,7 @@ export class Invaders {
 			if (this.moveCount >= 3) this.moveCount = 0;
 			else this.moveCount++;
 
-			this.moveSounds[this.moveCount.toString()].play();
+			if (game.playSound) this.moveSounds[this.moveCount.toString()].play();
 		}
 
 		// Fire a projectile if the invader is alive and the game frame is a multiple of the animation speed
@@ -306,7 +306,7 @@ export class Invaders {
 
 				game.explosions.add(invaderX, invaderY);
 
-				this.alive[invadersToRemove[i].index].invaderDeath.play();
+				if (game.playSound) this.alive[invadersToRemove[i].index].invaderDeath.play();
 				this.alive.splice(invadersToRemove[i].index, 1);
 			}
 

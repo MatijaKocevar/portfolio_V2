@@ -194,7 +194,7 @@ const NavBar = () => {
 						<DownloadFile path={cvPath} title='Open CV' iconName='resumeRound' svgProp={{ width: "2rem", height: "2rem" }} />
 					</div>
 					<div className='navbar-language-switch'>
-						<ToggleSwitch title='Change language' onChange={onLanguageChange} language='en' />
+						<ToggleSwitch title='Change language' onChange={onLanguageChange} first='en' second='slo' />
 					</div>
 				</div>
 			</div>
