@@ -3,16 +3,17 @@ import "./ToggleSwitch.scss";
 
 interface ToggleSwitchProps {
 	onChange: (language: string) => void;
-	language: string;
 	title?: string;
+	first: string;
+	second: string;
 }
 
-const ToggleSwitch: React.FC<ToggleSwitchProps> = ({ onChange, language, title }) => {
-	const [isChecked, setIsChecked] = useState<boolean>(language === "slo");
+const ToggleSwitch: React.FC<ToggleSwitchProps> = ({ onChange, title, first, second }) => {
+	const [isChecked, setIsChecked] = useState<boolean>(false);
 
 	const handleChange = () => {
 		setIsChecked(!isChecked);
-		const newLanguage = isChecked ? "en" : "slo";
+		const newLanguage = isChecked ? first : second;
 		onChange(newLanguage);
 	};
 
@@ -23,8 +24,8 @@ const ToggleSwitch: React.FC<ToggleSwitchProps> = ({ onChange, language, title }
 			</label>
 
 			<div className='toggle-switch-labels'>
-				<div className={`toggle-switch-label ${!isChecked ? "toggle-switch-label-selected" : ""}`}>EN</div>
-				<div className={`toggle-switch-label ${isChecked ? "toggle-switch-label-selected" : ""}`}>SLO</div>
+				<div className={`toggle-switch-label ${!isChecked ? "toggle-switch-label-selected" : ""}`}>{first}</div>
+				<div className={`toggle-switch-label ${isChecked ? "toggle-switch-label-selected" : ""}`}>{second}</div>
 			</div>
 		</div>
 	);

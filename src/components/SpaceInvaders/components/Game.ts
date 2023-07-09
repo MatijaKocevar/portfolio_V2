@@ -24,10 +24,10 @@ export class Game {
 	score = 0;
 	gameOverMessage = "";
 	gameOver = false;
+	playSound = false;
 
 	constructor({ height, width, mobileControls, context }: IGame) {
 		this.props = { height, width, mobileControls, context };
-		this.inputHandler = new InputHandler(mobileControls, this);
 		this.inputHandler = new InputHandler(mobileControls, this);
 		this.shields = new Shields({ game: this });
 		this.invaders = new Invaders({ game: this });

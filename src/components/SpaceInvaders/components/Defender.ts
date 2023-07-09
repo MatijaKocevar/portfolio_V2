@@ -93,7 +93,7 @@ export class Defender {
 			game: this.game,
 		});
 
-		projectile.shoot.play();
+		if (this.game.playSound) projectile.shoot.play();
 
 		return projectile;
 	};
@@ -129,7 +129,7 @@ export class Defender {
 						projectiles.invader.splice(projectiles.invader.indexOf(projectile), 1);
 						this.previousAnimationSpeed = this.game.invaders.animationSpeed;
 						this.game.invaders.animationSpeed = 0;
-						this.defenderDeath.play();
+						if (this.game.playSound) this.defenderDeath.play();
 					}
 				}
 			});
