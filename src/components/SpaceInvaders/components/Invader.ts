@@ -271,8 +271,13 @@ export class Invaders {
 		}
 
 		if (this.alive.length === 0) {
-			game.setGameOverMessage("You win!");
-			game.setGameOver(true);
+			// game.setGameOverMessage("You win!");
+			// game.setGameOver(true);
+
+			game.shields.shieldArray = [];
+			game.shields.createShields(game.props.width);
+
+			game.invaders.createInvaders();
 		}
 	};
 
