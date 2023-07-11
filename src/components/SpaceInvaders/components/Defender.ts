@@ -51,6 +51,9 @@ export class Defender {
 		if (this.lives === 0) {
 			this.game.gameOverMessage = "An invader shot you! You Lose!";
 			this.game.setGameOver(true);
+
+			this.game.inputHandler.destroy();
+			this.game.props.setShowPopupScore(true);
 			return;
 		}
 
@@ -93,7 +96,9 @@ export class Defender {
 			game: this.game,
 		});
 
-		if (this.game.playSound) projectile.shoot.play();
+		if (this.game.playSound) {
+			projectile.shoot.play();
+		}
 
 		return projectile;
 	};
