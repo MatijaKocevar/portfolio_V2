@@ -20,5 +20,6 @@ export default defineConfig({
 		port: 44444,
 		host: true,
 		https: true,
+		cors: true,
 	},
 });

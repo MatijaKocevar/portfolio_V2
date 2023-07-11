@@ -2,6 +2,7 @@ import { useRef, useEffect, useState, useCallback } from "react";
 import { Game } from "./components/Game";
 import "./SpaceInvaders.scss";
 import ToggleSwitch from "../Shared/ToogleSwitch/ToggleSwitch";
+import PopupBox from "../Shared/PopupBox/PopupBox";
 
 export type IDirection = "left" | "right";
 let animationFrame: number;
@@ -13,6 +14,8 @@ const GameBoard = () => {
 	const fireRef = useRef<HTMLButtonElement>(null);
 	const rightRef = useRef<HTMLButtonElement>(null);
 	const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
+	const [showPopupScore, setShowPopupScore] = useState(false);
+	const [name, setName] = useState("");
 
 	const handleResize = useCallback(() => {
 		setIsMobile(window.innerWidth < 768);
@@ -43,6 +46,7 @@ const GameBoard = () => {
 				width: canvas.width,
 				mobileControls: [leftRef, fireRef, rightRef],
 				context,
+				setShowPopupScore,
 			});
 
 			animate();
@@ -57,7 +61,7 @@ const GameBoard = () => {
 		};
 	}, [animate]);
 
-	const handleReset = useCallback(() => {
+	const handleReset = () => {
 		if (gameRef.current?.gameOver) {
 			gameRef.current?.setGameOver(false);
 			const canvas = canvasRef.current;
@@ -69,12 +73,13 @@ const GameBoard = () => {
 					width: canvas.width,
 					mobileControls: [leftRef, fireRef, rightRef],
 					context,
+					setShowPopupScore,
 				});
 			}
 
 			animate();
 		}
-	}, [animate]);
+	};
 
 	// const onConsoleLogShields = () => {
 	// 	console.log(gameRef.current?.shields);
@@ -88,8 +93,53 @@ const GameBoard = () => {
 		}
 	};
 
+	const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setName(e.target.value);
+	};
+
+	const onSaveClick = () => {
+		//i need to call the api here. this is the endpoint: https://localhost:8000/scores
+
+		const data = {
+			playerName: name,
+			scoreValue: gameRef.current?.score,
+		};
+
+		fetch("https://localhost:8000/scores", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(data),
+		})
+			.then((response) => response.json())
+			.then((data) => {
+				console.log("Success:", data);
+			})
+			.catch((error) => {
+				console.error("Error:", error);
+			});
+
+		setName("");
+		handleReset();
+		setShowPopupScore(false);
+	};
+
+	const scoreContent = (
+		<div className='score-content'>
+			<div className='score-input'>
+				<input type='text' placeholder='Enter your name' value={name} onChange={handleNameChange} />
+				<div className='score'>Score: {gameRef.current?.score}</div>
+			</div>
+			<div className='actions'>
+				<button onClick={onSaveClick}>Save & Close</button>
+			</div>
+		</div>
+	);
+
 	return (
 		<>
+			<div className='highscore-popup-wrapper'>{showPopupScore && <PopupBox content={scoreContent} onClose={() => setShowPopupScore(false)} />}</div>
 			<canvas ref={canvasRef} width={600} height={600} onClick={handleReset} />
 			{isMobile && (
 				<div className='mobile-controls'>

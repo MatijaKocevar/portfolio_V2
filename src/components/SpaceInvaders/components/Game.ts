@@ -10,6 +10,7 @@ interface IGame {
 	height: number;
 	mobileControls: React.RefObject<HTMLButtonElement>[];
 	context: CanvasRenderingContext2D;
+	setShowPopupScore: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export class Game {
@@ -26,8 +27,8 @@ export class Game {
 	gameOver = false;
 	playSound = false;
 
-	constructor({ height, width, mobileControls, context }: IGame) {
-		this.props = { height, width, mobileControls, context };
+	constructor({ height, width, mobileControls, context, setShowPopupScore }: IGame) {
+		this.props = { height, width, mobileControls, context, setShowPopupScore };
 		this.inputHandler = new InputHandler(mobileControls, this);
 		this.shields = new Shields({ game: this });
 		this.invaders = new Invaders({ game: this });

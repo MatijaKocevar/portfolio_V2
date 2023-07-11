@@ -19,7 +19,7 @@ export class Defender {
 	reload = false;
 	image: HTMLImageElement;
 	explosionImage: HTMLImageElement;
-	lives = 3;
+	lives = 1;
 	previousAnimationSpeed = 0;
 	isCollided = false;
 	collisionPause = 0;
@@ -51,6 +51,9 @@ export class Defender {
 		if (this.lives === 0) {
 			this.game.gameOverMessage = "An invader shot you! You Lose!";
 			this.game.setGameOver(true);
+
+			this.game.props.setShowPopupScore(true);
+			this.game.inputHandler.destroy();
 			return;
 		}
 
@@ -93,7 +96,9 @@ export class Defender {
 			game: this.game,
 		});
 
-		if (this.game.playSound) projectile.shoot.play();
+		if (this.game.playSound) {
+			projectile.shoot.play();
+		}
 
 		return projectile;
 	};

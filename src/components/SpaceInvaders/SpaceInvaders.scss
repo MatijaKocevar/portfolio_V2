@@ -1,3 +1,5 @@
+@use "../../variables" as v;
+
 canvas {
 	border: 2px solid black;
 	padding: 0 !important;
@@ -38,4 +40,51 @@ canvas {
 	align-items: center;
 	gap: 1rem;
 	color: white;
+}
+
+.highscore-popup-wrapper {
+	.popup-box {
+		height: fit-content;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.score-content {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+			padding: 1rem;
+			width: 100%;
+
+			.score-input {
+				display: flex;
+				gap: 1rem;
+				flex-direction: column;
+
+				.score {
+					color: white;
+				}
+			}
+
+			.actions {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				button {
+					border-radius: 10px;
+					padding: 0.5rem 1rem;
+					border: none;
+					color: white;
+					background-color: v.$lightPurple;
+					cursor: pointer;
+					transition: all 0.2s ease-in-out;
+
+					&:hover {
+						background-color: v.$darkPurple;
+					}
+				}
+			}
+		}
+	}
 }
