@@ -113,7 +113,7 @@ const GameBoard = () => {
 			scoreValue: gameRef.current?.score,
 		};
 
-		fetch("https://localhost:8000/scores", {
+		fetch("https://16.170.232.16:8000/scores", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -134,7 +134,7 @@ const GameBoard = () => {
 	};
 
 	const getHighscores = () => {
-		fetch("https://localhost:8000/scores")
+		fetch("https://16.170.232.16:8000/scores")
 			.then((response) => response.json())
 			.then((data) => {
 				console.log("Success:", data);
