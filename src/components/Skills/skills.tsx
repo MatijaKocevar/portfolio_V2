@@ -32,37 +32,38 @@ const Skills = () => {
 						backContent={
 							<div className='box'>
 								<Row className='skill-icons-wrapper'>
-									<Col xs={3} sm={3} md={3} lg={3} className='skill-icon'>
+									<Col xs={4} sm={4} md={4} lg={4} className='skill-icon'>
 										<SvgIcon iconName='react' svgProp={{ className: "skill-icon-back" }} />
 										<span>React</span>
 									</Col>
-									<Col xs={3} sm={3} md={3} lg={3} className='skill-icon'>
-										<SvgIcon iconName='typescript' svgProp={{ className: "skill-icon-back" }} />
-										<span>Typescript</span>
+									<Col xs={4} sm={4} md={4} lg={4} className='skill-icon'>
+										<SvgIcon iconName='typescriptJavascript' svgProp={{ className: "skill-icon-back" }} />
+										<span>Type/Javascript</span>
 									</Col>
-									<Col xs={3} sm={3} md={3} lg={3} className='skill-icon'>
-										<SvgIcon iconName='dotNet' svgProp={{ className: "skill-icon-back" }} />
-										<span>.NET(C#)</span>
-									</Col>
-									<Col xs={3} sm={3} md={3} lg={3} className='skill-icon'>
+									<Col xs={4} sm={4} md={4} lg={4} className='skill-icon'>
 										<SvgIcon iconName='vue' svgProp={{ className: "skill-icon-back" }} />
 										<span>Vue</span>
 									</Col>
-									<Col xs={3} sm={3} md={3} lg={3} className='skill-icon'>
-										<SvgIcon iconName='javascript' svgProp={{ className: "skill-icon-back" }} />
-										<span>Javascript</span>
+									<Col xs={4} sm={4} md={4} lg={4} className='skill-icon'>
+										<SvgIcon iconName='dotNet' svgProp={{ className: "skill-icon-back" }} />
+										<span>.NET(C#)</span>
 									</Col>
-									<Col xs={3} sm={3} md={3} lg={3} className='skill-icon'>
-										<SvgIcon iconName='sql' svgProp={{ className: "skill-icon-back" }} />
-										<span>SQL</span>
+									<Col xs={4} sm={4} md={4} lg={4} className='skill-icon'>
+										<SvgIcon iconName='sqlMySql' svgProp={{ className: "skill-icon-back" }} />
+										<span>SQL/MySQL</span>
 									</Col>
-									<Col xs={3} sm={3} md={3} lg={3} className='skill-icon'>
-										<SvgIcon iconName='html5' svgProp={{ className: "skill-icon-back" }} />
-										<span>Html 5</span>
+
+									<Col xs={4} sm={4} md={4} lg={4} className='skill-icon'>
+										<SvgIcon iconName='docker' svgProp={{ className: "skill-icon-back" }} />
+										<span>Docker</span>
 									</Col>
-									<Col xs={3} sm={3} md={3} lg={3} className='skill-icon'>
-										<SvgIcon iconName='cssSass' svgProp={{ className: "skill-icon-back" }} />
-										<span>Css/Sass</span>
+									<Col xs={4} sm={4} md={4} lg={4} className='skill-icon'>
+										<SvgIcon iconName='php' svgProp={{ className: "skill-icon-back" }} />
+										<span>PHP</span>
+									</Col>
+									<Col xs={4} sm={4} md={4} lg={4} className='skill-icon'>
+										<SvgIcon iconName='htmlCss' svgProp={{ className: "skill-icon-back" }} />
+										<span>HTML/Css</span>
 									</Col>
 								</Row>
 								<Row className='skills-description'>
