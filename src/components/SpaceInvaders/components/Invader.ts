@@ -274,6 +274,9 @@ export class Invaders {
 			// game.setGameOverMessage("You win!");
 			// game.setGameOver(true);
 
+			this.speed = 6;
+			this.animationSpeed = 35;
+
 			game.shields.shieldArray = [];
 			game.shields.createShields(game.props.width);
 
