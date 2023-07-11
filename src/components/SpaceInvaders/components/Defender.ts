@@ -52,8 +52,8 @@ export class Defender {
 			this.game.gameOverMessage = "An invader shot you! You Lose!";
 			this.game.setGameOver(true);
 
-			this.game.props.setShowPopupScore(true);
 			this.game.inputHandler.destroy();
+			this.game.props.setShowPopupScore(true);
 			return;
 		}
 

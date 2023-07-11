@@ -7,6 +7,12 @@ import PopupBox from "../Shared/PopupBox/PopupBox";
 export type IDirection = "left" | "right";
 let animationFrame: number;
 
+interface Highscore {
+	id: number;
+	playerName: string;
+	scoreValue: number;
+}
+
 const GameBoard = () => {
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 	const gameRef = useRef<Game | null>(null);
@@ -15,7 +21,9 @@ const GameBoard = () => {
 	const rightRef = useRef<HTMLButtonElement>(null);
 	const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
 	const [showPopupScore, setShowPopupScore] = useState(false);
+	const [showPopupHighscores, setShowPopupHighscores] = useState(false);
 	const [name, setName] = useState("");
+	const [highscores, setHighscores] = useState<Highscore[]>([]);
 
 	const handleResize = useCallback(() => {
 		setIsMobile(window.innerWidth < 768);
@@ -125,21 +133,52 @@ const GameBoard = () => {
 		setShowPopupScore(false);
 	};
 
+	const getHighscores = () => {
+		fetch("https://localhost:8000/scores")
+			.then((response) => response.json())
+			.then((data) => {
+				console.log("Success:", data);
+				setHighscores(data);
+			})
+			.catch((error) => {
+				console.error("Error:", error);
+			});
+	};
+
 	const scoreContent = (
-		<div className='score-content'>
-			<div className='score-input'>
-				<input type='text' placeholder='Enter your name' value={name} onChange={handleNameChange} />
-				<div className='score'>Score: {gameRef.current?.score}</div>
+			<div className='score-content'>
+				<div className='score-input'>
+					<input type='text' placeholder='Enter your name' value={name} onChange={handleNameChange} />
+					<div className='score'>Score: {gameRef.current?.score}</div>
+				</div>
+				<div className='actions'>
+					<button onClick={onSaveClick}>Save & Close</button>
+				</div>
 			</div>
-			<div className='actions'>
-				<button onClick={onSaveClick}>Save & Close</button>
+		),
+		highscoresContent = (
+			<div className='highscores-content'>
+				<h3>Highscores</h3>
+				<table className='highscores-table'>
+					<tbody>
+						{highscores.map((highscore, i) => (
+							<tr className='highscore' key={highscore.id}>
+								<td className='player-position'>{i + 1}.</td>
+								<td className='player-name'>{highscore.playerName}</td>
+								<td className='score-value'>{highscore.scoreValue}</td>
+							</tr>
+						))}
+					</tbody>
+				</table>
 			</div>
-		</div>
-	);
+		);
 
 	return (
 		<>
-			<div className='highscore-popup-wrapper'>{showPopupScore && <PopupBox content={scoreContent} onClose={() => setShowPopupScore(false)} />}</div>
+			<div className='score-popup-wrapper'>{showPopupScore && <PopupBox content={scoreContent} onClose={() => setShowPopupScore(false)} />}</div>
+
+			<div className='highscore-popup-wrapper'>{showPopupHighscores && <PopupBox content={highscoresContent} onClose={() => setShowPopupHighscores(false)} />}</div>
+
 			<canvas ref={canvasRef} width={600} height={600} onClick={handleReset} />
 			{isMobile && (
 				<div className='mobile-controls'>
@@ -155,9 +194,21 @@ const GameBoard = () => {
 					{/* <button onClick={onConsoleLogShields}>Console log shields</button> */}
 				</div>
 			)}
-			<div className='sound-wrapper'>
-				<div>Sounds:</div>
-				<ToggleSwitch title='Sound On/Off' onChange={onSoundChange} first='off' second='on' />
+			<div className='options-wrapper'>
+				<div className='highscores'>
+					<button
+						onClick={() => {
+							getHighscores();
+							setShowPopupHighscores(true);
+						}}
+					>
+						Highscores
+					</button>
+				</div>
+				<div className='sounds'>
+					<div>Sounds:</div>
+					<ToggleSwitch title='Sound On/Off' onChange={onSoundChange} first='off' second='on' />
+				</div>
 			</div>
 		</>
 	);
