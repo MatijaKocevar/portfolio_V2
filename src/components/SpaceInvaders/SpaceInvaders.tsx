@@ -113,7 +113,7 @@ const GameBoard = () => {
 			scoreValue: gameRef.current?.score,
 		};
 
-		fetch("https://www.matijakocevar.com:8000/scores", {
+		fetch("https://matijakocevar.com/scores", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -134,7 +134,7 @@ const GameBoard = () => {
 	};
 
 	const getHighscores = () => {
-		fetch("https://www.matijakocevar.com:8000/scores")
+		fetch("https://matijakocevar.com/scores")
 			.then((response) => response.json())
 			.then((data) => {
 				console.log("Success:", data);
