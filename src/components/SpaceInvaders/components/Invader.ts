@@ -268,6 +268,9 @@ export class Invaders {
 		if (this.alive.some((invader) => invader.props.y > 550)) {
 			game.setGameOverMessage("Invaders have reached the ground! You lose!");
 			game.setGameOver(true);
+
+			game.inputHandler.destroy();
+			game.props.setShowPopupScore(true);
 		}
 
 		if (this.alive.length === 0) {
