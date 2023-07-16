@@ -13,11 +13,12 @@ const fullReloadAlways: PluginOption = {
 	},
 } as PluginOption;
 
-const envMode = import.meta.env.MODE
 
 export default () => {
+	const envMode = import.meta.env
+	console.log(envMode)
 	return defineConfig({
-		base: envMode === "development" ? "/portfolio_V2/" : "/",
+		base: "/" ,
 		plugins: [react(), svgr(), fullReloadAlways, mkcert()],
 		server: {
 			port: 44444,
