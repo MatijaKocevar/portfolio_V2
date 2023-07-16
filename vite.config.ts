@@ -1,6 +1,6 @@
 /// <reference types="vite/client" />
 // eslint-disable-next-line import/named
-import { PluginOption, defineConfig, loadEnv } from "vite";
+import { PluginOption, defineConfig } from "vite";
 import svgr from "vite-plugin-svgr";
 import react from "@vitejs/plugin-react";
 import mkcert from "vite-plugin-mkcert";
@@ -13,9 +13,11 @@ const fullReloadAlways: PluginOption = {
 	},
 } as PluginOption;
 
+const envMode = import.meta.env.MODE
+
 export default () => {
 	return defineConfig({
-		base: "/portfolio_V2/",
+		base: envMode === "development" ? "/portfolio_V2/" : "/",
 		plugins: [react(), svgr(), fullReloadAlways, mkcert()],
 		server: {
 			port: 44444,
