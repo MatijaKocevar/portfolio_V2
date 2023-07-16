@@ -25,6 +25,9 @@ const GameBoard = () => {
 	const [name, setName] = useState("");
 	const [highscores, setHighscores] = useState<Highscore[]>([]);
 
+	const apiUrl = import.meta.env.VITE_API_URL
+
+
 	const handleResize = useCallback(() => {
 		setIsMobile(window.innerWidth < 768);
 	}, []);
@@ -113,7 +116,7 @@ const GameBoard = () => {
 			scoreValue: gameRef.current?.score,
 		};
 
-		fetch("https://matijakocevar.com/scores", {
+		fetch(apiUrl, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -134,7 +137,7 @@ const GameBoard = () => {
 	};
 
 	const getHighscores = () => {
-		fetch("https://matijakocevar.com/scores")
+		fetch(apiUrl)
 			.then((response) => response.json())
 			.then((data) => {
 				console.log("Success:", data);
