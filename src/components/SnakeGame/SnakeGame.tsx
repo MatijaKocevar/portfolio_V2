@@ -148,7 +148,7 @@ const SnakeGame: React.FC = () => {
 	};
 
 	useEffect(() => {
-		let intervalId = 0;
+		let intervalId: NodeJS.Timeout;
 
 		if (playPause) {
 			intervalId = setInterval(() => {
