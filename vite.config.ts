@@ -15,8 +15,6 @@ const fullReloadAlways: PluginOption = {
 
 
 export default () => {
-	const envMode = import.meta.env
-	console.log(envMode)
 	return defineConfig({
 		base: "/" ,
 		plugins: [react(), svgr(), fullReloadAlways, mkcert()],
