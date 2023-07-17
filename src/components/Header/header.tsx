@@ -93,7 +93,7 @@ const Header = () => {
 						{showChangeLogUpcoming && <PopupBox content={changeLogUpcomingContent} onClose={() => setShowChangeLogUpcoming(false)} />}
 
 						<button className='change-log' onClick={() => setShowChangeLogUpcoming(true)} title='Open change log' rel='noopener noreferrer'>
-							Change Log / Upcoming
+							Change Log/Upcoming
 						</button>
 
 						<a
