@@ -13,8 +13,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
       - name: Install dependencies
-        run: npm install
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
 
       - name: Configure SSH private key
         run: |
@@ -23,6 +31,10 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -t rsa ec2-13-51-72-26.eu-north-1.compute.amazonaws.com >> ~/.ssh/known_hosts
 
-      - name: Deploy
+      - name: Remove existing dist folder
         run: |
-          ssh ubuntu@ec2-13-51-72-26.eu-north-1.compute.amazonaws.com "cd /var/portfolio_V2 && sudo git remote update && sudo git pull origin master"
+          ssh ubuntu@ec2-13-51-72-26.eu-north-1.compute.amazonaws.com "sudo rm -rf /var/portfolio_V2/dist"
+
+      - name: Push dist folder to server
+        run: |
+          scp -r dist ubuntu@ec2-13-51-72-26.eu-north-1.compute.amazonaws.com:/var/portfolio_V2
