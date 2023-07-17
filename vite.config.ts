@@ -16,7 +16,8 @@ const fullReloadAlways: PluginOption = {
 
 export default () => {
 	return defineConfig({
-		base: "/" ,
+		// base: "/portfolio_V2/",
+		base: "/",
 		plugins: [react(), svgr(), fullReloadAlways, mkcert()],
 		server: {
 			port: 44444,
