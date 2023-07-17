@@ -18,7 +18,7 @@ const NavBar = () => {
 	const hamburgerRef = useRef<HTMLButtonElement>(null);
 
 	const cvPath =
-		language === "slo" ? "https://drive.google.com/file/d/13adbhCj1Y-pJmxP1Ip5FDSeZG4cxHIyS/view?usp=sharing" : "https://drive.google.com/file/d/1abJfTt3G8m7UdCbLm6O62dOT4pLVzyjR/view?usp=sharing";
+		language === "slo" ? "https://drive.google.com/file/d/1a1YCu9V-mWrr4SYO-Ht4qirNyxsWM3Yh/view?usp=sharing" : "https://drive.google.com/file/d/1uYA8R8k4v2fiEu0N-WPjc8vbpFOojJHL/view?usp=sharing";
 
 	const onLanguageChange = (language: string) => {
 		setLanguage(language);
