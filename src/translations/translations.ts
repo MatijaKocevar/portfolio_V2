@@ -399,7 +399,7 @@ export const Translations = [
 	},
 	{
 		id: "Interests_App_Title",
-		en: `Create an cool and useful app`,
+		en: `Create a cool and useful app`,
 		slo: `Ustvariti kul in uporabno aplikacijo`,
 	},
 	{
@@ -414,8 +414,8 @@ export const Translations = [
 	},
 	{
 		id: "Interests_Developer_Description",
-		en: `I am doing everything I can to further my skills and knowledge. It is one of my main goals in life to be a capable person.`,
-		slo: `Vse, kar lahko, delam, da izboljšam svoje veščine in znanje. To je eden mojih glavnih ciljev v življenju, da bi bil sposobna oseba.`,
+		en: `I am doing everything I can to further my skills and knowledge. It is one of my main goals to be a capable and reliable developer.`,
+		slo: `Vse, kar lahko, delam, da izboljšam svoje spretnosti in znanje. Biti sposoben in zanesljiv razvijalec je eden mojih glavnih ciljev.`,
 	},
 	{
 		id: "Interests_App_Description",
@@ -424,7 +424,7 @@ export const Translations = [
 	},
 	{
 		id: "Interests_NewSkills_Description",
-		en: `I am always on the hunt for new knowledge and opportunities to expand what i know.`,
+		en: `I am always on the hunt for new knowledge and opportunities to expand what I know.`,
 		slo: `Vedno iščem nova znanja in priložnosti za razširitev svojega znanja.`,
 	},
 	{
