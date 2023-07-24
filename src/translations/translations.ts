@@ -263,11 +263,20 @@ export const Translations = [
 	{
 		id: "Experience_Agitavit",
 		en: `<h3>Software developer - Agitavit Solutions d.o.o.</h3>
-         <h5>2021 - current / Employment</h5>
+         <h5>2021 - 2023 / Employment</h5>
          <p>As a developer, I have gained a good understanding of general development workflows and made tremendous progress in my technical skills, particularly with front-end technologies. I have become very proficient with React and Typescript. Additionally, I have worked extensively with .NET and SQL, improving my understanding of back-end technologies.</p>`,
 		slo: `<h3>Razvijalec programske opreme - Agitavit Solutions d.o.o.</h3>
           <h5>2021 - tekoče / Zaposlitev</h5>
           <p>Kot razvijalec sem pridobil dobro razumevanje splošnih razvojnih delovnih procesov in naredil izjemne korake pri razvoju svojih tehničnih veščin, še posebej pri tehnologijah front-enda. Postal sem kar vešč v Reactu in Typescriptu. Poleg tega sem veliko delal s .NET in SQL ter izboljšal svoje razumevanje tehnologij na strani back-enda.</p>`,
+	},
+	{
+		id: "Experience_Searching",
+		en: `<h3>Junior / Mid Front-end Software developer</h3>
+         <h5>2023 - ... </h5>
+         <p>Searching for a junior / mid level front-end development job.</p>`,
+		slo: `<h3>Razvijalec programske opreme - Agitavit Solutions d.o.o.</h3>
+          <h5>2021 - tekoče / Zaposlitev</h5>
+		  <p>Iščem zaposlitev kot junior / mid razvijalec na področju front-enda.</p>`,
 	},
 	/**
 	 * SKILLS
@@ -352,7 +361,7 @@ export const Translations = [
 	},
 	{
 		id: "Projects_TaskManagement_Description",
-		en: `A simple task management app. It support creating tasks, updating them and deleting them. It is made with React, Typescript, .NET for backedn and a SQL server database. THe project can be run in docker containers. It is a work in progress and will be updated in the future.`,
+		en: `A simple task management app. It support creating tasks, updating them and deleting them. It is made with React, Typescript, .NET for backend and a SQL server database. The project can be run in docker containers. It is a work in progress and will be updated in the future.`,
 		slo: `Preprosta aplikacija za upravljanje opravil. Podpira ustvarjanje opravil, posodabljanje in brisanje. Narejen je z React, Typescript, .NET za backend in SQL strežnikom. Projekt se lahko zažene v docker kontejnerjih. Je delo v teku in bo posodobljen v prihodnosti.`,
 	},
 	{

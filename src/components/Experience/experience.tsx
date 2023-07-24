@@ -45,6 +45,17 @@ const Education = () => {
 					</Col>
 					<Col xs={0} sm={0} md={0} lg={6}></Col>
 				</Row>
+				{/* - */}
+				<Row className='experience-section'>
+					<Col xs={0} sm={0} md={0} lg={6}></Col>
+					<Col className='timeline-block timeline-block-right' xs={12} sm={12} md={12} lg={6}>
+						<div className='line-wrapper'>
+							<div className='line'></div>
+							<div className='marker'></div>
+						</div>
+						<div className='timeline-content'>{getTranslation("Experience_Searching")}</div>
+					</Col>
+				</Row>
 			</Row>
 		</Container>
 	);
