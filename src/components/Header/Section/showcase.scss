@@ -62,7 +62,6 @@
 					z-index: 5;
 					font-size: 2rem;
 					color: v.$white;
-					// display: none;
 					opacity: 0;
 				}
 			}
@@ -75,7 +74,6 @@
 
 				.project-icon {
 					opacity: 1;
-					// display: block;
 					transition: 0.4s ease-in-out;
 				}
 			}
@@ -83,11 +81,12 @@
 
 		.space-invaders-wrapper {
 			height: 100%;
+			max-height: 100%;
 			width: 100%;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			justify-content: center;
+			justify-content: flex-start;
 
 			.space-invaders__title {
 				color: white;
@@ -104,6 +103,7 @@
 			}
 
 			canvas {
+				max-height: 100%;
 				max-width: 100%;
 			}
 		}
@@ -162,7 +162,7 @@
 		max-height: 90vh;
 		display: flex;
 		flex-direction: row;
-		justify-content: space-around;
+		justify-content: flex-start;
 
 		.upcoming-section {
 			width: "fit-content";
