@@ -8,18 +8,6 @@
 		padding-bottom: 2rem;
 		cursor: pointer;
 
-		.heading-row {
-			display: flex;
-			justify-content: center;
-			padding-bottom: 1rem;
-
-			h1 {
-				color: v.$white;
-				text-transform: uppercase;
-				width: fit-content;
-			}
-		}
-
 		.box {
 			width: 100%;
 			display: flex;
