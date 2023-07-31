@@ -7,8 +7,6 @@
 	display: flex;
 	gap: 1rem;
 	padding: 1rem !important;
-	// flex-direction: column;
-	// height: calc(100vh - 4rem);
 }
 
 @media (max-width: 992px) {
@@ -16,44 +14,3 @@
 		flex-direction: column !important;
 	}
 }
-
-/* App.css (or you can use inline styles in your JSX) */
-
-// body,
-// html {
-// 	margin: 0;
-// 	padding: 0;
-// }
-
-// .page-container {
-// 	display: flex;
-// 	flex-direction: row;
-// 	height: 100vh; /* This ensures the container takes the full viewport height */
-// }
-
-// .section1,
-// .section2 {
-// 	flex: 1; /* Each section will take an equal amount of available space */
-// 	padding: 20px; /* Adjust padding as per your requirement */
-// 	display: flex;
-// 	flex-direction: column;
-// 	justify-content: center;
-// 	align-items: center;
-// }
-
-// /* Additional styling to make it visually appealing */
-// .section1 {
-// 	background-color: #f0f0f0;
-// }
-
-// .section2 {
-// 	background-color: #f9f9f9;
-// }
-
-// /* Responsive styles */
-// @media screen and (max-width: 768px) {
-// 	/* For smaller screens, stack the sections vertically */
-// 	.page-container {
-// 		flex-direction: column;
-// 	}
-// }

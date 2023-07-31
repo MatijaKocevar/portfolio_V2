@@ -10,18 +10,6 @@ const Header = () => {
 			<Bio />
 			<Showcase />
 		</Container>
-	// 	<div className="page-container">
-    //   <div className="section1">
-	// 			{/* Content for section 1 */}
-	// 			<Bio></Bio>
-        
-    //   </div>
-    //   <div className="section2">
-	// 			{/* Content for section 2 */}
-	// 			<Showcase></Showcase>
-        
-    //   </div>
-    // </div>
 	);
 };
 
