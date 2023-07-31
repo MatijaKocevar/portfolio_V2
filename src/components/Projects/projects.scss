@@ -3,18 +3,6 @@
 .projects {
 	background-color: v.$darkerPurple;
 
-	.heading-row {
-		display: flex;
-		justify-content: center;
-		padding-bottom: 2rem;
-
-		h1 {
-			color: v.$white;
-			text-transform: uppercase;
-			width: fit-content;
-		}
-	}
-
 	.projects-wrapper {
 		display: flex;
 		justify-content: center;

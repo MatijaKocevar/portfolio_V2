@@ -3,17 +3,6 @@
 .about {
 	background-color: v.$darkPurple;
 
-	.heading-row {
-		display: flex;
-		justify-content: center;
-
-		h1 {
-			color: v.$white;
-			text-transform: uppercase;
-			width: fit-content;
-		}
-	}
-
 	.about-content {
 		display: flex;
 		align-items: center;

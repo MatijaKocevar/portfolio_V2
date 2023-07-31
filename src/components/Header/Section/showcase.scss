@@ -1,0 +1,209 @@
+@use "../../../variables" as v;
+
+.games {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	background-color: v.$darkerPurpleSE;
+	border-radius: 10px;
+	padding: 2rem;
+	height: 100%;
+	text-align: center;
+	justify-content: space-around;
+
+	.heading-row {
+		width: fit-content;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		h1 {
+			width: fit-content;
+			margin-bottom: 1rem;
+		}
+
+		h5 {
+			width: fit-content;
+			font-size: 1rem;
+			margin-bottom: 1rem;
+			color: red;
+		}
+
+		.game-description {
+			width: fit-content;
+			color: white;
+			margin-bottom: 1rem;
+		}
+	}
+
+	.space-invaders {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.game-wrapper {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			cursor: pointer;
+			margin-bottom: 2rem;
+
+			.game {
+				position: relative;
+
+				.game-image {
+					border-radius: 10px;
+					max-width: 90%;
+				}
+
+				.project-icon {
+					position: absolute;
+					top: calc(50% - 1.5rem);
+					left: calc(50% - 1rem);
+					z-index: 5;
+					font-size: 2rem;
+					color: v.$white;
+					// display: none;
+					opacity: 0;
+				}
+			}
+
+			&:hover {
+				.game-image {
+					transform: scale(1.1);
+					transition: 0.4s ease-in-out;
+				}
+
+				.project-icon {
+					opacity: 1;
+					// display: block;
+					transition: 0.4s ease-in-out;
+				}
+			}
+		}
+
+		.space-invaders-wrapper {
+			height: 100%;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+
+			.space-invaders__title {
+				color: white;
+				font-size: 1.5rem;
+				margin-bottom: 1rem;
+				text-align: center;
+			}
+
+			.space-invaders__sub-title {
+				color: white;
+				font-size: 1rem;
+				margin-bottom: 1rem;
+				text-align: center;
+			}
+
+			canvas {
+				max-width: 100%;
+			}
+		}
+	}
+
+	.subtitle-links {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		gap: 2rem;
+		margin-bottom: 2rem;
+
+		.popup-box {
+			justify-content: center;
+		}
+
+		button {
+			background-color: v.$lightPurple;
+			border: none;
+			border-radius: 5px;
+			padding: 0.5rem;
+			color: white;
+			font-size: 0.8rem;
+			transition: 0.3s;
+			width: 10rem;
+
+			&:hover {
+				background-color: v.$darkerPurple;
+			}
+		}
+
+		a {
+			background-color: v.$lightPurple;
+			border-radius: 5px;
+			padding: 0.5rem;
+			color: white;
+			text-decoration: none;
+			font-size: 0.8rem;
+			transition: 0.3s;
+			text-align: center;
+			width: 10rem;
+
+			&:hover {
+				background-color: v.$darkerPurple;
+			}
+		}
+	}
+}
+
+.popup-box {
+	display: flex;
+	overflow-y: scroll;
+	overflow-x: hidden;
+
+	.popupbox-content {
+		max-height: 90vh;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+
+		.upcoming-section {
+			width: "fit-content";
+			height: 20%;
+
+			.popupbox-description {
+				div {
+					display: flex;
+					flex-direction: column;
+				}
+			}
+		}
+
+		.changelog-section {
+			width: "fit-content";
+			height: 80%;
+
+			.popupbox-description {
+				div {
+					display: flex;
+					flex-direction: column;
+				}
+			}
+		}
+	}
+
+	&::-webkit-scrollbar {
+		display: block;
+		width: 10px; /* Customize the width of the scrollbar */
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: #999; /* Customize the color of the thumb */
+		border-radius: 5px; /* Customize the border radius of the thumb */
+	}
+
+	&::-webkit-scrollbar-track {
+		background-color: v.$darkerPurpleSE; /* Customize the color of the track */
+	}
+
+	&::-webkit-scrollbar-thumb:hover {
+		background-color: #555; /* Customize the color of the thumb on hover */
+	}
+}
