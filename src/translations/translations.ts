@@ -94,12 +94,14 @@ export const Translations = [
 		<span>- Different projectile types for invaders</span>
 		<span>- Projectile detection with projectile</span>
 		<span>- Game optimizations</span>
+		<span>- Secure api for highscores</span>
 		`,
 		slo: `
 		<span>- Naključni UFO</span>
 		<span>- Različni tipi projektilov za invader-je</span>
 		<span>- Detekcija projektilov s projektili</span>
 		<span>- Optimizacija igre</span>
+		<span>- Zavarovanje api-ja za rezultate</span>
 		`,
 	},
 	{
