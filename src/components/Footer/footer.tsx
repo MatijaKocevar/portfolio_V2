@@ -47,7 +47,7 @@ const Footer = () => {
 					</Col>
 				</Col>
 
-				<Col className='footer-social-links' xs={12} sm={12} md={12} lg={4}>
+				{/* <Col className='footer-social-links' xs={12} sm={12} md={12} lg={4}>
 					<FacebookShareButton url={"https://matijakocevar.github.io/portfolio_V2/"} quote={"Matija Kočevar's portfolio"}>
 						<FacebookIcon size={36} />
 					</FacebookShareButton>
@@ -60,7 +60,7 @@ const Footer = () => {
 					<LinkedinShareButton url={"https://matijakocevar.github.io/portfolio_V2/"}>
 						<LinkedinIcon size={36} />
 					</LinkedinShareButton>
-				</Col>
+				</Col> */}
 			</Row>
 		</Container>
 	);
