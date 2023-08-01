@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { FacebookShareButton, FacebookIcon, TwitterShareButton, TwitterIcon, RedditShareButton, RedditIcon, LinkedinShareButton, LinkedinIcon } from "react-share";
+// import { FacebookShareButton, FacebookIcon, TwitterShareButton, TwitterIcon, RedditShareButton, RedditIcon, LinkedinShareButton, LinkedinIcon } from "react-share";
 import { Link } from "react-scroll";
 import "./footer.scss";
 import { Col, Container, Row } from "react-bootstrap";
