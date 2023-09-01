@@ -273,12 +273,12 @@ export const Translations = [
 	},
 	{
 		id: "Experience_Searching",
-		en: `<h3>Junior / Mid Front-end Software developer</h3>
-         <h5>2023 - ... </h5>
-         <p>Searching for a junior / mid level front-end development job.</p>`,
-		slo: `<h3>Razvijalec programske opreme - Agitavit Solutions d.o.o.</h3>
-          <h5>2021 - tekoče / Zaposlitev</h5>
-		  <p>Iščem zaposlitev kot junior / mid razvijalec na področju front-enda.</p>`,
+		en: `<h3>Software engineer - Dhimahi d.o.o.</h3>
+         <h5>2023 - ... / Employment </h5>
+         <p>Started a new job for frontend work with Angular.</p>`,
+		slo: `<h3>Inžinir programske opreme - Dhimahi d.o.o.</h3>
+          <h5>2023 - ... / Zaposlitev</h5>
+		  <p>Začel novo službo za delo na področju frontenda z Angular</p>`,
 	},
 	/**
 	 * SKILLS
