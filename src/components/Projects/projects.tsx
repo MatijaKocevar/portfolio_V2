@@ -20,6 +20,7 @@ const Projects = () => {
 	const [showPopupportfoliV2, setShowPopupportfoliV2] = useState(false);
 	const [showPopupDrumbox, setShowPopupDrumbox] = useState(false);
 	const [showPopupTaskManagement, setShowPopupTaskManagement] = useState(false);
+	const [showPopupVueDynamicForms, setShowVueDynamicForms] = useState(false);
 
 	const magnifyingGlass = <SvgIcon iconName='magnifyingGlass' svgProp={{ width: "2rem", height: "2rem", fill: "white" }} />;
 
@@ -131,6 +132,30 @@ const Projects = () => {
 					<a href='https://github.com/MatijaKocevar/task-management' target='_blank' rel='noopener noreferrer'>
 						GitHub
 					</a>
+					<a href='https://matijakocevar.github.io/task-management-frontend/' target='_blank' rel='noopener noreferrer'>
+						Live
+					</a>
+				</Row>
+			</Row>
+		),
+		vueDynamicFormsContent = (
+			<Row className='popupbox-content'>
+				<Row className='popupbox-heading'>
+					<h3>{getTranslation("Projects_VueDynamicForms_Title")}</h3>
+				</Row>
+				<Row className='popupbox-image'>
+					<img src={TaskManagement} alt='Task Management' />
+				</Row>
+				<Row className='popupbox-description'>
+					<p>{getTranslation("Projects_VueDynamicForms_Description")}</p>
+				</Row>
+				<Row className='popupbox-links'>
+					<a href='https://github.com/MatijaKocevar/vue-dynamic-forms' target='_blank' rel='noopener noreferrer'>
+						GitHub
+					</a>
+					<a href='https://matijakocevar.github.io/vue-dynamic-forms/#/registration' target='_blank' rel='noopener noreferrer'>
+						Live
+					</a>
 				</Row>
 			</Row>
 		);
@@ -141,6 +166,17 @@ const Projects = () => {
 				<h1 className=''>{getTranslation("Navigation_Projects")}</h1>
 			</Row>
 			<Row className='projects-wrapper'>
+				{/* - */}
+				{showPopupVueDynamicForms && <PopupBox content={vueDynamicFormsContent} onClose={() => setShowVueDynamicForms(false)} />}
+				<Col lg={4} md={6} sm={6} xs={12}>
+					<div className='project-wrapper' role='presentation' onClick={() => setShowVueDynamicForms(true)}>
+						<div className='project'>
+							<div className='project-icon'>{magnifyingGlass}</div>
+							<img className='project-image' src={TaskManagement} alt='project webpage' />
+						</div>
+						<h3>{getTranslation("Projects_VueDynamicForms_Title")}</h3>
+					</div>
+				</Col>
 				{/* - */}
 				{showPopupTaskManagement && <PopupBox content={taskManagementContent} onClose={() => setShowPopupTaskManagement(false)} />}
 				<Col lg={4} md={6} sm={6} xs={12}>
