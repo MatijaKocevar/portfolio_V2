@@ -272,13 +272,22 @@ export const Translations = [
           <p>Kot razvijalec sem pridobil dobro razumevanje splošnih razvojnih delovnih procesov in naredil izjemne korake pri razvoju svojih tehničnih veščin, še posebej pri tehnologijah front-enda. Postal sem kar vešč v Reactu in Typescriptu. Poleg tega sem veliko delal s .NET in SQL ter izboljšal svoje razumevanje tehnologij na strani back-enda.</p>`,
 	},
 	{
-		id: "Experience_Searching",
+		id: "Experience_Dhimahi",
 		en: `<h3>Software engineer - Dhimahi d.o.o.</h3>
-         <h5>2023 - ... / Employment </h5>
-         <p>Started a new job for frontend work with Angular.</p>`,
-		slo: `<h3>Inžinir programske opreme - Dhimahi d.o.o.</h3>
-          <h5>2023 - ... / Zaposlitev</h5>
-		  <p>Začel novo službo za delo na področju frontenda z Angular</p>`,
+         <h5>2023 / Employment</h5>
+         <p>Started a new job as an Angular developer. Didn't actually get to work a lot with Angular. But I did learn to work with Vue JS and Typescript a lot more. The application I was working on was dockerized so I switched to Linux, to avoid using WSL and got a handle on how to use the OS better. I have also gained experience on how to work on a project that has a lot of users and is live 24/7.</p>`,
+		slo: `<h3>Inženir programske opreme - Dhimahi d.o.o.</h3>
+          <h5>2023 / Zaposlitev</h5>
+		  <p>Začel sem novo službo kot Angular developer. V resnici nisem veliko delal z Angularjem. Naučil sem se veliko več delati z Vue JS in Typescriptom. Aplikacija, na kateri sem delal, je bila dockerizirana, zato sem preklopil na Linux, da ne bi uporabljal WSL in sem se bolje naučil uporabljati OS. Prav tako sem pridobil izkušnje, kako delati na projektu, ki ima veliko uporabnikov in je v živo 24/7.</p>`,
+	},
+	{
+		id: "Experience_Frodx",
+		en: `<h3>Software engineer II - Frodx d.o.o.</h3>
+          <h5>2023 / Employment</h5>
+          <p>Started a new job as an Vue JS developer.</p>`,
+		slo: `<h3>Inženir programske opreme II - Frodx d.o.o.</h3>
+          <h5>2023 / Zaposlitev</h5>
+		  <p>Začel sem novo službo kot razvijalec Vue JS.</p>`,
 	},
 	/**
 	 * SKILLS
@@ -357,6 +366,11 @@ export const Translations = [
 		slo: `Task Management`,
 	},
 	{
+		id: "Projects_VueDynamicForms_Title",
+		en: `Vue Dynamic Forms`,
+		slo: `Vue Dynamic Forms`,
+	},
+	{
 		id: "Projects_Portfolio_Description",
 		en: `As a beginner developer, I created my first webpage using React JS and create-react-app. Although I followed some tutorials and did not understand the inner workings of development, it was an exciting opportunity for me to showcase my skills and creativity. This project served as a solid foundation for me to further develop my skills in web development. Despite it being my first project, I am proud of the outcome and look forward to continually improving my skills in the field.`,
 		slo: `Kot začetnik sem ustvaril svojo prvo spletno stran z uporabo React JS in create-react-app. Čeprav sem sledil nekaterim vadnicam in nisem razumel notranjih delovanj razvoja, je bila to zame dobra priložnost, da pokažem svoje spretnosti in ustvarjalnost. Ta projekt mi je služil kot trdna osnova za nadaljnji razvoj mojih veščin na področju spletnega razvoja. Kljub temu, da je to moj prvi projekt, sem ponosen na rezultat in se veselim nadaljnjega izboljševanja svojih veščin na tem področju.`,
@@ -365,6 +379,11 @@ export const Translations = [
 		id: "Projects_TaskManagement_Description",
 		en: `A simple task management app. It support creating tasks, updating them and deleting them. It is made with React, Typescript, .NET for backend and a SQL server database. The project can be run in docker containers. It is a work in progress and will be updated in the future.`,
 		slo: `Preprosta aplikacija za upravljanje opravil. Podpira ustvarjanje opravil, posodabljanje in brisanje. Narejen je z React, Typescript, .NET za backend in SQL strežnikom. Projekt se lahko zažene v docker kontejnerjih. Je delo v teku in bo posodobljen v prihodnosti.`,
+	},
+	{
+		id: "Projects_VueDynamicForms_Description",
+		en: `I have begun learning Vue JS and wanted to create a project that would help me learn the basics of the framework. It showcases form handling, state management with Pinia, dynamic routing, component composition, and custom directives.`,
+		slo: `Začel sem se učiti Vue JS in želel ustvariti projekt, ki bi mi pomagal osvojiti osnove ogrodja. Prikazuje obdelavo form, uporabo Pinia state management, uporabo "routes" za navigiranje po strani, sestavljanje komponent in prilagojene Vue direktive.`,
 	},
 	{
 		id: "Projects_Drumbox_Description",
