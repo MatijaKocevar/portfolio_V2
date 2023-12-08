@@ -4,6 +4,7 @@ import DiffingApi from "../../images/diffingApi/diffingApi.png";
 import PortfoliV2 from "../../images/portfolioV2/portfolioV2.png";
 import Drumbox from "../../images/drumbox/drumbox.png";
 import TaskManagement from "../../images/task-management/task-management.png";
+import VueDynamicForms from "../../images/vue-dynamic-forms/vue-dynamic-forms.png";
 import "./projects.scss";
 import { useContext, useState } from "react";
 import PopupBox from "../Shared/PopupBox/PopupBox";
@@ -144,7 +145,7 @@ const Projects = () => {
 					<h3>{getTranslation("Projects_VueDynamicForms_Title")}</h3>
 				</Row>
 				<Row className='popupbox-image'>
-					<img src={TaskManagement} alt='Task Management' />
+					<img src={VueDynamicForms} alt='Task Management' />
 				</Row>
 				<Row className='popupbox-description'>
 					<p>{getTranslation("Projects_VueDynamicForms_Description")}</p>
@@ -172,7 +173,7 @@ const Projects = () => {
 					<div className='project-wrapper' role='presentation' onClick={() => setShowVueDynamicForms(true)}>
 						<div className='project'>
 							<div className='project-icon'>{magnifyingGlass}</div>
-							<img className='project-image' src={TaskManagement} alt='project webpage' />
+							<img className='project-image' src={VueDynamicForms} alt='project webpage' />
 						</div>
 						<h3>{getTranslation("Projects_VueDynamicForms_Title")}</h3>
 					</div>
