@@ -13,7 +13,6 @@ const fullReloadAlways: PluginOption = {
 	},
 } as PluginOption;
 
-
 export default () => {
 	return defineConfig({
 		// base: "/portfolio_V2/",
@@ -25,5 +24,5 @@ export default () => {
 			https: true,
 			cors: true,
 		},
-    });
-}
+	});
+};
