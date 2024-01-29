@@ -18,7 +18,6 @@ const Footer = () => {
 		<Container className='footer-container'>
 			<Row className='footer-row'>
 				<Col className='basic-info-column' xs={12} sm={12} md={12} lg={4}>
-					<a href='tel:+38670892271'>(+386) 070 892 271</a>
 					<a href='mailto: matija.kocev@gmail.com'>matija.kocev@gmail.com</a>
 					<p style={{ color: "white" }}>Trzin, Slovenia</p>
 				</Col>
@@ -46,21 +45,6 @@ const Footer = () => {
 						</Link>
 					</Col>
 				</Col>
-
-				{/* <Col className='footer-social-links' xs={12} sm={12} md={12} lg={4}>
-					<FacebookShareButton url={"https://matijakocevar.github.io/portfolio_V2/"} quote={"Matija Kočevar's portfolio"}>
-						<FacebookIcon size={36} />
-					</FacebookShareButton>
-					<TwitterShareButton url={"https://matijakocevar.github.io/portfolio_V2/"}>
-						<TwitterIcon size={36} />
-					</TwitterShareButton>
-					<RedditShareButton url={"https://matijakocevar.github.io/portfolio_V2/"}>
-						<RedditIcon size={36} />
-					</RedditShareButton>
-					<LinkedinShareButton url={"https://matijakocevar.github.io/portfolio_V2/"}>
-						<LinkedinIcon size={36} />
-					</LinkedinShareButton>
-				</Col> */}
 			</Row>
 		</Container>
 	);
