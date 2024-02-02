@@ -371,6 +371,11 @@ export const Translations = [
 		slo: `Vue Dynamic Forms`,
 	},
 	{
+		id: "Projects_SpaceInvaders_Title",
+		en: `Space Invaders`,
+		slo: `Space Invaders`,
+	},
+	{
 		id: "Projects_Portfolio_Description",
 		en: `As a beginner developer, I created my first webpage using React JS and create-react-app. Although I followed some tutorials and did not understand the inner workings of development, it was an exciting opportunity for me to showcase my skills and creativity. This project served as a solid foundation for me to further develop my skills in web development. Despite it being my first project, I am proud of the outcome and look forward to continually improving my skills in the field.`,
 		slo: `Kot začetnik sem ustvaril svojo prvo spletno stran z uporabo React JS in create-react-app. Čeprav sem sledil nekaterim vadnicam in nisem razumel notranjih delovanj razvoja, je bila to zame dobra priložnost, da pokažem svoje spretnosti in ustvarjalnost. Ta projekt mi je služil kot trdna osnova za nadaljnji razvoj mojih veščin na področju spletnega razvoja. Kljub temu, da je to moj prvi projekt, sem ponosen na rezultat in se veselim nadaljnjega izboljševanja svojih veščin na tem področju.`,
@@ -384,6 +389,11 @@ export const Translations = [
 		id: "Projects_VueDynamicForms_Description",
 		en: `I have begun learning Vue JS and wanted to create a project that would help me learn the basics of the framework. It showcases form handling, state management with Pinia, dynamic routing, component composition, and custom directives.`,
 		slo: `Začel sem se učiti Vue JS in želel ustvariti projekt, ki bi mi pomagal osvojiti osnove ogrodja. Prikazuje obdelavo form, uporabo Pinia state management, uporabo "routes" za navigiranje po strani, sestavljanje komponent in prilagojene Vue direktive.`,
+	},
+	{
+		id: "Projects_SpaceInvaders_Description",
+		en: `Made a clone of Space Invaders in Typescript. This was really fun to make and I learned a lot about game development. I used the canvas API to draw the game and handle the game logic. I also used the Web Audio API to handle the sound.`,
+		slo: `Naredil sem klon Space Invaders v Typescriptu. To je bilo res zabavno narediti in sem se veliko naučil o razvoju iger. Uporabil sem Canvas API za risanje igre in obdelavo igralne logike. Prav tako sem uporabil Web Audio API za obdelavo zvoka.`,
 	},
 	{
 		id: "Projects_Drumbox_Description",
