@@ -5,6 +5,7 @@ import PortfoliV2 from "../../images/portfolioV2/portfolioV2.png";
 import Drumbox from "../../images/drumbox/drumbox.png";
 import TaskManagement from "../../images/task-management/task-management.png";
 import VueDynamicForms from "../../images/vue-dynamic-forms/vue-dynamic-forms.png";
+import SpaceInvaders from "../../images/space-invaders/space-invaders.png";
 import "./projects.scss";
 import { useContext, useState } from "react";
 import PopupBox from "../Shared/PopupBox/PopupBox";
@@ -167,7 +168,7 @@ const Projects = () => {
 					<h3>Space Invaders</h3>
 				</Row>
 				<Row className='popupbox-image'>
-					<img src={PortfolioV1} alt='Online resume' />
+					<img src={SpaceInvaders} alt='Online resume' />
 				</Row>
 				<Row className='popupbox-description'>
 					<p>{getTranslation("Projects_SpaceInvaders_Description")}</p>
@@ -195,7 +196,7 @@ const Projects = () => {
 					<div className='project-wrapper' role='presentation' onClick={() => setShowSpaceInvaders(true)}>
 						<div className='project'>
 							<div className='project-icon'>{magnifyingGlass}</div>
-							<img className='project-image' src={VueDynamicForms} alt='project webpage' />
+							<img className='project-image' src={SpaceInvaders} alt='project webpage' />
 						</div>
 						<h3>{getTranslation("Projects_SpaceInvaders_Title")}</h3>
 					</div>

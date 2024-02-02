@@ -14,28 +14,31 @@ const Showcase = () => {
 
 	const spaceInvadersContent = (
 		<div className='space-invaders-wrapper'>
-			<div className='space-invaders__title'>{getTranslation("Header_SpaceInvaders_Title")}</div>
-			<div className='space-invaders__sub-title'>{getTranslation("Header_SpaceInvaders_Sub-Title")}</div>
-			{/* <SpaceInvaders /> */}
-			<iframe
+			<div className='space-invaders__title'>Zelda clone</div>
+			<div className='space-invaders__sub-title'>WIP</div>
+
+			<div
 				style={{
 					width: "600px",
-					height: "100%",
-					border: "none",
-					maxWidth: "100%",
+					height: "600px",
+					backgroundColor: "black",
+					color: "white",
+					display: "flex",
+					justifyContent: "center",
+					alignItems: "center",
 				}}
-				src='https://matijakocevar.github.io/space-invaders/'
-				title='Space Invaders'
-			></iframe>
+			>
+				COMING SOON
+			</div>
 		</div>
 	);
 
 	return (
 		<Col className='games'>
 			<Row className='heading-row'>
-				<h1>{getTranslation("Header_SpaceInvaders_Title")}</h1>
+				<h1>Zelda clone</h1>
 				<h5>{getTranslation("Header_WIP-Title")}</h5>
-				<div className='game-description'>{getTranslation("Header_WIP_Description")}</div>
+				<div className='game-description'>I will be making a clone of a Zelda game. Probably the gameboy era.</div>
 			</Row>
 			<Row className='space-invaders'>
 				{showPopupSpaceInvaders && <PopupBox content={spaceInvadersContent} onClose={() => setShowPopupSpaceInvaders(false)} />}
@@ -43,12 +46,25 @@ const Showcase = () => {
 				<div className='game-wrapper' role='presentation' onClick={() => setShowPopupSpaceInvaders(true)}>
 					<div className='game'>
 						<div className='project-icon'>{magnifyingGlass}</div>
-						<img className='game-image' src={SpaceInvaderPic} alt='Space Invaders...' />
+						<div
+							style={{
+								width: "528px",
+								height: "528px",
+								backgroundColor: "black",
+								color: "white",
+								display: "flex",
+								justifyContent: "center",
+								alignItems: "center",
+								borderRadius: "10px",
+							}}
+						>
+							COMING SOON
+						</div>
 					</div>
 				</div>
 			</Row>
 			<Row className='subtitle-links'>
-				<a className='game-code-link' href='https://github.com/MatijaKocevar/space-invaders/tree/develop' target='_blank' title='Open in GitHub' rel='noopener noreferrer'>
+				<a className='game-code-link' href='https://github.com/MatijaKocevar/zelda-clone' target='_blank' title='Open in GitHub' rel='noopener noreferrer'>
 					Code
 				</a>
 			</Row>
