@@ -22,6 +22,7 @@ const Projects = () => {
 	const [showPopupDrumbox, setShowPopupDrumbox] = useState(false);
 	const [showPopupTaskManagement, setShowPopupTaskManagement] = useState(false);
 	const [showPopupVueDynamicForms, setShowVueDynamicForms] = useState(false);
+	const [showPopupSpaceInvaders, setShowSpaceInvaders] = useState(false);
 
 	const magnifyingGlass = <SvgIcon iconName='magnifyingGlass' svgProp={{ width: "2rem", height: "2rem", fill: "white" }} />;
 
@@ -159,6 +160,27 @@ const Projects = () => {
 					</a>
 				</Row>
 			</Row>
+		),
+		spaceInvadersContent = (
+			<Row className='popupbox-content'>
+				<Row className='popupbox-heading'>
+					<h3>Space Invaders</h3>
+				</Row>
+				<Row className='popupbox-image'>
+					<img src={PortfolioV1} alt='Online resume' />
+				</Row>
+				<Row className='popupbox-description'>
+					<p>{getTranslation("Projects_SpaceInvaders_Description")}</p>
+				</Row>
+				<Row className='popupbox-links'>
+					<a href='https://github.com/MatijaKocevar/space-invaders' target='_blank' rel='noopener noreferrer'>
+						GitHub
+					</a>
+					<a href='https://matijakocevar.github.io/space-invaders/' target='_blank' rel='noopener noreferrer'>
+						Live
+					</a>
+				</Row>
+			</Row>
 		);
 
 	return (
@@ -167,6 +189,17 @@ const Projects = () => {
 				<h1 className=''>{getTranslation("Navigation_Projects")}</h1>
 			</Row>
 			<Row className='projects-wrapper'>
+				{/* - */}
+				{showPopupSpaceInvaders && <PopupBox content={spaceInvadersContent} onClose={() => setShowSpaceInvaders(false)} />}
+				<Col lg={4} md={6} sm={6} xs={12}>
+					<div className='project-wrapper' role='presentation' onClick={() => setShowSpaceInvaders(true)}>
+						<div className='project'>
+							<div className='project-icon'>{magnifyingGlass}</div>
+							<img className='project-image' src={VueDynamicForms} alt='project webpage' />
+						</div>
+						<h3>{getTranslation("Projects_SpaceInvaders_Title")}</h3>
+					</div>
+				</Col>
 				{/* - */}
 				{showPopupVueDynamicForms && <PopupBox content={vueDynamicFormsContent} onClose={() => setShowVueDynamicForms(false)} />}
 				<Col lg={4} md={6} sm={6} xs={12}>
