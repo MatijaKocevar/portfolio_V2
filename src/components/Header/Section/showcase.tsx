@@ -3,7 +3,6 @@ import PopupBox from "../../Shared/PopupBox/PopupBox";
 import SvgIcon from "../../Shared/SvgIcon/SvgIcon";
 import { useContext, useState } from "react";
 import { TranslationContext } from "../../../translations/components/TranslationContext";
-import SpaceInvaderPic from "../../../images/space-invaders/space-invaders.png";
 import "./showcase.scss";
 
 const Showcase = () => {
