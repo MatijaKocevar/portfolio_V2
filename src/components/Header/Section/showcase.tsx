@@ -12,6 +12,11 @@ const Showcase = () => {
 
 	const magnifyingGlass = <SvgIcon iconName='magnifyingGlass' svgProp={{ width: "2rem", height: "2rem", fill: "white" }} />;
 
+	const onOpenLive = () => {
+		//i need to open a new tab with the game
+		window.open("https://matijakocevar.github.io/zelda-clone/", "_blank");
+	};
+
 	const spaceInvadersContent = (
 		<div className='zelda-clone-wrapper'>
 			<div className='titles'>
@@ -19,6 +24,7 @@ const Showcase = () => {
 				<div className='zelda-clone__sub-title'>
 					This project takes inspiration from A Link to the Past, a classic game from the 90s. The game is a top-down shooter where the player must navigate through a maze of enemies and obstacles to
 					reach the end of the level. The game is built using TypeScript and Vite.
+					<br />
 					<br />
 					Controls: W,A,S,D keys to move, Space to attack.
 				</div>
@@ -28,6 +34,7 @@ const Showcase = () => {
 					<iframe src='https://matijakocevar.github.io/zelda-clone/' title='A Tie to the past'></iframe>
 				</div>
 			</div>
+			<button onClick={onOpenLive}>OPEN LIVE</button>
 		</div>
 	);
 
