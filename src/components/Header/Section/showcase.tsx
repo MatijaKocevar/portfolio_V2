@@ -4,6 +4,7 @@ import SvgIcon from "../../Shared/SvgIcon/SvgIcon";
 import { useContext, useState } from "react";
 import { TranslationContext } from "../../../translations/components/TranslationContext";
 import "./showcase.scss";
+import zeldaClone from "../../../images/zelda-clone/zelda-clone.png";
 
 const Showcase = () => {
 	const { getTranslation } = useContext(TranslationContext);
@@ -14,11 +15,18 @@ const Showcase = () => {
 	const spaceInvadersContent = (
 		<div className='zelda-clone-wrapper'>
 			<div className='titles'>
-				<div className='zelda-clone__title'>Zelda clone</div>
-				<div className='zelda-clone__sub-title'>WIP</div>
+				<div className='zelda-clone__title'>Legend of Griselda - A Tie to the Past</div>
+				<div className='zelda-clone__sub-title'>
+					This project takes inspiration from A Link to the Past, a classic game from the 90s. The game is a top-down shooter where the player must navigate through a maze of enemies and obstacles to
+					reach the end of the level. The game is built using TypeScript and Vite.
+					<br />
+					Controls: W,A,S,D keys to move, Space to attack.
+				</div>
 			</div>
 			<div className='game'>
-				<div className='coming-soon__popup'>COMING SOON</div>
+				<div className='coming-soon__popup'>
+					<iframe src='https://matijakocevar.github.io/zelda-clone/' title='A Tie to the past'></iframe>
+				</div>
 			</div>
 		</div>
 	);
@@ -26,9 +34,9 @@ const Showcase = () => {
 	return (
 		<Col className='games'>
 			<Row className='heading-row'>
-				<h1>Zelda clone</h1>
+				<h1>Legend of Griselda - A Tie to the Past</h1>
 				<h5>{getTranslation("Header_WIP-Title")}</h5>
-				<div className='game-description'>I will be making a clone of a Zelda game. Probably the gameboy era.</div>
+				<div className='game-description'>A Link to the past knockoff.</div>
 			</Row>
 			<Row className='zelda-clone'>
 				{showPopupSpaceInvaders && <PopupBox content={spaceInvadersContent} onClose={() => setShowPopupSpaceInvaders(false)} />}
@@ -36,7 +44,7 @@ const Showcase = () => {
 				<div className='game-wrapper' role='presentation' onClick={() => setShowPopupSpaceInvaders(true)}>
 					<div className='game'>
 						<div className='project-icon'>{magnifyingGlass}</div>
-						<div className='coming-soon'>COMING SOON</div>
+						<img src={zeldaClone} alt='zelda-clone' className='zelda-clone-img' />
 					</div>
 				</div>
 			</Row>
