@@ -56,12 +56,12 @@ export const Translations = [
 		Hello and welcome to my portfolio page!
         <br />
         <br />
-        I am a software developer with 2 years of experience in the industry.`,
+        Look around. Play some games. Check out my projects. Have a good time.`,
 		slo: `
 		Pozdravljeni in dobrodošli na moji spletni strani!
         <br />
         <br />
-        Sem razvijalec programske opreme z 2 leti izkušenj v industriji.`,
+        Poglej okoli. Igraj kakšno igro. Preveri moje projekte. Imej se lepo.`,
 	},
 	{
 		id: "Header_Sub_Subtitle",
