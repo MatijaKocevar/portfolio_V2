@@ -22,8 +22,8 @@ const Showcase = () => {
 			<div className='titles'>
 				<div className='zelda-clone__title'>Legend of Griselda - A Tie to the Past</div>
 				<div className='zelda-clone__sub-title'>
-					This project takes inspiration from A Link to the Past, a classic game from the 90s. The game is a top-down shooter where the player must navigate through a maze of enemies and obstacles to
-					reach the end of the level. The game is built using TypeScript and Vite.
+					This project takes inspiration from Legend of Zelda - A Link to the Past, a classic game from the 90s. The game is a top-down shooter where the player must navigate through a maze of enemies
+					and obstacles to reach the end of the level. The game is built using Phaser.js, React.js and TypeScript.
 					<br />
 					<br />
 					Controls: W,A,S,D keys to move, Space to attack.
@@ -43,7 +43,6 @@ const Showcase = () => {
 			<Row className='heading-row'>
 				<h1>Legend of Griselda - A Tie to the Past</h1>
 				<h5>{getTranslation("Header_WIP-Title")}</h5>
-				<div className='game-description'>A Link to the past knockoff.</div>
 			</Row>
 			<Row className='zelda-clone'>
 				{showPopupSpaceInvaders && <PopupBox content={spaceInvadersContent} onClose={() => setShowPopupSpaceInvaders(false)} />}
