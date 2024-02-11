@@ -147,6 +147,21 @@
 					}
 				}
 			}
+
+			button {
+				background-color: v.$lightPurple;
+				border: none;
+				border-radius: 5px;
+				padding: 0.5rem;
+				color: white;
+				font-size: 0.8rem;
+				transition: 0.3s;
+				width: 10rem;
+
+				&:hover {
+					background-color: v.$darkerPurple;
+				}
+			}
 		}
 	}
 
