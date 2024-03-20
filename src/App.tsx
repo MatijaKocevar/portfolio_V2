@@ -11,37 +11,37 @@ import Projects from "./components/Projects/projects";
 import Interests from "./components/Interests/interests";
 
 const App = () => {
-	return (
-		<>
-			<Row>
-				<NavBar />
-			</Row>
-			<Row>
-				<Header />
-			</Row>
-			<Row>
-				<AboutMe />
-			</Row>
-			<Row>
-				<Projects />
-			</Row>
-			<Row>
-				<Education />
-			</Row>
-			<Row>
-				<Experience />
-			</Row>
-			<Row>
-				<Skills />
-			</Row>
-			<Row>
-				<Interests />
-			</Row>
-			<Row>
-				<Footer />
-			</Row>
-		</>
-	);
+    return (
+        <>
+            <Row>
+                <NavBar />
+            </Row>
+            <Row>
+                <Header />
+            </Row>
+            <Row>
+                <AboutMe />
+            </Row>
+            <Row>
+                <Projects />
+            </Row>
+            <Row>
+                <Education />
+            </Row>
+            <Row>
+                <Experience />
+            </Row>
+            <Row>
+                <Skills />
+            </Row>
+            <Row>
+                <Interests />
+            </Row>
+            <Row>
+                <Footer />
+            </Row>
+        </>
+    );
 };
 
 export default App;

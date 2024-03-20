@@ -1,119 +1,119 @@
 @use "../../variables" as v;
 
 .projects {
-	background-color: v.$darkerPurple;
+    background-color: v.$darkerPurple;
 
-	.projects-wrapper {
-		display: flex;
-		justify-content: center;
+    .projects-wrapper {
+        display: flex;
+        justify-content: center;
 
-		.project-wrapper {
-			text-align: center;
-			padding-bottom: 1rem;
-			cursor: pointer;
+        .project-wrapper {
+            text-align: center;
+            padding-bottom: 1rem;
+            cursor: pointer;
 
-			.project {
-				position: relative;
+            .project {
+                position: relative;
 
-				.project-image {
-					width: 100%;
-					border: 0.5rem solid var(--primary-dark);
-					border-radius: 10px;
-				}
+                .project-image {
+                    width: 100%;
+                    border: 0.5rem solid var(--primary-dark);
+                    border-radius: 10px;
+                }
 
-				.project-icon {
-					position: absolute;
-					top: calc(50% - 1.5rem);
-					left: calc(50% - 1rem);
-					z-index: 5;
-					font-size: 2rem;
-					color: v.$white;
-					// display: none;
-					opacity: 0;
-				}
-			}
+                .project-icon {
+                    position: absolute;
+                    top: calc(50% - 1.5rem);
+                    left: calc(50% - 1rem);
+                    z-index: 5;
+                    font-size: 2rem;
+                    color: v.$white;
+                    // display: none;
+                    opacity: 0;
+                }
+            }
 
-			h3 {
-				padding-top: 1rem;
-				color: v.$white;
-			}
-		}
+            h3 {
+                padding-top: 1rem;
+                color: v.$white;
+            }
+        }
 
-		.project-wrapper:hover {
-			.project {
-				.project-image {
-					opacity: 0.5;
-					transition: 0.4s ease-in-out;
-				}
+        .project-wrapper:hover {
+            .project {
+                .project-image {
+                    opacity: 0.5;
+                    transition: 0.4s ease-in-out;
+                }
 
-				.project-icon {
-					opacity: 1;
-					// display: block;
-					transition: 0.4s ease-in-out;
-				}
-			}
-		}
-	}
+                .project-icon {
+                    opacity: 1;
+                    // display: block;
+                    transition: 0.4s ease-in-out;
+                }
+            }
+        }
+    }
 }
 
 //lg
 @media (min-width: 992px) {
-	.popupbox-image {
-		display: flex;
-		justify-content: center;
-		padding: 1rem;
+    .popupbox-image {
+        display: flex;
+        justify-content: center;
+        padding: 1rem;
 
-		img {
-			width: 60%;
-			// height: 100%;
-		}
-	}
+        img {
+            width: 60%;
+            // height: 100%;
+        }
+    }
 }
 
 //md
 @media (max-width: 992px) {
-	.popupbox-image {
-		width: 100%;
-		height: fit-content;
-		display: flex;
-		justify-content: center;
-		padding: 1rem;
+    .popupbox-image {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        justify-content: center;
+        padding: 1rem;
 
-		img {
-			width: 80%;
-			// height: 100%;
-		}
-	}
+        img {
+            width: 80%;
+            // height: 100%;
+        }
+    }
 }
 
 //sm
 @media (max-width: 768px) {
-	.popupbox-image {
-		width: 100%;
-		height: fit-content;
-		display: flex;
-		justify-content: center;
-		padding: 1rem;
+    .popupbox-image {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        justify-content: center;
+        padding: 1rem;
 
-		img {
-			width: 100%;
-			// height: 100%;
-		}
-	}
+        img {
+            width: 100%;
+            // height: 100%;
+        }
+    }
 }
 
 //xs
 @media (max-width: 576px) {
-	.popupbox-image {
-		width: 100%;
-		height: fit-content;
-		display: flex;
-		justify-content: center;
-		padding: 1rem;
+    .popupbox-image {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        justify-content: center;
+        padding: 1rem;
 
-		img {
-			width: 100%;
-			// height: 100%;
-		}
-	}
+        img {
+            width: 100%;
+            // height: 100%;
+        }
+    }
 }

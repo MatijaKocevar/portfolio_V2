@@ -1,60 +1,60 @@
 @use "../../variables" as v;
 
 .about {
-	background-color: v.$darkPurple;
+    background-color: v.$darkPurple;
 
-	.about-content {
-		display: flex;
-		align-items: center;
-		width: 100%;
-		margin: 0;
+    .about-content {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin: 0;
 
-		.description {
-			text-align: center;
-			color: v.$white;
-		}
-	}
+        .description {
+            text-align: center;
+            color: v.$white;
+        }
+    }
 }
 
 //lg
 @media (min-width: 992px) {
-	.about-content {
-		.col-lg-5 {
-		}
-	}
+    .about-content {
+        .col-lg-5 {
+        }
+    }
 }
 
 //md
 @media (max-width: 992px) {
-	.about-content {
-		.col-md-12 {
-			padding: 0.5rem 0;
-		}
+    .about-content {
+        .col-md-12 {
+            padding: 0.5rem 0;
+        }
 
-		.description {
-			padding: 0.5rem 0;
+        .description {
+            padding: 0.5rem 0;
 
-			p {
-				text-align: center;
-			}
-		}
-	}
+            p {
+                text-align: center;
+            }
+        }
+    }
 }
 
 //sm
 @media (max-width: 768px) {
-	.about-content {
-		.col-sm-12 {
-			// padding: 0.5rem 0;
-		}
-	}
+    .about-content {
+        .col-sm-12 {
+            // padding: 0.5rem 0;
+        }
+    }
 }
 
 //xs
 @media (max-width: 576px) {
-	.about-content {
-		.col-12 {
-			// padding: 0.5rem 0;
-		}
-	}
+    .about-content {
+        .col-12 {
+            // padding: 0.5rem 0;
+        }
+    }
 }

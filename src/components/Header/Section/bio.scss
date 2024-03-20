@@ -1,72 +1,72 @@
 @use "../../../variables" as v;
 
 .main-info {
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
-	flex-direction: column;
-	background-color: v.$darkerPurpleSE;
-	border-radius: 10px;
-	padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    background-color: v.$darkerPurpleSE;
+    border-radius: 10px;
+    padding: 2rem;
 
-	.photo-header {
-		display: flex;
-		flex-direction: initial;
-		align-items: center;
-		justify-content: center;
+    .photo-header {
+        display: flex;
+        flex-direction: initial;
+        align-items: center;
+        justify-content: center;
 
-		.profile-img {
-			width: 50%;
-			margin: 0;
-			padding: 0;
-			border-radius: 50%;
-			border: 5px solid v.$lightPurple;
-			box-sizing: border-box;
-			margin-bottom: 2rem;
-		}
+        .profile-img {
+            width: 50%;
+            margin: 0;
+            padding: 0;
+            border-radius: 50%;
+            border: 5px solid v.$lightPurple;
+            box-sizing: border-box;
+            margin-bottom: 2rem;
+        }
 
-		div {
-			color: white;
-			font-size: 2rem;
-			text-align: center;
-		}
-	}
+        div {
+            color: white;
+            font-size: 2rem;
+            text-align: center;
+        }
+    }
 
-	.heading-row {
-		text-align: center;
-		color: white;
-		width: 100%;
+    .heading-row {
+        text-align: center;
+        color: white;
+        width: 100%;
 
-		h3 {
-			font-size: 1rem;
-		}
-	}
+        h3 {
+            font-size: 1rem;
+        }
+    }
 
-	.skill-icons-wrapper {
-		width: 100%;
+    .skill-icons-wrapper {
+        width: 100%;
 
-		.icon-heading {
-			text-align: center;
-			color: white;
-			margin-bottom: 2rem;
-		}
+        .icon-heading {
+            text-align: center;
+            color: white;
+            margin-bottom: 2rem;
+        }
 
-		.skills-neka {
-			.skill-icon {
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-				align-items: center;
+        .skills-neka {
+            .skill-icon {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
 
-				.skill-icon-svg {
-					width: 2rem;
-					height: 2rem;
-				}
+                .skill-icon-svg {
+                    width: 2rem;
+                    height: 2rem;
+                }
 
-				span {
-					color: white;
-				}
-			}
-		}
-	}
+                span {
+                    color: white;
+                }
+            }
+        }
+    }
 }
