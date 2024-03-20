@@ -8,48 +8,52 @@
 	.timeline-wrapper {
 		height: 100%;
 
-		.timeline-block {
-			display: flex;
-			flex-direction: row;
-			height: fit-content;
-			padding-bottom: 1rem;
-			cursor: pointer;
+		.education-section {
+			padding: 0;
 
-			.line-wrapper {
+			.timeline-block {
 				display: flex;
-
-				.line {
-					background-color: v.$white;
-					margin: 0 auto;
-					width: 2px;
-					justify-content: center;
-					height: 130%;
-				}
-
-				.marker {
-					width: 1.5rem;
-					height: 1.5rem;
-					align-self: center;
-					border-radius: 50%;
-					background: v.$white;
-					z-index: 3;
-				}
-			}
-
-			.timeline-content {
-				padding: 0 1rem 0 1rem;
-				width: 100%;
+				flex-direction: row;
 				height: fit-content;
-				color: v.$white;
-				direction: ltr;
-				border-radius: 10px;
+				cursor: pointer;
+				padding: 0 1.5rem;
+				overflow-y: hidden;
 
-				p {
-					margin: 0;
+				.line-wrapper {
+					display: flex;
+
+					.line {
+						background-color: v.$white;
+						margin: 0 auto;
+						width: 2px;
+						height: 140%;
+					}
+
+					.marker {
+						width: 1.5rem;
+						height: 1.5rem;
+						align-self: center;
+						border-radius: 50%;
+						background: v.$white;
+						z-index: 3;
+					}
 				}
 
-				h3 {
+				.timeline-content {
+					padding: 0 1rem 1rem 1rem;
+					width: 100%;
+					height: fit-content;
 					color: v.$white;
+					direction: ltr;
+					border-radius: 10px;
+
+					p {
+						margin: 0;
+					}
+
+					h3 {
+						color: v.$white;
+					}
 				}
 			}
 		}
@@ -66,14 +70,12 @@
 		}
 
 		.timeline-block-left:hover .timeline-content {
-			// padding-left: 2rem;
 			border-radius: 10px;
 			background-color: v.$lightPurple;
 			transition: 0.4s ease-in-out;
 		}
 
 		.timeline-block-right:hover .timeline-content {
-			// padding-left: 2rem;
 			border-radius: 10px;
 			background-color: v.$lightPurple;
 			transition: 0.4s ease-in-out;
@@ -92,11 +94,9 @@
 		.timeline-block-right {
 			text-align: left;
 			justify-content: flex-end;
-			transform: translate(-0.81rem);
+			transform: translate(-1.57rem);
 
 			.line-wrapper {
-				margin-right: 0.8rem;
-
 				.marker {
 					margin-left: -0.8rem;
 				}
@@ -106,11 +106,9 @@
 		.timeline-block-left {
 			text-align: right;
 			direction: rtl;
-			transform: translate(0.81rem);
+			transform: translate(1.57rem);
 
 			.line-wrapper {
-				margin-left: 0.8rem;
-
 				.marker {
 					margin-right: -0.8rem;
 				}
@@ -119,7 +117,6 @@
 	}
 
 	.timeline-block-left:hover .timeline-content {
-		// padding-right: 2rem !important;
 		background-color: v.$lightPurple;
 		border-radius: 10px;
 	}
@@ -130,8 +127,6 @@
 	.education {
 		.timeline-block-right {
 			.line-wrapper {
-				margin-right: 0.8rem;
-
 				.marker {
 					margin-left: -0.8rem;
 				}
@@ -143,8 +138,6 @@
 			direction: ltr;
 
 			.line-wrapper {
-				margin-right: 0.8rem;
-
 				.marker {
 					margin-left: -0.8rem;
 				}
