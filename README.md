@@ -1,4 +1,3 @@
-
 # Portfolio Page
 
 This is a portfolio page built with React, TypeScript, and Vite. It showcases my personal projects, skills, interests and experience.

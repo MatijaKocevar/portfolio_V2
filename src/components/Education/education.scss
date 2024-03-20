@@ -2,146 +2,146 @@
 @import "../../App.scss";
 
 .education {
-	background-color: v.$darkPurple;
-	height: 100%;
+    background-color: v.$darkPurple;
+    height: 100%;
 
-	.timeline-wrapper {
-		height: 100%;
+    .timeline-wrapper {
+        height: 100%;
 
-		.education-section {
-			padding: 0;
+        .education-section {
+            padding: 0;
 
-			.timeline-block {
-				display: flex;
-				flex-direction: row;
-				height: fit-content;
-				cursor: pointer;
-				padding: 0 1.5rem;
-				overflow-y: hidden;
+            .timeline-block {
+                display: flex;
+                flex-direction: row;
+                height: fit-content;
+                cursor: pointer;
+                padding: 0 1.5rem;
+                overflow-y: hidden;
 
-				.line-wrapper {
-					display: flex;
+                .line-wrapper {
+                    display: flex;
 
-					.line {
-						background-color: v.$white;
-						margin: 0 auto;
-						width: 2px;
-						height: 140%;
-					}
+                    .line {
+                        background-color: v.$white;
+                        margin: 0 auto;
+                        width: 2px;
+                        height: 140%;
+                    }
 
-					.marker {
-						width: 1.5rem;
-						height: 1.5rem;
-						align-self: center;
-						border-radius: 50%;
-						background: v.$white;
-						z-index: 3;
-					}
-				}
+                    .marker {
+                        width: 1.5rem;
+                        height: 1.5rem;
+                        align-self: center;
+                        border-radius: 50%;
+                        background: v.$white;
+                        z-index: 3;
+                    }
+                }
 
-				.timeline-content {
-					padding: 0 1rem 1rem 1rem;
-					width: 100%;
-					height: fit-content;
-					color: v.$white;
-					direction: ltr;
-					border-radius: 10px;
+                .timeline-content {
+                    padding: 0 1rem 1rem 1rem;
+                    width: 100%;
+                    height: fit-content;
+                    color: v.$white;
+                    direction: ltr;
+                    border-radius: 10px;
 
-					p {
-						margin: 0;
-					}
+                    p {
+                        margin: 0;
+                    }
 
-					h3 {
-						color: v.$white;
-					}
-				}
-			}
-		}
+                    h3 {
+                        color: v.$white;
+                    }
+                }
+            }
+        }
 
-		.timeline-block:hover .marker {
-			transform: scale(2, 2);
-			background: v.$lightPurple;
-			border: 2px solid v.$light-gray;
-			transition: 0.4s ease-in-out;
-		}
+        .timeline-block:hover .marker {
+            transform: scale(2, 2);
+            background: v.$lightPurple;
+            border: 2px solid v.$light-gray;
+            transition: 0.4s ease-in-out;
+        }
 
-		.timeline-block:hover .timeline-content h3 {
-			transition: 0.4s ease-in-out;
-		}
+        .timeline-block:hover .timeline-content h3 {
+            transition: 0.4s ease-in-out;
+        }
 
-		.timeline-block-left:hover .timeline-content {
-			border-radius: 10px;
-			background-color: v.$lightPurple;
-			transition: 0.4s ease-in-out;
-		}
+        .timeline-block-left:hover .timeline-content {
+            border-radius: 10px;
+            background-color: v.$lightPurple;
+            transition: 0.4s ease-in-out;
+        }
 
-		.timeline-block-right:hover .timeline-content {
-			border-radius: 10px;
-			background-color: v.$lightPurple;
-			transition: 0.4s ease-in-out;
-		}
-	}
-	.education-section:last-child {
-		.line {
-			height: 110% !important;
-		}
-	}
+        .timeline-block-right:hover .timeline-content {
+            border-radius: 10px;
+            background-color: v.$lightPurple;
+            transition: 0.4s ease-in-out;
+        }
+    }
+    .education-section:last-child {
+        .line {
+            height: 110% !important;
+        }
+    }
 }
 
 //lg
 @media (min-width: 992px) {
-	.education {
-		.timeline-block-right {
-			text-align: left;
-			justify-content: flex-end;
-			transform: translate(-1.57rem);
+    .education {
+        .timeline-block-right {
+            text-align: left;
+            justify-content: flex-end;
+            transform: translate(-1.57rem);
 
-			.line-wrapper {
-				.marker {
-					margin-left: -0.8rem;
-				}
-			}
-		}
+            .line-wrapper {
+                .marker {
+                    margin-left: -0.8rem;
+                }
+            }
+        }
 
-		.timeline-block-left {
-			text-align: right;
-			direction: rtl;
-			transform: translate(1.57rem);
+        .timeline-block-left {
+            text-align: right;
+            direction: rtl;
+            transform: translate(1.57rem);
 
-			.line-wrapper {
-				.marker {
-					margin-right: -0.8rem;
-				}
-			}
-		}
-	}
+            .line-wrapper {
+                .marker {
+                    margin-right: -0.8rem;
+                }
+            }
+        }
+    }
 
-	.timeline-block-left:hover .timeline-content {
-		background-color: v.$lightPurple;
-		border-radius: 10px;
-	}
+    .timeline-block-left:hover .timeline-content {
+        background-color: v.$lightPurple;
+        border-radius: 10px;
+    }
 }
 
 //md
 @media (max-width: 992px) {
-	.education {
-		.timeline-block-right {
-			.line-wrapper {
-				.marker {
-					margin-left: -0.8rem;
-				}
-			}
-		}
+    .education {
+        .timeline-block-right {
+            .line-wrapper {
+                .marker {
+                    margin-left: -0.8rem;
+                }
+            }
+        }
 
-		.timeline-block-left {
-			text-align: left;
-			direction: ltr;
+        .timeline-block-left {
+            text-align: left;
+            direction: ltr;
 
-			.line-wrapper {
-				.marker {
-					margin-left: -0.8rem;
-				}
-			}
-		}
-	}
+            .line-wrapper {
+                .marker {
+                    margin-left: -0.8rem;
+                }
+            }
+        }
+    }
 }

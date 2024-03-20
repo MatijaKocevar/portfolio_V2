@@ -1,95 +1,95 @@
 @use "../../../variables" as v;
 
 .popup-box-background {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.5);
-	z-index: 100000000;
-	backdrop-filter: blur(5px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100000000;
+    backdrop-filter: blur(5px);
 }
 
 .popup-box {
-	width: 80% !important;
-	height: 90vh;
-	max-width: 90vw;
-	max-height: 90vh;
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	background-color: v.$darkerPurple;
-	padding: 1rem;
-	border-radius: 0.5rem;
-	z-index: 1100000000000000000;
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-	display: flex;
-	// flex-direction: column;
-	align-items: center;
-	min-width: 300px;
-	justify-content: flex-start;
-	overflow: auto;
-	align-items: center;
+    width: 80% !important;
+    height: 90vh;
+    max-width: 90vw;
+    max-height: 90vh;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: v.$darkerPurple;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    z-index: 1100000000000000000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    display: flex;
+    // flex-direction: column;
+    align-items: center;
+    min-width: 300px;
+    justify-content: flex-start;
+    overflow: auto;
+    align-items: center;
 
-	.popupbox-content {
-		display: flex;
-		text-align: center;
+    .popupbox-content {
+        display: flex;
+        text-align: center;
 
-		.popupbox-heading {
-			width: 100%;
-			display: flex;
-			justify-content: center;
-			padding: 1rem;
-			color: v.$white;
-		}
+        .popupbox-heading {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 1rem;
+            color: v.$white;
+        }
 
-		.popupbox-image {
-			width: 100%;
-			display: flex;
-			justify-content: center;
-			padding: 1rem;
-		}
+        .popupbox-image {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 1rem;
+        }
 
-		.popupbox-description {
-			width: 100%;
-			display: flex;
-			justify-content: center;
-			padding: 1rem;
-			color: v.$white;
+        .popupbox-description {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 1rem;
+            color: v.$white;
 
-			p {
-				text-align: center;
-				margin: 0;
-			}
-		}
+            p {
+                text-align: center;
+                margin: 0;
+            }
+        }
 
-		.popupbox-links {
-			display: flex;
-			justify-content: center;
-			gap: 1rem;
-			padding: 1rem;
+        .popupbox-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1rem;
 
-			a {
-				color: v.$white !important;
-			}
+            a {
+                color: v.$white !important;
+            }
 
-			a:hover {
-				color: v.$lightPurple !important;
-			}
-		}
-	}
+            a:hover {
+                color: v.$lightPurple !important;
+            }
+        }
+    }
 }
 
 .close-icon {
-	position: absolute;
-	top: 0.5rem;
-	right: 0.5rem;
-	cursor: pointer;
-	color: v.$white;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    cursor: pointer;
+    color: v.$white;
 }
 
 .no-scroll {
-	overflow: hidden;
+    overflow: hidden;
 }

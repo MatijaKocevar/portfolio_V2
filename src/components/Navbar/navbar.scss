@@ -1,51 +1,51 @@
 @use "../../variables" as v;
 
 .navbar {
-	background-color: rgba(var(--bs-dark-rgb));
+    background-color: rgba(var(--bs-dark-rgb));
 
-	transition: top 0.3s;
-	&.hidden {
-		top: -100px;
-	}
+    transition: top 0.3s;
+    &.hidden {
+        top: -100px;
+    }
 
-	.logo {
-		width: 10rem;
-	}
-	.navbar-collapse,
-	.collapse {
-		background-color: rgba(var(--bs-dark-rgb));
-		justify-content: space-between;
-		text-align: end;
-	}
+    .logo {
+        width: 10rem;
+    }
+    .navbar-collapse,
+    .collapse {
+        background-color: rgba(var(--bs-dark-rgb));
+        justify-content: space-between;
+        text-align: end;
+    }
 
-	.nav-link {
-		color: v.$medium-gray;
-	}
+    .nav-link {
+        color: v.$medium-gray;
+    }
 
-	.nav-link:focus {
-		color: v.$medium-gray;
-	}
-	.nav-link:hover {
-		color: v.$lightPurple;
-	}
+    .nav-link:focus {
+        color: v.$medium-gray;
+    }
+    .nav-link:hover {
+        color: v.$lightPurple;
+    }
 
-	.navbar-right {
-		display: flex;
-		justify-content: space-between;
-		gap: 0.5rem;
+    .navbar-right {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.5rem;
 
-		.navbar-icon-links {
-			display: flex;
-			align-items: center;
-			flex-direction: row;
-			gap: 0.5rem;
-			justify-content: flex-start;
-		}
+        .navbar-icon-links {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            gap: 0.5rem;
+            justify-content: flex-start;
+        }
 
-		.navbar-language-switch {
-			display: flex;
-			align-items: center;
-			justify-content: flex-end;
-		}
-	}
+        .navbar-language-switch {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+    }
 }
