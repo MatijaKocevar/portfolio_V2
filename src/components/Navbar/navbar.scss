@@ -3,6 +3,11 @@
 .navbar {
 	background-color: rgba(var(--bs-dark-rgb));
 
+	transition: top 0.3s;
+	&.hidden {
+		top: -100px;
+	}
+
 	.logo {
 		width: 10rem;
 	}

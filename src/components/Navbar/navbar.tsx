@@ -16,9 +16,14 @@ const NavBar = () => {
 	const [toggle, setToggle] = useState(startingToggle);
 	const navbarRef = useRef<HTMLDivElement>(null);
 	const hamburgerRef = useRef<HTMLButtonElement>(null);
+	const [navbarVisible, setNavbarVisible] = useState(true);
+	const lastScrollRef = useRef(window.scrollY);
+	const inactivityTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
 	const cvPath =
-		language === "slo" ? "https://drive.google.com/file/d/1KzKExvXzFqC1KoZ3o7M82y8JB3qEq6m7/view?usp=sharing" : "https://drive.google.com/file/d/1p59Ptnj0mh8JxI74V8vg7rBHjubKig0v/view?usp=sharing";
+		language === "slo"
+			? "https://drive.google.com/file/d/1KzKExvXzFqC1KoZ3o7M82y8JB3qEq6m7/view?usp=sharing"
+			: "https://drive.google.com/file/d/1p59Ptnj0mh8JxI74V8vg7rBHjubKig0v/view?usp=sharing";
 
 	const onLanguageChange = (language: string) => {
 		setLanguage(language);
@@ -35,8 +40,48 @@ const NavBar = () => {
 		return () => window.removeEventListener("resize", handleResize);
 	}, []);
 
+	useEffect(() => {
+		const handleScroll = () => {
+			const currentScrollY = window.scrollY;
+			if (window.scrollY > 67) setNavbarVisible(lastScrollRef.current > currentScrollY || currentScrollY < 10);
+			lastScrollRef.current = currentScrollY;
+		};
+
+		window.addEventListener("scroll", handleScroll, { passive: true });
+
+		return () => window.removeEventListener("scroll", handleScroll);
+	}, []);
+
+	const resetNavbarVisibilityTimer = () => {
+		if (inactivityTimeoutRef.current) {
+			clearTimeout(inactivityTimeoutRef.current);
+		}
+
+		inactivityTimeoutRef.current = setTimeout(() => {
+			console.log("resetting navbar visibility", window.scrollY);
+			if (window.scrollY > 67) setNavbarVisible(false);
+		}, 2000);
+	};
+
+	useEffect(() => {
+		document.addEventListener("mousemove", resetNavbarVisibilityTimer);
+		document.addEventListener("scroll", resetNavbarVisibilityTimer);
+		document.addEventListener("touchstart", resetNavbarVisibilityTimer);
+
+		resetNavbarVisibilityTimer();
+
+		return () => {
+			if (inactivityTimeoutRef.current) {
+				clearTimeout(inactivityTimeoutRef.current);
+			}
+			document.removeEventListener("mousemove", resetNavbarVisibilityTimer);
+			document.removeEventListener("scroll", resetNavbarVisibilityTimer);
+			document.removeEventListener("touchstart", resetNavbarVisibilityTimer);
+		};
+	}, []);
+
 	return (
-		<nav className='navbar fixed-top navbar-expand-lg navbar-dark bg-dark p-2'>
+		<nav className={`navbar fixed-top navbar-expand-lg navbar-dark bg-dark p-2 ${navbarVisible ? "" : "hidden"}`}>
 			<Link
 				smooth={true}
 				to='root'
