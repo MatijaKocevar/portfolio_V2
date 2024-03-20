@@ -2,5 +2,6 @@
     "printWidth": 200,
     "singleQuote": false,
     "jsxSingleQuote": true,
-    "useTabs": true
+    "useTabs": true,
+    "tabWidth": 4
 }
