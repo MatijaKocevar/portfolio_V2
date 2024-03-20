@@ -236,7 +236,7 @@ export const Translations = [
 		en: `
 			<h3>Learning web development</h3>
          	<h5>2020 - 2021 / Personal</h5>
-         	<p>After years of working in sales and having jobs where I didn't really enjoy myself, I began learning how to develop web apps. I used tutorials and independent searches to find out about modern frameworks and started making my own projects. The stacks I looked at were HTML, CSS, SQL, React JS, Vue JS, Node JS, .NET Core, and C#.</p>
+         	<p>After years of working in sales and having jobs where I didn't really enjoy myself, I began learning how to develop web apps. I used tutorials and independent searches to find out about modern frameworks and started making my own projects. The stacks I looked at were HTML, CSS, SQL, React JS, Vue JS, Node, .NET Core, and C#.</p>
 		`,
 		slo: `
 			<h3>Samostojno učenje razvijanja web aplikacij</h3>
@@ -318,9 +318,7 @@ export const Translations = [
 			<h3>Software engineer II - Frodx d.o.o.</h3>
           	<h5>2023 - 2024 / Employment</h5>
           	<p>
-				Started a new job as a Vue.js developer. Didn't actually get to work with Vue at all.
-				<br />
-				However, I did take the opportunity to polish my React and Typescript skills. I developed a table library featuring filters and various functions such as ordering, hiding columns and rows, and saving data in the table as a snapshot. This library also supports unit conversions and was ultimately used in a Microsoft Power Platform component (PCF), which meant I also learned how the Microsoft development environment operates.
+				Started a new job as a Vue.js developer. Didn't actually get to work with Vue at all. However, I did take the opportunity to polish my React and Typescript skills. I developed a table library featuring filters and various functions such as ordering, hiding columns and rows, and saving data in the table as a snapshot. This library also supports unit conversions and was ultimately used in a Microsoft Power Platform component (PCF), which meant I also learned how the Microsoft development environment operates.
 				<br />
 				<br />
 				In addition to front-end work, I also engaged with back-end development. I participated in a project that required porting a Laravel API to .NET. Through this experience, I acquired new skills and knowledge in back-end development. Despite my front-end orientation, I found myself capable of diving into and resolving problems independently, even when working with a language I was less familiar with.
@@ -361,8 +359,8 @@ export const Translations = [
 	},
 	{
 		id: "Skills_WebDevelopment",
-		en: `These are the stacks I'm most comfortable with. I've become the most proficeint in React, Typescript and .NET 7.`,
-		slo: `To so tehnologije, s katerimi se najbolje znajdem. Najbolj sem se izpopolnil v React, Typescript in .NET 7.`,
+		en: `These are the stacks I'm most comfortable with. I've become the most proficeint in React, Typescript and .NET.`,
+		slo: `To so tehnologije, s katerimi se najbolje znajdem. Najbolj sem se izpopolnil v React, Typescript in .NET.`,
 	},
 	{
 		id: "Skills_Design",
