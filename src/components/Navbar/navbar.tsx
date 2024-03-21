@@ -10,7 +10,7 @@ import { DownloadFile } from "../Shared/DownloadFile/DownloadFile";
 const NavBar = () => {
     const { setLanguage, getTranslation, language } = useContext(TranslationContext);
 
-    const startingOffset = -58;
+    const startingOffset = 0;
     const startingToggle = window.innerWidth < 1199 ? "collapse" : "keep";
     const [offset, setOffset] = useState(startingOffset);
     const [toggle, setToggle] = useState(startingToggle);
@@ -31,7 +31,7 @@ const NavBar = () => {
 
     useEffect(() => {
         const handleResize = () => {
-            setOffset(-58);
+            setOffset(0);
             setToggle(window.innerWidth < 1199 ? "collapse" : "keep");
         };
 
@@ -43,7 +43,10 @@ const NavBar = () => {
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
-            if (window.scrollY > 67) setNavbarVisible(lastScrollRef.current > currentScrollY || currentScrollY < 10);
+            if (window.scrollY > 67) {
+                setNavbarVisible(lastScrollRef.current > currentScrollY || currentScrollY < 10);
+                if (hamburgerRef.current?.ariaExpanded === "true") hamburgerRef.current.click();
+            }
             lastScrollRef.current = currentScrollY;
         };
 
@@ -53,12 +56,12 @@ const NavBar = () => {
     }, []);
 
     const resetNavbarVisibilityTimer = () => {
-        if (inactivityTimeoutRef.current) {
-            clearTimeout(inactivityTimeoutRef.current);
-        }
+        if (inactivityTimeoutRef.current) clearTimeout(inactivityTimeoutRef.current);
 
         inactivityTimeoutRef.current = setTimeout(() => {
-            if (window.scrollY > 67) setNavbarVisible(false);
+            if (window.scrollY > 67) {
+                if (hamburgerRef.current?.ariaExpanded === "false") setNavbarVisible(false);
+            }
         }, 2000);
     };
 
@@ -67,12 +70,9 @@ const NavBar = () => {
         document.addEventListener("scroll", resetNavbarVisibilityTimer);
         document.addEventListener("touchstart", resetNavbarVisibilityTimer);
 
-        resetNavbarVisibilityTimer();
-
         return () => {
-            if (inactivityTimeoutRef.current) {
-                clearTimeout(inactivityTimeoutRef.current);
-            }
+            if (inactivityTimeoutRef.current) clearTimeout(inactivityTimeoutRef.current);
+
             document.removeEventListener("mousemove", resetNavbarVisibilityTimer);
             document.removeEventListener("scroll", resetNavbarVisibilityTimer);
             document.removeEventListener("touchstart", resetNavbarVisibilityTimer);
@@ -81,18 +81,7 @@ const NavBar = () => {
 
     return (
         <nav className={`navbar fixed-top navbar-expand-lg navbar-dark bg-dark p-2 ${navbarVisible ? "" : "hidden"}`}>
-            <Link
-                smooth={true}
-                to='root'
-                className='navbar-brand'
-                href='#'
-                duration={2}
-                onClick={() => {
-                    if (hamburgerRef.current?.ariaExpanded === "true" && navbarRef.current) {
-                        hamburgerRef.current.click();
-                    }
-                }}
-            >
+            <Link smooth={true} to='root' className='navbar-brand' href='#' duration={2}>
                 <img className='logo' src={Logo} alt='logo' />
             </Link>
             <button
@@ -111,122 +100,32 @@ const NavBar = () => {
             <div className='collapse navbar-collapse' id='navbarText' ref={navbarRef}>
                 <ul className='navbar-nav mr-auto'>
                     <li className='nav-item'>
-                        <Link
-                            smooth={true}
-                            to='about-me'
-                            offset={offset}
-                            duration={2}
-                            ignoreCancelEvents={true}
-                            className='nav-link'
-                            href='#'
-                            data-toggle={toggle}
-                            data-target='#navbarText'
-                            onClick={() => {
-                                if (hamburgerRef.current?.ariaExpanded === "true" && navbarRef.current) {
-                                    hamburgerRef.current.click();
-                                }
-                            }}
-                        >
+                        <Link smooth={true} to='about-me' offset={offset} duration={2} ignoreCancelEvents={true} className='nav-link' href='#' data-toggle={toggle} data-target='#navbarText'>
                             {getTranslation("Navigation_AboutMe")}
                         </Link>
                     </li>
                     <li className='nav-item'>
-                        <Link
-                            smooth={true}
-                            to='projects'
-                            offset={offset}
-                            duration={2}
-                            ignoreCancelEvents={true}
-                            className='nav-link'
-                            href='#'
-                            data-toggle={toggle}
-                            data-target='#navbarText'
-                            onClick={() => {
-                                if (hamburgerRef.current?.ariaExpanded === "true" && navbarRef.current) {
-                                    hamburgerRef.current.click();
-                                }
-                            }}
-                        >
+                        <Link smooth={true} to='projects' offset={offset} duration={2} ignoreCancelEvents={true} className='nav-link' href='#' data-toggle={toggle} data-target='#navbarText'>
                             {getTranslation("Navigation_Projects")}
                         </Link>
                     </li>
                     <li className='nav-item'>
-                        <Link
-                            smooth={true}
-                            to='education'
-                            offset={offset}
-                            duration={2}
-                            ignoreCancelEvents={true}
-                            className='nav-link'
-                            href='#'
-                            data-toggle={toggle}
-                            data-target='#navbarText'
-                            onClick={() => {
-                                if (hamburgerRef.current?.ariaExpanded === "true" && navbarRef.current) {
-                                    hamburgerRef.current.click();
-                                }
-                            }}
-                        >
+                        <Link smooth={true} to='education' offset={offset} duration={2} ignoreCancelEvents={true} className='nav-link' href='#' data-toggle={toggle} data-target='#navbarText'>
                             {getTranslation("Navigation_Education")}
                         </Link>
                     </li>
                     <li className='nav-item'>
-                        <Link
-                            smooth={true}
-                            to='experience'
-                            offset={offset}
-                            duration={2}
-                            ignoreCancelEvents={true}
-                            className='nav-link'
-                            href='#'
-                            data-toggle={toggle}
-                            data-target='#navbarText'
-                            onClick={() => {
-                                if (hamburgerRef.current?.ariaExpanded === "true" && navbarRef.current) {
-                                    hamburgerRef.current.click();
-                                }
-                            }}
-                        >
+                        <Link smooth={true} to='experience' offset={offset} duration={2} ignoreCancelEvents={true} className='nav-link' href='#' data-toggle={toggle} data-target='#navbarText'>
                             {getTranslation("Navigation_Experience")}
                         </Link>
                     </li>
                     <li className='nav-item'>
-                        <Link
-                            smooth={true}
-                            to='skills'
-                            offset={offset}
-                            duration={2}
-                            ignoreCancelEvents={true}
-                            className='nav-link'
-                            href='#'
-                            data-toggle={toggle}
-                            data-target='#navbarText'
-                            onClick={() => {
-                                if (hamburgerRef.current?.ariaExpanded === "true" && navbarRef.current) {
-                                    hamburgerRef.current.click();
-                                }
-                            }}
-                        >
+                        <Link smooth={true} to='skills' offset={offset} duration={2} ignoreCancelEvents={true} className='nav-link' href='#' data-toggle={toggle} data-target='#navbarText'>
                             {getTranslation("Navigation_Skills")}
                         </Link>
                     </li>
                     <li className='nav-item'>
-                        <Link
-                            smooth={true}
-                            to='interests'
-                            offset={offset}
-                            duration={2}
-                            ignoreCancelEvents={true}
-                            className='nav-link'
-                            href='#'
-                            data-toggle={toggle}
-                            data-target='#navbarText'
-                            onClick={() => {
-                                if (hamburgerRef.current?.ariaExpanded === "true" && navbarRef.current) {
-                                    hamburgerRef.current.click();
-                                }
-                            }}
-                        >
+                        <Link smooth={true} to='interests' offset={offset} duration={2} ignoreCancelEvents={true} className='nav-link' href='#' data-toggle={toggle} data-target='#navbarText'>
                             {getTranslation("Navigation_Interests")}
                         </Link>
                     </li>
