@@ -6,12 +6,12 @@ import { Col, Container, Row } from "react-bootstrap";
 import { TranslationContext } from "../../translations/components/TranslationContext";
 
 const Footer = () => {
-    const startingOffset = -66;
+    const startingOffset = 0;
     const [offset, setOffset] = useState(startingOffset);
     const { getTranslation } = useContext(TranslationContext);
 
     window.addEventListener("resize", () => {
-        setOffset(-66);
+        setOffset(0);
     });
 
     return (
