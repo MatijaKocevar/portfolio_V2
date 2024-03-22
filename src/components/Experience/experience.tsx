@@ -94,8 +94,16 @@ const Education = () => {
                     <Col className='timeline-block tech_used' xs={1} sm={1} md={1} lg={6}>
                         <div className='tech_used-icons'>
                             <div className='icon-divider'>
-                                <SvgIcon title='Typescript' iconName='typescript' svgProp={{ className: "tech-icon" }} />
-                                <SvgIcon title='Javascript' iconName='javascript' svgProp={{ className: "tech-icon" }} />
+                                <SvgIcon
+                                    title='Typescript'
+                                    iconName='typescript'
+                                    svgProp={{ className: "tech-icon" }}
+                                />
+                                <SvgIcon
+                                    title='Javascript'
+                                    iconName='javascript'
+                                    svgProp={{ className: "tech-icon" }}
+                                />
                                 <SvgIcon title='Html & Css' iconName='htmlCss' svgProp={{ className: "tech-icon" }} />
                                 <SvgIcon title='React' iconName='react' svgProp={{ className: "tech-icon" }} />
                                 <SvgIcon title='.NET' iconName='dotNet' svgProp={{ className: "tech-icon" }} />

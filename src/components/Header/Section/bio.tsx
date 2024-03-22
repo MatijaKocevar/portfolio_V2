@@ -10,15 +10,15 @@ const Bio = () => {
 
     return (
         <Col className='main-info'>
-            <Row className='photo-header'>
+            <Row className='heading-row photo-header'>
                 <img className='profile-img' src={Author} alt='author' />
-                <div>{getTranslation("Header_Title")}</div>
+                <h1>{getTranslation("Header_Title")}</h1>
             </Row>
             <Row className='heading-row'>
-                <div>{getTranslation("Header_Subtitle")}</div>
+                <h4>{getTranslation("Header_Subtitle")}</h4>
             </Row>
             <Row className='skill-icons-wrapper'>
-                <div className='icon-heading'>{getTranslation("Header_Sub_Subtitle")}</div>
+                <h5 className='icon-heading'>{getTranslation("Header_Sub_Subtitle")}</h5>
                 <Row className='skills-neka'>
                     <Col className='skill-icon'>
                         <SvgIcon iconName='javascript' svgProp={{ className: "skill-icon-svg" }} />

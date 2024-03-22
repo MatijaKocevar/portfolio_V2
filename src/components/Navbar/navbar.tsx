@@ -43,7 +43,7 @@ const NavBar = () => {
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
-            if (window.scrollY > 67) {
+            if (window.scrollY > 150) {
                 setNavbarVisible(lastScrollRef.current > currentScrollY || currentScrollY < 10);
                 if (hamburgerRef.current?.ariaExpanded === "true") hamburgerRef.current.click();
             }
@@ -100,41 +100,116 @@ const NavBar = () => {
             <div className='collapse navbar-collapse' id='navbarText' ref={navbarRef}>
                 <ul className='navbar-nav mr-auto'>
                     <li className='nav-item'>
-                        <Link smooth={true} to='about-me' offset={offset} duration={2} ignoreCancelEvents={true} className='nav-link' href='#' data-toggle={toggle} data-target='#navbarText'>
+                        <Link
+                            smooth={true}
+                            to='about-me'
+                            offset={offset}
+                            duration={2}
+                            ignoreCancelEvents={true}
+                            className='nav-link'
+                            href='#'
+                            data-toggle={toggle}
+                            data-target='#navbarText'
+                        >
                             {getTranslation("Navigation_AboutMe")}
                         </Link>
                     </li>
                     <li className='nav-item'>
-                        <Link smooth={true} to='projects' offset={offset} duration={2} ignoreCancelEvents={true} className='nav-link' href='#' data-toggle={toggle} data-target='#navbarText'>
+                        <Link
+                            smooth={true}
+                            to='projects'
+                            offset={offset}
+                            duration={2}
+                            ignoreCancelEvents={true}
+                            className='nav-link'
+                            href='#'
+                            data-toggle={toggle}
+                            data-target='#navbarText'
+                        >
                             {getTranslation("Navigation_Projects")}
                         </Link>
                     </li>
                     <li className='nav-item'>
-                        <Link smooth={true} to='education' offset={offset} duration={2} ignoreCancelEvents={true} className='nav-link' href='#' data-toggle={toggle} data-target='#navbarText'>
+                        <Link
+                            smooth={true}
+                            to='education'
+                            offset={offset}
+                            duration={2}
+                            ignoreCancelEvents={true}
+                            className='nav-link'
+                            href='#'
+                            data-toggle={toggle}
+                            data-target='#navbarText'
+                        >
                             {getTranslation("Navigation_Education")}
                         </Link>
                     </li>
                     <li className='nav-item'>
-                        <Link smooth={true} to='experience' offset={offset} duration={2} ignoreCancelEvents={true} className='nav-link' href='#' data-toggle={toggle} data-target='#navbarText'>
+                        <Link
+                            smooth={true}
+                            to='experience'
+                            offset={offset}
+                            duration={2}
+                            ignoreCancelEvents={true}
+                            className='nav-link'
+                            href='#'
+                            data-toggle={toggle}
+                            data-target='#navbarText'
+                        >
                             {getTranslation("Navigation_Experience")}
                         </Link>
                     </li>
                     <li className='nav-item'>
-                        <Link smooth={true} to='skills' offset={offset} duration={2} ignoreCancelEvents={true} className='nav-link' href='#' data-toggle={toggle} data-target='#navbarText'>
+                        <Link
+                            smooth={true}
+                            to='skills'
+                            offset={offset}
+                            duration={2}
+                            ignoreCancelEvents={true}
+                            className='nav-link'
+                            href='#'
+                            data-toggle={toggle}
+                            data-target='#navbarText'
+                        >
                             {getTranslation("Navigation_Skills")}
                         </Link>
                     </li>
                     <li className='nav-item'>
-                        <Link smooth={true} to='interests' offset={offset} duration={2} ignoreCancelEvents={true} className='nav-link' href='#' data-toggle={toggle} data-target='#navbarText'>
+                        <Link
+                            smooth={true}
+                            to='interests'
+                            offset={offset}
+                            duration={2}
+                            ignoreCancelEvents={true}
+                            className='nav-link'
+                            href='#'
+                            data-toggle={toggle}
+                            data-target='#navbarText'
+                        >
                             {getTranslation("Navigation_Interests")}
                         </Link>
                     </li>
                 </ul>
                 <div className='navbar-right'>
                     <div className='navbar-icon-links'>
-                        <IconLink iconName='github' href='https://github.com/MatijaKocevar' title='GitHub' svgProp={{ width: "2rem", height: "2rem" }} />
-                        <IconLink iconName='linkedin' href='https://www.linkedin.com/in/matija-ko%C4%8Devar-59a198109/' title='Linkedin' svgProp={{ width: "2rem", height: "2rem" }} />
-                        <DownloadFile path={cvPath} title='Open CV' iconName='resumeRound' svgProp={{ width: "2rem", height: "2rem" }} />
+                        <IconLink
+                            iconName='github'
+                            href='https://github.com/MatijaKocevar'
+                            title='GitHub'
+                            svgProp={{ width: "2rem", height: "2rem" }}
+                        />
+                        <IconLink
+                            iconName='linkedin'
+                            href='https://www.linkedin.com/in/matija-ko%C4%8Devar-59a198109/'
+                            title='Linkedin'
+                            svgProp={{ width: "2rem", height: "2rem" }}
+                        />
+                        <DownloadFile
+                            path={cvPath}
+                            title='Open CV'
+                            iconName='resumeRound'
+                            svgProp={{ width: "2rem", height: "2rem" }}
+                        />
                     </div>
                     <div className='navbar-language-switch'>
                         <ToggleSwitch title='Change language' onChange={onLanguageChange} first='en' second='slo' />

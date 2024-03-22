@@ -13,33 +13,23 @@ import Interests from "./components/Interests/interests";
 const App = () => {
     return (
         <>
-            <Row>
-                <NavBar />
-            </Row>
-            <Row>
-                <Header />
-            </Row>
-            <Row>
-                <AboutMe />
-            </Row>
-            <Row>
-                <Projects />
-            </Row>
-            <Row>
-                <Education />
-            </Row>
-            <Row>
-                <Experience />
-            </Row>
-            <Row>
-                <Skills />
-            </Row>
-            <Row>
-                <Interests />
-            </Row>
-            <Row>
-                <Footer />
-            </Row>
+            <NavBar />
+
+            <Header />
+
+            <AboutMe />
+
+            <Projects />
+
+            <Education />
+
+            <Experience />
+
+            <Skills />
+
+            <Interests />
+
+            <Footer />
         </>
     );
 };

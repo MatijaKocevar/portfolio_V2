@@ -9,7 +9,14 @@ const InterestsCarousel = () => {
     const { getTranslation } = useContext(TranslationContext);
 
     return (
-        <Carousel showArrows={true} infiniteLoop={true} showThumbs={false} showStatus={false} autoPlay={true} interval={5000}>
+        <Carousel
+            showArrows={true}
+            infiniteLoop={true}
+            showThumbs={false}
+            showStatus={false}
+            autoPlay={true}
+            interval={5000}
+        >
             <>
                 <div className='bgcircle'>
                     <SvgIcon iconName='terminal' svgProp={{ className: "bgicon" }} />
