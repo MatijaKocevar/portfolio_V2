@@ -16,14 +16,6 @@
     }
 }
 
-//lg
-@media (min-width: 992px) {
-    .about-content {
-        .col-lg-5 {
-        }
-    }
-}
-
 //md
 @media (max-width: 992px) {
     .about-content {
@@ -37,24 +29,6 @@
             p {
                 text-align: center;
             }
-        }
-    }
-}
-
-//sm
-@media (max-width: 768px) {
-    .about-content {
-        .col-sm-12 {
-            // padding: 0.5rem 0;
-        }
-    }
-}
-
-//xs
-@media (max-width: 576px) {
-    .about-content {
-        .col-12 {
-            // padding: 0.5rem 0;
         }
     }
 }

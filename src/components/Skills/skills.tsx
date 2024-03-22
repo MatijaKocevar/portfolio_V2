@@ -37,7 +37,10 @@ const Skills = () => {
                                         <span>React</span>
                                     </Col>
                                     <Col xs={4} sm={4} md={4} lg={4} className='skill-icon'>
-                                        <SvgIcon iconName='typescriptJavascript' svgProp={{ className: "skill-icon-back" }} />
+                                        <SvgIcon
+                                            iconName='typescriptJavascript'
+                                            svgProp={{ className: "skill-icon-back" }}
+                                        />
                                         <span>Type/Javascript</span>
                                     </Col>
                                     <Col xs={4} sm={4} md={4} lg={4} className='skill-icon'>

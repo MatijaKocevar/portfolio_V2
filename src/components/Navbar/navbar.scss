@@ -32,6 +32,7 @@
     .navbar-right {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         gap: 0.5rem;
 
         .navbar-icon-links {
@@ -45,7 +46,159 @@
         .navbar-language-switch {
             display: flex;
             align-items: center;
-            justify-content: flex-end;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+/* For 2K screens and larger */
+@media (min-width: 1921px) and (max-width: 2560px) {
+    .navbar {
+        &.hidden {
+            top: -110px;
+        }
+
+        .logo {
+            width: 20rem !important;
+        }
+
+        .navbar-right {
+            .icon-link {
+                svg {
+                    width: 3rem;
+                    height: 3rem;
+                }
+            }
+
+            .toggle-switch {
+                width: 7.75rem;
+                height: 3.625rem;
+
+                .toggle-switch-toggle {
+                    &:after {
+                        top: 0.3rem;
+                        left: 0.3rem;
+                        width: 45%;
+                        height: 85%;
+                    }
+                }
+
+                &.toggle-switch-checked .toggle-switch-toggle {
+                    &:after {
+                        transform: translateX(3.7rem);
+                    }
+                }
+
+                .toggle-switch-labels {
+                    .toggle-switch-label {
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* For 4K screens and larger */
+@media (min-width: 2561px) and (max-width: 3840px) {
+    .navbar {
+        &.hidden {
+            top: -150px;
+        }
+
+        .logo {
+            width: 30rem !important;
+        }
+
+        .navbar-right {
+            .icon-link {
+                svg {
+                    width: 5rem;
+                    height: 5rem;
+                }
+            }
+
+            .toggle-switch {
+                width: 12.75rem;
+                height: 5.625rem;
+
+                .toggle-switch-toggle {
+                    border-radius: 3.125rem;
+
+                    &:after {
+                        top: 0.5rem;
+                        left: 0.3rem;
+                        width: 45%;
+                        height: 85%;
+                    }
+                }
+
+                &.toggle-switch-checked .toggle-switch-toggle {
+                    &:after {
+                        transform: translateX(6.2rem);
+                    }
+                }
+
+                .toggle-switch-labels {
+                    .toggle-switch-label {
+                        font-size: 2rem;
+                        margin: 0 1rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* For larger than 4k */
+@media (min-width: 3840px) {
+    .navbar {
+        &.hidden {
+            top: -150px;
+        }
+
+        .logo {
+            width: 30rem !important;
+        }
+
+        .navbar-right {
+            .icon-link {
+                svg {
+                    width: 5rem;
+                    height: 5rem;
+                }
+            }
+
+            .toggle-switch {
+                width: 12.75rem;
+                height: 5.625rem;
+
+                .toggle-switch-toggle {
+                    border-radius: 3.125rem;
+
+                    &:after {
+                        top: 0.5rem;
+                        left: 0.3rem;
+                        width: 45%;
+                        height: 85%;
+                    }
+                }
+
+                &.toggle-switch-checked .toggle-switch-toggle {
+                    &:after {
+                        transform: translateX(6.2rem);
+                    }
+                }
+
+                .toggle-switch-labels {
+                    .toggle-switch-label {
+                        font-size: 2rem;
+                        margin: 0 1rem;
+                    }
+                }
+            }
         }
     }
 }

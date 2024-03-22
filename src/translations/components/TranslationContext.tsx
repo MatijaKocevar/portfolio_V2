@@ -72,5 +72,9 @@ export const TranslationProvider: React.FC<TranslationProviderProps> = ({ childr
         loadTranslations(language);
     }, [language]);
 
-    return <TranslationContext.Provider value={{ language, setLanguage, translations, getTranslation }}>{children}</TranslationContext.Provider>;
+    return (
+        <TranslationContext.Provider value={{ language, setLanguage, translations, getTranslation }}>
+            {children}
+        </TranslationContext.Provider>
+    );
 };

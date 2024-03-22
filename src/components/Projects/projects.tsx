@@ -25,7 +25,9 @@ const Projects = () => {
     const [showPopupVueDynamicForms, setShowVueDynamicForms] = useState(false);
     const [showPopupSpaceInvaders, setShowSpaceInvaders] = useState(false);
 
-    const magnifyingGlass = <SvgIcon iconName='magnifyingGlass' svgProp={{ width: "2rem", height: "2rem", fill: "white" }} />;
+    const magnifyingGlass = (
+        <SvgIcon iconName='magnifyingGlass' svgProp={{ width: "2rem", height: "2rem", fill: "white" }} />
+    );
 
     const resumeContent = (
             <Row className='popupbox-content'>
@@ -132,10 +134,18 @@ const Projects = () => {
                     <p>{getTranslation("Projects_TaskManagement_Description")}</p>
                 </Row>
                 <Row className='popupbox-links'>
-                    <a href='https://github.com/MatijaKocevar/task-management' target='_blank' rel='noopener noreferrer'>
+                    <a
+                        href='https://github.com/MatijaKocevar/task-management'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                    >
                         GitHub
                     </a>
-                    <a href='https://matijakocevar.github.io/task-management-frontend/' target='_blank' rel='noopener noreferrer'>
+                    <a
+                        href='https://matijakocevar.github.io/task-management-frontend/'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                    >
                         Live
                     </a>
                 </Row>
@@ -153,10 +163,18 @@ const Projects = () => {
                     <p>{getTranslation("Projects_VueDynamicForms_Description")}</p>
                 </Row>
                 <Row className='popupbox-links'>
-                    <a href='https://github.com/MatijaKocevar/vue-dynamic-forms' target='_blank' rel='noopener noreferrer'>
+                    <a
+                        href='https://github.com/MatijaKocevar/vue-dynamic-forms'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                    >
                         GitHub
                     </a>
-                    <a href='https://matijakocevar.github.io/vue-dynamic-forms/#/registration' target='_blank' rel='noopener noreferrer'>
+                    <a
+                        href='https://matijakocevar.github.io/vue-dynamic-forms/#/registration'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                    >
                         Live
                     </a>
                 </Row>
@@ -191,7 +209,9 @@ const Projects = () => {
             </Row>
             <Row className='projects-wrapper'>
                 {/* - */}
-                {showPopupSpaceInvaders && <PopupBox content={spaceInvadersContent} onClose={() => setShowSpaceInvaders(false)} />}
+                {showPopupSpaceInvaders && (
+                    <PopupBox content={spaceInvadersContent} onClose={() => setShowSpaceInvaders(false)} />
+                )}
                 <Col lg={4} md={6} sm={6} xs={12}>
                     <div className='project-wrapper' role='presentation' onClick={() => setShowSpaceInvaders(true)}>
                         <div className='project'>
@@ -202,7 +222,9 @@ const Projects = () => {
                     </div>
                 </Col>
                 {/* - */}
-                {showPopupVueDynamicForms && <PopupBox content={vueDynamicFormsContent} onClose={() => setShowVueDynamicForms(false)} />}
+                {showPopupVueDynamicForms && (
+                    <PopupBox content={vueDynamicFormsContent} onClose={() => setShowVueDynamicForms(false)} />
+                )}
                 <Col lg={4} md={6} sm={6} xs={12}>
                     <div className='project-wrapper' role='presentation' onClick={() => setShowVueDynamicForms(true)}>
                         <div className='project'>
@@ -213,9 +235,15 @@ const Projects = () => {
                     </div>
                 </Col>
                 {/* - */}
-                {showPopupTaskManagement && <PopupBox content={taskManagementContent} onClose={() => setShowPopupTaskManagement(false)} />}
+                {showPopupTaskManagement && (
+                    <PopupBox content={taskManagementContent} onClose={() => setShowPopupTaskManagement(false)} />
+                )}
                 <Col lg={4} md={6} sm={6} xs={12}>
-                    <div className='project-wrapper' role='presentation' onClick={() => setShowPopupTaskManagement(true)}>
+                    <div
+                        className='project-wrapper'
+                        role='presentation'
+                        onClick={() => setShowPopupTaskManagement(true)}
+                    >
                         <div className='project'>
                             <div className='project-icon'>{magnifyingGlass}</div>
                             <img className='project-image' src={TaskManagement} alt='project webpage' />
@@ -224,7 +252,9 @@ const Projects = () => {
                     </div>
                 </Col>
                 {/* - */}
-                {showPopupportfoliV2 && <PopupBox content={portfoliV2Content} onClose={() => setShowPopupportfoliV2(false)} />}
+                {showPopupportfoliV2 && (
+                    <PopupBox content={portfoliV2Content} onClose={() => setShowPopupportfoliV2(false)} />
+                )}
                 <Col lg={4} md={6} sm={6} xs={12}>
                     <div className='project-wrapper' role='presentation' onClick={() => setShowPopupportfoliV2(true)}>
                         <div className='project'>
