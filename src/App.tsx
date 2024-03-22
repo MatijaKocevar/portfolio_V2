@@ -1,5 +1,4 @@
 import "./App.scss";
-import { Row } from "react-bootstrap";
 import NavBar from "./components/Navbar/navbar";
 import Header from "./components/Header/header";
 import AboutMe from "./components/AboutMe/aboutMe";
@@ -14,21 +13,13 @@ const App = () => {
     return (
         <>
             <NavBar />
-
             <Header />
-
             <AboutMe />
-
             <Projects />
-
             <Education />
-
             <Experience />
-
             <Skills />
-
             <Interests />
-
             <Footer />
         </>
     );
