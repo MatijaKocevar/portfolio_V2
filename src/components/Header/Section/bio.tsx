@@ -15,10 +15,10 @@ const Bio = () => {
                 <h1>{getTranslation("Header_Title")}</h1>
             </Row>
             <Row className='heading-row'>
-                <h4>{getTranslation("Header_Subtitle")}</h4>
+                <h6>{getTranslation("Header_Subtitle")}</h6>
             </Row>
             <Row className='skill-icons-wrapper'>
-                <h5 className='icon-heading'>{getTranslation("Header_Sub_Subtitle")}</h5>
+                <h6 className='icon-heading'>{getTranslation("Header_Sub_Subtitle")}</h6>
                 <Row className='skills-neka'>
                     <Col className='skill-icon'>
                         <SvgIcon iconName='javascript' svgProp={{ className: "skill-icon-svg" }} />

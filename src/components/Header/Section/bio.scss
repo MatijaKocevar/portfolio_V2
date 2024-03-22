@@ -11,19 +11,15 @@
 
     .photo-header {
         display: flex;
-        flex-direction: initial;
         align-items: center;
         justify-content: center;
 
         .profile-img {
-            height: 70%;
-            width: auto;
             margin: 0;
             padding: 0;
             border-radius: 50%;
             border: 5px solid v.$lightPurple;
             box-sizing: border-box;
-            // margin-bottom: 2rem;
         }
     }
 
@@ -54,6 +50,13 @@
 /* For small screens (e.g., smartphones) */
 @media (min-width: 0px) and (max-width: 768px) {
     .main-info {
+        .photo-header {
+            .profile-img {
+                margin-bottom: 1rem !important;
+                width: 70%;
+            }
+        }
+
         .skill-icon-svg {
             width: 2rem;
             height: 2rem;
@@ -64,6 +67,13 @@
 /* For medium screens (e.g., tablets) */
 @media (min-width: 769px) and (max-width: 1024px) {
     .main-info {
+        .photo-header {
+            .profile-img {
+                margin-bottom: 1rem !important;
+                width: 40%;
+            }
+        }
+
         .skill-icon-svg {
             width: 2rem;
             height: 2rem;
@@ -74,6 +84,13 @@
 /* For large screens (e.g., desktops) */
 @media (min-width: 1025px) and (max-width: 1920px) {
     .main-info {
+        .photo-header {
+            .profile-img {
+                margin-bottom: 1rem !important;
+                width: 40%;
+            }
+        }
+
         .skill-icon-svg {
             width: 2rem;
             height: 2rem;
@@ -84,6 +101,12 @@
 /* For 2K screens and larger */
 @media (min-width: 1921px) and (max-width: 2560px) {
     .main-info {
+        .photo-header {
+            .profile-img {
+                margin-bottom: 1rem !important;
+                width: 60%;
+            }
+        }
         .skill-icon-svg {
             width: 4rem;
             height: 4rem;
@@ -94,6 +117,12 @@
 /* For 4K screens and larger */
 @media (min-width: 2561px) and (max-width: 3840px) {
     .main-info {
+        .photo-header {
+            .profile-img {
+                margin-bottom: 1rem !important;
+                width: 80%;
+            }
+        }
         .skill-icon-svg {
             width: 7rem;
             height: 7rem;
@@ -104,6 +133,12 @@
 /* For larger than 4k */
 @media (min-width: 3841px) {
     .main-info {
+        .photo-header {
+            .profile-img {
+                margin-bottom: 1rem !important;
+                width: 100%;
+            }
+        }
         .skill-icon-svg {
             width: 7rem;
             height: 7rem;
