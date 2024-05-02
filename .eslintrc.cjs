@@ -28,5 +28,6 @@ module.exports = {
         "@typescript-eslint/no-empty-function": "off",
         "prefer-const": "warn",
         "react/display-name": "off",
+        "@typescript-eslint/no-unused-vars": "warn",
     },
 };
