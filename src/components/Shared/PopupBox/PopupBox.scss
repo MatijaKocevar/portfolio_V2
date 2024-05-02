@@ -36,6 +36,8 @@
     .popupbox-content {
         display: flex;
         text-align: center;
+        justify-content: space-between;
+        height: 100%;
 
         .popupbox-heading {
             width: 100%;
@@ -50,6 +52,7 @@
             display: flex;
             justify-content: center;
             padding: 1rem;
+            border-radius: 10px;
         }
 
         .popupbox-description {
@@ -72,13 +75,35 @@
             padding: 1rem;
 
             a {
-                color: v.$white !important;
-            }
+                background-color: v.$lightPurple;
+                border: none;
+                border-radius: 5px;
+                padding: 0.5rem;
+                color: white;
+                transition: 0.3s;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 10rem;
+                height: 3rem;
 
-            a:hover {
-                color: v.$lightPurple !important;
+                &:hover {
+                    background-color: v.$darkerPurple;
+                    border: 1px solid v.$lightPurple;
+                }
             }
         }
+    }
+
+    &::-webkit-scrollbar {
+        display: block;
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: v.$gray;
+        border-radius: 5px;
     }
 }
 

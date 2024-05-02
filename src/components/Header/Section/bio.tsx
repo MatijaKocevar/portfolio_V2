@@ -9,7 +9,7 @@ const Bio = () => {
     const { getTranslation } = useContext(TranslationContext);
 
     return (
-        <Col className='main-info'>
+        <div className='main-info'>
             <Row className='heading-row photo-header'>
                 <img className='profile-img' src={Author} alt='author' />
                 <h1>{getTranslation("Header_Title")}</h1>
@@ -38,7 +38,7 @@ const Bio = () => {
                     </Col>
                 </Row>
             </Row>
-        </Col>
+        </div>
     );
 };
 

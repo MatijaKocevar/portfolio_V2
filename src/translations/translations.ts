@@ -41,11 +41,6 @@ export const Translations = [
      * HEADER
      */
     {
-        id: "Header_WIP-Title",
-        en: "Work in progress",
-        slo: "V izdelavi",
-    },
-    {
         id: "Header_Title",
         en: "Software Developer",
         slo: "Software Developer",
@@ -66,101 +61,56 @@ export const Translations = [
 		`,
     },
     {
+        id: "Header_WIP-Title",
+        en: "Work in progress",
+        slo: "V izdelavi",
+    },
+    {
         id: "Header_Sub_Subtitle",
         en: `My most commonly used stacks:`,
         slo: `Tehnologije, ki jih najpogosteje uporabljam:`,
     },
     {
-        id: "Header_SpaceInvaders_Title",
-        en: "SPACE INVADERS",
-        slo: "SPACE INVADERS",
+        id: "Showcase_Zelda-Clone",
+        en: "Legend of Griselda - A Tie to the Past",
+        slo: "Legend of Griselda - A Tie to the Past",
     },
     {
-        id: "Header_SpaceInvaders_Sub-Title",
-        en: "Controls: Move left/right with A/D, shoot with Enter.",
-        slo: "Kontrole: Premik levo/desno z A/D, streljanje z Enter.",
-    },
-    {
-        id: "Header_WIP_Description",
+        id: "Showcase_Zelda-Clone_Description",
         en: `
-			Just trying to hone my skills in Javascript and have some fun with building a game.
-		`,
+            This project takes inspiration from Legend of Zelda - A Link to the Past, a classic game from the
+            90s. The game is a top-down shooter where the player must navigate through a maze of enemies and
+            obstacles to reach the end of the level. The game is built using Phaser.js, React.js and TypeScript.
+            <br />
+            <br />
+            Controls: W,A,S,D keys to move, Space to attack.
+        `,
         slo: `
-			Trudim se izpopolniti svoje spretnosti v Javascriptu in se hkrati zabavati z izdelavo igre.	
-		`,
+            Ta projekt je vzel inspiracijo iz Legend of Zelda - A Link to the Past, klasično igro iz 90-ih let. Igra je streljanje z vrha navzdol, kjer mora igralec navigirati skozi labirint sovražnikov in ovir. Igra je zgrajena z uporabo Phaser.js, React.js in TypeScript.
+            <br />
+            <br />
+            Kontrole: W,A,S,D tipke za premikanje, presledek za napad.    
+        `,
     },
     {
-        id: "Header_WIP_Upcoming",
-        en: `
-			<span>- Random UFO</span>
-			<span>- Different projectile types for invaders</span>
-			<span>- Projectile detection with projectile</span>
-			<span>- Game optimizations</span>
-			<span>- Secure api for highscores</span>
-		`,
-        slo: `
-			<span>- Naključni UFO</span>
-			<span>- Različni tipi projektilov za invader-je</span>
-			<span>- Detekcija projektilov s projektili</span>
-			<span>- Optimizacija igre</span>
-			<span>- Zavarovanje api-ja za rezultate</span>
-		`,
+        id: "Showcase_Anas-Place",
+        en: "Ana's place - A nail saloon booking app",
+        slo: "Ana's place - Rezeravcijska aplikacija za nohte",
     },
     {
-        id: "Header_WIP_Changelog",
+        id: "Showcase_Anas-Place_Description",
         en: `
-			<span>- Scores get stored and can be looked up.</span>
-			<span>- Added sounds for player death, invader death, shooting.</span>
-			<span>- Added explosions for player.</span>
-			<span>- Lives added.</span>
-			<span>- Score board added.</span>
-			<span>- Explosions added for Invaders.</span>
-			<span>- Shield crumble more realistic.</span>
-			<span>- Sheild block crumble.</span>
-			<span>- Added sheild blocks.</span>
-			<span>- Click to reset.</span>
-			<span>- Added game over sign.</span>
-			<span>- Invaders shoot back.</span>
-			<span>- Invaders move faster the fever there are.</span>
-			<span>- Temporary mobile controls.</span>
-			<span>- Invader movement resembles original.</span>
-			<span>- Animated invader movement. Invaders move down. Reset button.</span>
-			<span>- Added sprites for player and invaders.</span>
-			<span>- Figured out how to check for collisions with projectiles.</span>
-			<span>- Invader movement.</span>
-			<span>- Added Invaders.</span>
-			<span>- Added projectiles.</span>
-			<span>- The player can move left/right with 'A/D' and shoot with 'Enter'.</span>
-			<span>- Added player.</span>
-			<span>- Figured out how to animate things.</span>
-			<span>- Drawn a box with Canvas API.</span>
-		`,
+            This project is a booking app for a nail saloon. It allows users to book appointments, view available times, and see the services offered. The app is built using Next.js with Clerk for authentication, Tailwind CSS for styling, and Postgres for the database.
+            <br />
+            <br />
+            The app is still in development and will have a lot of issues. I am working on it in my free time.
+        `,
         slo: `
-			<span>- Rezultati se shranijo in jih je možno pogledati.</span>
-			<span>- Dodani zvoki za smrt igralca, smrt invader-ja, streljanje.</span>
-			<span>- Dodane eksplozije za igralca.</span>
-			<span>- Dodana življenja.</span>
-			<span>- Dodana tabela rezultatov.</span>
-			<span>- Dodane eksplozije za Invader-je.</span>
-			<span>- Ščitni bloki se razletijo bolj realistično.</span>
-			<span>- Ščitni bloki se razletijo.</span>
-			<span>- Klik za reset.</span>
-			<span>- Dodan napis za konec igre.</span>
-			<span>- Invader-ji streljajo nazaj.</span>
-			<span>- Invader-ji se premikajo hitreje, manj jih je.</span>
-			<span>- Začasne mobilne kontrole.</span>
-			<span>- Premikanje invader-jev je podobno originalu.</span>
-			<span>- Animirano premikanje invader-jev. Invader-ji se premikajo dol. Gumb za reset.</span>
-			<span>- Dodani sprite-i za igralca in invader-je.</span>
-			<span>- Ugotovil kako preverjati trke s projektili.</span>
-			<span>- Premikanje invader-jev.</span>
-			<span>- Dodani invader-ji.</span>
-			<span>- Dodani projektili.</span>
-			<span>- Igralec se lahko premika levo/desno z 'A/D' in strelja z 'Enter'.</span>
-			<span>- Dodan igralec.</span>
-			<span>- Ugotovil kako animirati stvari.</span>
-			<span>- Narisal kvadrat z Canvas API.</span>
-		`,
+            Ta projekt je aplikacija za rezervacije v salonu za nohte. Uporabnikom omogoča rezervacijo terminov, ogled razpoložljivih časov in ogled ponujenih storitev. Aplikacija je zgrajena z Next.js z Clerk za avtentikacijo, Tailwind CSS za oblikovanje in Postgres za bazo podatkov.
+            <br />
+            <br />
+            Aplikacija je še vedno v razvoju in bo imela veliko težav. Delam na njej v prostem času.             
+        `,
     },
     /**
      * ABOUT ME
