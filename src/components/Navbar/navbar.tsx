@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import "./navbar.scss";
 import { Link } from "react-scroll";
 import Logo from "../../images/logo.png";
@@ -19,6 +19,7 @@ const NavBar = () => {
     const [navbarVisible, setNavbarVisible] = useState(true);
     const lastScrollRef = useRef(window.scrollY);
     const inactivityTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
     const cvPath =
         language === "slo"
@@ -45,6 +46,7 @@ const NavBar = () => {
             const currentScrollY = window.scrollY;
             if (window.scrollY > 150) {
                 setNavbarVisible(lastScrollRef.current > currentScrollY || currentScrollY < 10);
+                setIsDropdownOpen(false);
                 if (hamburgerRef.current?.ariaExpanded === "true") hamburgerRef.current.click();
             }
             lastScrollRef.current = currentScrollY;
@@ -55,15 +57,15 @@ const NavBar = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    const resetNavbarVisibilityTimer = () => {
+    const resetNavbarVisibilityTimer = useCallback(() => {
         if (inactivityTimeoutRef.current) clearTimeout(inactivityTimeoutRef.current);
 
         inactivityTimeoutRef.current = setTimeout(() => {
             if (window.scrollY > 67) {
-                if (hamburgerRef.current?.ariaExpanded === "false") setNavbarVisible(false);
+                if (hamburgerRef.current?.ariaExpanded === "false" && !isDropdownOpen) setNavbarVisible(false);
             }
         }, 2000);
-    };
+    }, [isDropdownOpen]);
 
     useEffect(() => {
         document.addEventListener("mousemove", resetNavbarVisibilityTimer);
@@ -77,7 +79,11 @@ const NavBar = () => {
             document.removeEventListener("scroll", resetNavbarVisibilityTimer);
             document.removeEventListener("touchstart", resetNavbarVisibilityTimer);
         };
-    }, []);
+    }, [resetNavbarVisibilityTimer]);
+
+    const toggleDropdown = () => {
+        setIsDropdownOpen(!isDropdownOpen);
+    };
 
     return (
         <nav className={`navbar fixed-top navbar-expand-lg navbar-dark bg-dark p-2 ${navbarVisible ? "" : "hidden"}`}>
@@ -94,10 +100,15 @@ const NavBar = () => {
                 aria-expanded='false'
                 aria-label='Toggle navigation'
                 ref={hamburgerRef}
+                onClick={toggleDropdown}
             >
                 <span className='navbar-toggler-icon'></span>
             </button>
-            <div className='collapse navbar-collapse' id='navbarText' ref={navbarRef}>
+            <div
+                className={`collapse navbar-collapse ${isDropdownOpen ? "show" : "collapse"}`}
+                id='navbarText'
+                ref={navbarRef}
+            >
                 <ul className='navbar-nav mr-auto'>
                     <li className='nav-item'>
                         <Link
