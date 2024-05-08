@@ -7,8 +7,8 @@ import mkcert from "vite-plugin-mkcert";
 
 export default () => {
     return defineConfig({
-        // base: "/portfolio_V2/",
-        base: "/",
+        base: "/portfolio_V2/",
+        // base: "/",
         plugins: [react(), mkcert(), svgr()],
         server: {
             port: 44444,

@@ -24,7 +24,7 @@ const InterestsCarousel = () => {
     };
 
     const onOpenLiveAnasPlace = () => {
-        window.open("https://anasplaces.com", "_blank");
+        window.open("https://anas-place.net", "_blank");
     };
 
     const spaceInvadersContent = (
