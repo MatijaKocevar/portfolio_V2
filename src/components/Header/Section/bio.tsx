@@ -2,7 +2,7 @@ import { Col, Row } from "react-bootstrap";
 import SvgIcon from "../../Shared/SvgIcon/SvgIcon";
 import { useContext } from "react";
 import { TranslationContext } from "../../../translations/components/TranslationContext";
-import Author from "../../../images/me.jpg";
+import Author from "../../../images/me.png";
 import "./bio.scss";
 
 const Bio = () => {
