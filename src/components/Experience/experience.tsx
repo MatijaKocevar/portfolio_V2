@@ -17,8 +17,20 @@ const Education = () => {
                 <Row className='experience-section experience-section-right'>
                     <Col className='timeline-block tech_used' xs={1} sm={1} md={1} lg={6}>
                         <div className='tech_used-icons'>
-                            <SvgIcon title='Excel' iconName='excel' svgProp={{ className: "tech-icon" }} />
-                            <SvgIcon title='Sheets' iconName='sheets' svgProp={{ className: "tech-icon" }} />
+                            <SvgIcon
+                                title='Excel'
+                                label='Excel'
+                                iconName='excel'
+                                svgProp={{ className: "tech-icon" }}
+                                wrapperStyle='tech-icon-wrapper'
+                            />
+                            <SvgIcon
+                                title='Sheets'
+                                label='Sheets'
+                                iconName='sheets'
+                                svgProp={{ className: "tech-icon" }}
+                                wrapperStyle='tech-icon-wrapper'
+                            />
                         </div>
                     </Col>
                     <Col className='timeline-block timeline-block-right' xs={11} sm={11} md={11} lg={6}>
@@ -40,10 +52,34 @@ const Education = () => {
                     </Col>
                     <Col className='timeline-block tech_used' xs={1} sm={1} md={1} lg={6}>
                         <div className='tech_used-icons'>
-                            <SvgIcon title='Html & Css' iconName='htmlCss' svgProp={{ className: "tech-icon" }} />
-                            <SvgIcon title='Microsoft Sql server' iconName='sql' svgProp={{ className: "tech-icon" }} />
-                            <SvgIcon title='Javascript' iconName='javascript' svgProp={{ className: "tech-icon" }} />
-                            <SvgIcon title='.NET' iconName='dotNet' svgProp={{ className: "tech-icon" }} />
+                            <SvgIcon
+                                title='Html & Css'
+                                label='Html & Css'
+                                iconName='htmlCss'
+                                svgProp={{ className: "tech-icon" }}
+                                wrapperStyle='tech-icon-wrapper'
+                            />
+                            <SvgIcon
+                                title='Microsoft Sql server'
+                                label='Microsoft Sql server'
+                                iconName='sql'
+                                svgProp={{ className: "tech-icon" }}
+                                wrapperStyle='tech-icon-wrapper'
+                            />
+                            <SvgIcon
+                                title='Javascript'
+                                label='Javascript'
+                                iconName='javascript'
+                                svgProp={{ className: "tech-icon" }}
+                                wrapperStyle='tech-icon-wrapper'
+                            />
+                            <SvgIcon
+                                title='.NET'
+                                label='.NET'
+                                iconName='dotNet'
+                                svgProp={{ className: "tech-icon" }}
+                                wrapperStyle='tech-icon-wrapper'
+                            />
                         </div>
                     </Col>
                 </Row>
@@ -51,13 +87,55 @@ const Education = () => {
                 <Row className='experience-section experience-section-right'>
                     <Col className='timeline-block tech_used' xs={1} sm={1} md={1} lg={6}>
                         <div className='tech_used-icons'>
-                            <SvgIcon title='Typescript' iconName='typescript' svgProp={{ className: "tech-icon" }} />
-                            <SvgIcon title='Javascript' iconName='javascript' svgProp={{ className: "tech-icon" }} />
-                            <SvgIcon title='Html & Css' iconName='htmlCss' svgProp={{ className: "tech-icon" }} />
-                            <SvgIcon title='React' iconName='react' svgProp={{ className: "tech-icon" }} />
-                            <SvgIcon title='Microsoft Sql server' iconName='sql' svgProp={{ className: "tech-icon" }} />
-                            <SvgIcon title='.NET' iconName='dotNet' svgProp={{ className: "tech-icon" }} />
-                            <SvgIcon title='Umbraco' iconName='umbraco' svgProp={{ className: "tech-icon" }} />
+                            <SvgIcon
+                                title='Typescript'
+                                label='Typescript'
+                                iconName='typescript'
+                                svgProp={{ className: "tech-icon" }}
+                                wrapperStyle='tech-icon-wrapper'
+                            />
+                            <SvgIcon
+                                title='Javascript'
+                                label='Javascript'
+                                iconName='javascript'
+                                svgProp={{ className: "tech-icon" }}
+                                wrapperStyle='tech-icon-wrapper'
+                            />
+                            <SvgIcon
+                                title='Html & Css'
+                                label='Html & Css'
+                                iconName='htmlCss'
+                                svgProp={{ className: "tech-icon" }}
+                                wrapperStyle='tech-icon-wrapper'
+                            />
+                            <SvgIcon
+                                title='React'
+                                label='React'
+                                iconName='react'
+                                svgProp={{ className: "tech-icon" }}
+                                wrapperStyle='tech-icon-wrapper'
+                            />
+                            <SvgIcon
+                                title='Microsoft Sql server'
+                                label='Microsoft Sql server'
+                                iconName='sql'
+                                svgProp={{ className: "tech-icon" }}
+                                wrapperStyle='tech-icon-wrapper'
+                            />
+                            <SvgIcon
+                                title='.NET'
+                                label='.NET'
+                                iconName='dotNet'
+                                svgProp={{ className: "tech-icon" }}
+                                wrapperStyle='tech-icon-wrapper'
+                            />
+                            <SvgIcon
+                                title='Umbraco'
+                                label='Umbraco'
+                                iconName='umbraco'
+                                svgProp={{ className: "tech-icon" }}
+                                wrapperStyle='tech-icon-wrapper'
+                            />
                         </div>
                     </Col>
                     <Col className='timeline-block timeline-block-right' xs={11} sm={11} md={11} lg={6}>
@@ -79,13 +157,55 @@ const Education = () => {
                     </Col>
                     <Col className='timeline-block tech_used' xs={1} sm={1} md={1} lg={6}>
                         <div className='tech_used-icons'>
-                            <SvgIcon title='Typescript' iconName='typescript' svgProp={{ className: "tech-icon" }} />
-                            <SvgIcon title='Javascript' iconName='javascript' svgProp={{ className: "tech-icon" }} />
-                            <SvgIcon title='Html & Css' iconName='htmlCss' svgProp={{ className: "tech-icon" }} />
-                            <SvgIcon title='Angular' iconName='angular' svgProp={{ className: "tech-icon" }} />
-                            <SvgIcon title='Vue' iconName='vue' svgProp={{ className: "tech-icon" }} />
-                            <SvgIcon title='Docker' iconName='docker' svgProp={{ className: "tech-icon" }} />
-                            <SvgIcon title='Php Symfony' iconName='php' svgProp={{ className: "tech-icon" }} />
+                            <SvgIcon
+                                title='Typescript'
+                                label='Typescript'
+                                iconName='typescript'
+                                svgProp={{ className: "tech-icon" }}
+                                wrapperStyle='tech-icon-wrapper'
+                            />
+                            <SvgIcon
+                                title='Javascript'
+                                label='Javascript'
+                                iconName='javascript'
+                                svgProp={{ className: "tech-icon" }}
+                                wrapperStyle='tech-icon-wrapper'
+                            />
+                            <SvgIcon
+                                title='Html & Css'
+                                label='Html & Css'
+                                iconName='htmlCss'
+                                svgProp={{ className: "tech-icon" }}
+                                wrapperStyle='tech-icon-wrapper'
+                            />
+                            <SvgIcon
+                                title='Angular'
+                                label='Angular'
+                                iconName='angular'
+                                svgProp={{ className: "tech-icon" }}
+                                wrapperStyle='tech-icon-wrapper'
+                            />
+                            <SvgIcon
+                                title='Vue'
+                                label='Vue'
+                                iconName='vue'
+                                svgProp={{ className: "tech-icon" }}
+                                wrapperStyle='tech-icon-wrapper'
+                            />
+                            <SvgIcon
+                                title='Docker'
+                                label='Docker'
+                                iconName='docker'
+                                svgProp={{ className: "tech-icon" }}
+                                wrapperStyle='tech-icon-wrapper'
+                            />
+                            <SvgIcon
+                                title='Php Symfony'
+                                label='Php Symfony'
+                                iconName='php'
+                                svgProp={{ className: "tech-icon" }}
+                                wrapperStyle='tech-icon-wrapper'
+                            />
                         </div>
                     </Col>
                 </Row>
@@ -96,24 +216,76 @@ const Education = () => {
                             <div className='icon-divider'>
                                 <SvgIcon
                                     title='Typescript'
+                                    label='Typescript'
                                     iconName='typescript'
                                     svgProp={{ className: "tech-icon" }}
+                                    wrapperStyle='tech-icon-wrapper'
                                 />
                                 <SvgIcon
                                     title='Javascript'
+                                    label='Javascript'
                                     iconName='javascript'
                                     svgProp={{ className: "tech-icon" }}
+                                    wrapperStyle='tech-icon-wrapper'
                                 />
-                                <SvgIcon title='Html & Css' iconName='htmlCss' svgProp={{ className: "tech-icon" }} />
-                                <SvgIcon title='React' iconName='react' svgProp={{ className: "tech-icon" }} />
-                                <SvgIcon title='.NET' iconName='dotNet' svgProp={{ className: "tech-icon" }} />
+                                <SvgIcon
+                                    title='Html & Css'
+                                    label='Html & Css'
+                                    iconName='htmlCss'
+                                    svgProp={{ className: "tech-icon" }}
+                                    wrapperStyle='tech-icon-wrapper'
+                                />
+                                <SvgIcon
+                                    title='React'
+                                    label='React'
+                                    iconName='react'
+                                    svgProp={{ className: "tech-icon" }}
+                                    wrapperStyle='tech-icon-wrapper'
+                                />
+                                <SvgIcon
+                                    title='.NET'
+                                    label='.NET'
+                                    iconName='dotNet'
+                                    svgProp={{ className: "tech-icon" }}
+                                    wrapperStyle='tech-icon-wrapper'
+                                />
                             </div>
                             <div className='icon-divider'>
-                                <SvgIcon title='Php Laravel' iconName='php' svgProp={{ className: "tech-icon" }} />
-                                <SvgIcon title='Docker' iconName='docker' svgProp={{ className: "tech-icon" }} />
-                                <SvgIcon title='Python' iconName='python' svgProp={{ className: "tech-icon" }} />
-                                <SvgIcon title='Postgres' iconName='postgres' svgProp={{ className: "tech-icon" }} />
-                                <SvgIcon title='MySql' iconName='mysql' svgProp={{ className: "tech-icon" }} />
+                                <SvgIcon
+                                    title='Php Laravel'
+                                    label='Php Laravel'
+                                    iconName='php'
+                                    svgProp={{ className: "tech-icon" }}
+                                    wrapperStyle='tech-icon-wrapper'
+                                />
+                                <SvgIcon
+                                    title='Docker'
+                                    label='Docker'
+                                    iconName='docker'
+                                    svgProp={{ className: "tech-icon" }}
+                                    wrapperStyle='tech-icon-wrapper'
+                                />
+                                <SvgIcon
+                                    title='Python'
+                                    label='Python'
+                                    iconName='python'
+                                    svgProp={{ className: "tech-icon" }}
+                                    wrapperStyle='tech-icon-wrapper'
+                                />
+                                <SvgIcon
+                                    title='Postgres'
+                                    label='Postgres'
+                                    iconName='postgres'
+                                    svgProp={{ className: "tech-icon" }}
+                                    wrapperStyle='tech-icon-wrapper'
+                                />
+                                <SvgIcon
+                                    title='MySql'
+                                    label='MySql'
+                                    iconName='mysql'
+                                    svgProp={{ className: "tech-icon" }}
+                                    wrapperStyle='tech-icon-wrapper'
+                                />
                             </div>
                         </div>
                     </Col>
