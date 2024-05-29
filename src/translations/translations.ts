@@ -42,8 +42,8 @@ export const Translations = [
      */
     {
         id: "Header_Title",
-        en: "Software Developer",
-        slo: "Software Developer",
+        en: "Web Developer",
+        slo: "Web Developer",
     },
     {
         id: "Header_Subtitle",
