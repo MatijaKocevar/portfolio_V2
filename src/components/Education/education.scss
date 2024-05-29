@@ -114,11 +114,11 @@
                 }
             }
         }
-    }
 
-    .timeline-block-left:hover .timeline-content {
-        background-color: v.$lightPurple;
-        border-radius: 10px;
+        .timeline-block-left:hover .timeline-content {
+            background-color: v.$lightPurple;
+            border-radius: 10px;
+        }
     }
 }
 
