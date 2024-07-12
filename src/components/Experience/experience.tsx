@@ -297,6 +297,62 @@ const Education = () => {
                         <div className='timeline-content'>{getTranslation("Experience_Frodx")}</div>
                     </Col>
                 </Row>
+                {/* - */}
+                <Row className='experience-section'>
+                    <Col className='timeline-block timeline-block-left' xs={11} sm={11} md={11} lg={6}>
+                        <div className='line-wrapper'>
+                            <div className='line'></div>
+                            <div className='marker'></div>
+                        </div>
+                        <div className='timeline-content'>{getTranslation("Experience_Amibit")}</div>
+                    </Col>
+                    <Col className='timeline-block tech_used' xs={1} sm={1} md={1} lg={6}>
+                        <div className='tech_used-icons'>
+                            <SvgIcon
+                                title='Typescript'
+                                label='Typescript'
+                                iconName='typescript'
+                                svgProp={{ className: "tech-icon" }}
+                                wrapperStyle='tech-icon-wrapper'
+                            />
+                            <SvgIcon
+                                title='Javascript'
+                                label='Javascript'
+                                iconName='javascript'
+                                svgProp={{ className: "tech-icon" }}
+                                wrapperStyle='tech-icon-wrapper'
+                            />
+                            <SvgIcon
+                                title='Html & Css'
+                                label='Html & Css'
+                                iconName='htmlCss'
+                                svgProp={{ className: "tech-icon" }}
+                                wrapperStyle='tech-icon-wrapper'
+                            />
+                            <SvgIcon
+                                title='Vue'
+                                label='Vue'
+                                iconName='vue'
+                                svgProp={{ className: "tech-icon" }}
+                                wrapperStyle='tech-icon-wrapper'
+                            />
+                            <SvgIcon
+                                title='Docker'
+                                label='Docker'
+                                iconName='docker'
+                                svgProp={{ className: "tech-icon" }}
+                                wrapperStyle='tech-icon-wrapper'
+                            />
+                            <SvgIcon
+                                title='Php Symfony'
+                                label='Php Symfony'
+                                iconName='php'
+                                svgProp={{ className: "tech-icon" }}
+                                wrapperStyle='tech-icon-wrapper'
+                            />
+                        </div>
+                    </Col>
+                </Row>
             </Row>
         </Container>
     );
