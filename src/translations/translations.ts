@@ -284,6 +284,23 @@ export const Translations = [
 				Poleg dela na front-endu sem se ukvarjal tudi z razvojem back-enda. Sodeloval sem v projektu, ki je zahteval prenos API-ja Laravel v .NET. Skozi to izkušnjo sem pridobil nove veščine in znanje v razvoju back-enda. Kljub moji usmeritvi v front-end, sem se našel sposobnega samostojno potapljati v težave in jih reševati, tudi ko sem delal z jezikom, s katerim sem bil manj seznanjen.
 			</p>`,
     },
+    {
+        id: "Experience_Amibit",
+        en: `
+			<h3>Frontend developer - Amibit d.o.o.</h3>
+          	<h5>2024 - v teku / Employment</h5>
+          	<p>
+				Started a new job as a Vue.js developer. The job was advertised as migrating an existing Vue app which is in version 2 to version 3. Once I set up the architecture and created the first components the company decided to slow down the development of the new app and focus on the existing one. I was then tasked with creating new features and fixing bugs in the existing app. The current app is in a end of life version of Vue and most of the code exists in components with a few thousand lines of code. I was able to create new features and fix bugs in the existing app and I also learned a lot about how to work with a large codebase and how to refactor it. 
+			</p>
+		`,
+        slo: `
+			<h3>Frontend developer - Amibit d.o.o.</h3>
+            <h5>2024 - current / Zaposlitev</h5>
+            <p>
+                Začel sem novo službo kot razvijalec Vue.js. Delo je bilo oglaševano kot migracija obstoječe Vue aplikacije, ki je v verziji 2, v verzijo 3. Ko sem postavil arhitekturo in ustvaril prve komponente, se je podjetje odločilo, da bo upočasnilo razvoj nove aplikacije in se osredotočilo na obstoječo. Nato sem bil zadolžen za ustvarjanje novih funkcij in odpravljanje napak v obstoječi aplikaciji. Trenutna aplikacija je v verziji Vue, ki ni več podprta iz strani razvijalec in večina kode obstaja v komponentah s nekaj tisoč vrsticami kode. Uspešno sem ustvaril nove funkcije in odpravil napake v obstoječi aplikaciji ter se veliko naučil o tem, kako delati z veliko kodo in kako jo refaktorirati.
+            </p>
+        `,
+    },
     /**
      * SKILLS
      */
