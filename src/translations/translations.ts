@@ -86,7 +86,7 @@ export const Translations = [
             Controls: W,A,S,D keys to move, Space to attack.
         `,
     slo: `
-            Ta projekt je vzel inspiracijo iz Legend of Zelda - A Link to the Past, klasično igro iz 90-ih let. Igra je streljanje z vrha navzdol, kjer mora igralec navigirati skozi labirint sovražnikov in ovir. Igra je zgrajena z uporabo Phaser.js, React.js in TypeScript.
+            Ta projekt je vzel inspiracijo iz Legend of Zelda - A Link to the Past, klasično igro iz 90-ih let. Igra je "to down shooter", kjer mora igralec navigirati skozi labirint sovražnikov in ovir. Zgrajena je z uporabo Phaser.js, React.js in TypeScript.
             <br />
             <br />
             Kontrole: W,A,S,D tipke za premikanje, presledek za napad.    
@@ -106,7 +106,7 @@ export const Translations = [
             The app is still in development and will have a lot of issues. I am working on it in my free time.
         `,
     slo: `
-            Ta projekt je aplikacija za rezervacije v salonu za nohte. Uporabnikom omogoča rezervacijo terminov, ogled razpoložljivih časov in ogled ponujenih storitev. Aplikacija je zgrajena z Next.js z Clerk za avtentikacijo, Tailwind CSS za oblikovanje in Postgres za bazo podatkov.
+            Ta projekt je aplikacija za rezervacije v salonu za nohte. Uporabnikom omogoča rezervacijo terminov, ogled razpoložljivih časov in ogled ponujenih storitev. Aplikacija je zgrajena z Next.js z Clerk avtentikacijo, Tailwind CSS za oblikovanje in Postgres za bazo podatkov.
             <br />
             <br />
             Aplikacija je še vedno v razvoju in bo imela veliko težav. Delam na njej v prostem času.             
@@ -245,7 +245,7 @@ export const Translations = [
 		`,
     slo: `
 			<h3>Razvijalec programske opreme - Agitavit Solutions d.o.o.</h3>
-          	<h5>2021 - tekoče / Zaposlitev</h5>
+          	<h5>2021 - 2023 / Zaposlitev</h5>
           	<p>Kot razvijalec sem pridobil dobro razumevanje splošnih razvojnih delovnih procesov in naredil izjemne korake pri razvoju svojih tehničnih veščin, še posebej pri tehnologijah front-enda. Postal sem kar vešč v Reactu in Typescriptu. Poleg tega sem veliko delal s .NET in SQL ter izboljšal svoje razumevanje tehnologij na strani back-enda.</p>
 		`,
   },
@@ -278,10 +278,10 @@ export const Translations = [
 			<h3>Inženir programske opreme II - Frodx d.o.o.</h3>
           	<h5>2023 - 2024 / Zaposlitev</h5>
 		  	<p>
-				Začel novo službo kot razvijalec Vue.js. vendar dejansko nisem delal z Vue sploh. Kljub temu sem izkoristil priložnost za izpopolnjevanje svojih veščin v React-u in Typescript-u. Razvil sem knjižnico tabel, ki vključuje filtre in različne funkcije, kot so urejanje, skrivanje stolpcev in vrstic ter shranjevanje podatkov v tabeli kot posnetek. Ta knjižnica podpira tudi pretvorbo enot in je bila na koncu uporabljena v komponenti Microsoft Power Platform (PCF), kar pomeni, da sem se naučil tudi, kako deluje razvojno okolje Microsoft.
+				Začel novo službo kot razvijalec Vue.js. vendar dejansko sploh nisem delal z Vue. Kljub temu sem izkoristil priložnost za izpopolnjevanje svojih veščin v React-u in Typescript-u. Razvil sem knjižnico za prikazovanje tabele, ki vključuje filtre in različne funkcije, kot so urejanje, skrivanje stolpcev in vrstic ter shranjevanje podatkov v tabeli. Ta knjižnica podpira tudi pretvorbo enot in je bila na koncu uporabljena v komponenti Microsoft Power Platform (PCF), kar pomeni, da sem se naučil tudi, kako deluje razvojno okolje Microsoft.
 				<br />
 				<br />
-				Poleg dela na front-endu sem se ukvarjal tudi z razvojem back-enda. Sodeloval sem v projektu, ki je zahteval prenos API-ja Laravel v .NET. Skozi to izkušnjo sem pridobil nove veščine in znanje v razvoju back-enda. Kljub moji usmeritvi v front-end, sem se našel sposobnega samostojno potapljati v težave in jih reševati, tudi ko sem delal z jezikom, s katerim sem bil manj seznanjen.
+				Poleg dela na front-endu sem se ukvarjal tudi z razvojem back-enda. Sodeloval sem v projektu, ki je zahteval prenos Laravel API-ja v .NET. Skozi to izkušnjo sem pridobil nove veščine in znanje v razvoju back-enda. Kljub moji usmeritvi v front-end, sem se našel sposobnega samostojno potapljati v težave in jih reševati, tudi ko sem delal z jezikom, s katerim sem bil manj seznanjen.
 			</p>`,
   },
   {
@@ -297,7 +297,7 @@ export const Translations = [
 			<h3>Frontend developer - Amibit d.o.o.</h3>
             <h5>2024 - current / Zaposlitev</h5>
             <p>
-                Začel sem novo službo kot razvijalec Vue.js. Delo je bilo oglaševano kot migracija obstoječe Vue aplikacije, ki je v verziji 2, v verzijo 3. Ko sem postavil arhitekturo in ustvaril prve komponente, se je podjetje odločilo, da bo upočasnilo razvoj nove aplikacije in se osredotočilo na obstoječo. Nato sem bil zadolžen za ustvarjanje novih funkcij in odpravljanje napak v obstoječi aplikaciji. Trenutna aplikacija je v verziji Vue, ki ni več podprta iz strani razvijalec in večina kode obstaja v komponentah s nekaj tisoč vrsticami kode. Uspešno sem ustvaril nove funkcije in odpravil napake v obstoječi aplikaciji ter se veliko naučil o tem, kako delati z veliko kodo in kako jo refaktorirati.
+                Začel sem novo službo kot razvijalec Vue.js. Delo je bilo oglaševano kot migracija obstoječe Vue aplikacije, ki je v verziji 2, v verzijo 3. Ko sem postavil arhitekturo in ustvaril prve komponente, se je podjetje odločilo, da bo upočasnilo razvoj nove aplikacije in se osredotočilo na obstoječo. Nato sem bil zadolžen za ustvarjanje novih funkcij in odpravljanje napak v obstoječi aplikaciji. Trenutna aplikacija je v verziji Vue, ki ni več podprta iz strani razvijalcev in večina kode obstaja v komponentah s nekaj tisoč vrsticami kode. Uspešno sem ustvaril nove funkcije in odpravil napake v obstoječi aplikaciji ter se veliko naučil o tem, kako delati z veliko količino kode in kako jo refaktorirati.
             </p>
         `,
   },
@@ -400,7 +400,7 @@ export const Translations = [
   {
     id: "Projects_VueDynamicForms_Description",
     en: `I have begun learning Vue JS and wanted to create a project that would help me learn the basics of the framework. It showcases form handling, state management with Pinia, dynamic routing, component composition, and custom directives.`,
-    slo: `Začel sem se učiti Vue JS in želel ustvariti projekt, ki bi mi pomagal osvojiti osnove ogrodja. Prikazuje obdelavo form, uporabo Pinia state management, uporabo "routes" za navigiranje po strani, sestavljanje komponent in prilagojene Vue direktive.`,
+    slo: `Začel sem se učiti Vue JS in želel ustvariti projekt, ki bi mi pomagal osvojiti osnove ogrodja. Aplikacija prikazuje obdelavo form, uporabo Pinia state management, uporabo "routes" za navigiranje po strani, sestavljanje komponent in prilagojene Vue direktive.`,
   },
   {
     id: "Projects_SpaceInvaders_Description",
@@ -453,7 +453,7 @@ export const Translations = [
   {
     id: "Interests_Developer_Description",
     en: `I am doing everything I can to further my skills and knowledge. It is one of my main goals to be a capable and reliable developer.`,
-    slo: `Vse, kar lahko, delam, da izboljšam svoje spretnosti in znanje. Biti sposoben in zanesljiv razvijalec je eden mojih glavnih ciljev.`,
+    slo: `Delam vse kar lahko, da izboljšam svoje spretnosti in znanje. Biti sposoben in zanesljiv razvijalec je eden mojih glavnih ciljev.`,
   },
   {
     id: "Interests_App_Description",
