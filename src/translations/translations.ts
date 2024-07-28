@@ -95,7 +95,7 @@ export const Translations = [
   {
     id: "Showcase_Anas-Place",
     en: "Ana's place - A nail saloon booking app",
-    slo: "Ana's place - Rezeravcijska aplikacija za nohte",
+    slo: "Ana's place - Rezeravcijska aplikacija za pedikuro",
   },
   {
     id: "Showcase_Anas-Place_Description",
