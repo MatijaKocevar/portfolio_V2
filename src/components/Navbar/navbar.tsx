@@ -23,8 +23,8 @@ const NavBar = () => {
 
     const cvPath =
         language === "slo"
-            ? "https://drive.google.com/file/d/1Fk0SWLUTmY6_h1h8c399vLaLVMAV0njU/view?usp=sharing"
-            : "https://drive.google.com/file/d/1OUxRUsg5rWcje7xeGNB50upPOmrQwuzk/view?usp=sharing";
+            ? "https://drive.google.com/file/d/13kud7hm8aIxRa6Mb4_n4xdMloNwzdpkY/view?usp=sharing"
+            : "https://drive.google.com/file/d/18qavOy32L7A8KWOlLjE9NMW8ULCTEP4b/view?usp=sharing";
 
     const onLanguageChange = (language: string) => {
         setLanguage(language);
