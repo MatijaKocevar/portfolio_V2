@@ -33,8 +33,8 @@ jobs:
 
             - name: Remove existing dist folder
               run: |
-                  ssh ubuntu@ec2-16-171-32-248.eu-north-1.compute.amazonaws.com "sudo rm -rf /var/portfolio_V2/dist"
+                  ssh ubuntu@ec2-16-171-32-248.eu-north-1.compute.amazonaws.com "sudo rm -rf /var/projects/portfolio_V2/dist"
 
             - name: Push dist folder to server
               run: |
-                  scp -r dist ubuntu@ec2-16-171-32-248.eu-north-1.compute.amazonaws.com:/var/portfolio_V2
+                  scp -r dist ubuntu@ec2-16-171-32-248.eu-north-1.compute.amazonaws.com:/var/projects/portfolio_V2
