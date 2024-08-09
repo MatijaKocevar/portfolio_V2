@@ -9,6 +9,8 @@ import Skills from "./components/Skills/skills";
 import Projects from "./components/Projects/projects";
 import Interests from "./components/Interests/interests";
 
+//build test
+
 const App = () => {
     return (
         <>
