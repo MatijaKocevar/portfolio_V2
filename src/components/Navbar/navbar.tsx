@@ -88,7 +88,7 @@ const NavBar = () => {
     return (
         <nav className={`navbar fixed-top navbar-expand-lg navbar-dark bg-dark p-2 ${navbarVisible ? "" : "hidden"}`}>
             <Link smooth={true} to='root' className='navbar-brand' href='#' duration={2}>
-                <img className='logo' src={Logo} alt='logo' />
+                <img className='logo' src={Logo} alt='logo1' />
             </Link>
             <button
                 id='navbar-toggler'
