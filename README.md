@@ -1,4 +1,4 @@
-# Portfolio Page
+# Portfolio V2
 
 This is a portfolio page built with React, TypeScript, and Vite. It showcases my personal projects, skills, interests and experience.
 
@@ -10,6 +10,13 @@ This is a portfolio page built with React, TypeScript, and Vite. It showcases my
 -   Work/Education timelines
 -   Contact section with contact information and social media links
 -   "Work in progress" section
+
+## Prerequisites
+
+Before you begin, ensure you have the following installed:
+- [Node.js](https://nodejs.org/) (version 14.x or higher)
+- [npm](https://www.npmjs.com/) (usually comes with Node.js)
+- Git
 
 ## Installation
 
